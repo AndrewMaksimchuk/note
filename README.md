@@ -1,3 +1,19 @@
+- c:   
+    Графіка та керування у вікні термінала   
+    Using ANSI escape sequence, where ESC[y;xH moves curser to row y, col x:
+    ```
+    #include <stdio.h>
+    int main()
+    {
+        printf("\033[6;3HHello\n");
+        return 0;
+    }
+    ```   
+    urls:   
+        - https://en.wikipedia.org/wiki/ANSI_escape_code - керування у вікні терміналі   
+        - https://en.wikipedia.org/wiki/ANSI_escape_code#CSIsection - опис команд що відповідають за переміщення курсора по екрані   
+        - https://en.wikipedia.org/wiki/ANSI.SYS   
+
 - css:   
     :is() - псевдо-клас що приймає список елементів(точніше їх селектори) та застосовує до всіх них задані стилі.   
     Корисно використовувати для вложеності елементів.   
