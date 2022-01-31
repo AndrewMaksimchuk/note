@@ -1,3 +1,16 @@
+- css:   
+    ```max-content``` - ключове слово що представляє власну максимальну або ширину або висоту контента(вмісту).   
+    ```
+    /* Used as a length */
+    width: max-content;
+    inline-size: max-content;
+    height: max-content;
+    block-size: max-content;
+
+    /* used in grid tracks */
+    grid-template-columns: 200px 1fr max-content;
+    ```
+
 - c:   
     Графіка та керування у вікні термінала   
     Using ANSI escape sequence, where ESC[y;xH moves curser to row y, col x:
