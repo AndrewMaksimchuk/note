@@ -1,3 +1,8 @@
+- common:   
+    Unicode:
+    - [alt-codes](https://unicode-table.com/en/alt-codes/)   
+    - [box drawing](https://unicode-table.com/en/blocks/box-drawing/)
+
 - css:
     ```clip-path``` - створює обмежену область, що визначає яка частина елемента має бути видима.   
     Та частина елемента що знаходиться всередині області, будуть видимі.   
