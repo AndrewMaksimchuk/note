@@ -1,4 +1,8 @@
 - common:   
+    Щоб відобразити unicode символи у терміналі або консолі,    
+    необхідно вказувати код символа, наприклад: `process.stdout.write("\u2654")`   
+
+- common:   
     Unicode:
     - [alt-codes](https://unicode-table.com/en/alt-codes/)   
     - [box drawing](https://unicode-table.com/en/blocks/box-drawing/)
