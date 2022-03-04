@@ -1,3 +1,13 @@
+- js:   
+     Якщо довжина рядка занадто велика, вона не поміщається в один рядок,   
+    ми можемо використовувати символ зворотної косої риски (\) в кінці кожного рядка,    
+    щоб вказати, що рядок продовжиться в наступному рядку.   
+    ```
+    const paragraph = "My name is Asabeneh Yetayeh. I live in Finland, Helsinki.\
+    I am a teacher and I love teaching. I teach HTML, CSS, JavaScript, React, Redux, \
+    Node.js, Python, Data Analysis and D3.js for anyone who is interested to learn. \
+    ```
+
 - common:   
     Щоб відобразити unicode символи у терміналі або консолі,    
     необхідно вказувати код символа, наприклад: `process.stdout.write("\u2654")`   
