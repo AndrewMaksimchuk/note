@@ -1,4 +1,12 @@
 - js:   
+     The console.assert() methods writes an error message to the console if the assertion is false. If the assertion is true, nothing happens.   
+     ```
+     console.assert(4 > 3, '4 is greater than 3'); // no result
+     console.assert(3 > 4, '3 is not greater than 4'); // Assertion failed: 3 is not greater than 4
+     console.assert(i % 2 === 0, { number: i, errorMessage: errorMessage });
+     ```
+
+- js:   
      ```
      console.log('%d %s of JavaScript', 30, 'Days');
      
