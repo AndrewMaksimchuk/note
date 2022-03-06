@@ -1,4 +1,9 @@
 - js:   
+     To convert an iterable object to an array, use spreads ... instead of Array.from.   
+     ```
+     const nodes = [...foo];
+     ```   
+- js:   
      The console.assert() methods writes an error message to the console if the assertion is false. If the assertion is true, nothing happens.   
      ```
      console.assert(4 > 3, '4 is greater than 3'); // no result
