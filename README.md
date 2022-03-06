@@ -1,3 +1,9 @@
+- code:   
+     ```
+     function getFullName({ firstName, lastName }) {
+       return `${firstName} ${lastName}`;
+     }
+     ```
 - js:   
      To convert an iterable object to an array, use spreads ... instead of Array.from.   
      ```
