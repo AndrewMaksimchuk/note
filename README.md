@@ -1,3 +1,9 @@
+- terminal/bash/unix:
+     Redirect one terminal command output to another terminal window input.  
+     ```$ tty => /dev/pts/0``` - check what terminal is reciever  
+     ```exec 1>/dev/pts/1``` - redirect to /dev/pts/1 terminal  
+     ```exec 1>/dev/pts/0``` - restore default behavior
+
 - code:   
      ```
      function getFullName({ firstName, lastName }) {
