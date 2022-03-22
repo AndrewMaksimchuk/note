@@ -1,4 +1,9 @@
 - terminal/bash/unix:  
+     0 — STDIN  
+     1 — STDOUT  
+     2 — STDERR  
+     
+- terminal/bash/unix:  
      ? - Single character wildcard ```ls badge?.txt``` ```ls ?????.txt```  
      \* - Character sequence wildcard ```ls source.*``` ```ls badge*```  
      [] - Character set wildcard ```ls badge_0[246].txt``` ```ls badge_[01][789].txt``` ```ls badge_[23][1-5].txt```  
