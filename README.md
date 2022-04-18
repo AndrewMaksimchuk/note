@@ -1,3 +1,8 @@
+- terminal/bash/linux:  
+     *gsettings* - програма налаштування середовища та інших програм через термінал.  
+     ```gsettings list-recursively``` - відобразить всі доступні схеми для налаштування.  
+     ```gsettings get gsettings get org.gnome.shell.extensions.dash-to-dock background-color``` - отримати значення ключа *background-color* розширення *dash-to-dock*  
+
 - terminal/bash/unix:  
      0 — STDIN  
      1 — STDOUT  
