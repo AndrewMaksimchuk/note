@@ -1,3 +1,21 @@
+- css:  
+    button.mono:focus:after,  
+    button.mono:active:after,  
+    details[open].mono,  
+    input[type="checkbox"].mono,  
+    input[type="checkbox"].mono:before,  
+    input[type="checkbox"].mono:checked:before,  
+    input[type="checkbox"].mono:focus:after,  
+
+- css:  
+    ```
+    body.mono-class {}  
+    ^        ^  
+    |        |  
+    html_tag |  
+             class_name  
+    ```
+
 - terminal/bash/linux:  
      *gsettings* - програма налаштування середовища та інших програм через термінал.  
      ```gsettings list-recursively``` - відобразить всі доступні схеми для налаштування.  
