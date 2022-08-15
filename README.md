@@ -1,4 +1,10 @@
 - css:  
+    .button.is-text,  
+    .button.is-text.is-hovered,  
+    .button.is-text:hover,  
+    .button.is-text[disabled]  
+
+- css:  
     Use :empty to Hide Empty HTML Elements  
     ```
     :empty {
