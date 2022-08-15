@@ -1,4 +1,42 @@
 - css:  
+    Use :empty to Hide Empty HTML Elements  
+    ```
+    :empty {
+      display: none;
+    }
+    ```
+    
+- css:  
+    Use rem for Global Sizing; Use em for Local Sizing
+
+- css:  
+    Tables can be a pain to work with. Try using table-layout: fixed to keep cells at equal width:
+    ```
+    .calendar {
+        table-layout: fixed;
+    }
+    ```
+
+- css:
+    You can check if a font is installed locally before fetching it remotely, which is a good performance tip, too.  
+    ```
+    @font-face {
+    font-family: "Dank Mono";
+    src:
+        /* Full name */
+        local("Dank Mono"),
+        /* Postscript name */
+        local("Dank Mono"),
+        /* Otherwise, download it! */
+        url("//...a.server/fonts/DankMono.woff");
+    }
+
+    code {
+      font-family: "Dank Mono", system-ui-monospace;
+    }
+    ```
+
+- css:  
     ```
     html {
         font-size: calc(0.3vw + 0.7em);
