@@ -1,4 +1,11 @@
 - css:  
+    ```
+    html {
+        font-size: calc(0.3vw + 0.7em);
+    }
+    ```
+
+- css:  
     button.mono:focus:after,  
     button.mono:active:after,  
     details[open].mono,  
