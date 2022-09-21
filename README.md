@@ -1,3 +1,6 @@
+- git  
+    ```git log master..dev --oneline``` - Show logs between 'master' and 'dev' branches.
+
 - terminal/bash/linux:  
     With tmux we can create multiple screen from script by send commands to tmux.  
     Example used in Makefile:
