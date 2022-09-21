@@ -1,3 +1,23 @@
+- terminal/bash/linux:  
+    With tmux we can create multiple screen from script by send commands to tmux.  
+    Example used in Makefile:
+    ```
+    session_name="inside_app"
+    panel_server=0
+    panel_active=1
+    panel_git=2
+    
+    server_dev:
+        tmux new-session -d -s $(session_name)
+        tmux split-window -h
+        tmux send-keys -t $(panel_server) "cd inside/ && npm run dev" Enter
+        tmux select-pane -t $(panel_active)
+        tmux split-window -v
+        tmux send-keys "git status" Enter
+        tmux select-pane -t $(panel_active)
+        tmux attach-session -t $(session_name)
+    ```
+
 - js:  
     Save text as file from browser:  
     ```
