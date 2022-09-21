@@ -1,3 +1,14 @@
+- js:  
+    Save text as file from browser:  
+    ```
+    <a download="index.txt">Download file</a>
+    
+    const text = "Some text"
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" })
+    a.href = URL.createObjectURL(blob)
+    ```
+    When click on link, file "index.txt" will be saved
+
 - css:  
     .button.is-text,  
     .button.is-text.is-hovered,  
