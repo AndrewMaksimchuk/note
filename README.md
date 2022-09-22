@@ -1,3 +1,10 @@
+- terminal/bash/linux:  
+    Change directory and show all files(.zshrc)  
+    ```
+    function cdls() { cd "$1" && echo "\\033[94m-> Directory contain: \033[0m" && ls; }
+    alias cd="cdls"
+    ```
+
 - git  
     ```git log master..dev --oneline``` - Show logs between 'master' and 'dev' branches.
 
