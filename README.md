@@ -1,3 +1,15 @@
+- express/typescript:  
+    Add type for new variable in Request object.  
+    ```
+    declare global {
+      namespace Express {
+        interface Request {
+          context: Context
+        }
+      }
+    }
+    ```
+
 - node.js/typescript:  
     Add hints for environment variable.  
     file_name: environment.d.ts  
