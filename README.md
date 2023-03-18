@@ -1,3 +1,16 @@
+- node.js/typescript:  
+    Add hints for environment variable.  
+    file_name: environment.d.ts  
+    ```
+    declare namespace NodeJS {
+      export interface ProcessEnv {
+        readonly PORT: string
+        readonly DB_NAME: string
+        readonly NODE_ENV: string
+      }
+    }
+    ```
+
 - terminal/bash/linux:  
     Open a file in vim in a new window: ```alias vim='gnome-terminal -- vim'```  
 
