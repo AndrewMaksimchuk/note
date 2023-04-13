@@ -1,3 +1,10 @@
+- javascript/typescript:  
+    In TypeScript, just as in ECMAScript 2015, any file containing  
+    a top-level import or export is considered a module. Conversely,  
+    a file without any top-level import or export declarations is  
+    treated as a script whose contents are available in the global  
+    scope (and therefore to modules as well).  
+
 - node.js/redis:  
     `redis-cli --scan` - List of keys.  
     `redis-cli MONITOR` - All commands received by the active Redis instance will be printed to the standard output.  
