@@ -1,4 +1,13 @@
 - javascript/typescript:  
+    Re-exports  
+    ```
+    export { ZipCodeValidator as RegExpBasedZipCodeValidator } from "./ZipCodeValidato
+    export * from "./StringValidator";
+    ```
+    Optionally, a module can wrap one or more modules and  
+    combine all their exports using export * from "module" syntax.  
+
+- javascript/typescript:  
     In TypeScript, just as in ECMAScript 2015, any file containing  
     a top-level import or export is considered a module. Conversely,  
     a file without any top-level import or export declarations is  
