@@ -1,6 +1,8 @@
 - common  
     Yoda conditions (also called Yoda notation)  
-    `if (42 == $value) { /* ... */ }`
+    ```
+    if (42 == $value) { /* ... */ }
+    ```
     ```
     String myString = null;
     if ("foobar".equals(myString)) { /* ... */ }
