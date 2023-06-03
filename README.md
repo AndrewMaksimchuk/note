@@ -58,9 +58,15 @@
     Open a file in vim in a new window: ```alias vim='gnome-terminal -- vim'```  
 
 - terminal/bash/linux:  
-    Change directory and show all files(.zshrc)  
+    Change directory and show all files(.zshrc) and if "dashboard" file exist, run it  
     ```
-    function cdls() { cd "$1" && echo "\\033[94m-> Directory contain: \033[0m" && ls; }
+    function cdls() {
+        cd "$1" && echo "\\033[94m-> Directory contain: \033[0m" && ls -1lh;
+        if [ -e dashboard ]
+        then
+            ./dashboard
+        fi
+    }
     alias cd="cdls"
     ```
 
