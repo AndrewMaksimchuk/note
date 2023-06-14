@@ -1,4 +1,20 @@
-- common  
+- terminal/bash/linux:  
+  There is no standard for knowing what the default terminal emulators is across distros.  
+  You would only be able to guess it by looking into different system variables and config files.  
+  ```
+  terms=(emulator1 emulator2 emulator3)
+    for t in ${terms[*]}
+    do
+        if [ $(command -v $t) ]
+        then
+            detected_term=$t
+            break
+        fi
+    done
+    echo $detected_term
+  ```
+
+- common:  
     Yoda conditions (also called Yoda notation)  
     ```
     if (42 == $value) { /* ... */ }
@@ -70,7 +86,7 @@
     alias cd="cdls"
     ```
 
-- git  
+- git:  
     ```git log master..dev --oneline``` - Show logs between 'master' and 'dev' branches.
 
 - terminal/bash/linux:  
