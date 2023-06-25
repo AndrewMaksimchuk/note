@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+
+reset='\e(B\e[m'
+yellow='\e[0;33m'
+
+
+clear
+
+
+. usage.bash
+. show_tags.bash
+. show_random_note.bash
