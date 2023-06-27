@@ -7,7 +7,7 @@ if [[ -n $notesfile ]]; then
     git add ./content/*
     counter=$(echo $notesfile | wc -l)
     message=$(echo "add/change $counter notes")
-    git commit -m $message
+    git commit -m "$message"
 fi
 
 
