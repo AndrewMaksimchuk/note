@@ -11,3 +11,6 @@ echo "Show note by file path, run './show_note.bash file_path'"
 echo "Edit note by file path, run './edit.bash file_path'"
 echo "Remove all notes, run './clear.bash'"
 echo
+echo "Also you can run './show_random_note.bash'"
+echo "for show one random selected note"
+echo
