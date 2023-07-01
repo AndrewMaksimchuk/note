@@ -1,4 +1,7 @@
 #!/bin/bash
 
 
-rm -rf content
+cwd=$(dirname $0)
+
+
+rm -rf $cwd/content

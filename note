@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+
+cwd=$(dirname $0)
+
+
+. $cwd/usage.bash
+
+
+if [ $# -eq 0 ]; then
+    usage
+    exit
+fi
+
+
+case $1 in 
+
+  "create")
+        "$cwd/create_file.bash"
+    ;;
+
+  "random") 
+        "$cwd/show_random_note.bash"
+    ;;
+
+    "select") 
+        "$cwd/select.bash"
+    ;;
+
+    "tag") 
+        "$cwd/add_tag.bash" $2
+    ;;
+
+    "edit") 
+        "$cwd/edit.bash" $2
+    ;;
+
+    "clear") 
+        "$cwd/clear.bash"
+    ;;
+
+  *) 
+    echo "Command not valid"
+    usage 
+    ;; 
+esac
