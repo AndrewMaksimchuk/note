@@ -5,9 +5,12 @@ reset='\e(B\e[m'
 yellow='\e[0;33m'
 
 
-clear
-
-
 . usage.bash
+
+
+clear
+usage
+
+
 . show_tags.bash
 . show_random_note.bash
