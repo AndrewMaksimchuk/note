@@ -14,6 +14,15 @@ function addpath() {
 }
 
 
+function addcompletion() {
+    cp -f $cwd/_note_completion /etc/bash_completion.d/
+
+    if [[ -d /usr/share/zsh/vendor-completions/ ]]; then
+        cp -f $cwd/_note /usr/share/zsh/vendor-completions/
+    fi
+}
+
+
 if [[ ! -e $cwd/tags ]]; then
     echo [ Create file of tags ]
     vi $cwd/tags
@@ -31,6 +40,9 @@ $cwd/create_dir.bash
 
 addpath ".bashrc"
 addpath ".zshrc"
+
+
+addcompletion
 
 
 execfiles=$(echo $cwd/*.bash)

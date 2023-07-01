@@ -17,7 +17,13 @@ Set all bash script files to be executable
 
 ### Install
 
-Run `./install.bash` script  
+Run `sudo ./install.bash` script  
+
+This script add path to this directory in  
+$PATH env for you can run `note` in terminal.  
+Also add shell completion for bash/zsh.  
+
+
 ### Git
 
 For update git repository, run `update.bash`  

@@ -1,0 +1,8 @@
+#compdef note
+# Add competion for shell(zsh)
+
+
+local -a subcmds
+subcmds=("create" "random" "select" 
+    "tag" "edit" "clear")
+_describe 'command' subcmds

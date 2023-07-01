@@ -1,0 +1,10 @@
+# Add competion for shell(bash)
+
+
+function _note() {
+    COMPREPLY=("create" "random" "select" 
+    "tag" "edit" "clear")
+}
+
+
+complete -F _note note
