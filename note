@@ -24,7 +24,7 @@ case $1 in
     ;;
 
     "select") 
-        "$cwd/select.bash"
+        "$cwd/select.bash" $2
     ;;
 
     "tag") 
