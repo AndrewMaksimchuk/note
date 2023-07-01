@@ -11,4 +11,5 @@ Commands:
 `tag`    add new tag  
 `edit`   edit note file by his name/path  
 `clear`  delete all note files  
+`update` update git remote repository  
 
