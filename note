@@ -39,6 +39,10 @@ case $1 in
         "$cwd/clear.bash"
     ;;
 
+    "update") 
+        "$cwd/update.bash"
+    ;;
+
   *) 
     echo "Command not valid"
     usage 
