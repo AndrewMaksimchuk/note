@@ -15,7 +15,7 @@ do
     fi
 
     if [[ -n $tag ]]; then
-        dir=$(echo content/$tag)
+        dir=$(echo $cwd/content/$tag)
         list=$(ls $dir)
         if [[ -n $list ]]; then
             file_max_name=$(echo "$list" | sort -n | tail -1)

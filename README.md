@@ -1,4 +1,12 @@
-## In this project use `bash` and `nvim`
+# NOTE
+
+
+### Description
+
+Note-taking cli application  
+
+Platform: linux  
+Require: `bash`, `nvim`  
 
 
 ### Config nvim
