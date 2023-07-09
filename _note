@@ -4,5 +4,5 @@
 
 local -a subcmds
 subcmds=("create" "random" "select" 
-    "tag" "edit" "clear" "update")
+    "tag" "edit" "clear" "update" "select_all")
 _describe 'command' subcmds

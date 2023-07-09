@@ -1,13 +1,16 @@
 #!/bin/bash
 
 
+projectdir=$(dirname $0)
+
+
 hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
 
 quite="exit"
-tags=$(cat ./tags)
+tags=$(cat $projectdir/tags)
 
 
 PS3="Select tag notes: "
@@ -20,7 +23,7 @@ do
     fi
 
     if [[ -n $tag ]]; then
-        dir=$(echo content/$tag)
+        dir=$(echo $projectdir/content/$tag)
         files=$(echo $dir/*.md | sort)
         for file in $files; do
             hr

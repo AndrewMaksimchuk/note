@@ -27,6 +27,10 @@ case $1 in
         "$cwd/select.bash" $2
     ;;
 
+    "select_all") 
+        "$cwd/show_notes.bash"
+    ;;
+
     "tag") 
         "$cwd/add_tag.bash" $2
     ;;
