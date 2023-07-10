@@ -20,11 +20,11 @@ case $1 in
     ;;
 
   "random") 
-        "$cwd/show_random_note.bash"
+        "$cwd/show_random_note.bash" $2
     ;;
 
     "select") 
-        "$cwd/select.bash" $2
+        "$cwd/select.bash" $2 $3
     ;;
 
     "select_all") 
