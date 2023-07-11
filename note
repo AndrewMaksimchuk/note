@@ -47,6 +47,10 @@ case $1 in
         "$cwd/update.bash"
     ;;
 
+    "search") 
+        "$cwd/search.bash" $2 $3
+    ;;
+
   *) 
     echo "Command not valid"
     usage 

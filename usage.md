@@ -13,4 +13,5 @@ Commands:
 `edit`          edit note file by his name/path  
 `clear`         delete all note files  
 `update`        update git remote repository  
+`search`        search notes that contain word
 
