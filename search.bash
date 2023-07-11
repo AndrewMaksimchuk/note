@@ -25,7 +25,7 @@ function search_note
         for tag in $tags
         do
             if [[ $tag = $2 ]]; then
-                grep $1 -r $projectdir/content/$2/
+                grep $1 -r $projectdir/content/$2/ | column -t -s: -W 2
                 exit
             fi
         done
@@ -36,7 +36,7 @@ function search_note
         exit
     fi
 
-    grep $1 -r $projectdir/content/
+    grep $1 -r $projectdir/content/ | column -t -s: -W 2
 }
 
 
