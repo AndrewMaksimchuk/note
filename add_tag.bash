@@ -19,4 +19,5 @@ fi
 
 echo >> $cwd/tags
 echo -n $1 >> $cwd/tags
+mkdir "$cwd/content/$1"
 echo "New tag '$1' is added"
