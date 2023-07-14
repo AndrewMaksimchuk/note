@@ -1,0 +1,651 @@
+<!doctype html><html lang="en-US"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel="profile" href="https://gmpg.org/xfn/11"><link rel="pingback" href="https://vimtricks.com/xmlrpc.php"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /><link rel="preload" href="https://vimtricks.com/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.ttf" type="font/ttf" as="font" crossorigin="anonymous"> <title>Vim File Templates - VimTricks</title><link rel="stylesheet" id="siteground-optimizer-combined-css-353a70f6f04d1fb4dfd807c9d3df0332" href="https://vimtricks.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-353a70f6f04d1fb4dfd807c9d3df0332.css" media="all" /><meta name="description" content="Vim file templates can be achieved without plugins using Vim&#039;s built-in skeleton files." /><link rel="canonical" href="https://vimtricks.com/p/vim-file-templates/" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Vim File Templates - VimTricks" /><meta name="twitter:description" content="Vim file templates can be achieved without plugins using Vim&#039;s built-in skeleton files." /><meta name="twitter:creator" content="@vim_tricks" /><meta name="twitter:site" content="@vim_tricks" /><meta name="twitter:label1" content="Written by" /><meta name="twitter:data1" content="Colin Bartlett" /><meta name="twitter:label2" content="Est. reading time" /><meta name="twitter:data2" content="2 minutes" /> <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://vimtricks.com/p/vim-file-templates/#article","isPartOf":{"@id":"https://vimtricks.com/p/vim-file-templates/"},"author":{"name":"Colin Bartlett","@id":"https://vimtricks.com/#/schema/person/ca16de37423e6f84a64cf38fb007efac"},"headline":"Vim File Templates","datePublished":"2022-10-31T13:42:50+00:00","dateModified":"2022-10-31T13:42:53+00:00","mainEntityOfPage":{"@id":"https://vimtricks.com/p/vim-file-templates/"},"wordCount":328,"publisher":{"@id":"https://vimtricks.com/#organization"},"keywords":["autocmd","native","skeleton","snippets","template"],"articleSection":["Tips and Tricks"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://vimtricks.com/p/vim-file-templates/","url":"https://vimtricks.com/p/vim-file-templates/","name":"Vim File Templates - VimTricks","isPartOf":{"@id":"https://vimtricks.com/#website"},"datePublished":"2022-10-31T13:42:50+00:00","dateModified":"2022-10-31T13:42:53+00:00","description":"Vim file templates can be achieved without plugins using Vim's built-in skeleton files.","breadcrumb":{"@id":"https://vimtricks.com/p/vim-file-templates/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://vimtricks.com/p/vim-file-templates/"]}]},{"@type":"BreadcrumbList","@id":"https://vimtricks.com/p/vim-file-templates/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vimtricks.com/"},{"@type":"ListItem","position":2,"name":"Vim File Templates"}]},{"@type":"WebSite","@id":"https://vimtricks.com/#website","url":"https://vimtricks.com/","name":"VimTricks","description":"Vim tips and tricks","publisher":{"@id":"https://vimtricks.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://vimtricks.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://vimtricks.com/#organization","name":"VimTricks","url":"https://vimtricks.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://vimtricks.com/#/schema/logo/image/","url":"https://vimtricks.com/wp-content/uploads/2020/11/logo-black.png","contentUrl":"https://vimtricks.com/wp-content/uploads/2020/11/logo-black.png","width":554,"height":554,"caption":"VimTricks"},"image":{"@id":"https://vimtricks.com/#/schema/logo/image/"},"sameAs":["https://facebook.com/vimtricks","https://twitter.com/vim_tricks","https://www.youtube.com/channel/UCDPNU10nfHfPgEAqK9SmuTQ"]},{"@type":"Person","@id":"https://vimtricks.com/#/schema/person/ca16de37423e6f84a64cf38fb007efac","name":"Colin Bartlett","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://vimtricks.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/e88405313419b8cda03966224a92235f?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/e88405313419b8cda03966224a92235f?s=96&d=mm&r=g","caption":"Colin Bartlett"},"description":"Vim enthusiast and software developer for more than 20 years.","sameAs":["https://colinabartlett.com"],"url":"https://vimtricks.com/p/author/cbartlett/"}]}</script> <link rel="dns-prefetch" href="//fonts.googleapis.com" /><link rel="alternate" type="application/rss+xml" title="VimTricks &raquo; Feed" href="https://vimtricks.com/feed/" /><link rel="alternate" type="application/rss+xml" title="VimTricks &raquo; Comments Feed" href="https://vimtricks.com/comments/feed/" /><link rel="alternate" type="application/rss+xml" title="VimTricks &raquo; Vim File Templates Comments Feed" href="https://vimtricks.com/p/vim-file-templates/feed/" /> <style type="text/css"> img.wp-smiley,
+img.emoji {
+ display: inline !important;
+ border: none !important;
+ box-shadow: none !important;
+ height: 1em !important;
+ width: 1em !important;
+ margin: 0 0.07em !important;
+ vertical-align: -0.1em !important;
+ background: none !important;
+ padding: 0 !important;
+} </style> <style id="global-styles-inline-css" type="text/css"> body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;} </style><link rel="stylesheet" id="nimbo-google-fonts-css" href="//fonts.googleapis.com/css?family=Lora%3A400%2C400i%2C700%2C700i%7CSource+Sans+Pro%3A400%2C600%2C700%7CPlayfair+Display%3A400%2C400i%7CPT+Sans%3A400%2C700&#038;subset&#038;ver=1.4.2" type="text/css" media="all" /> <style id="nimbo-style-inline-css" type="text/css"> .bwp-post-date {
+ display: none;
+ }
+ .bwp-post-author {
+ display: none;
+ }
+ .bwp-dark-style {
+ background-color: #0c0d16 !important;
+ }
+ a:hover,
+ .bwp-header-search-icon:hover,
+ .bwp-header-search-icon.bwp-active,
+ .bwp-color-switch-icon:hover,
+ .sf-menu a:hover,
+ .sf-menu > li:hover > a,
+ .sf-menu > .current-menu-item > a,
+ .sf-menu > .current-menu-ancestor > a,
+ .sf-menu > .current-menu-ancestor > .sf-with-ul::after,
+ .sf-arrows > li > .sf-with-ul:focus::after,
+ .sf-arrows > li:hover > .sf-with-ul::after,
+ .sf-arrows > .sfHover > .sf-with-ul::after,
+ .bwp-intro-heading a:hover,
+ .bwp-intro-heading a:focus,
+ .bwp-intro-text a:hover,
+ .bwp-intro-text a:focus,
+ .bwp-no-results a:hover,
+ .bwp-no-results a:focus,
+ .bwp-post-link-to-single-page:hover,
+ .bwp-post-link-to-single-page:focus,
+ .bwp-post-date a:focus,
+ .bwp-post-date a:hover,
+ .bwp-post-excerpt a:hover,
+ .bwp-post-excerpt a:focus,
+ .bwp-content a:hover,
+ .bwp-content a:focus,
+ .bwp-content h1 a:focus,
+ .bwp-content h2 a:focus,
+ .bwp-content h3 a:focus,
+ .bwp-content h4 a:focus,
+ .bwp-content h5 a:focus,
+ .bwp-content h6 a:focus,
+ .bwp-content h1 a:hover,
+ .bwp-content h2 a:hover,
+ .bwp-content h3 a:hover,
+ .bwp-content h4 a:hover,
+ .bwp-content h5 a:hover,
+ .bwp-content h6 a:hover,
+ .bwp-post-author-name a:hover,
+ .bwp-post-author-name a:focus,
+ .bwp-post-likes a:hover,
+ .bwp-post-share:hover .bwp-post-share-icon,
+ .bwp-post-share-icon:hover,
+ .bwp-post-add-comment-link:hover,
+ .bwp-post-add-comment-link:focus,
+ .pagination .nav-links .page-numbers.current,
+ .pagination .nav-links a.page-numbers:hover,
+ .bwp-single-post-metadata li a:hover,
+ .bwp-single-post-metadata li a:focus,
+ .bwp-single-post-tags a:hover,
+ .bwp-single-post-tags a:focus,
+ .bwp-single-post-counters-list li a:hover,
+ .post-navigation .nav-links a:hover,
+ .post-navigation .nav-links a:focus,
+ .bwp-content .wp-playlist-item a:hover,
+ .bwp-content .bwp-single-post-pagination > span,
+ .bwp-content .wp-block-file a:not(.wp-block-file__button),
+ .bwp-content .wp-block-file a:not(.wp-block-file__button):focus,
+ .bwp-content .wp-block-file a:not(.wp-block-file__button):hover,
+ .bwp-content .wp-block-calendar #wp-calendar tfoot td a:hover,
+ .bwp-content .wp-block-calendar #wp-calendar tfoot td a:focus,
+ .bwp-about-author-name a:hover,
+ .bwp-about-author-name a:focus,
+ .bwp-about-author-posts-link:hover,
+ .bwp-about-author-posts-link:focus,
+ .comment-respond .must-log-in a:hover,
+ .comment-respond .must-log-in a:focus,
+ .comment-form .logged-in-as a:last-child:hover,
+ .comment-form .logged-in-as a:last-child:focus,
+ .comment-reply-title #cancel-comment-reply-link:hover,
+ .comment-list .pingback .comment-body > a:hover,
+ .comment-list .pingback .comment-body > a:focus,
+ .comment-list .pingback .comment-body .edit-link .comment-edit-link:hover,
+ .comment-list .pingback .comment-body .edit-link .comment-edit-link:focus,
+ .comment-meta .comment-author .fn .url:hover,
+ .comment-meta .comment-author .fn .url:focus,
+ .comment-meta .comment-metadata a:hover,
+ .comment-meta .comment-metadata a:focus,
+ .comment-content a:hover,
+ .comment-content a:focus,
+ .comment-body .reply .comment-reply-link:hover,
+ .comment-navigation .nav-links a:hover,
+ .comment-navigation .nav-links a:focus,
+ .bwp-page-404-content a:hover,
+ .bwp-page-404-content a:focus,
+ .bwp-widget a:hover,
+ .bwp-widget a:focus,
+ .bwp-widget .bwp-widget-title a:hover,
+ .bwp-widget .bwp-widget-title a:focus,
+ .widget_search #searchform .bwp-search-submit:hover,
+ .widget_bwp_meta li a:hover,
+ .widget_bwp_meta li a:focus,
+ .bwp-footer-text a:hover,
+ .bwp-footer-text a:focus,
+ .bwp-footer-social-links a:hover,
+ .bwp-footer-social-links a:focus,
+ .bwp-footer-menu li a:hover,
+ .bwp-footer-menu li a:focus,
+ .bwp-cookies-info-content a:hover,
+ .bwp-cookies-info-content a:focus {
+ color: #16a4de;
+ }
+ .bwp-main-menu-icon:hover span,
+ .bwp-main-menu-icon:hover span::before,
+ .bwp-main-menu-icon:hover span::after,
+ .bwp-main-menu-icon.bwp-active span,
+ .bwp-main-menu-icon.bwp-active span::before,
+ .bwp-main-menu-icon.bwp-active span::after,
+ input[type="checkbox"]:checked,
+ input[type="radio"]:checked {
+ background: #16a4de;
+ }
+ .bwp-post-hover-buttons a:hover,
+ .bwp-cookies-close-icon:hover,
+ .bwp-mobile-cookies-info-icon:hover,
+ #bwp-scroll-top:hover {
+ color: #ffffff;
+ background-color: #16a4de;
+ }
+ .bwp-post-media-slider .owl-theme .owl-nav button:hover,
+ .bwp-content .wp-block-file .wp-block-file__button:active,
+ .bwp-content .wp-block-file .wp-block-file__button:focus,
+ .bwp-content .wp-block-file .wp-block-file__button:hover,
+ .bwp-content .wp-block-file .wp-block-file__button:visited,
+ .widget_bwp_posts_slider .owl-theme .owl-nav button:hover,
+ .textwidget button:hover,
+ .textwidget input[type="button"]:hover,
+ .textwidget input[type="reset"]:hover,
+ .textwidget input[type="submit"]:hover {
+ color: #ffffff;
+ background: #16a4de;
+ }
+ .bwp-content button:hover,
+ .bwp-content input[type="button"]:hover,
+ .bwp-content input[type="reset"]:hover,
+ .bwp-content input[type="submit"]:hover {
+ color: #ffffff;
+ background-color: #16a4de;
+ }
+ .comment-form #submit:hover,
+ .bwp-accept-cookies-btn:hover {
+ background-color: #16a4de;
+ }
+ .bwp-content input[type="text"]:hover,
+ .bwp-content input[type="email"]:hover,
+ .bwp-content input[type="url"]:hover,
+ .bwp-content input[type="password"]:hover,
+ .bwp-content input[type="search"]:hover,
+ .bwp-content input[type="tel"]:hover,
+ .bwp-content input[type="number"]:hover,
+ .bwp-content input[type="date"]:hover,
+ .bwp-content textarea:hover,
+ .bwp-content select:hover,
+ .bwp-content input[type="text"]:focus,
+ .bwp-content input[type="email"]:focus,
+ .bwp-content input[type="url"]:focus,
+ .bwp-content input[type="password"]:focus,
+ .bwp-content input[type="search"]:focus,
+ .bwp-content input[type="tel"]:focus,
+ .bwp-content input[type="number"]:focus,
+ .bwp-content input[type="date"]:focus,
+ .bwp-content textarea:focus,
+ .bwp-content select:active,
+ .bwp-content select:focus,
+ .bwp-content input[type="file"]:hover,
+ .bwp-content input[type="file"]:focus,
+ #author:hover,
+ #email:hover,
+ #url:hover,
+ #comment:hover,
+ #author:active,
+ #email:active,
+ #url:active,
+ #comment:active,
+ #author:focus,
+ #email:focus,
+ #url:focus,
+ #comment:focus,
+ .textwidget input[type="file"]:hover,
+ .textwidget input[type="file"]:focus,
+ input[type="checkbox"]:hover,
+ input[type="radio"]:hover,
+ input[type="checkbox"]:checked,
+ input[type="radio"]:checked {
+ border-color: #16a4de;
+ }
+ .textwidget input[type="text"]:hover,
+ .textwidget input[type="email"]:hover,
+ .textwidget input[type="url"]:hover,
+ .textwidget input[type="password"]:hover,
+ .textwidget input[type="search"]:hover,
+ .textwidget input[type="tel"]:hover,
+ .textwidget input[type="number"]:hover,
+ .textwidget input[type="date"]:hover,
+ .textwidget textarea:hover,
+ .textwidget select:hover,
+ .textwidget input[type="text"]:focus,
+ .textwidget input[type="email"]:focus,
+ .textwidget input[type="url"]:focus,
+ .textwidget input[type="password"]:focus,
+ .textwidget input[type="search"]:focus,
+ .textwidget input[type="tel"]:focus,
+ .textwidget input[type="number"]:focus,
+ .textwidget input[type="date"]:focus,
+ .textwidget textarea:focus,
+ .textwidget select:active,
+ .textwidget select:focus {
+ border-bottom-color: #16a4de !important;
+ }
+ .bwp-dark-style a:hover,
+ .bwp-dark-style .bwp-header-search-icon:hover,
+ .bwp-dark-style .bwp-header-search-icon.bwp-active,
+ .bwp-dark-style .bwp-color-switch-icon:hover,
+ .bwp-dark-style .sf-menu a:hover,
+ .bwp-dark-style .sf-menu > li:hover > a,
+ .bwp-dark-style .sf-menu > .current-menu-item > a,
+ .bwp-dark-style .sf-menu > .current-menu-ancestor > a,
+ .bwp-dark-style .sf-menu > .current-menu-ancestor > .sf-with-ul::after,
+ .bwp-dark-style .sf-arrows > li > .sf-with-ul:focus::after,
+ .bwp-dark-style .sf-arrows > li:hover > .sf-with-ul::after,
+ .bwp-dark-style .sf-arrows > .sfHover > .sf-with-ul::after,
+ .bwp-dark-style .bwp-intro-heading a:hover,
+ .bwp-dark-style .bwp-intro-heading a:focus,
+ .bwp-dark-style .bwp-intro-text a:hover,
+ .bwp-dark-style .bwp-intro-text a:focus,
+ .bwp-dark-style .bwp-no-results a:hover,
+ .bwp-dark-style .bwp-no-results a:focus,
+ .bwp-dark-style .bwp-post-link-to-single-page:hover,
+ .bwp-dark-style .bwp-post-link-to-single-page:focus,
+ .bwp-dark-style .bwp-post-date a:focus,
+ .bwp-dark-style .bwp-post-date a:hover,
+ .bwp-dark-style .bwp-post-excerpt a:hover,
+ .bwp-dark-style .bwp-post-excerpt a:focus,
+ .bwp-dark-style .bwp-content a:hover,
+ .bwp-dark-style .bwp-content a:focus,
+ .bwp-dark-style .bwp-content h1 a:focus,
+ .bwp-dark-style .bwp-content h2 a:focus,
+ .bwp-dark-style .bwp-content h3 a:focus,
+ .bwp-dark-style .bwp-content h4 a:focus,
+ .bwp-dark-style .bwp-content h5 a:focus,
+ .bwp-dark-style .bwp-content h6 a:focus,
+ .bwp-dark-style .bwp-content h1 a:hover,
+ .bwp-dark-style .bwp-content h2 a:hover,
+ .bwp-dark-style .bwp-content h3 a:hover,
+ .bwp-dark-style .bwp-content h4 a:hover,
+ .bwp-dark-style .bwp-content h5 a:hover,
+ .bwp-dark-style .bwp-content h6 a:hover,
+ .bwp-dark-style .bwp-post-author-name a:hover,
+ .bwp-dark-style .bwp-post-author-name a:focus,
+ .bwp-dark-style .bwp-post-likes a:hover,
+ .bwp-dark-style .bwp-post-share:hover .bwp-post-share-icon,
+ .bwp-dark-style .bwp-post-share-icon:hover,
+ .bwp-dark-style .bwp-post-add-comment-link:hover,
+ .bwp-dark-style .bwp-post-add-comment-link:focus,
+ .bwp-dark-style .pagination .nav-links .page-numbers.current,
+ .bwp-dark-style .pagination .nav-links a.page-numbers:hover,
+ .bwp-dark-style .bwp-single-post-metadata li a:hover,
+ .bwp-dark-style .bwp-single-post-metadata li a:focus,
+ .bwp-dark-style .bwp-single-post-tags a:hover,
+ .bwp-dark-style .bwp-single-post-tags a:focus,
+ .bwp-dark-style .bwp-single-post-counters-list li a:hover,
+ .bwp-dark-style .post-navigation .nav-links a:hover,
+ .bwp-dark-style .post-navigation .nav-links a:focus,
+ .bwp-dark-style .bwp-content .wp-playlist-item a:hover,
+ .bwp-dark-style .bwp-content .bwp-single-post-pagination > span,
+ .bwp-dark-style .bwp-content .wp-block-file a:not(.wp-block-file__button),
+ .bwp-dark-style .bwp-content .wp-block-file a:not(.wp-block-file__button):focus,
+ .bwp-dark-style .bwp-content .wp-block-file a:not(.wp-block-file__button):hover,
+ .bwp-dark-style .bwp-content .wp-block-calendar #wp-calendar tfoot td a:hover,
+ .bwp-dark-style .bwp-content .wp-block-calendar #wp-calendar tfoot td a:focus,
+ .bwp-dark-style .bwp-about-author-name a:hover,
+ .bwp-dark-style .bwp-about-author-name a:focus,
+ .bwp-dark-style .bwp-about-author-posts-link:hover,
+ .bwp-dark-style .bwp-about-author-posts-link:focus,
+ .bwp-dark-style .comment-respond .must-log-in a:hover,
+ .bwp-dark-style .comment-respond .must-log-in a:focus,
+ .bwp-dark-style .comment-form .logged-in-as a:last-child:hover,
+ .bwp-dark-style .comment-form .logged-in-as a:last-child:focus,
+ .bwp-dark-style .comment-reply-title #cancel-comment-reply-link:hover,
+ .bwp-dark-style .comment-list .pingback .comment-body > a:hover,
+ .bwp-dark-style .comment-list .pingback .comment-body > a:focus,
+ .bwp-dark-style .comment-list .pingback .comment-body .edit-link .comment-edit-link:hover,
+ .bwp-dark-style .comment-list .pingback .comment-body .edit-link .comment-edit-link:focus,
+ .bwp-dark-style .comment-meta .comment-author .fn .url:hover,
+ .bwp-dark-style .comment-meta .comment-author .fn .url:focus,
+ .bwp-dark-style .comment-meta .comment-metadata a:hover,
+ .bwp-dark-style .comment-meta .comment-metadata a:focus,
+ .bwp-dark-style .comment-content a:hover,
+ .bwp-dark-style .comment-content a:focus,
+ .bwp-dark-style .comment-body .reply .comment-reply-link:hover,
+ .bwp-dark-style .comment-navigation .nav-links a:hover,
+ .bwp-dark-style .comment-navigation .nav-links a:focus,
+ .bwp-dark-style .bwp-page-404-content a:hover,
+ .bwp-dark-style .bwp-page-404-content a:focus,
+ .bwp-dark-style .bwp-widget a:hover,
+ .bwp-dark-style .bwp-widget a:focus,
+ .bwp-dark-style .bwp-widget .bwp-widget-title a:hover,
+ .bwp-dark-style .bwp-widget .bwp-widget-title a:focus,
+ .bwp-dark-style .widget_search #searchform .bwp-search-submit:hover,
+ .bwp-dark-style .widget_bwp_meta li a:hover,
+ .bwp-dark-style .widget_bwp_meta li a:focus,
+ .bwp-dark-style .bwp-footer-text a:hover,
+ .bwp-dark-style .bwp-footer-text a:focus,
+ .bwp-dark-style .bwp-footer-social-links a:hover,
+ .bwp-dark-style .bwp-footer-social-links a:focus,
+ .bwp-dark-style .bwp-footer-menu li a:hover,
+ .bwp-dark-style .bwp-footer-menu li a:focus,
+ .bwp-dark-style .bwp-cookies-info-content a:hover,
+ .bwp-dark-style .bwp-cookies-info-content a:focus {
+ color: #16a4de;
+ }
+ .bwp-dark-style .bwp-main-menu-icon:hover span,
+ .bwp-dark-style .bwp-main-menu-icon:hover span::before,
+ .bwp-dark-style .bwp-main-menu-icon:hover span::after,
+ .bwp-dark-style .bwp-main-menu-icon.bwp-active span,
+ .bwp-dark-style .bwp-main-menu-icon.bwp-active span::before,
+ .bwp-dark-style .bwp-main-menu-icon.bwp-active span::after,
+ .bwp-dark-style input[type="checkbox"]:checked,
+ .bwp-dark-style input[type="radio"]:checked {
+ background: #16a4de;
+ }
+ .bwp-dark-style .bwp-post-hover-buttons a:hover,
+ .bwp-dark-style .bwp-cookies-close-icon:hover,
+ .bwp-dark-style .bwp-mobile-cookies-info-icon:hover,
+ .bwp-dark-style #bwp-scroll-top:hover {
+ color: #ffffff;
+ background-color: #16a4de;
+ }
+ .bwp-dark-style .bwp-post-media-slider .owl-theme .owl-nav button:hover,
+ .bwp-dark-style .bwp-content .wp-block-file .wp-block-file__button:active,
+ .bwp-dark-style .bwp-content .wp-block-file .wp-block-file__button:focus,
+ .bwp-dark-style .bwp-content .wp-block-file .wp-block-file__button:hover,
+ .bwp-dark-style .bwp-content .wp-block-file .wp-block-file__button:visited,
+ .bwp-dark-style .widget_bwp_posts_slider .owl-theme .owl-nav button:hover,
+ .bwp-dark-style .textwidget button:hover,
+ .bwp-dark-style .textwidget input[type="button"]:hover,
+ .bwp-dark-style .textwidget input[type="reset"]:hover,
+ .bwp-dark-style .textwidget input[type="submit"]:hover {
+ color: #ffffff;
+ background: #16a4de;
+ }
+ .bwp-dark-style .bwp-content button:hover,
+ .bwp-dark-style .bwp-content input[type="button"]:hover,
+ .bwp-dark-style .bwp-content input[type="reset"]:hover,
+ .bwp-dark-style .bwp-content input[type="submit"]:hover {
+ color: #ffffff;
+ background-color: #16a4de;
+ }
+ .bwp-dark-style .comment-form #submit:hover,
+ .bwp-dark-style .bwp-accept-cookies-btn:hover {
+ background-color: #16a4de;
+ }
+ .bwp-dark-style .bwp-content input[type="text"]:hover,
+ .bwp-dark-style .bwp-content input[type="email"]:hover,
+ .bwp-dark-style .bwp-content input[type="url"]:hover,
+ .bwp-dark-style .bwp-content input[type="password"]:hover,
+ .bwp-dark-style .bwp-content input[type="search"]:hover,
+ .bwp-dark-style .bwp-content input[type="tel"]:hover,
+ .bwp-dark-style .bwp-content input[type="number"]:hover,
+ .bwp-dark-style .bwp-content input[type="date"]:hover,
+ .bwp-dark-style .bwp-content textarea:hover,
+ .bwp-dark-style .bwp-content select:hover,
+ .bwp-dark-style .bwp-content input[type="text"]:focus,
+ .bwp-dark-style .bwp-content input[type="email"]:focus,
+ .bwp-dark-style .bwp-content input[type="url"]:focus,
+ .bwp-dark-style .bwp-content input[type="password"]:focus,
+ .bwp-dark-style .bwp-content input[type="search"]:focus,
+ .bwp-dark-style .bwp-content input[type="tel"]:focus,
+ .bwp-dark-style .bwp-content input[type="number"]:focus,
+ .bwp-dark-style .bwp-content input[type="date"]:focus,
+ .bwp-dark-style .bwp-content textarea:focus,
+ .bwp-dark-style .bwp-content select:active,
+ .bwp-dark-style .bwp-content select:focus,
+ .bwp-dark-style .bwp-content input[type="file"]:hover,
+ .bwp-dark-style .bwp-content input[type="file"]:focus,
+ .bwp-dark-style #author:hover,
+ .bwp-dark-style #email:hover,
+ .bwp-dark-style #url:hover,
+ .bwp-dark-style #comment:hover,
+ .bwp-dark-style #author:active,
+ .bwp-dark-style #email:active,
+ .bwp-dark-style #url:active,
+ .bwp-dark-style #comment:active,
+ .bwp-dark-style #author:focus,
+ .bwp-dark-style #email:focus,
+ .bwp-dark-style #url:focus,
+ .bwp-dark-style #comment:focus,
+ .bwp-dark-style .textwidget input[type="file"]:hover,
+ .bwp-dark-style .textwidget input[type="file"]:focus,
+ .bwp-dark-style input[type="checkbox"]:hover,
+ .bwp-dark-style input[type="radio"]:hover,
+ .bwp-dark-style input[type="checkbox"]:checked,
+ .bwp-dark-style input[type="radio"]:checked {
+ border-color: #16a4de;
+ }
+ .bwp-dark-style .textwidget input[type="text"]:hover,
+ .bwp-dark-style .textwidget input[type="email"]:hover,
+ .bwp-dark-style .textwidget input[type="url"]:hover,
+ .bwp-dark-style .textwidget input[type="password"]:hover,
+ .bwp-dark-style .textwidget input[type="search"]:hover,
+ .bwp-dark-style .textwidget input[type="tel"]:hover,
+ .bwp-dark-style .textwidget input[type="number"]:hover,
+ .bwp-dark-style .textwidget input[type="date"]:hover,
+ .bwp-dark-style .textwidget textarea:hover,
+ .bwp-dark-style .textwidget select:hover,
+ .bwp-dark-style .textwidget input[type="text"]:focus,
+ .bwp-dark-style .textwidget input[type="email"]:focus,
+ .bwp-dark-style .textwidget input[type="url"]:focus,
+ .bwp-dark-style .textwidget input[type="password"]:focus,
+ .bwp-dark-style .textwidget input[type="search"]:focus,
+ .bwp-dark-style .textwidget input[type="tel"]:focus,
+ .bwp-dark-style .textwidget input[type="number"]:focus,
+ .bwp-dark-style .textwidget input[type="date"]:focus,
+ .bwp-dark-style .textwidget textarea:focus,
+ .bwp-dark-style .textwidget select:active,
+ .bwp-dark-style .textwidget select:focus {
+ border-bottom-color: #16a4de !important;
+ } </style> <script type="text/javascript" src="https://vimtricks.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.4" id="jquery-core-js"></script> <!--[if lt IE 9]> <script type='text/javascript' src='https://vimtricks.com/wp-content/themes/nimbo/js/html5shiv.min.js?ver=3.7.3' id='html5shiv-js'></script> <![endif]--> <!--[if lt IE 9]> <script type='text/javascript' src='https://vimtricks.com/wp-content/themes/nimbo/js/respond.min.js?ver=1.4.2' id='respond-js'></script> <![endif]--><link rel="https://api.w.org/" href="https://vimtricks.com/wp-json/" /><link rel="alternate" type="application/json" href="https://vimtricks.com/wp-json/wp/v2/posts/1089" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://vimtricks.com/xmlrpc.php?rsd" /><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://vimtricks.com/wp-includes/wlwmanifest.xml" /><meta name="generator" content="WordPress 6.2.2" /><link rel="shortlink" href="https://vimtricks.com/?p=1089" /><link rel="alternate" type="application/json+oembed" href="https://vimtricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fvimtricks.com%2Fp%2Fvim-file-templates%2F" /><link rel="alternate" type="text/xml+oembed" href="https://vimtricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fvimtricks.com%2Fp%2Fvim-file-templates%2F&#038;format=xml" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" /><link href="//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css" rel="stylesheet">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48498244-17"></script> <script> window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'UA-48498244-17'); </script><meta property="og:image" content="https://vimtricks.com/opengraph?title=Vim+File+Templates" /><meta property="og:image:height" content="630" /><meta property="og:image:width" content="1200" /><meta name="twitter:image:src" content="https://vimtricks.com/opengraph?title=Vim+File+Templates" /><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="https://vimtricks.com/wp-content/uploads/2020/11/cropped-logo-black-32x32.png" sizes="32x32" /><link rel="icon" href="https://vimtricks.com/wp-content/uploads/2020/11/cropped-logo-black-192x192.png" sizes="192x192" /><link rel="apple-touch-icon" href="https://vimtricks.com/wp-content/uploads/2020/11/cropped-logo-black-180x180.png" /><meta name="msapplication-TileImage" content="https://vimtricks.com/wp-content/uploads/2020/11/cropped-logo-black-270x270.png" /> <style type="text/css" id="wp-custom-css"> .codecopy_tooltip {
+ font-size: 14px !important;
+ font-family: Helvetica, Arial, sans-serif;
+ padding: 5px 10px !important;
+}
+.bwp-logo-text {
+ font-family: "Hack";
+ font-weight: 200;
+}
+.rmp-archive-results-widget {
+ display: block;
+ margin-top: 1.1em;
+ margin-left: 0;
+ font-size: 0.6em;
+}
+.rmp-rating-widget__hover-text {
+ display: none;
+}
+.rmp-results-widget {
+ margin-bottom: 1em;
+}
+.bwp-post-title.entry-title a:hover {
+ text-decoration: none !important;
+}
+.rmp-archive-results-widget .rmp-icon {
+ font-size: inherit;
+}
+.rmp-widgets-container.rmp-wp-plugin.rmp-main-container {
+ margin-top: 3em;
+ margin-bottom: 3em;
+}
+.js-rmp-hover-text {
+ min-height: 2em;
+}
+.rmp-widgets-container.rmp-wp-plugin.rmp-main-container .rmp-heading {
+ font-size: 2em
+}
+.bwp-single-post-tags {
+ margin-top: 2em;
+ margin-bottom: 2em;
+}
+.post-navigation {
+ margin-top: 2em;
+}
+ul.bwp-single-post-share-list li:nth-child(3), ul.bwp-single-post-share-list li:nth-child(4) {
+ display: none;
+}
+. bwp-single-post-article .bwp-post-title {
+ margin-bottom: 15px !important;
+}  @media only screen and (max-width: 600px) {
+ .rmp-widgets-container.rmp-wp-plugin.rmp-main-container .rmp-heading {
+ font-size: 1.5em
+ }
+ .bwp-single-post-tags {
+ margin-top: 1em;
+ margin-bottom: 1em;
+ } 
+ .rmp-widgets-container.rmp-wp-plugin.rmp-main-container {
+ margin-top: 2em;
+ margin-bottom: 2em;
+ }
+}
+.bwp-dark-style #bwp-header, .bwp-dark-style .bwp-header-nav-row-container, .bwp-dark-style .bwp-intro-bg, .bwp-dark-style .bwp-intro-heading, .bwp-dark-style .bwp-intro-text, .bwp-dark-style .bwp-author-heading-social-links ul li a, .bwp-dark-style .bwp-post-wrap, .bwp-dark-style .bwp-single-post-article, .bwp-dark-style .bwp-about-author, .bwp-dark-style .comment-form, .bwp-dark-style .comment-respond .must-log-in, .bwp-dark-style .comment-list-wrap, .bwp-dark-style .comments-area .no-comments, .bwp-dark-style .bwp-page-404-container, .bwp-dark-style .bwp-widget .bwp-widget-title, .bwp-dark-style .widget_bwp_popular_post_num, .bwp-dark-style .widget_bwp_posts_slider_item figcaption, .bwp-dark-style .widget_bwp_posts_list_item figcaption, .bwp-dark-style .bwp-cookies-info-container, .bwp-dark-style #bwp-scroll-top {
+ background-color: #32334a40;
+}  #nimbo_posts_list_widget-2 figure {
+ position: relative !important;
+}
+#nimbo_posts_list_widget-2 figcaption {
+ position: absolute !important;
+ top: 0 !important;
+ left: 0 !important;
+ right: 0 !important;
+ bottom: 0 !important;
+ max-width: inherit !important;
+ background-color: #00000000 !important;
+}
+#nimbo_posts_list_widget-2 figcaption h4 {
+ opacity: 0 !important;
+ position: absolute !important;
+ top: 0 !important;
+ left: 0 !important;
+ right: 0 !important;
+ bottom: 0 !important;
+}
+#nimbo_posts_list_widget-2 figcaption h4 a { 
+ position: absolute !important;
+ top: 0 !important;
+ left: 0 !important;
+ bottom: 0 !important;
+ right: 0 !important;
+ opacity: 0 !important;
+}
+.bwp-dark-style.bwp-sticky-header-one-row #bwp-header.bwp-animate-header, .bwp-dark-style.bwp-sticky-header-two-rows .bwp-enable-sticky-nav .bwp-header-nav-row-container, .bwp-dark-style.bwp-sticky-header-two-rows .bwp-enable-sticky-nav-32 .bwp-header-nav-row-container {
+ background: #0c0d16;
+}
+.wp-block-button__link.has-black-color.has-vivid-green-cyan-background-color {
+ color: #000;
+ margin-top: 0.5em;
+ margin-bottom: 0.5em;
+ font-family: "Source Sans Pro", sans-serif;
+ font-size: 1.4em;
+ font-weight: bold;
+}
+#af-form-1035739782, #af-form-1035739782 .quirksMode {
+ max-width: none !important;
+}
+#af-form-897096457, #af-form-1853347536  {
+ margin-bottom: 2em;
+}
+#af-form-897096457 input[type='submit'], #af-form-1853347536 input[type='submit'] {
+ padding: 1em 2em 1em 2em !important;
+ margin: 0 !important;
+ line-height: 1em !important;
+ font-size: 1.5em !important;
+}
+.testimonial-image {
+ display: inline-block;
+ margin-right: 10px;
+}
+.testimonial-image img {
+ width: 25px;
+ height: 25px;
+ border-radius: 50%;
+}
+.testimonial-name {
+ display: inline-block;
+}
+.testimonial {
+ background-color: #00000040;
+ border-radius: 1em;
+}
+.strong-view-id-1 {
+ margin-bottom: 2em;
+}
+.testimonial-content::before {
+ opacity: 20%
+}
+.testimonial-content::after {
+ opacity: 20%
+}
+.testimonial-name, .testimonial-image {
+ vertical-align: middle;
+ margin-top: 1.5em;
+}
+label[for='aweber_checkbox'] {
+ display: inline-block;
+}
+.social-links li {
+ display: inline-block;
+ margin-right: 2px;
+}
+.social-links li a {
+ display: inline-block;
+ width: 36px;
+ height: 36px;
+ line-height: 36px;
+ text-align: center;
+ font-family: sans-serif;
+ font-size: 13px;
+ font-weight: 400;
+ color: #fff;
+ border-radius: 50%;
+ background-color: gray;
+ cursor: pointer !important; 
+ padding-left: 0;
+}
+.social-links li a:active {
+ color: white !important; 
+}
+.social-links li a:hover {
+ color: white !important; 
+}
+.social-links li a.twitter {
+ background-color: #1DA1F2;
+}
+.social-links li a.youtube  {
+ background-color: #c4302b;
+}
+.social-links li a.mastodon  {
+ background-color: #6364ff;
+}
+.social-links li a.rss  {
+ background-color: #ee802f;
+}
+#faqsu-faq-list {
+ background: none !important;
+ border-radius: 0 !important;
+ padding: 0 !important;
+}
+#faqsu-faq-list .faqsu-faq-single {
+ background: none !important;
+ box-shadow: none !important;
+ padding: 15px 0 0 0 !important;
+}
+#faqsu-faq-list .faqsu-faq-question:after {
+ background: #f0f4f81f !important;
+} </style></head><body class="post-template-default single single-post postid-1089 single-format-standard wp-custom-logo wp-embed-responsive bwp-dark-style bwp-sticky-header-one-row"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0.49803921568627" /><fefuncg type="table" tablevalues="0 0.49803921568627" /><fefuncb type="table" tablevalues="0 0.49803921568627" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1" /><fefuncg type="table" tablevalues="0 1" /><fefuncb type="table" tablevalues="0 1" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.54901960784314 0.98823529411765" /><fefuncg type="table" tablevalues="0 1" /><fefuncb type="table" tablevalues="0.71764705882353 0.25490196078431" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1" /><fefuncg type="table" tablevalues="0 0.27843137254902" /><fefuncb type="table" tablevalues="0.5921568627451 0.27843137254902" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0" /><fefuncg type="table" tablevalues="0 0.64705882352941" /><fefuncb type="table" tablevalues="0 1" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.78039215686275 1" /><fefuncg type="table" tablevalues="0 0.94901960784314" /><fefuncb type="table" tablevalues="0.35294117647059 0.47058823529412" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.65098039215686 0.40392156862745" /><fefuncg type="table" tablevalues="0 1" /><fefuncb type="table" tablevalues="0.44705882352941 0.4" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.098039215686275 1" /><fefuncg type="table" tablevalues="0 0.66274509803922" /><fefuncb type="table" tablevalues="0.84705882352941 0.41960784313725" /><fefunca type="table" tablevalues="1 1" /></feComponentTransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg> <header id="bwp-header"><div class="container"><div class="bwp-header-container clearfix"> <div class="bwp-logo-container bwp-logo-text-container"> <a href="https://vimtricks.com/" rel="home" class="bwp-logo-text" data-wpel-link="internal"> VimTricks </a></div>  <div class="bwp-header-search-container">  <a href="#" rel="nofollow" id="bwp-show-dropdown-search" class="bwp-header-search-icon"> <i class="fas fa-search"></i> </a>  <div id="bwp-dropdown-search" class="bwp-dropdown-search-container bwp-hidden"> <form id="searchform" role="search" method="get" action="https://vimtricks.com/"><div class="input-group"> <input type="text" name="s" id="s" class="bwp-search-field form-control" autocomplete="off" placeholder="Enter your search query..."> <span class="input-group-btn"> <button type="submit" class="btn bwp-search-submit"> <i class="fas fa-search"></i> </button> </span></div></form> </div> </div>   <a href="#" rel="nofollow" id="bwp-color-switch" class="bwp-color-switch-icon"> <i class="fas fa-moon"></i> </a>  <div class="bwp-header-menu-container bwp-visible hidden-sm hidden-xs"><nav class="menu-main-container"><ul id="menu-main" class="sf-menu"><li id="menu-item-542" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-542"><a href="https://vimtricks.com/" data-wpel-link="internal">Vim Newsletter</a></li><li id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-73"><a href="https://vimtricks.com/p/category/tips-and-tricks/" data-wpel-link="internal">Archive</a></li><li id="menu-item-1243" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1243"><a href="https://vimtricks.com/p/category/books/" data-wpel-link="internal">Vim Books</a></li><li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a href="https://vimtricks.com/about/" data-wpel-link="internal">About</a></li></ul></nav></div>  <div class="bwp-header-sm-menu-container hidden-md hidden-lg">  <a href="#" rel="nofollow" id="bwp-show-sm-main-menu" class="bwp-main-menu-icon"> <span></span> </a>  <div id="bwp-sm-main-menu" class="bwp-sm-main-menu-container bwp-hidden"><nav class="menu-main-container"><ul id="menu-main-1" class="bwp-sm-menu list-unstyled"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-542"><a href="https://vimtricks.com/" data-wpel-link="internal">Vim Newsletter</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-73"><a href="https://vimtricks.com/p/category/tips-and-tricks/" data-wpel-link="internal">Archive</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1243"><a href="https://vimtricks.com/p/category/books/" data-wpel-link="internal">Vim Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a href="https://vimtricks.com/about/" data-wpel-link="internal">About</a></li></ul></nav></div> </div> </div></div></header>  <section id="bwp-single-post"><div class="container"><div class="row"><div class="col-md-8 bwp-single-post-col bwp-sidebar-right"> <div class="bwp-single-post-container" role="main"> <article id="bwp-post-1089" class="post-1089 post type-post status-publish format-standard hentry category-tips-and-tricks tag-autocmd tag-native tag-skeleton tag-snippets tag-template bwp-single-post-article"> <div class="bwp-post-content"> <ul class="bwp-single-post-metadata list-unstyled"> <li class="bwp-single-post-meta-date"> <span>Posted on</span> <a href="https://vimtricks.com/p/2022/10/31/" data-wpel-link="internal"> <span class="date updated">October 31, 2022</span> </a></li>  <li class="bwp-single-post-meta-author"> <span>By</span> <a href="https://vimtricks.com/p/author/cbartlett/" title="Posts by Colin Bartlett" rel="author" data-wpel-link="internal"> <span class="vcard author"> <span class="fn">Colin Bartlett</span> </span> </a></li>  <li class="bwp-single-post-meta-categories"> <span>In</span> <a href="https://vimtricks.com/p/category/tips-and-tricks/" rel="category tag" data-wpel-link="internal">Tips and Tricks</a></li> </ul>  <h1 class="bwp-post-title entry-title">Vim File Templates</h1>  <div class="bwp-content entry-content clearfix"> <div class="rmp-results-widget js-rmp-results-widget js-rmp-results-widget--1089 " data-post-id="1089"><div class="rmp-results-widget__visual-rating"> <i class="js-rmp-results-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class="js-rmp-results-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class="js-rmp-results-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class="js-rmp-results-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class="js-rmp-results-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i></div><div class="rmp-results-widget__avg-rating"> <span class="js-rmp-avg-rating"> 4.8 </span></div><div class="rmp-results-widget__vote-count"> (<span class="js-rmp-vote-count">175</span>)</div></div><p>Vim file templates are useful for starting new files with boilerplate code. There are plenty of <a href="https://github.com/SirVer/ultisnips" data-wpel-link="external" rel="external noopener noreferrer">snippet</a> and templating plugins for Vim, but you can create file templates without any plugins using a concept Vim calls <strong>skeleton files</strong>. This allows you to automatically populate a new file with a given template. Learn about it with <code>:help skeleton</code> but we will dive into it:</p><p>To create a Vim file template, you configure your Vim to read a file from disk every time you open a new, empty buffer with a filename that matches a given pattern. Skeleton files are really just a trick using Vim&#8217;s <code><a href="https://vimtricks.com/p/tag/autocmd/" data-wpel-link="internal">autocmd</a></code> capabilities to run commands on certain events.</p><p>One file template example might be when writing shell scripts. You can create a skeleton file that contains the Bash shebang line like so:</p><pre class="wp-block-code"><code>#!/usr/bin/env bash</code></pre><p>Then configure your Vim to populate any new and empty buffer that ends in <code>.sh</code> with this file&#8217;s contents. If you&#8217;re working in a language that requires a lot of boilerplate in every file, this can be an enormous time saver.</p><p>Another example use case is a README file. You could create a <a href="https://github.com/othneildrew/Best-README-Template" data-wpel-link="external" rel="external noopener noreferrer">template Markdown file</a> that includes all the headings and basic bullet points that every good README should have. Then whenever you open a new file called <code>README.md</code> in Vim, the buffer will automatically pre-populate with the skeleton template file.</p><p>Configuring these templates in your <code>.vimrc</code> is simple:</p><pre class="wp-block-code"><code>autocmd BufNewFile readme.md 0r ~/skeletons/readme.md
+autocmd BufNewFile *.sh 0r ~/skeletons/bash.sh</code></pre><p>In this case, I&#8217;ve created a new directory inside my home directory called <code>skeletons</code> but you could put these anywhere. Here&#8217;s how the first one works:</p><ul><li><code>autocmd</code> &#8211; run this automatically on some event</li><li><code>BufNewFile</code> &#8211; this is Vim&#8217;s new file event</li><li><code>readme.md</code> &#8211; this is the pattern you want the new file to match</li><li><code>0r</code> &#8211; read into the buffer starting at line 0, the first line</li><li><code>~/skeletons/readme.md</code> &#8211; the file to read in</li></ul><p>The second example works the same way but uses a file glob <code>*.sh</code> to match any file ending in <code>.sh</code>. There&#8217;s a quick demo of this in action below.</p><figure class="wp-block-video"><video controls src="https://vimtricks.com/wp-content/uploads/2021/05/skeletons.mp4"></video></figure><p></p> <div class="rmp-widgets-container rmp-wp-plugin rmp-main-container js-rmp-widgets-container js-rmp-widgets-container--1089 " data-post-id="1089"> <div class="rmp-rating-widget js-rmp-rating-widget"><p class="rmp-heading rmp-heading--title"> How useful was this tip?</p><div class="rmp-rating-widget__icons"><ul class="rmp-rating-widget__icons-list js-rmp-rating-icons-list"><li class="rmp-rating-widget__icons-list__icon js-rmp-rating-item" data-descriptive-rating data-value="1"> <i class="js-rmp-rating-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i></li><li class="rmp-rating-widget__icons-list__icon js-rmp-rating-item" data-descriptive-rating data-value="2"> <i class="js-rmp-rating-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i></li><li class="rmp-rating-widget__icons-list__icon js-rmp-rating-item" data-descriptive-rating data-value="3"> <i class="js-rmp-rating-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i></li><li class="rmp-rating-widget__icons-list__icon js-rmp-rating-item" data-descriptive-rating data-value="4"> <i class="js-rmp-rating-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i></li><li class="rmp-rating-widget__icons-list__icon js-rmp-rating-item" data-descriptive-rating data-value="5"> <i class="js-rmp-rating-icon rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i></li></ul></div><p class="rmp-rating-widget__hover-text js-rmp-hover-text"></p> <button class="rmp-rating-widget__submit-btn rmp-btn js-submit-rating-btn"> Submit Rating </button><p class="rmp-rating-widget__results js-rmp-results "> Average rating <span class="rmp-rating-widget__results__rating js-rmp-avg-rating">4.8</span> / 5. Vote count: <span class="rmp-rating-widget__results__votes js-rmp-vote-count">175</span></p><p class="rmp-rating-widget__not-rated js-rmp-not-rated rmp-rating-widget__not-rated--hidden"> No votes so far! Be the first to rate this tip.</p><p class="rmp-rating-widget__msg js-rmp-msg"></p></div>  <script type="application/ld+json">{  "@context": "http://schema.org",  "@type": "Episode",  "aggregateRating": {    "@type": "AggregateRating",    "bestRating": "5",    "ratingCount": "175",    "ratingValue": "4.8"  },  "image": "https://vimtricks.com/wp-content/uploads/2020/11/logo-black.png",  "name": "Vim File Templates",  "description": "Vim File Templates"}</script> <div class="rmp-feedback-widget js-rmp-feedback-widget"><p class="rmp-heading rmp-heading--title"> We are sorry that this post was not useful for you!</p><p class="rmp-heading rmp-heading--subtitle"> Let us improve this post!</p><div class="rmp-feedback-widget__container"><p class="rmp-feedback-widget__text"> Tell us how we can improve this post?</p><textarea class="rmp-feedback-widget__input js-rmp-feedback-input" rows="5" id="feedback-text"></textarea><button type="button" class="rmp-feedback-widget__btn rmp-btn rmp-btn--large js-rmp-feedback-button"> Submit Feedback </button><div class="rmp-feedback-widget__loader js-rmp-feedback-loader"><div></div><div></div><div></div></div><p class="rmp-feedback-widget__msg js-rmp-feedback-msg"></p></div></div></div> <div class="clearfix"></div></div>  <div class="bwp-single-post-tags-counters clearfix"> <div class="bwp-single-post-tags"> Tags:<a href="https://vimtricks.com/p/tag/autocmd/" rel="tag" data-wpel-link="internal">autocmd</a>, <a href="https://vimtricks.com/p/tag/native/" rel="tag" data-wpel-link="internal">native</a>, <a href="https://vimtricks.com/p/tag/skeleton/" rel="tag" data-wpel-link="internal">skeleton</a>, <a href="https://vimtricks.com/p/tag/snippets/" rel="tag" data-wpel-link="internal">snippets</a>, <a href="https://vimtricks.com/p/tag/template/" rel="tag" data-wpel-link="internal">template</a></div> </div> <nav class="navigation post-navigation" aria-label="Posts"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="https://vimtricks.com/p/50-useful-vim-commands/" rel="prev" data-wpel-link="internal"><span class="meta-nav"><i class="fas fa-caret-left"></i>Previous post</span><span class="post-title-nav">50 Useful Vim Commands</span></a></div><div class="nav-next"><a href="https://vimtricks.com/p/vim-command-line-window/" rel="next" data-wpel-link="internal"><span class="meta-nav">Next post<i class="fas fa-caret-right"></i></span><span class="post-title-nav">Vim Command Line Window</span></a></div></div></nav></div> </article>  <h2 class="bwp-container-title">Written by</h2><div class="bwp-about-author clearfix"> <figure class="bwp-about-author-avatar"> <a href="https://vimtricks.com/p/author/cbartlett/" title="Posts by Colin Bartlett" data-wpel-link="internal"> <img alt="Colin Bartlett" src="https://secure.gravatar.com/avatar/e88405313419b8cda03966224a92235f?s=144&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/e88405313419b8cda03966224a92235f?s=288&#038;d=mm&#038;r=g 2x" class="avatar avatar-144 photo" height="144" width="144" loading="lazy" decoding="async" /><div class="bwp-avatar-bg-overlay"></div> </a></figure>  <div class="bwp-about-author-bio-wrap"><h3 class="bwp-about-author-name"> <a href="https://vimtricks.com/p/author/cbartlett/" title="Posts by Colin Bartlett" rel="author" data-wpel-link="internal"> <span class="vcard author"> <span class="fn">Colin Bartlett</span> </span> </a> <span class="bwp-about-author-posts-num"><i class="fas fa-pen-fancy fa-fw"></i>105 Posts</span></h3><div class="bwp-about-author-bio"> Vim enthusiast and software developer for more than 20 years.</div> <a href="https://vimtricks.com/p/author/cbartlett/" class="bwp-about-author-posts-link" data-wpel-link="internal"> <i class="far fa-hand-point-right fa-fw"></i>View all posts </a></div> </div>  <div id="comments" class="comments-area"></div>  <div class="bwp-related-posts bwp-show-2-related-posts"> <h2 class="bwp-container-title">You may also like</h2>  <div class="bwp-related-posts-list clearfix"> <article id="bwp-post-328" class="post-328 post type-post status-publish format-standard hentry category-tips-and-tricks tag-native"><div class="bwp-post-wrap"> <div class="bwp-post-content"> <div class="bwp-post-date"> <a href="https://vimtricks.com/p/2020/09/28/" data-wpel-link="internal"> <span class="date updated">September 28, 2020</span> </a></div>  <h3 class="bwp-post-title entry-title"> <a href="https://vimtricks.com/p/vimtricks-command-mode-paste/" data-wpel-link="internal">Command mode paste</a></h3>  <div class="bwp-post-excerpt entry-content"><p>Paste register contents into command mode with Ctrl-r.</p></div>  <div class="clearfix"> <div class="bwp-post-author"><figure class="bwp-post-author-avatar"> <a href="https://vimtricks.com/p/author/alibby/" title="Posted by Andy Libby" data-wpel-link="internal"> <img alt="Andy Libby" src="https://secure.gravatar.com/avatar/644a0b83c008560259d41cb11999c5df?s=72&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/644a0b83c008560259d41cb11999c5df?s=144&#038;d=mm&#038;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" loading="lazy" decoding="async" /><div class="bwp-avatar-bg-overlay"></div> </a></figure><div class="bwp-post-author-name"> <a href="https://vimtricks.com/p/author/alibby/" title="Posted by Andy Libby" rel="author" data-wpel-link="internal"> <span class="vcard author"> <span class="fn">Andy Libby</span> </span> </a></div></div> </div> </div> </div></article>  <article id="bwp-post-1516" class="post-1516 post type-post status-publish format-standard hentry category-tips-and-tricks tag-native"><div class="bwp-post-wrap"> <div class="bwp-post-content"> <div class="bwp-post-date"> <a href="https://vimtricks.com/p/2022/10/23/" data-wpel-link="internal"> <span class="date updated">October 23, 2022</span> </a></div>  <h3 class="bwp-post-title entry-title"> <a href="https://vimtricks.com/p/50-useful-vim-commands/" data-wpel-link="internal">50 Useful Vim Commands</a></h3>  <div class="bwp-post-excerpt entry-content"><p>Here are 50 use Vim commands for Vim users of all proficiency levels. From beginner to advanced, everyone is sure to find a useful tip.</p></div>  <div class="clearfix"> <div class="bwp-post-author"><figure class="bwp-post-author-avatar"> <a href="https://vimtricks.com/p/author/cbartlett/" title="Posted by Colin Bartlett" data-wpel-link="internal"> <img alt="Colin Bartlett" src="https://secure.gravatar.com/avatar/e88405313419b8cda03966224a92235f?s=72&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/e88405313419b8cda03966224a92235f?s=144&#038;d=mm&#038;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" loading="lazy" decoding="async" /><div class="bwp-avatar-bg-overlay"></div> </a></figure><div class="bwp-post-author-name"> <a href="https://vimtricks.com/p/author/cbartlett/" title="Posted by Colin Bartlett" rel="author" data-wpel-link="internal"> <span class="vcard author"> <span class="fn">Colin Bartlett</span> </span> </a></div></div> </div> </div> </div></article> </div> </div> </div> </div><div class="col-md-4 bwp-sidebar-col bwp-sidebar-right"> <div class="bwp-sidebar-container" role="complementary"><aside id="block-2" class="bwp-widget widget_block clearfix"><div class="wpforms-container wpforms-container-full wpforms-block wpforms-block-3708d007-b682-473e-ad02-280b4c290793" id="wpforms-1590"><form id="wpforms-form-1590" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="1590" method="post" enctype="multipart/form-data" action="/p/vim-file-templates/" data-token="7c881c587f5cf010fe5d8082bd7a764b"><noscript class="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</noscript><div class="wpforms-field-container"><div id="wpforms-1590-field_2-container" class="wpforms-field wpforms-field-email" data-field-id="2"><label class="wpforms-field-label" for="wpforms-1590-field_2">Email <span class="wpforms-required-label">*</span></label><input type="email" id="wpforms-1590-field_2" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][2]" spellcheck="false" required></div></div><div class="wpforms-submit-container"><input type="hidden" name="wpforms[id]" value="1590"><input type="hidden" name="wpforms[author]" value="1"><input type="hidden" name="wpforms[post_id]" value="1089"><button type="submit" name="wpforms[submit]" id="wpforms-submit-1590" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="Submit" aria-live="assertive" value="wpforms-submit">Submit</button><img src="https://vimtricks.com/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt="Loading"></div></form></div> </aside><aside id="search-2" class="bwp-widget widget_search clearfix"><h3 class="bwp-widget-title">Search the Archives</h3> <form id="searchform" role="search" method="get" action="https://vimtricks.com/"><div class="input-group"> <input type="text" name="s" id="s" class="bwp-search-field form-control" autocomplete="off" placeholder="Enter your search query..."> <span class="input-group-btn"> <button type="submit" class="btn bwp-search-submit"> <i class="fas fa-search"></i> </button> </span></div></form> </aside><aside id="nimbo_posts_list_widget-2" class="bwp-widget widget_bwp_posts_list clearfix"><h3 class="bwp-widget-title">Our Books</h3><ul class="list-unstyled"><li><figure class="widget_bwp_posts_list_item"> <img width="939" height="474" src="https://vimtricks.com/wp-content/uploads/2020/11/Copy-of-Copy-of-Git-Better-with-Vim-Twitter-Sized-939x474.png" class="attachment-nimbo-939x626-crop size-nimbo-939x626-crop wp-post-image" alt="Git Better with Vim" decoding="async" /><div class="widget_bwp_dark_bg_overlay"></div><figcaption><h4 class="entry-title"> <a href="https://vimtricks.com/p/git-better-with-vim/" data-wpel-link="internal">Git Better with Vim</a></h4></figcaption></figure></li></ul></aside><aside id="nimbo_recent_widget-2" class="bwp-widget widget_bwp_recent_posts clearfix"><h3 class="bwp-widget-title">Recent Vim Tips</h3><ul class="list-unstyled"><li><div class="widget_bwp_content widget_bwp_no_thumbnail"><h4 class="entry-title"> <a href="https://vimtricks.com/p/inspect-character-under-cursor-in-vim/" data-wpel-link="internal">Inspect Character Under Cursor in Vim</a></h4></div></li><li><div class="widget_bwp_content widget_bwp_no_thumbnail"><h4 class="entry-title"> <a href="https://vimtricks.com/p/vim-calculator/" data-wpel-link="internal">Vim Calculator</a></h4></div></li><li><div class="widget_bwp_content widget_bwp_no_thumbnail"><h4 class="entry-title"> <a href="https://vimtricks.com/p/splitting-to-a-specific-size/" data-wpel-link="internal">Vim split to a specific size</a></h4></div></li><li><div class="widget_bwp_content widget_bwp_no_thumbnail"><h4 class="entry-title"> <a href="https://vimtricks.com/p/vim-command-line-window/" data-wpel-link="internal">Vim Command Line Window</a></h4></div></li></ul></aside></div> </div></div></div></section>  <section id="bwp-footer-widgets" role="complementary"><div class="container"><div class="bwp-footer-widgets-container"><h2 class="screen-reader-text"> Widgets</h2><div class="row"> <div class="col-md-4 bwp-footer-col-1"><aside id="rate-my-post-top-rated-widget-3" class="bwp-widget widget_rate-my-post-top-rated-widget clearfix"><h3 class="bwp-widget-title">Top Rated Vim Tips</h3> <div class="rmp-tr-posts-widget"><div class="rmp-tr-posts-widget__post"><div class="rmp-tr-posts-widget__star-rating"> <i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i> <span class="rmp-tr-posts-widget__avg-rating">4.9</span> <span class="rmp-tr-posts-widget__num-votes">(68)</span></div><p> <a class="rmp-tr-posts-widget__link" href="https://vimtricks.com/p/interactive-replace-across-files/" data-wpel-link="internal">Interactive replace across files</a></p></div><div class="rmp-tr-posts-widget__post"><div class="rmp-tr-posts-widget__star-rating"> <i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i> <span class="rmp-tr-posts-widget__avg-rating">4.8</span> <span class="rmp-tr-posts-widget__num-votes">(80)</span></div><p> <a class="rmp-tr-posts-widget__link" href="https://vimtricks.com/p/inspect-character-under-cursor-in-vim/" data-wpel-link="internal">Inspect Character Under Cursor in Vim</a></p></div><div class="rmp-tr-posts-widget__post"><div class="rmp-tr-posts-widget__star-rating"> <i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i> <span class="rmp-tr-posts-widget__avg-rating">4.8</span> <span class="rmp-tr-posts-widget__num-votes">(37)</span></div><p> <a class="rmp-tr-posts-widget__link" href="https://vimtricks.com/p/toggle-vim-boolean-options/" data-wpel-link="internal">Toggle Vim boolean options</a></p></div><div class="rmp-tr-posts-widget__post"><div class="rmp-tr-posts-widget__star-rating"> <i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i> <span class="rmp-tr-posts-widget__avg-rating">4.8</span> <span class="rmp-tr-posts-widget__num-votes">(151)</span></div><p> <a class="rmp-tr-posts-widget__link" href="https://vimtricks.com/p/pasting-multiple-times/" data-wpel-link="internal">Pasting multiple times</a></p></div><div class="rmp-tr-posts-widget__post"><div class="rmp-tr-posts-widget__star-rating"> <i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i><i class=" rmp-icon rmp-icon--ratings rmp-icon--star rmp-icon--full-highlight"></i> <span class="rmp-tr-posts-widget__avg-rating">4.8</span> <span class="rmp-tr-posts-widget__num-votes">(114)</span></div><p> <a class="rmp-tr-posts-widget__link" href="https://vimtricks.com/p/vim-find-next/" data-wpel-link="internal">Vim Find Next</a></p></div></div> </aside></div>  <div class="col-md-4 bwp-footer-col-2"><aside id="tag_cloud-3" class="bwp-widget widget_tag_cloud clearfix"><h3 class="bwp-widget-title">Vim Tips by Tag</h3><div class="tagcloud"><a href="https://vimtricks.com/p/tag/alignment/" class="tag-cloud-link tag-link-78 tag-link-position-1" style="font-size: 8pt;" aria-label="alignment (1 item)" data-wpel-link="internal">alignment</a> <a href="https://vimtricks.com/p/tag/args/" class="tag-cloud-link tag-link-30 tag-link-position-2" style="font-size: 13.384615384615pt;" aria-label="args (4 items)" data-wpel-link="internal">args</a> <a href="https://vimtricks.com/p/tag/autocmd/" class="tag-cloud-link tag-link-85 tag-link-position-3" style="font-size: 10.423076923077pt;" aria-label="autocmd (2 items)" data-wpel-link="internal">autocmd</a> <a href="https://vimtricks.com/p/tag/autocomplete/" class="tag-cloud-link tag-link-43 tag-link-position-4" style="font-size: 10.423076923077pt;" aria-label="autocomplete (2 items)" data-wpel-link="internal">autocomplete</a> <a href="https://vimtricks.com/p/tag/books/" class="tag-cloud-link tag-link-73 tag-link-position-5" style="font-size: 8pt;" aria-label="books (1 item)" data-wpel-link="internal">books</a> <a href="https://vimtricks.com/p/tag/buffers/" class="tag-cloud-link tag-link-77 tag-link-position-6" style="font-size: 8pt;" aria-label="buffers (1 item)" data-wpel-link="internal">buffers</a> <a href="https://vimtricks.com/p/tag/case/" class="tag-cloud-link tag-link-20 tag-link-position-7" style="font-size: 10.423076923077pt;" aria-label="case (2 items)" data-wpel-link="internal">case</a> <a href="https://vimtricks.com/p/tag/checkbox/" class="tag-cloud-link tag-link-80 tag-link-position-8" style="font-size: 8pt;" aria-label="checkbox (1 item)" data-wpel-link="internal">checkbox</a> <a href="https://vimtricks.com/p/tag/checkboxes/" class="tag-cloud-link tag-link-81 tag-link-position-9" style="font-size: 8pt;" aria-label="checkboxes (1 item)" data-wpel-link="internal">checkboxes</a> <a href="https://vimtricks.com/p/tag/commands/" class="tag-cloud-link tag-link-28 tag-link-position-10" style="font-size: 10.423076923077pt;" aria-label="commands (2 items)" data-wpel-link="internal">commands</a> <a href="https://vimtricks.com/p/tag/config/" class="tag-cloud-link tag-link-92 tag-link-position-11" style="font-size: 8pt;" aria-label="config (1 item)" data-wpel-link="internal">config</a> <a href="https://vimtricks.com/p/tag/courses/" class="tag-cloud-link tag-link-75 tag-link-position-12" style="font-size: 8pt;" aria-label="courses (1 item)" data-wpel-link="internal">courses</a> <a href="https://vimtricks.com/p/tag/csv/" class="tag-cloud-link tag-link-93 tag-link-position-13" style="font-size: 8pt;" aria-label="csv (1 item)" data-wpel-link="internal">csv</a> <a href="https://vimtricks.com/p/tag/ebooks/" class="tag-cloud-link tag-link-74 tag-link-position-14" style="font-size: 8pt;" aria-label="ebooks (1 item)" data-wpel-link="internal">ebooks</a> <a href="https://vimtricks.com/p/tag/filter/" class="tag-cloud-link tag-link-70 tag-link-position-15" style="font-size: 8pt;" aria-label="filter (1 item)" data-wpel-link="internal">filter</a> <a href="https://vimtricks.com/p/tag/folding/" class="tag-cloud-link tag-link-94 tag-link-position-16" style="font-size: 8pt;" aria-label="folding (1 item)" data-wpel-link="internal">folding</a> <a href="https://vimtricks.com/p/tag/fugitive/" class="tag-cloud-link tag-link-13 tag-link-position-17" style="font-size: 10.423076923077pt;" aria-label="fugitive (2 items)" data-wpel-link="internal">fugitive</a> <a href="https://vimtricks.com/p/tag/git/" class="tag-cloud-link tag-link-6 tag-link-position-18" style="font-size: 12.038461538462pt;" aria-label="git (3 items)" data-wpel-link="internal">git</a> <a href="https://vimtricks.com/p/tag/indenting/" class="tag-cloud-link tag-link-18 tag-link-position-19" style="font-size: 10.423076923077pt;" aria-label="indenting (2 items)" data-wpel-link="internal">indenting</a> <a href="https://vimtricks.com/p/tag/insert/" class="tag-cloud-link tag-link-39 tag-link-position-20" style="font-size: 13.384615384615pt;" aria-label="insert (4 items)" data-wpel-link="internal">insert</a> <a href="https://vimtricks.com/p/tag/interface/" class="tag-cloud-link tag-link-23 tag-link-position-21" style="font-size: 10.423076923077pt;" aria-label="interface (2 items)" data-wpel-link="internal">interface</a> <a href="https://vimtricks.com/p/tag/mappings/" class="tag-cloud-link tag-link-58 tag-link-position-22" style="font-size: 12.038461538462pt;" aria-label="mappings (3 items)" data-wpel-link="internal">mappings</a> <a href="https://vimtricks.com/p/tag/markdown/" class="tag-cloud-link tag-link-63 tag-link-position-23" style="font-size: 10.423076923077pt;" aria-label="markdown (2 items)" data-wpel-link="internal">markdown</a> <a href="https://vimtricks.com/p/tag/motions/" class="tag-cloud-link tag-link-44 tag-link-position-24" style="font-size: 10.423076923077pt;" aria-label="motions (2 items)" data-wpel-link="internal">motions</a> <a href="https://vimtricks.com/p/tag/native/" class="tag-cloud-link tag-link-82 tag-link-position-25" style="font-size: 20.115384615385pt;" aria-label="native (15 items)" data-wpel-link="internal">native</a> <a href="https://vimtricks.com/p/tag/navigation/" class="tag-cloud-link tag-link-26 tag-link-position-26" style="font-size: 10.423076923077pt;" aria-label="navigation (2 items)" data-wpel-link="internal">navigation</a> <a href="https://vimtricks.com/p/tag/netrw/" class="tag-cloud-link tag-link-34 tag-link-position-27" style="font-size: 14.461538461538pt;" aria-label="netrw (5 items)" data-wpel-link="internal">netrw</a> <a href="https://vimtricks.com/p/tag/notes/" class="tag-cloud-link tag-link-17 tag-link-position-28" style="font-size: 17.423076923077pt;" aria-label="notes (9 items)" data-wpel-link="internal">notes</a> <a href="https://vimtricks.com/p/tag/patterns/" class="tag-cloud-link tag-link-2 tag-link-position-29" style="font-size: 17.423076923077pt;" aria-label="patterns (9 items)" data-wpel-link="internal">patterns</a> <a href="https://vimtricks.com/p/tag/plugin/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 10.423076923077pt;" aria-label="plugin (2 items)" data-wpel-link="internal">plugin</a> <a href="https://vimtricks.com/p/tag/plugins/" class="tag-cloud-link tag-link-11 tag-link-position-31" style="font-size: 22pt;" aria-label="plugins (21 items)" data-wpel-link="internal">plugins</a> <a href="https://vimtricks.com/p/tag/quickfix/" class="tag-cloud-link tag-link-19 tag-link-position-32" style="font-size: 10.423076923077pt;" aria-label="quickfix (2 items)" data-wpel-link="internal">quickfix</a> <a href="https://vimtricks.com/p/tag/regex/" class="tag-cloud-link tag-link-72 tag-link-position-33" style="font-size: 10.423076923077pt;" aria-label="regex (2 items)" data-wpel-link="internal">regex</a> <a href="https://vimtricks.com/p/tag/registers/" class="tag-cloud-link tag-link-22 tag-link-position-34" style="font-size: 13.384615384615pt;" aria-label="registers (4 items)" data-wpel-link="internal">registers</a> <a href="https://vimtricks.com/p/tag/replace/" class="tag-cloud-link tag-link-35 tag-link-position-35" style="font-size: 17.423076923077pt;" aria-label="replace (9 items)" data-wpel-link="internal">replace</a> <a href="https://vimtricks.com/p/tag/search/" class="tag-cloud-link tag-link-9 tag-link-position-36" style="font-size: 14.461538461538pt;" aria-label="search (5 items)" data-wpel-link="internal">search</a> <a href="https://vimtricks.com/p/tag/shell/" class="tag-cloud-link tag-link-69 tag-link-position-37" style="font-size: 8pt;" aria-label="shell (1 item)" data-wpel-link="internal">shell</a> <a href="https://vimtricks.com/p/tag/splits/" class="tag-cloud-link tag-link-10 tag-link-position-38" style="font-size: 18.5pt;" aria-label="splits (11 items)" data-wpel-link="internal">splits</a> <a href="https://vimtricks.com/p/tag/substitution/" class="tag-cloud-link tag-link-32 tag-link-position-39" style="font-size: 14.461538461538pt;" aria-label="substitution (5 items)" data-wpel-link="internal">substitution</a> <a href="https://vimtricks.com/p/tag/text-objects/" class="tag-cloud-link tag-link-15 tag-link-position-40" style="font-size: 14.461538461538pt;" aria-label="text-objects (5 items)" data-wpel-link="internal">text-objects</a> <a href="https://vimtricks.com/p/tag/unimpaired/" class="tag-cloud-link tag-link-12 tag-link-position-41" style="font-size: 12.038461538462pt;" aria-label="unimpaired (3 items)" data-wpel-link="internal">unimpaired</a> <a href="https://vimtricks.com/p/tag/vim/" class="tag-cloud-link tag-link-7 tag-link-position-42" style="font-size: 10.423076923077pt;" aria-label="vim (2 items)" data-wpel-link="internal">vim</a> <a href="https://vimtricks.com/p/tag/vimrc/" class="tag-cloud-link tag-link-36 tag-link-position-43" style="font-size: 17.961538461538pt;" aria-label="vimrc (10 items)" data-wpel-link="internal">vimrc</a> <a href="https://vimtricks.com/p/tag/visual/" class="tag-cloud-link tag-link-24 tag-link-position-44" style="font-size: 15.403846153846pt;" aria-label="visual (6 items)" data-wpel-link="internal">visual</a> <a href="https://vimtricks.com/p/tag/whitespace/" class="tag-cloud-link tag-link-79 tag-link-position-45" style="font-size: 8pt;" aria-label="whitespace (1 item)" data-wpel-link="internal">whitespace</a></div></aside></div>  <div class="col-md-4 bwp-footer-col-3"><aside id="text-4" class="bwp-widget widget_text clearfix"><h3 class="bwp-widget-title">About VimTricks</h3><div class="textwidget"><p><img decoding="async" loading="lazy" class="alignright wp-image-36" src="https://new.vimtricks.com/wp-content/uploads/2020/11/dual-300x186.png" alt="Colin and Andy" width="150" height="93" srcset="https://vimtricks.com/wp-content/uploads/2020/11/dual-300x186.png 300w, https://vimtricks.com/wp-content/uploads/2020/11/dual-768x475.png 768w, https://vimtricks.com/wp-content/uploads/2020/11/dual.png 971w" sizes="(max-width: 150px) 100vw, 150px" />VimTricks is published by Colin Bartlett and Andy Libby, two Vim enthusiasts and software developers with more than 40 years combined experience with Vim.</p><p>Have a Vim tip? Email us! <a href="/cdn-cgi/l/email-protection#4028290036292d343229232b336e232f2d"><span class="__cf_email__" data-cfemail="6a02032a1c03071e180309011944090507">[email&#160;protected]</span></a></p></div></aside><aside id="custom_html-4" class="widget_text bwp-widget widget_custom_html clearfix"><h3 class="bwp-widget-title">Links</h3><div class="textwidget custom-html-widget"><ul class="social-links list-unstyled"><li> <a class="rss" href="https://vimtricks.com/feed/" target="_blank" rel="noopener" data-wpel-link="internal"> <i class="fas fa-rss"></i> </a></li><li> <a class="twitter" href="https://twitter.com/vim_tricks" target="_blank" rel="noopener external noreferrer" data-wpel-link="external"> <i class="fab fa-twitter"></i> </a></li><li> <a class="youtube" href="https://www.youtube.com/channel/UCDPNU10nfHfPgEAqK9SmuTQ" target="_blank" rel="noopener external noreferrer" data-wpel-link="external"> <i class="fab fa-youtube"></i> </a></li><li> <a class="mastodon" href="https://vim.town/@vimtricks" target="_blank" rel="me noopener external noreferrer" data-wpel-link="external"> <i class="fab fa-mastodon"></i> </a></li></ul></div></aside></div> </div></div></div></section>  <footer id="bwp-footer"><div class="container"><div class="bwp-footer-container clearfix"> <div class="bwp-footer-text"> Copyright © 2022 <a href="https://nimbleindustries.io" target="_blank" data-wpel-link="exclude">Nimble Industries, Inc.</a></div>  <a href="https://trackssl.com/badges/details/33519/vimtricks.com" target="_blank" style="float: right;" data-wpel-link="external" rel="external noopener noreferrer"><img src="https://trackssl.com/badges/33519/vimtricks.com" alt="SSL Certificate Monitoring by TrackSSL" style="width: 150px; padding-bottom: 25px;"></a></div></div></footer> <div class="codecopy_tooltip" style="display: inline-block; background: #333; color: white; padding: 0 8px; font-size: 14px; border-radius: 2px; border: 1px solid #111; position:absolute; display: none;">Click to Copy</div> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" id="nimbo-cookies-information-plugin-js-extra"> /* <![CDATA[ */
+var nimboCookiesInformationData = {"cookiesInfoWindow":"hide","cookiesInfoOnMobile":"hidden-window"};
+/* ]]> */ </script> <script type="text/javascript" id="nimbo-social-media-plugin-js-extra"> /* <![CDATA[ */
+var nimboSocialMediaData = {"ajaxURL":"https:\/\/vimtricks.com\/wp-admin\/admin-ajax.php","ajaxNonce":"b9fc77c2c9"};
+/* ]]> */ </script> <script type="text/javascript" id="rate-my-post-js-extra"> /* <![CDATA[ */
+var rmp_frontend = {"admin_ajax":"https:\/\/vimtricks.com\/wp-admin\/admin-ajax.php","postID":"1089","noVotes":"No votes so far! Be the first to rate this tip.","cookie":"You already voted! This vote will not be counted!","afterVote":"Thank you for rating this tip!","notShowRating":"1","social":"1","feedback":"2","cookieDisable":"1","emptyFeedback":"Please insert your feedback in the box above!","hoverTexts":"2","preventAccidental":"1","grecaptcha":"1","siteKey":"","votingPriv":"1","loggedIn":"","positiveThreshold":"2","ajaxLoad":"1","disableClearCache":"1","nonce":"6b25794354"};
+/* ]]> */ </script> <script type="text/javascript" id="nimbo-theme-js-extra"> /* <![CDATA[ */
+var nimboData = {"isMobile":"false","isSingular":"true","isAdminBarShowing":"false","headerType":"header-one-row","stickyHeader":"on","logoType":"text","menuType":"visible-menu","colorSwitch":"on","darkColorSwitchIconType":"moon","dropdownSearch":"show","masonryColumnWidth":".bwp-col-2-default","toTopButton":"show","colorSwitchCookies":"on"};
+/* ]]> */ </script> <script type="text/javascript"> /* <![CDATA[ */
+var wpforms_settings = {"val_required":"This field is required.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_email_restricted":"This email address is not allowed.","val_number":"Please enter a valid number.","val_number_positive":"Please enter a valid positive number.","val_confirm":"Field values do not match.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","val_turnstile_fail_msg":"Cloudflare Turnstile verification failed, please try again later.","val_inputmask_incomplete":"Please fill out the field in required format.","uuid_cookie":"","locale":"en","wpforms_plugin_url":"https:\/\/vimtricks.com\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"https:\/\/vimtricks.com\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1","page_title":"Vim File Templates","page_id":"1089"}
+/* ]]> */ </script>  <script src="https://vimtricks.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-js-41dc5f37dcabc303fdc399cfefc067ff.js"></script></body></html>
