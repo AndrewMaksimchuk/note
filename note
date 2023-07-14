@@ -16,7 +16,7 @@ fi
 case $1 in 
 
   "create")
-        "$cwd/create_file.bash"
+        "$cwd/create_file.bash" $2
     ;;
 
   "random") 
