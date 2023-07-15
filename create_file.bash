@@ -34,7 +34,9 @@ function from_web_page
         local target_file="$target_directory/$name"
     fi
 
-    wget --directory-prefix=$target_file "$url"
+    wget --directory-prefix=$target_file \
+    --adjust-extension \
+    "$url"
     exit
 }
 

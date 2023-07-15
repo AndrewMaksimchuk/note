@@ -6,8 +6,12 @@
 # 
 # With argument(tag name) - show random note 
 # from tag
-# $1 - tag name(option)
-# $2 - number of notes to show(option)
+# Arguments:
+#    $1 - tag name or "page"(option)
+#    $2 - number of notes to show(option)
+# 
+# If $1 is "page" word - we open random web page
+# If $1 is a valid tag - show note from this tag
 
 
 cwd=$(dirname $0)
@@ -28,7 +32,8 @@ function get_note
 }
 
 
-function shownote() {
+function shownote
+{
     dir=$(echo $cwd/content/$1)
     isEmpty=$(ls -A $dir)
     if [[ -z $isEmpty ]]; then
@@ -57,7 +62,33 @@ function shownote() {
 }
 
 
+function get_page
+{
+    local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+    echo -e "${yellow}Page: $randomfile ${reset}"
+    xdg-open $randomfile
+}
+
+
+function show_page
+{
+    local dir=$(echo $cwd/content/_pages)
+    local isEmpty=$(ls -A $dir)
+    if [[ -z $isEmpty ]]; then
+        echo "You don\`t have saved web pages"
+        exit
+    fi
+    local files=($dir/**/*.html)
+    get_page
+    exit
+}
+
+
 if [ $# -ge 1 ]; then
+    if [[ $1 = "page" ]]; then
+        show_page
+    fi
+
     shownote $1 $2
 fi
 
