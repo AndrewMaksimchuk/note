@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
 
+# Create new note/save web page
+# Arguments:
+#    $1 - name of tag
+# 
+# If $1 argument is empty - show menu
+# If $1 is not exist tag - show menu
+
+
 cwd=$(dirname $0)
 quite="exit"
 page="page"
@@ -31,10 +39,36 @@ function from_web_page
 }
 
 
-# if [[ -n $1 ]]; then
-#     echo "$1"
-#     exit
-# fi
+function from_tag
+{
+    local dir=$(echo "$cwd/content/$1")
+    local list=$(ls $dir)
+    if [[ -n $list ]]; then
+        local file_max_name=$(echo "$list" | sort -n | tail -1)
+        local max=$(basename -s .md $file_max_name)
+        local new_filename=$(($max + 1))
+        local to_new_file=$(echo "$dir/$new_filename.md")
+        vi $to_new_file
+    else
+        local to_new_file=$(echo "$dir/1.md")
+        vi $to_new_file
+    fi
+}
+
+
+if [[ -n $1 ]]; then
+    if [[ $1 = $page ]]; then
+        from_web_page
+    fi
+
+    target_directory_tag=$(echo "$cwd/content/$1")
+    if [[ -d $target_directory_tag ]]; then
+        from_tag "$1"
+        exit
+    else
+        echo "Tag not found, select from list"
+    fi
+fi
 
 
 select tag in $quite $page $tags
@@ -48,17 +82,6 @@ do
     fi
 
     if [[ -n $tag ]]; then
-        dir=$(echo $cwd/content/$tag)
-        list=$(ls $dir)
-        if [[ -n $list ]]; then
-            file_max_name=$(echo "$list" | sort -n | tail -1)
-            max=$(basename -s .md $file_max_name)
-            new_filename=$(($max + 1))
-            to_new_file=$(echo "$dir/$new_filename.md")
-            vi $to_new_file
-        else
-            to_new_file=$(echo "$dir/1.md")
-            vi $to_new_file
-        fi
+        from_tag "$tag"
     fi
 done

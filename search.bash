@@ -11,6 +11,7 @@ projectdir=$(dirname $0)
 
 
 . $projectdir/echo_header.bash
+. $projectdir/editors.bash
 
 
 function search_note
@@ -25,7 +26,11 @@ function search_note
         for tag in $tags
         do
             if [[ $tag = $2 ]]; then
-                grep $1 -r $projectdir/content/$2/ | column -t -s: -W 2
+                grep -e $1 -rwn $projectdir/content/$2 \
+                | awk -F ":" '{print "file://"$1, "|"$2, "|"$3}' \
+                | column -t -s "|" --output-separator " | " \
+                --table-columns FILE,LINE,CONTENT \
+                --table-truncate 3 --table-right LINE
                 exit
             fi
         done
@@ -36,8 +41,14 @@ function search_note
         exit
     fi
 
-    grep $1 -r $projectdir/content/ | column -t -s: -W 2
+    grep -e $1 -rwn $projectdir/content/**/* \
+    | awk -F ":" '{print "file://"$1, "|"$2, "|"$3}' \
+    | column -t -s "|" --output-separator " | " \
+    --table-columns FILE,LINE,CONTENT \
+    --table-truncate 3 --table-right LINE
 }
 
 
 search_note $1 $2
+echo
+use_editor

@@ -5,7 +5,7 @@ note [ command [, command argument ] ]
 
 Commands:  
 
-`create`        create new note file  
+`create`        create new note file/save web page  
 `random`        show random selected note  
 `select`        show note selected by tag  
 `select_all`    show all notes selected by tag  
