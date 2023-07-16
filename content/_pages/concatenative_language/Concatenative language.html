@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    
+
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
+
+            <meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)" />
+            <meta name="theme-color" content="#373e48" media="(prefers-color-scheme: dark)" />
+
+            <title>Concatenative language</title>
+
+            
+
+            
+
+            <style type="text/css"> html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body, button {
+    font-size: 12pt;
+    font-family: sans-serif;
+}
+
+textarea {
+    font-size: 12pt;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+pre {
+    overflow: auto;
+    font-size: smaller;
+    line-height: 125%;
+}
+
+.link-button {
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+a, .link { color: #2A5DB0; }
+a:link, a:visited, a:active, .link { text-decoration: none; }
+a:hover, .link:hover { text-decoration: underline; }
+
+.error { color: #a00; }
+
+.errors li { color: #a00; }
+
+.field-label {
+    text-align: right;
+}
+
+.inline {
+    display: inline;
+}
+
+nav {
+    border-bottom: 1px solid #d5d5d5;
+    background-color: #f5f5f5;
+    padding: 10px;
+    padding-left: calc(max(50% - 500px, 0px) + 15px);
+    padding-right: calc(max(50% - 500px, 0px) + 15px);
+}
+
+nav a, nav .link {
+    margin-right: 10px;
+}
+
+nav img {
+    vertical-align: middle;
+}
+
+.page {
+    max-width: 1000px;
+    position: relative;
+    left: calc(max(-500px,-50%) + 50%);
+    padding: 15px;
+}
+
+.big-field-label {
+    vertical-align: top;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #202124;
+        color: #bdc1c6;
+    }
+
+    title, h1, h2, h3, h4, h5, h6 {
+        color: white;
+    }
+
+    a, .link {
+        color: #8ab4f8;
+    }
+
+    nav {
+        background-color: #373e48;
+        border-bottom: 1px solid #666;
+    }
+}
+
+.NULL {
+color: #000000;
+}
+.COMMENT1 {
+color: #cc0000;
+}
+.COMMENT2 {
+color: #ff8400;
+}
+.COMMENT3 {
+color: #6600cc;
+}
+.COMMENT4 {
+color: #cc6600;
+}
+.DIGIT {
+color: #ff0000;
+}
+.FUNCTION {
+color: #9966ff;
+}
+.INVALID {
+background: #ffffcc;
+color: #ff0066;
+}
+.KEYWORD1 {
+color: #006699;
+font-weight: bold;
+}
+.KEYWORD2 {
+color: #009966;
+font-weight: bold;
+}
+.KEYWORD3 {
+color: #0099ff;
+font-weight: bold;
+}
+.KEYWORD4 {
+color: #66ccff;
+font-weight: bold;
+}
+.LABEL {
+color: #02b902;
+}
+.LITERAL1 {
+color: #ff00cc;
+}
+.LITERAL2 {
+color: #cc00cc;
+}
+.LITERAL3 {
+color: #9900cc;
+}
+.LITERAL4 {
+color: #6600cc;
+}
+.MARKUP {
+color: #0000ff;
+}
+.OPERATOR {
+color: #000000;
+font-weight: bold;
+}
+
+input, textarea, select {
+    font-size: 12pt;
+    border: 1px solid #d5d5d5;
+    padding: 5px;
+}
+
+textarea {
+    width: 100%;
+}
+
+table {
+    table-layout: fixed;
+}
+
+td {
+    word-wrap: break-word;
+}
+
+table.comparison {
+    width: 100%;
+}
+
+table.comparison th {
+    width: 50%;
+}
+
+table.comparison th, table.comparison td {
+    border: 1px solid #d5d5d5;
+}
+
+.insert {
+    background-color: #9f9;
+    color: black;
+}
+
+.delete {
+    background-color: #f99;
+    color: black;
+}
+
+table.revisions {
+    width: 100%;
+}
+
+table.revisions td, table.revisions th {
+    margin: 0;
+    padding: 4px;
+}
+
+table.revisions, table.revisions th, table.revisions td {
+    border: 1px solid #d5d5d5;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    table.comparison, table.comparison th, table.comparison td {
+        border-color: #666;
+    }
+
+    table.revisions, table.revisions th, table.revisions td {
+        border-color: #666;
+    }
+}
+
+.description {
+    line-height: 150%;
+}
+
+.description pre {
+    padding: 0.5em;
+    background-color: #f5f5f5;
+}
+
+.description h1 { font-size: 1.5em; }
+.description h2 { font-size: 1.17em; }
+.description h3 { font-size: 1.0em; }
+.description h4 { font-size: 0.83em; }
+.description h5 { font-size: 0.67em; }
+
+.description p:first-child { margin-top: 0px; }
+.description p:last-child { margin-bottom: 0px; }
+
+#left {
+    position: absolute;
+    top: 0;
+    left: calc(min(100vw - 200px, 800px));
+    width: 200px;
+    z-index: 99;
+    border: none;
+    border-left: 1px solid #d5d5d5;
+}
+
+#right {
+    width: calc(100vw - 200px);
+    max-width: calc(min(100vw - 230px, 770px));
+}
+
+.contents {
+    font-size: 90%;
+    margin: 0;
+    padding: 15px;
+    padding-top: 0px;
+    line-height: 130%;
+}
+
+.contents ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.page nav {
+    margin: -15px;
+    margin-top: 0px;
+    background: none;
+}
+
+.page img {
+    max-width: 100%;
+}
+
+.page hr {
+    height: 1px;
+}
+
+nav img {
+    margin-right: 5px;
+    display: none;
+}
+
+nav input {
+    margin: 0px;
+    margin-top: -2px;
+}
+
+.page nav {
+    width: calc(100vw - 200px);
+    max-width: 800px;
+    left: 0;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    margin-top: 15px;
+}
+
+.page footer {
+    padding: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: smaller;
+}
+
+@media screen and (max-width: 600px) {
+    #left {
+        position: absolute;
+        display: none;
+        left: 0;
+        top: 0;
+        background: #f5f5f5;
+        border: none;
+        border-right: 1px solid #d5d5d5;
+        border-bottom: 1px solid #d5d5d5;
+        padding-top: 0px;
+        box-shadow: 5px 5px 10px #aaa;
+    }
+
+    #right {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    nav img {
+        display: inline;
+    }
+
+    .page {
+        width: 100%;
+    }
+
+    .page nav {
+        width: 100vw;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    nav img {
+        filter: invert(80%);
+    }
+
+    #left {
+        border: none;
+        border-left: 1px solid #666;
+    }
+
+    .description pre {
+        color: black;
+        background-color: white;
+        filter: invert(80%);
+    }
+
+    .page nav {
+        border-top: 1px solid #666;
+        border-bottom: 1px solid #666;
+    }
+}
+
+@media screen and (max-width: 600px) and (prefers-color-scheme: dark) {
+
+    #left {
+        background-color: #373e48;
+        border: none;
+        border-right: 1px solid #666;
+        border-bottom: 1px solid #666;
+        box-shadow: 5px 5px 10px #333;
+    }
+}
+ </style>
+
+            <script type="text/javascript">/* <![CDATA[*/function toggleSidebar() {
+    var l = document.getElementById("left");
+    var m = document.getElementById("menu");
+    if (l.style.display === "") {
+        l.style.display = "inline";
+        m.src = "data:image/svg+xml;utf8,%3Csvg version=%271.1%27 xmlns=%27http://www.w3.org/2000/svg%27 xmlns:xlink=%27http://www.w3.org/1999/xlink%27 width=%2724%27 height=%2716%27 viewBox=%270 0 460.775 460.775%27%3E%3Cpath d=%27M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55 c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55 c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505 c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z%27/%3E%3C/svg%3E";
+    } else {
+        l.style.display = "";
+        m.src = "data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 xmlns:xlink=%27http://www.w3.org/1999/xlink%27 width=%2724%27 height=%2716%27 viewBox=%270 0 120 100%27 fill=%27rgb(0,0,0)%27%3E%3Crect y=%270%27 width=%27120%27 height=%2720%27 rx=%2710%27 /%3E%3Crect y=%2740%27 width=%27120%27 height=%2720%27 rx=%2710%27 /%3E%3Crect y=%2780%27 width=%27120%27 height=%2720%27 rx=%2710%27 /%3E%3C/svg%3E";
+    }
+}
+/*]]> */</script>
+
+            <link rel="alternate" type="application/atom+xml" title="
+		Revisions of Concatenative language
+	" href="https://concatenative.org/wiki/revisions.atom/Concatenative%20language"/><link rel="alternate" type="application/atom+xml" title="
+        Recent Changes
+    " href="https://concatenative.org/wiki/changes.atom"/>
+        </head>
+
+        <body>
+
+            
+
+    
+
+    
+
+    <nav>
+        
+            <img id="menu" onclick="toggleSidebar()" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 xmlns:xlink=%27http://www.w3.org/1999/xlink%27 width=%2724%27 height=%2716%27 viewBox=%270 0 120 100%27 fill=%27rgb(0,0,0)%27%3E%3Crect y=%270%27 width=%27120%27 height=%2720%27 rx=%2710%27 /%3E%3Crect y=%2740%27 width=%27120%27 height=%2720%27 rx=%2710%27 /%3E%3Crect y=%2780%27 width=%27120%27 height=%2720%27 rx=%2710%27 /%3E%3C/svg%3E" />
+        
+
+        <a href="https://concatenative.org/wiki/">Front Page</a>
+        <a href="https://concatenative.org/wiki/articles">All Articles</a>
+        <a href="https://concatenative.org/wiki/changes">Recent Changes</a>
+        <a href="https://concatenative.org/wiki/random">Random Article</a>
+
+        
+
+        <form style="display: inline;" method="get" action="/wiki/search"><div style="display: none;"><input type="hidden" value="5496003351775025411" name="__s"/><input type="hidden" value="https://concatenative.org/wiki/view/Concatenative%20language" name="__u"/></div>
+            <input placeholder="Search" name="search" type="text" />
+            <input type="submit" value="Go" />
+        </form>
+    </nav>
+
+    <div class="page">
+
+        <div id="left">
+            
+
+                
+
+                <div class="contents">
+                    
+                        <h2>
+                            <a href="https://concatenative.org/wiki/view/Contents">
+                                Contents
+                            </a>
+                        </h2>
+
+                        <p><a href="https://concatenative.org/wiki/view/Concatenative%20language">Concatenative language</a></p><ul><li> <a href="https://concatenative.org/wiki/view/ACL">ACL</a></li><li> <a href="https://concatenative.org/wiki/view/Ait">Ait</a></li><li> <a href="https://concatenative.org/wiki/view/Aocla">Aocla</a></li><li> <a href="https://concatenative.org/wiki/view/Breeze">Breeze</a></li><li> <a href="https://concatenative.org/wiki/view/Cat">Cat</a></li><li> <a href="https://concatenative.org/wiki/view/Cognate">Cognate</a></li><li> <a href="https://concatenative.org/wiki/view/colorForth">colorForth</a></li><li> <a href="https://concatenative.org/wiki/view/CoSy">CoSy</a></li><li> <a href="https://concatenative.org/wiki/view/Deque">Deque</a></li><li> <a href="https://concatenative.org/wiki/view/DSSP">DSSP</a></li><li> <a href="https://concatenative.org/wiki/view/dt">dt</a></li><li> <a href="https://concatenative.org/wiki/view/Elymas">Elymas</a></li><li> <a href="https://concatenative.org/wiki/view/Enchilada">Enchilada</a></li><li> <a href="https://concatenative.org/wiki/view/ETAC">ETAC</a></li><li> <a href="https://concatenative.org/wiki/view/F">F</a></li><li> <a href="https://concatenative.org/wiki/view/Factor">Factor</a></li><li> <a href="https://concatenative.org/wiki/view/Forth">Forth</a></li><li> <a href="https://concatenative.org/wiki/view/Freelang">Freelang</a></li><li> <a href="https://concatenative.org/wiki/view/Gershwin">Gershwin</a></li><li> <a href="https://concatenative.org/wiki/view/Joy">Joy</a></li><li> <a href="https://concatenative.org/wiki/view/Kitten">Kitten</a></li><li> <a href="https://concatenative.org/wiki/view/lang5">lang5</a></li><li> <a href="https://concatenative.org/wiki/view/Listack">Listack</a></li><li> <a href="https://concatenative.org/wiki/view/LSE64">LSE64</a></li><li> <a href="https://concatenative.org/wiki/view/Lviv">Lviv</a></li><li> <a href="https://concatenative.org/wiki/view/min">min</a></li><li> <a href="https://concatenative.org/wiki/view/mjoy">mjoy</a></li><li> <a href="https://concatenative.org/wiki/view/Mlatu">Mlatu</a></li><li> <a href="https://concatenative.org/wiki/view/Ode">Ode</a></li><li> <a href="https://concatenative.org/wiki/view/OForth">OForth</a></li><li> <a href="https://concatenative.org/wiki/view/Om">Om</a></li><li> <a href="https://concatenative.org/wiki/view/Onyx">Onyx</a></li><li> <a href="https://concatenative.org/wiki/view/Plorth">Plorth</a></li><li> <a href="https://concatenative.org/wiki/view/Popr">Popr</a></li><li> <a href="https://concatenative.org/wiki/view/Porth">Porth</a></li><li> <a href="https://concatenative.org/wiki/view/PostScript">PostScript</a></li><li> <a href="https://concatenative.org/wiki/view/Quest32">Quest32</a></li><li> <a href="https://concatenative.org/wiki/view/Quackery">Quackery</a></li><li> <a href="https://concatenative.org/wiki/view/r3">r3</a></li><li> <a href="https://concatenative.org/wiki/view/Raven">Raven</a></li><li> <a href="https://concatenative.org/wiki/view/Retro">Retro</a></li><li> <a href="https://concatenative.org/wiki/view/RPL">RPL</a></li><li> <a href="https://concatenative.org/wiki/view/Staapl">Staapl</a></li><li> <a href="https://concatenative.org/wiki/view/Stabel">Stabel</a></li><li> <a href="https://concatenative.org/wiki/view/Trith">Trith</a></li><li> <a href="https://concatenative.org/wiki/view/Worst">Worst</a></li><li> <a href="https://concatenative.org/wiki/view/xs">xs</a></li><li> <a href="https://concatenative.org/wiki/view/XY">XY</a></li><li> <a href="https://concatenative.org/wiki/view/5th">5th</a></li><li> <a href="https://concatenative.org/wiki/view/8th">8th</a></li></ul><p>Other languages</p><ul><li> <a href="https://concatenative.org/wiki/view/APL">APL</a></li><li> <a href="https://concatenative.org/wiki/view/C%2B%2B">C++</a></li><li> <a href="https://concatenative.org/wiki/view/Erlang">Erlang</a></li><li> <a href="https://concatenative.org/wiki/view/FP%20trivia">FP trivia</a></li><li> <a href="https://concatenative.org/wiki/view/Haskell">Haskell</a></li><li> <a href="https://concatenative.org/wiki/view/Io">Io</a></li><li> <a href="https://concatenative.org/wiki/view/Java">Java</a></li><li> <a href="https://concatenative.org/wiki/view/JavaScript">JavaScript</a></li><li> <a href="https://concatenative.org/wiki/view/Lisp">Lisp</a></li><li> <a href="https://concatenative.org/wiki/view/ML">ML</a></li><li> <a href="https://concatenative.org/wiki/view/Oberon">Oberon</a></li><li> <a href="https://concatenative.org/wiki/view/RPL">RPL</a></li><li> <a href="https://concatenative.org/wiki/view/Self">Self</a></li><li> <a href="https://concatenative.org/wiki/view/Slate">Slate</a></li><li> <a href="https://concatenative.org/wiki/view/Smalltalk">Smalltalk</a></li></ul><p>Computer Science</p><ul><li> <a href="https://concatenative.org/wiki/view/Type%20systems">Type systems</a></li><li> <a href="https://concatenative.org/wiki/view/Language%20paradigms">Language paradigms</a></li><li> <a href="https://concatenative.org/wiki/view/Compilers">Compilers</a></li><li> <a href="https://concatenative.org/wiki/view/Interpreters">Interpreters</a></li><li> <a href="https://concatenative.org/wiki/view/Garbage%20collection">Garbage collection</a></li></ul><p>Meta</p><ul><li> <a href="http://www.google.com/custom?hl=en&amp;cof=&amp;domains=concatenative.org&amp;btnG=Search&amp;sitesearch=concatenative.org" rel="nofollow"><strong>Search</strong></a></li><li> <a href="https://concatenative.org/wiki/view/Farkup">Farkup wiki format</a></li><li> <a href="https://concatenative.org/wiki/view/People">People</a></li><li> <a href="https://concatenative.org/wiki/view/Etiquette">Etiquette</a></li><li> <a href="https://concatenative.org/wiki/view/Sandbox">Sandbox</a></li></ul>
+                    
+                </div>
+            
+        </div>
+
+        <div id="right">
+            <h1 class="title">Concatenative language</h1>
+            
+
+	
+
+	
+
+	
+
+	<div class="description">
+		<p>There are many ways to categorize programming languages; one is to define them as either "concatenative" or "applicative". In an applicative language, things are evaluated by applying functions to arguments. This includes almost all programming languages in wide use, such as <a href="https://concatenative.org/wiki/view/C">C</a>, <a href="https://concatenative.org/wiki/view/Python">Python</a>, <a href="https://concatenative.org/wiki/view/ML">ML</a>, <a href="https://concatenative.org/wiki/view/Haskell">Haskell</a>, and <a href="https://concatenative.org/wiki/view/Java">Java</a>. In a concatenative programming language, things are evaluated by composing several functions which all operate on a single piece of data, passed from function to function. This piece of data is usually in the form of a stack. Additionally, in concatenative languages, this function composition is indicated by concatenating programs. Examples of concatenative languages include <a href="https://concatenative.org/wiki/view/Forth">Forth</a>, <a href="https://concatenative.org/wiki/view/Joy">Joy</a>, <a href="https://concatenative.org/wiki/view/PostScript">PostScript</a>, <a href="https://concatenative.org/wiki/view/Cat">Cat</a>, and <a href="https://concatenative.org/wiki/view/Factor">Factor</a>. </p><h1> Concatenative and stack languages </h1><p>Although the terms <em>stack language</em> and <em>concatenative language</em> sometimes get thrown around interchangeably, they actually represent similar but distinct classes of languages.  A concatenative language is not necessarily a stack language.  For example, <a href="https://concatenative.org/wiki/view/Om">Om</a> uses prefix notation, rather than postfix, and passes the remainder of the program as the data from function to function.  See <a href="https://concatenative.org/wiki/view/Deque">Deque</a> for another example of a stack-free concatenative language.</p><p>Stacks are a pretty fundamental concept in computer science, and many languages use stacks internally in the implementation. Any language that allows recursive definitions uses some type of call stack to save return addresses between function calls, and often the same stack is used to spill values which cannot be allocated in registers. However, this is just implementation detail, and this call stack is not exposed directly to the programmer (except in languages with first-class continuations; I'll touch upon this later).</p><p>So what makes stack languages different? The key concept here is that there are <em>multiple</em> stacks: all stack languages have a call stack to support recursion, but they also have a data stack (sometimes called an operand stack) to pass values between functions. The latter is what stack language programmers mean when they talk about "the" stack.</p><p>Most languages in widespread use today are <em>applicative languages</em>: the central construct in the language is some form of function call, where a function is <em>applied</em> to a set of parameters, where each parameter is itself the result of a function call, the name of a variable, or a constant. In stack languages, a function call is made by simply writing the name of the function; the parameters are implicit, and they have to <em>already</em> be on the stack when the call is made. The result of the function call (if any) is then left on the stack after the function returns, for the next function to consume, and so on. Because functions are invoked simply by mentioning their name without any additional syntax, Forth and Factor refer to functions as "words", because in the syntax they really are just words.</p><h1> One mutable stack or functions from stacks to stacks? </h1><p>Sometimes, people talk about words pushing and popping values on "the stack". Other programmers, mostly those who prefer the term "concatenative language", instead talk about words as being functions which take a stack as input, and return a whole new stack as output. The first point of view is more intuitive, and it is also how most implementations work: there really is a location in memory that is the data stack. The latter is more amenable to formal reasoning: it is easier to work with rewrite rules and type systems if your functions are pure. However, these two points of view are equivalent: because in a given thread of execution, only one stack is "live" at any given point in time, updating the stack in-place has the same semantics as the purely functional world view. More details about this can be found in <a href="https://concatenative.org/wiki/view/Manfred%20von%20Thun">Manfred von Thun</a>'s paper <a href="https://hypercubed.github.io/joy/html/j02maf.html" rel="nofollow">Mathematical Foundations of Joy</a>.</p><h1> Fundamentals of concatenative languages </h1><ul><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Name%20code%20not%20values">Name code not values</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Multiple%20return%20values">Multiple return values</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Concatenation%20is%20composition">Concatenation is composition</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Left%20to%20right%20evaluation">Left to right evaluation</a></li></ul><h1> Concatenative idioms </h1><ul><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Keyword%20parameters">Keyword parameters</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Rest%20parameters">Rest parameters</a></li><li> <a href="https://concatenative.org/wiki/view/Pipeline%20style">Pipeline style</a></li></ul><h1> Other interesting properties </h1><ul><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Concision">Concision</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Simplicity">Simplicity</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Meta-programming">Meta-programming</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Continuations">Continuations</a></li><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Interactive%20development">Interactive development</a></li></ul><h1> Publications </h1><ul><li> <a href="https://concatenative.org/wiki/view/Concatenative%20language/Publications">Publications</a></li></ul>
+	</div>
+
+	<p>
+		<em>This revision created on Fri, 10 Sep 2021 18:36:34 by <a href="https://concatenative.org/wiki/user-edits/AliAsshole">AliAsshole</a>
+			
+				(Replaced dead link with live one)
+			
+		</em>
+	</p>
+
+
+
+    <nav>
+		<a href="https://concatenative.org/wiki/view/Concatenative%20language">Latest</a>
+		<a href="https://concatenative.org/wiki/revisions/Concatenative%20language">Revisions</a>
+		<a rel="nofollow" href="https://concatenative.org/wiki/edit/Concatenative%20language">Edit</a>
+		<form class="inline" xmlns:t="https://factorcode.org/chloe/1.0" method="post" action="/wiki/delete"><div style="display: none;"><input value="Concatenative language" name="title" type="hidden"/><input type="hidden" value="5496003351775025411" name="__s"/><input type="hidden" value="https://concatenative.org/wiki/view/Concatenative%20language" name="__u"/></div>
+            <div style="display: inline;"><button type="submit" class="link-button link">Delete</button></div>
+        </form>
+	</nav>
+
+
+
+            
+                <footer>
+                    
+                        <p>All content is © 2008-2023 by its respective authors. By adding content to this wiki, you agree to release it under the <a href="https://factorcode.org/license.txt" rel="nofollow">BSD license</a>.</p>
+                    
+                </footer>
+            
+        </div>
+
+    </div>
+
+    <span style="display:none"></span>
+
+
+
+        </body>
+
+    
+
+</html>
