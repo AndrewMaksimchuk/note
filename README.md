@@ -35,6 +35,7 @@ Also add shell completion for bash/zsh.
 ### Git
 
 For update git repository, run `update.bash`  
+Or if you want autoupdate, run `autoupdate.bash`
 
 ### Usage
 

@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
 
-cwd=$(realpath $(dirname $0 ))
+cwd=$(realpath $(dirname $0))
 
 cron_file="$cwd/cron"
 update_script_file="$cwd/update.bash"
-
-echo $cron_file
-echo $update_script_file
 
 crontab -l > $cron_file
 
