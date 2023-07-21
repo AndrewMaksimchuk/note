@@ -41,14 +41,17 @@ function search_note
         exit
     fi
 
-    grep -e $1 -rwn $projectdir/content/**/* \
-    | awk -F ":" '{print "file://"$1, "|"$2, "|"$3}' \
-    | column -t -s "|" --output-separator " | " \
-    --table-columns FILE,LINE,CONTENT \
-    --table-truncate 3 --table-right LINE
+    local result=$(
+        grep -e $1 -rwn $projectdir/content/**/* \
+        | awk -F ":" '{print "file://"$1, "|"$2, "|"$3}' \
+        | column -t -s "|" --output-separator " | " \
+        --table-columns FILE,LINE,CONTENT \
+        --table-truncate 3 --table-right LINE
+    )
+
+    echo "$result"
+    [[ -n "$result" ]] && use_editor
 }
 
 
 search_note $1 $2
-echo
-use_editor
