@@ -20,6 +20,12 @@ function get_random_note
     local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
     echo
     echo -e "${yellow}Note: $randomfile ${reset}"
+    if [[ -d $randomfile ]]; then
+        local page=$(echo $randomfile/*)
+        echo $page
+        lynx -dump -nolist $page | less
+        exit
+    fi
     cat $randomfile | fold -w 80 -s
 }
 
