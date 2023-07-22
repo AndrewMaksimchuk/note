@@ -1,4 +1,4 @@
-[*.md]
+[*.{md,js,ts}]
 charset = utf-8
 indent_size = 2
 end_of_line = lf

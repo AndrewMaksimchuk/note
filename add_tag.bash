@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 
+# Arguments:
+#    $1 - name of new tag
+
+
 cwd=$(dirname $0)
 
 

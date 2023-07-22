@@ -22,12 +22,12 @@ declare global {
   }
 }
 
-const handler = (request: Request): Response => {
+const handler = async (request: Request): Promise<Response> => {
   const url = new URL<ProjectURL>(request.url)
 
   console.log(url.pathname)
   const key = url.pathname.slice<keyof typeof COMMAND>(1)
-  const stdout = COMMAND[key]?.()
+  const stdout = await COMMAND[key]?.(request)
 
   return new Response(stdout, { status: 200 });
 };
