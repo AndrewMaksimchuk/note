@@ -10,6 +10,7 @@
 #    $1 - tag name or "page"(option)
 #    $2 - number of notes to show(option)
 # 
+# without arguments    - show menu
 # If $1 is "page" word - we open random web page
 # If $1 is a valid tag - show note from this tag
 

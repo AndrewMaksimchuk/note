@@ -1,4 +1,5 @@
 import * as path from "https://deno.land/std@0.57.0/path/mod.ts";
+// [command_script, $1, $2, $3]
 
 
 const __dirname = path
@@ -15,8 +16,8 @@ export const notImplemented = () => {
 
 type DenoCommandParameters = ConstructorParameters<typeof Deno.Command>
 type StdoutCommandParameters = [
-  command:Exclude<DenoCommandParameters[0], URL>,
-  oprions?:DenoCommandParameters[1]
+  command: Exclude<DenoCommandParameters[0], URL>,
+  oprions?: DenoCommandParameters[1]
 ]
 const stdoutCommand = (
   ...[command, options]: StdoutCommandParameters
@@ -39,7 +40,11 @@ const getContentLength = (request: Request) => {
 
 
 // COMMANDS
-export const create = () => {
+export const create = (request: Request) => {
+  if (request.method === 'GET') {
+    return "create new note file/save web page";
+  }
+
   notImplemented();
   return "";
 }
@@ -50,16 +55,41 @@ export const random = () => {
 }
 
 
-export const select = () => {
-  notImplemented();
-  return "";
+export const select = async (request: Request) => {
+  if (request.method === 'GET') {
+    return "Show note selected by tag or web pages";
+  }
+
+  const command = "select.bash"
+  const contentLength = getContentLength(request)
+
+  if (contentLength === '0') {
+    return stdoutCommand(command);
+  }
+
+  const formData = await request.formData()
+  const name = formData.get("name") // $1
+  const counter = formData.get("counter") ?? ''//$2
+  
+  if (
+    typeof name !== 'object' &&
+    typeof counter !== 'object'
+  ) {
+    return stdoutCommand(
+      command,
+      {
+        args: [name, counter]
+      }
+    );
+  }
+
+  return "Invalid request";
 }
 
 
-// Method: POST
 export const tag = async (request: Request) => {
-  if(request.method === 'GET') {
-    return "Invalid request";
+  if (request.method === 'GET') {
+    return "Add new tag";
   }
 
   const contentLength = getContentLength(request)
@@ -102,17 +132,16 @@ export const update = () => {
 }
 
 
-// Method: POST
 export const select_all = async (request: Request) => {
-  if(request.method === 'GET') {
-    return "Invalid request";
+  if (request.method === 'GET') {
+    return "Show all notes selected by tag";
   }
-  
+
   const contentLength = getContentLength(request)
 
-    if (contentLength === '0') {
-      return stdoutCommand("show_notes.bash");
-    }
+  if (contentLength === '0') {
+    return stdoutCommand("show_notes.bash");
+  }
 
   const formData = await request.formData()
   const tagName = formData.get("tag")
