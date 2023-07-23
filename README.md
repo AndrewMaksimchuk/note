@@ -37,8 +37,10 @@ Also add shell completion for bash/zsh.
 For update git repository, run `update.bash`  
 Or if you want autoupdate, run `autoupdate.bash`
 
+
 ### Usage
 
 Run `./dashboard` from project directory  
+`tags` file must be sorted  
 
 See [usage](usage.md)  
