@@ -13,13 +13,17 @@ export const notImplemented = () => {
 }
 
 
-type StdoutCommandParameters = ConstructorParameters<typeof Deno.Command>
+type DenoCommandParameters = ConstructorParameters<typeof Deno.Command>
+type StdoutCommandParameters = [
+  command:Exclude<DenoCommandParameters[0], URL>,
+  oprions?:DenoCommandParameters[1]
+]
 const stdoutCommand = (
   ...[command, options]: StdoutCommandParameters
 ) => {
   const runCommand = new Deno
     .Command(
-      command,
+      path.join(__dirname, command),
       options,
     );
   const { stdout } = runCommand.outputSync();
@@ -27,6 +31,14 @@ const stdoutCommand = (
 }
 
 
+const getContentLength = (request: Request) => {
+  return request
+    .headers
+    .get("content-length")
+}
+
+
+// COMMANDS
 export const create = () => {
   notImplemented();
   return "";
@@ -34,9 +46,7 @@ export const create = () => {
 
 
 export const random = () => {
-  return stdoutCommand(
-    __dirname + "/show_random_note.bash"
-  );
+  return stdoutCommand("show_random_note.bash");
 }
 
 
@@ -48,14 +58,14 @@ export const select = () => {
 
 // Method: POST
 export const tag = async (request: Request) => {
-  const contentLength = request
-    .headers
-    .get("content-length")
+  if(request.method === 'GET') {
+    return "Invalid request";
+  }
+
+  const contentLength = getContentLength(request)
 
   if (contentLength === '0') {
-    return stdoutCommand(
-      __dirname + "/add_tag.bash"
-    );
+    return stdoutCommand("add_tag.bash");
   }
 
   const formData = await request.formData()
@@ -63,7 +73,7 @@ export const tag = async (request: Request) => {
 
   if (tagName && typeof tagName !== 'object') {
     return stdoutCommand(
-      __dirname + "/add_tag.bash",
+      "add_tag.bash",
       {
         args: [tagName]
       }
@@ -92,9 +102,31 @@ export const update = () => {
 }
 
 
-export const select_all = () => {
-  notImplemented();
-  return "";
+// Method: POST
+export const select_all = async (request: Request) => {
+  if(request.method === 'GET') {
+    return "Invalid request";
+  }
+  
+  const contentLength = getContentLength(request)
+
+    if (contentLength === '0') {
+      return stdoutCommand("show_notes.bash");
+    }
+
+  const formData = await request.formData()
+  const tagName = formData.get("tag")
+
+  if (tagName && typeof tagName !== 'object') {
+    return stdoutCommand(
+      "show_notes.bash",
+      {
+        args: [tagName]
+      }
+    );
+  }
+
+  return "Invalid request";
 }
 
 

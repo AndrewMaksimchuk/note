@@ -28,7 +28,7 @@ case $1 in
     ;;
 
     "select_all") 
-        "$cwd/show_notes.bash"
+        "$cwd/show_notes.bash" $2
     ;;
 
     "tag") 
