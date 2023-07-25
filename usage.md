@@ -14,4 +14,4 @@ Commands:
 `clear`         delete all note files  
 `update`        update git remote repository  
 `search`        search notes/pages that contain word
-
+`hide`          hide note  

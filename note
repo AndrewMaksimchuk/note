@@ -51,6 +51,10 @@ case $1 in
         "$cwd/search.bash" $2 $3
     ;;
 
+    "hide") 
+        "$cwd/hide.bash" $2
+    ;;
+
   *) 
     echo "Command not valid"
     usage 

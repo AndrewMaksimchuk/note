@@ -58,3 +58,4 @@ Support commands:
 - [ ] clear
 - [ ] update
 - [ ] search
+- [ ] hide

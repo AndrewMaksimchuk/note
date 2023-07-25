@@ -3,7 +3,8 @@
 
 function _note() {
     COMPREPLY=("create" "random" "select" 
-    "tag" "edit" "clear" "update" "select_all" "search")
+    "tag" "edit" "clear" "update" "select_all" 
+    "search" "hide")
 }
 
 
