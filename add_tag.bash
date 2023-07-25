@@ -3,13 +3,20 @@
 
 # Arguments:
 #    $1 - name of new tag
+#         or --all(-a) flag
 
 
 cwd=$(dirname $0)
 
 
-if [ $# -eq 0 ]; then
+if [[ $# -eq 0 ]]; then
   echo "Add name of new tag"
+  exit
+fi
+
+
+if [[ $1 = "-a" || $1 = "--all" ]]; then
+  $cwd/show_tags.bash
   exit
 fi
 
