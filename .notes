@@ -1,0 +1,4 @@
+https://deno.land/api@v1.35.2?s=Deno.ChildProcess
+https://examples.deno.land/subprocesses-spawn
+https://examples.deno.land/streaming-files
+https://deno.land/manual@v1.35.2/runtime/http_server_apis#responding-with-a-response
