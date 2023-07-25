@@ -44,3 +44,17 @@ Run `./dashboard` from project directory
 `tags` file must be sorted  
 
 See [usage](usage.md)  
+
+
+### Web server
+
+Support commands:
+- [?] create
+- [x] random
+- [x] select
+- [x] select_all
+- [x] tag
+- [ ] edit
+- [ ] clear
+- [ ] update
+- [ ] search
