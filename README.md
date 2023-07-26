@@ -59,3 +59,4 @@ Support commands:
 - [ ] update
 - [ ] search
 - [ ] hide
+- [ ] image

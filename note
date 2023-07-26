@@ -55,6 +55,10 @@ case $1 in
         "$cwd/hide.bash" $2
     ;;
 
+    "image") 
+        "$cwd/image.bash" $2 $3 $4
+    ;;
+
   *) 
     echo "Command not valid"
     usage 

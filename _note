@@ -14,5 +14,6 @@ subcmds=(
     "update:update git remote repository" 
     "search:search notes that contain word" 
     "hide:hide note" 
+    "image:add/show/remove images" 
 )
 _describe 'command' subcmds

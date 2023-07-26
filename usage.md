@@ -15,3 +15,4 @@ Commands:
 `update`        update git remote repository  
 `search`        search notes/pages that contain word
 `hide`          hide note  
+`image`         add/show/remove images  
