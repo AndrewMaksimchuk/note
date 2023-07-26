@@ -4,6 +4,9 @@
 ### Description
 
 Note-taking cli application  
+Support markdown, html, images, video  
+Markdown and html files save in git,  
+images and video not.  
 
 Platform: linux  
 Require: `bash`, `nvim`  
@@ -60,3 +63,4 @@ Support commands:
 - [ ] search
 - [ ] hide
 - [ ] image
+- [ ] video

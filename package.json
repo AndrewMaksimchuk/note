@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5"
+  }
+}

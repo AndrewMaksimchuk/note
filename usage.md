@@ -16,3 +16,4 @@ Commands:
 `search`        search notes/pages that contain word
 `hide`          hide note  
 `image`         add/show/remove images  
+`video`         save video from youtube

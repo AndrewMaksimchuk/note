@@ -47,3 +47,5 @@ addcompletion
 
 execfiles=$(echo $cwd/*.bash)
 chmod +x $execfiles
+
+npm ci
