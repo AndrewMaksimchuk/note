@@ -65,3 +65,13 @@ Support commands:
 - [ ] image
 - [ ] video
 - [ ] notification
+
+
+### Dependencies
+
+- bash
+- wget
+- vim/nvim
+- Deno
+- Node.js
+- gnome-terminal

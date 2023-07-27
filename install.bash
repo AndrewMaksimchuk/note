@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 cwd=$(dirname $0)
@@ -24,7 +24,7 @@ function addcompletion() {
 
 
 if [[ ! -e $cwd/tags ]]; then
-    echo [ Create file of tags ]
+    echo "[ Create file of tags ]"
     vi $cwd/tags
 fi
 
@@ -48,4 +48,5 @@ addcompletion
 execfiles=$(echo $cwd/*.bash)
 chmod +x $execfiles
 
-npm ci
+isExist=$(whereis npm | cut -d: -f2)
+[[ -z $isExist ]] && echo "Please run 'npm ci' manual"
