@@ -13,6 +13,7 @@ function show
     local files=($cwd/content/**/*.md)
     local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
     gnome-terminal \
+        --title 'note' \
         --hide-menubar \
         --geometry=80x24 \
         -- vi $randomfile
@@ -36,16 +37,16 @@ function set {
 
     crontab -l >$cron_file
 
-    # isSetup=$(cat $cron_file | grep $update_script_file | wc -l)
-    # if [[ $isSetup -ge 1 ]]; then
-    #     echo "Job already setup"
-    #     exit
-    # fi
+    isSetup=$(cat $cron_file | grep 'notification.bash' | wc -l)
+    if [[ $isSetup -ge 1 ]]; then
+        echo "Job already setup"
+        exit
+    fi
 
     local path_abs=$(realpath $0)
-    echo "*/$minutes */$hours * * * $path_abs" >>$cron_file
+    echo "*/$minutes */$hours * * * XDG_RUNTIME_DIR=/run/user/$(id -u) $path_abs" >>$cron_file
 
-    # crontab $cron_file
+    crontab $cron_file
     exit
 }
 

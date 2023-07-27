@@ -64,3 +64,4 @@ Support commands:
 - [ ] hide
 - [ ] image
 - [ ] video
+- [ ] notification

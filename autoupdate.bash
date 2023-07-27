@@ -13,6 +13,6 @@ if [[ $isSetup -ge 1 ]]; then
     exit
 fi
 
-echo "00 10 * * 1-5 $update_script_file" >>$cron_file
+echo "00 10 * * 1-5 XDG_RUNTIME_DIR=/run/user/$(id -u) $update_script_file" >>$cron_file
 
 crontab $cron_file

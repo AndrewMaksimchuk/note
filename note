@@ -63,6 +63,10 @@ case $1 in
         "$cwd/video.bash" $2 $3
     ;;
 
+    "notification")
+        "$cwd/notification.bash" $2 $3 $4
+    ;;
+
   *) 
     echo "Command not valid"
     usage 
