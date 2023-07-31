@@ -1,0 +1,2861 @@
+<!--
+  $Id: dialog.html,v 1.102 2022/04/11 00:26:50 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>DIALOG &ndash; Script-driven curses widgets</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <meta name="keywords" content=
+  "dialog, shell scripts, text user-interface, TUI, curses, ncurses, menubox, Xdialog, whiptail">
+  <meta name="description" content=
+  "dialog is used in shell scripts to present a variety of questions or display messages using text user-interface widgets">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><br>
+  Copyright &copy; 1999-2021,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <h1 class="no-header">DIALOG &ndash; Script-driven curses
+  widgets</h1>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/dialog/dialog.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li>
+        <a href="#history">History</a>
+        <ul>
+          <li><a href="#history_early">Early History</a></li>
+
+          <li><a href="#history_myself">My Involvement...</a></li>
+
+          <li><a href="#history_details">Dialog's ChangeLog</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#compatibility">Compatibility</a>
+        <ul>
+          <li><a href="#compat_oldver">Older versions of dialog</a></li>
+
+          <li><a href="#compat_xdialog">Xdialog</a></li>
+
+          <li><a href="#compat_whiptail">whiptail</a></li>
+
+          <li><a href="#compat_gdialog">gdialog</a></li>
+
+          <li><a href="#compat_zenity">zenity</a></li>
+
+          <li><a href="#compat_kdialog">kdialog</a></li>
+
+          <li><a href="#compat_bsddialog">bsddialog</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#documentation">Documentation</a></li>
+
+      <li><a href="#download">Download</a></li>
+
+      <li><a href="#screenshot">Screenshot</a></li>
+
+      <li>
+        <a href="#related">Related Links</a>
+        <ul>
+          <li><a href="#rel_packages">Packages</a></li>
+
+          <li><a href="#rel_programs">Programs</a></li>
+
+          <li><a href="#rel_other">Other</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#bugs">Bugs</a></li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p>Though similar in style to <a href="/cdk/cdk.html">CDK</a>, it
+  is different, being a script-interpreter which provides a set of
+  curses widgets. Widgets are objects whose appearance and behavior
+  can be customized. There is a much-reduced variation of
+  <strong>dialog</strong>, called <strong>lxdialog</strong>, which
+  is used in Linux kernel configuration.</p>
+
+  <h2 id="history-h2"><a name="history" id="history">History</a></h2>
+
+  <h3 id="history_early-h3"><a name="history_early" id=
+  "history_early">Early History</a></h3>
+
+  <p><strong>Dialog</strong> was written by Savio Lam
+  &lt;lam836@cs.cuhk.hk&gt; and modified by several people:</p>
+
+  <table border="1" summary="Early Dialog History">
+    <caption>
+      Early Dialog History
+    </caption>
+
+    <tr>
+      <th>Date</th>
+      <th>Version</th>
+      <th>Developer</th>
+      <th>Features</th>
+    </tr>
+
+    <tr>
+      <td>1993/12/17</td>
+      <td>0.1</td>
+      <td>Savio Lam</td>
+      <td>The options in the initial release of
+      <strong>dialog</strong> were <code>--inputbox</code>,
+      <code>--msgbox</code>, and <code>--yesno</code>.</td>
+    </tr>
+
+    <tr>
+      <td>1994/01/03</td>
+      <td>0.2</td>
+      <td>Savio Lam</td>
+      <td>Several options were added: <code>--checklist</code>,
+      <code>--clear</code>, <code>--infobox</code>,
+      <code>--menu</code>, <code>--textbox</code>, and
+      <code>--title</code>.</td>
+    </tr>
+
+    <tr>
+      <td>1994/01/13</td>
+      <td>0.3</td>
+      <td>Savio Lam</td>
+      <td>This added simple color support, along with the
+      <code>--create-rc</code> option to configure it at
+      runtime.</td>
+    </tr>
+
+    <tr>
+      <td>1994/06/11</td>
+      <td>0.4</td>
+      <td>Stuart Herbert</td>
+      <td>This improved the color support, providing the
+      3-dimensional appearance by using shadows. It also added the
+      <code>--backtitle</code> and <code>--radiolist</code>
+      options.</td>
+    </tr>
+
+    <tr>
+      <td>1994/10/08</td>
+      <td>0.4 fork</td>
+      <td>FreeBSD developers</td>
+      <td>
+        Andrey A Chernov imported dialog 0.4 into the FreeBSD
+        source tree, splitting it into program- and
+        library-sections.
+        <ul>
+          <li>Andrey A Chernov added a <code>prgbox</code> function
+          to allow running a program via a pipe to a dialog
+          box.</li>
+
+          <li>Anatoly A Orehovsky added a widget for displaying
+          file-trees, e.g., as produced by the <code>find</code>
+          program as well as more general uses.</li>
+
+          <li>Marc van Kempen added a file-selector, as well as a
+          different gauge widget.</li>
+        </ul>
+
+        <p>The main use of this version of dialog was reportedly
+        <a href=
+        "http://svnweb.freebsd.org/base/stable/9/usr.sbin/sysinstall/">
+        sysinstall</a>. That was replaced by this version of dialog
+        for FreeBSD 9.0 by Nathan Whitehorn and others. I made
+        improvements to dialog to help with this starting <a href=
+        "CHANGES.html#t20110118">early in 2011</a>, adding these
+        options:</p>
+
+        <blockquote>
+          <p><code>--hfile</code>, <code>--hline</code>,
+          <code>--prgbox</code>, and <code>--programbox</code>.</p>
+        </blockquote>
+      </td>
+    </tr>
+
+    <tr>
+      <td>1994/11/07</td>
+      <td>0.5</td>
+      <td>Marc Ewing</td>
+      <td>This added the <code>--gauge</code> and
+      <code>--separate-output</code> options. It modified the
+      --inputbox option to provide for an (optional) initial value.
+      The dialog.pl file was added as an example.</td>
+    </tr>
+
+    <tr>
+      <td>1995/01/28</td>
+      <td>0.6</td>
+      <td>Marc Ewing</td>
+      <td>Only bug-fixes were made.</td>
+    </tr>
+
+    <tr>
+      <td>1995/09/12</td>
+      <td>0.6c</td>
+      <td>Florian La Roche</td>
+      <td>Added mouse support by Rubini, dated 1994. This also
+      adapted changes from 0.5 or 0.6, adding the gauge widget (but
+      misspelled). The misspelling propagated into
+      <strong>cdialog</strong>.</td>
+    </tr>
+
+    <tr>
+      <td>1995/08/17</td>
+      <td>0.6z</td>
+      <td>John Gatewood Ham</td>
+      <td>This added no new features. It modified the usage message
+      to show only those features that were compiled-in.</td>
+    </tr>
+
+    <tr>
+      <td>1996/01/15</td>
+      <td>0.9a</td>
+      <td>Pasquale De Marco "Pako"</td>
+      <td>This is <strong>cdialog</strong>, based on 0.6c. It added
+      many new options:<br>
+      <code>--and-widget</code>, <code>--aspect</code>,
+      <code>--beep</code>, <code>--beep-after</code>,
+      <code>--begin</code>, <code>--cr-wrap</code>,
+      <code>--no-kill</code>, <code>--print-maxsize</code>,
+      <code>--print-size</code>, <code>--print-version</code>,
+      <code>--size-err</code>, <code>--sleep</code>,
+      <code>--tab-correct</code>, <code>--tab-len</code>,
+      <code>--tailbox</code>, and <code>--tailboxbg</code>.</td>
+    </tr>
+
+    <tr>
+      <td>1996/01/16</td>
+      <td>0.69</td>
+      <td>Allesandro Rubini</td>
+      <td>This is a fork of 0.6z, not used by later
+      development.</td>
+    </tr>
+
+    <tr>
+      <td>1997/01/09</td>
+      <td>0.6z</td>
+      <td>John Gatewood Ham</td>
+      <td>In my copy, the samples and docs were updated about a
+      year later.</td>
+    </tr>
+
+    <tr>
+      <td>2001/02/06</td>
+      <td>0.61a</td>
+      <td>Thomas Regner</td>
+      <td>
+        This added a file-selector dialog option
+        <code>--file</code>.<br>
+        The README states that it was distributed as a patch to
+        0.6z, however my copy was fully-patched (probably a copy of
+        the tar-ball from which the patch was made).
+        <p>Vincent Stemen incorporated this work in the patches
+        which he sent to me. That became the <code>--fselect</code>
+        widget.</p>
+
+        <p>Later, <a href="/dialog/CHANGES.html#t20040314">in
+        2004</a> I later added a different option named
+        <code>--file</code>.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>2001/03/16</td>
+      <td><a href="http://hightek.org/dialog-07-changelog">0.7</a>
+      </td>
+      <td>Vincent Stemen</td>
+      <td>This is based on 0.61a, intentionally between 0.6z and
+      0.9a-20010115.<br>
+      Vincent sent patches to me <a href=
+      "CHANGES.html#t20010429">in 2001</a> to add his changes to my
+      ongoing snapshots, so that this fork's changes were not
+      lost.</td>
+    </tr>
+  </table>
+
+  <h3 id="history_myself-h3"><a name="history_myself" id=
+  "history_myself">My Involvement</a></h3>
+
+  <p>I became involved with <strong>dialog</strong> for the same
+  reason as <a href="/cdk/cdk.html">Cdk</a>: they were the most
+  well-known applications using <a href=
+  "/ncurses/ncurses.html">ncurses</a>, and I realized that they
+  were not being maintained well enough to reflect ncurses'
+  capabilities.</p>
+
+  <p>Initially, I made fixes and reviewed the code to ensure that
+  problems reported were not related to <a href=
+  "/ncurses/ncurses.html">ncurses</a>. After that, I resumed
+  development, adding new widget types. See the <a href=
+  "#history_details">changelog</a> for details.</p>
+
+  <p><a href="/dialog/CHANGES.html#t20051207">At the end of
+  2005</a>, I relicensed <strong>dialog</strong> as LGPL. It was
+  GPL before, which made it (the <strong>dialog</strong> library in
+  particular) unusable by developers of non-GPL programs. After
+  several requests, I discussed this with Santiago Vila (the Debian
+  package maintainer), indicating my intention to audit the code,
+  and remove as needed any fragments predating my work.</p>
+
+  <p>I reviewed the code (studying the changes using <a href=
+  "/diffstat/diffstat.html">diffstat</a> and <a href=
+  "http://sourceforge.net/projects/tkdiff/">tkdiff</a>) and found
+  that over the course of development and improvements, I had
+  replaced all of the original program. After accounting for the
+  license notice itself, blank lines and curly braces, there was no
+  trace of the 0.9a+Debian version.</p>
+
+  <p>Because I had replaced the original program with my own work,
+  that made me an "original author" of dialog, and allowed me to
+  relicense it.</p>
+
+  <hr>
+
+  <h3 id="history_details-h3"><a name="history_details" id=
+  "history_details">Dialog's ChangeLog</a></h3>
+
+  <ul>
+    <li><a href="/dialog/CHANGES.html">the changelog in html
+    form</a></li>
+
+    <li><a href="/dialog/CHANGES">CHANGES (flat-text changelog)</a></li>
+  </ul>
+
+  <p><strong>dialog</strong> has (at the end of 2012) 99 options
+  shown in its usage message. Of those, 29 set a box (widget)
+  type.</p>
+
+  <table border="1" summary="Dialog widgets">
+    <caption>
+      Dialog widget-options
+    </caption>
+
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+
+    <tr>
+      <td><code>--buildlist</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2
+      2012/12/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--calendar</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010415">0.9b
+      2001/04/15</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--checklist</code>
+      </td>
+      <td>0.2</td>
+    </tr>
+
+    <tr>
+      <td><code>--dselect</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--editbox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--form</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20030818">1.0
+      2003/08/18</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--fselect</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--gauge</code>
+      </td>
+      <td>0.5</td>
+    </tr>
+
+    <tr>
+      <td><code>--infobox</code>
+      </td>
+      <td>0.2</td>
+    </tr>
+
+    <tr>
+      <td><code>--inputbox</code>
+      </td>
+      <td>0.1</td>
+    </tr>
+
+    <tr>
+      <td><code>--inputmenu</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20030130">1.0
+      2003/01/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--menu</code>
+      </td>
+      <td>0.2</td>
+    </tr>
+
+    <tr>
+      <td><code>--mixedform</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--mixedgauge</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--msgbox</code>
+      </td>
+      <td>0.1</td>
+    </tr>
+
+    <tr>
+      <td><code>--passwordbox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t19991225">0.9a
+      1999/12/25</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--passwordform</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20051207">1.0
+      2005/12/07</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--pause</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20041219">1.0
+      2004/12/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--prgbox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20110302">1.1
+      2011/03/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--programbox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20110302">1.1
+      2011/03/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--progressbox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20060119">1.1
+      2006/01/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--radiolist</code>
+      </td>
+      <td>0.4</td>
+    </tr>
+
+    <tr>
+      <td><code>--rangebox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2
+      2012/12/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--tailbox</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--tailboxbg</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--textbox</code>
+      </td>
+      <td>0.2</td>
+    </tr>
+
+    <tr>
+      <td><code>--timebox</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010415">0.9b
+      2001/04/15</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--treeview</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2
+      2012/12/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--yesno</code>
+      </td>
+      <td>0.1</td>
+    </tr>
+  </table>
+
+  <p>The other visible options set common variables used by the
+  widgets:</p>
+
+  <table border="1" summary="Dialog variables">
+    <caption>
+      Dialog common options
+    </caption>
+
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+
+    <tr>
+      <td><code>--ascii-lines</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--and-widget</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--aspect</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--backtitle</code>
+      </td>
+      <td>0.4</td>
+    </tr>
+
+    <tr>
+      <td><code>--beep-after</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--beep</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--begin</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--cancel-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">0.9a
+      2001/12/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--clear</code>
+      </td>
+      <td>0.2</td>
+    </tr>
+
+    <tr>
+      <td><code>--colors</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020814">0.9b
+      2002/08/14</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--column-separator</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20080727">1.1
+      2008/07/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--cr-wrap</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--create-rc</code>
+      </td>
+      <td>0.4</td>
+    </tr>
+
+    <tr>
+      <td><code>--date-format</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20100119">1.1
+      2010/01/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--default-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20120703">1.1
+      2012/07/03</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--default-item</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000222">0.9a
+      2000/02/22</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--defaultno</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t19991225">0.9a
+      1999/12/25</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--exit-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020519">0.9b
+      2002/05/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--extra-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020622">0.9b
+      2002/06/22</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--extra-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020622">0.9b
+      2002/06/22</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--help-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020309">0.9b
+      2002/03/09</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--help-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020309">0.9b
+      2002/03/09</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--help-status</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--hfile</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20110630">1.1
+      2011/06/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--hline</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20110630">1.1
+      2011/06/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--ignore</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011014">0.9b
+      2001/10/14</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--input-fd</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--insecure</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--item-help</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20001008">0.9b
+      2000/10/08</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--keep-tite</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--keep-window</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--max-input</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020309">0.9a
+      2002/03/09</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-cancel</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20001212">0.9b
+      2000/12/12</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-collapse</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020519">0.9b
+      2002/05/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-items</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-kill</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--no-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">0.9a
+      2001/12/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-lines</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-mouse</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20110118">1.1
+      2011/01/18</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-nl-expand</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20110630">1.1
+      2011/06/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-ok</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070930">1.1
+      2007/09/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-shadow</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--no-tags</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-items</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--nook</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070930">1.1
+      2007/09/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--notags</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--ok-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">0.9a
+      2001/12/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--output-fd</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020814">0.9b
+      2002/08/14</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--output-separator</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20080727">1.1
+      2008/07/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--print-maxsize</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--print-size</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--print-version</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--quoted</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20080727">1.1
+      2008/07/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--scrollbar</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20100119">1.1
+      2010/01/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--separate-output</code>
+      </td>
+      <td>0.5</td>
+    </tr>
+
+    <tr>
+      <td><code>--separate-widget</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--shadow</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--single-quoted</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20040606">0.9b
+      2004/06/06</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--size-err</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--sleep</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--stderr</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000702">0.9a
+      2000/07/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--stdout</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000702">0.9a
+      2000/07/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--tab-correct</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--tab-len</code>
+      </td>
+      <td>0.9a</td>
+    </tr>
+
+    <tr>
+      <td><code>--time-format</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20100119">1.1
+      2010/01/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--timeout</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20020309">0.9a
+      2002/03/09</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--title</code>
+      </td>
+      <td>0.2</td>
+    </tr>
+
+    <tr>
+      <td><code>--trace</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20070227">1.1
+      2007/02/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--trim</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011014">0.9a
+      2001/10/14</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--version</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000730">0.9a
+      2000/07/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--visit-items</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20040606">0.9b
+      2004/06/06</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--yes-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+  </table>
+
+  <p><strong>dialog</strong> maps some options into its own set.
+  Some are <strong>dialog</strong> options which have been imitated
+  in other programs; some are the reverse.</p>
+
+  <table border="1" summary="Dialog mapped options">
+    <caption>
+      Options mapped by dialog into its own names
+    </caption>
+
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+      <th>Mapped to</th>
+      <th>Version</th>
+    </tr>
+
+    <tr>
+      <td><code>--cancel-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--cancel-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">0.9b
+      2001/12/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--guage</code>
+      </td>
+      <td>0.6c</td>
+      <td><code>--gauge</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000115">0.9a
+      2000/01/15</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--no-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--nocancel</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000222">0.9a
+      2000/02/22</a>
+      </td>
+      <td><code>--no-cancel</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20001212">0.9a
+      2000/12/12</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--noitem</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--no-items</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2
+      2012/12/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--notags</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--no-tags</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2
+      2012/12/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--ok-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--ok-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">0.9b
+      2001/12/02</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--scrolltext</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--scrollbar</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20100119">1.1
+      2010/01/19</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--separator</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20030818">0.9b
+      2003/08/18</a>
+      </td>
+      <td><code>--output-separator</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20080727">1.1
+      2008/07/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--yes-button</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2 20121230</a>
+      </td>
+      <td><code>--yes-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">0.9b
+      2003/11/26</a>
+      </td>
+    </tr>
+  </table>
+
+  <p>Some of the hidden options are simply ignored:</p>
+
+  <table border="1" summary="Dialog mapped options">
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+
+    <tr>
+      <td><code>--allow-close</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--auto-placement</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--fb</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000222">0.9a
+      2000/02/22</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--fixed-font</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--fullbutton</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20000222">0.9a
+      2000/02/22</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--icon</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--keep-colors</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-close</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--no-cr-wrap</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--screen-center</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--smooth</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--topleft</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20121230">1.2
+      2012/12/30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--under-mouse</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>--wmclass</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20010527">0.9a
+      2001/05/27</a>
+      </td>
+    </tr>
+  </table>
+
+  <p><strong>dialog</strong> can be built in a variety of
+  configurations, reducing its size.</p>
+
+  <table border="1" summary=
+  "Dialog 1.2 program size by configuration">
+    <caption>
+      Dialog 1.2 program size by configuration
+    </caption>
+
+    <tr>
+      <th>Configure options</th>
+      <th>Size</th>
+      <th>Size with libraries</th>
+    </tr>
+
+    <tr>
+      <td><code>--disable-extras</code>
+      </td>
+      <td align="right">90801</td>
+      <td align="right">2298513</td>
+    </tr>
+
+    <tr>
+      <td><code>--disable-extras</code><br>
+      <code>--enable-whiptail</code>
+      </td>
+      <td align="right">91217</td>
+      <td align="right">2298929</td>
+    </tr>
+
+    <tr>
+      <td><code>--disable-extras</code><br>
+      <code>--enable-whiptail</code><br>
+      <code>--enable-nls</code><br>
+      <code>--enable-widec</code><br>
+      <code>--with-ncursesw</code>
+      </td>
+      <td align="right">96257</td>
+      <td align="right">2465100</td>
+    </tr>
+
+    <tr>
+      <td><em>default</em> (all widgets)</td>
+      <td align="right">171075</td>
+      <td align="right">2378787</td>
+    </tr>
+
+    <tr>
+      <td><code>--enable-nls</code><br>
+      <code>--enable-widec</code><br>
+      <code>--with-ncursesw</code>
+      </td>
+      <td align="right">175883</td>
+      <td align="right">2544726</td>
+    </tr>
+  </table>
+
+  <p>As I note in the manpage, the total program size should count
+  the required libraries. This is particularly true in restricted
+  environments such as an install disk.</p>
+
+  <p>Here are installed sizes from Debian 5.0 (32-bit) and 6.0
+  (64-bit). I included both releases to provide a comparison with
+  <strong>Xdialog</strong>. It is apparent that the installed size
+  counting required libraries is always lowest for
+  <strong>dialog</strong>, even when it has more than twice the
+  functionality of the next smallest
+  (<strong>whiptail</strong>).</p>
+
+  <table border="1" summary="Sizes of related programs">
+    <caption>
+      Sizes of related programs
+    </caption>
+
+    <tr>
+      <th>Program</th>
+      <th>Size</th>
+      <th>Size with libraries</th>
+    </tr>
+
+    <tr>
+      <td>dialog 1.1-20080316-1</td>
+      <td align="right">140552</td>
+      <td align="right">1917378</td>
+    </tr>
+
+    <tr>
+      <td>dialog 1.1-20100428-1</td>
+      <td align="right">164408</td>
+      <td align="right">2407723</td>
+    </tr>
+
+    <tr>
+      <td>whiptail 0.52.2-11.3-lenny1</td>
+      <td align="right">20816</td>
+      <td align="right">2287319</td>
+    </tr>
+
+    <tr>
+      <td>whiptail 0.52.11-1</td>
+      <td align="right">25032</td>
+      <td align="right">3048481</td>
+    </tr>
+
+    <tr>
+      <td>xdialog 2.31-2</td>
+      <td align="right">86976</td>
+      <td align="right">4465172</td>
+    </tr>
+
+    <tr>
+      <td>zenity 2.22.1-2</td>
+      <td align="right">59536</td>
+      <td align="right">13164249</td>
+    </tr>
+
+    <tr>
+      <td>zenity 2.30.0-1</td>
+      <td align="right">74400</td>
+      <td align="right">14216563</td>
+    </tr>
+
+    <tr>
+      <td>kdialog (kdebase-bin) 4:3.5.9.dfsg.1-6+lenny1</td>
+      <td align="right">77220</td>
+      <td align="right">22675849</td>
+    </tr>
+
+    <tr>
+      <td>kdialog (kdebase-bin) 4:4.4.5-2</td>
+      <td align="right">89944</td>
+      <td align="right">37593148</td>
+    </tr>
+  </table>
+
+  <h2 id="compatibility-h2"><a name="compatibility" id=
+  "compatibility">Compatibility</a></h2>
+
+  <p>Debian (and derived distributions such as Ubuntu) are a
+  special case for compatibility concerns because their installer
+  uses terminal-based scripts extensively and there is some attempt
+  to use either dialog or whiptail.</p>
+
+  <p>Interestingly, the <a href=
+  "http://popcon.debian.org/by_no-files"><em>popularity
+  contest</em></a> (in which I do not participate) seems to show
+  <strong>dialog</strong> due to installation bias of Debian has
+  half the popularity of <strong>whiptail</strong>. The two are not
+  installed on an equal basis because dialog is "optional" while
+  whiptail is "important". Here is an extract of the relevant
+  information as I am documenting dialog 1.2:</p>
+
+  <blockquote>
+    <pre class="code-block100">
+#Format
+#
+#&lt;name&gt; is the package name;
+#&lt;inst&gt; is the number of people who installed this package;
+#&lt;vote&gt; is the number of people who use this package regularly;
+#&lt;old&gt; is the number of people who installed, but don't use this package
+#      regularly;
+#&lt;recent&gt; is the number of people who upgraded this package recently;
+#&lt;no-files&gt; is the number of people whose entry didn't contain enough
+#           information (atime and ctime were 0).
+#rank name                            inst  vote   old recent no-files (maintainer)
+1791  kdebase-bin                    11587  1878  6407   268  3034 (Debian Qt/kde Maintainers)     
+12634 whiptail                       129722 52877 68792  8017    36 (Alastair Mckinstry)
+16056 zenity                         58831 15952 36121  6737    21 (Debian Gnome Maintainers)
+24528 dialog                         20677  3198 16421  1052     6 (Santiago Vila)
+129051 xdialog                          305    40   265     0     0 (Not in sid)
+          
+</pre>
+  </blockquote>
+
+  <p>There is no separate package for <strong>kdialog</strong> (it
+  is part of the kdebase-bin package). There are usable figures for
+  the other programs.</p>
+
+  <p>The count for <strong>zenity</strong> can be explained in part
+  because that program is not really compatible with either
+  <strong>dialog</strong> or <strong>whiptail</strong>. Thus, it is
+  likely that there are scripts which cannot be used by other
+  programs (reviewing the package dependencies makes this apparent:
+  only one depends on either <strong>dialog</strong> or
+  <strong>zenity</strong>).</p>
+
+  <h3 id="compat_oldver-h3"><a name="compat_oldver" id=
+  "compat_oldver">Older versions of dialog</a></h3>
+
+  <p>The issue of compatibility comes up occasionally. I do not
+  intend to break old scripts. You may note in the change-log fixes
+  for regressions. When merging Victor Stemens' changes, I spent
+  time ironing out issues in text justification.</p>
+
+  <p>A bigger issue is cross-compatibility with similar
+  programs.</p>
+
+  <h3 id="compat_xdialog-h3"><a name="compat_xdialog" id=
+  "compat_xdialog">Xdialog</a></h3>
+
+  <p><strong>Xdialog</strong>'s author paid attention to
+  compatibility, making a good attempt at working with scripts that
+  <strong>dialog</strong> would work with. He added many widgets,
+  some of which are viable in a terminal enviroment. I have adapted
+  the most useful of those.</p>
+
+  <p>These threads give some insight on why
+  <strong>Xdialog</strong> is no longer in Debian (because it was a
+  victim of the successive incompatibilities of the GNOME
+  libraries):</p>
+
+  <ul>
+    <li><a href=
+    "http://forums.debian.net/viewtopic.php?f=10&amp;t=59772">Why
+    no more Xdialog on squeeze?</a> (Debian User Forums)</li>
+
+    <li><a href=
+    "http://ubuntuforums.org/showthread.php?p=9836750">[SOLVED]
+    Where is Xdialog?</a> (Ubuntu Forums)</li>
+  </ul>
+
+  <p>As noted in the forums, the alternative is <a href=
+  "#compat_zenity">zenity</a>, but that is largely
+  incompatible.</p>
+
+  <h3 id="compat_whiptail-h3"><a name="compat_whiptail" id=
+  "compat_whiptail">whiptail</a></h3>
+
+  <p>One of the challenging aspects about making scripts compatible
+  with <strong>whiptail</strong> is its documentation.
+  <strong>Whiptail</strong> is a part of the <strong>newt</strong>
+  package, which has the same problem. I have a collection of
+  releases, which helps.</p>
+
+  <p><strong>Newt</strong> was initially released (0.25) in May
+  1998. It had a short tutorial on using the package, no detailed
+  documentation. The source code <em>is</em> the documentation.
+  Successive releases for the next couple of years added <a href=
+  "/personal/changelogs.html#rule_date">undated items</a> to its
+  change-log, with version numbers increasing more rapidly than the
+  package version. For instance, newt 0.50.8's changelog mentions
+  0.55 as the most recent version. There was no fixed maintainer
+  for the package by Red Hat. However, comments in the
+  <code>newt.spec</code> give some clues as to who was modifying
+  it. It was imported into <a href=
+  "https://git.fedorahosted.org/git/newt">git</a> in 2006, from
+  which detailed history can be gleaned. For instance:</p>
+
+  <ul>
+    <li>development on newt started in early 1996.</li>
+
+    <li>whiptail's first commit was 1997-03-18</li>
+
+    <li>newt's first public release was the following year,
+    1998-05-05.</li>
+
+    <li>before release, whiptail was named
+    <code>ndialog</code></li>
+  </ul>
+
+  <p>The situation in the Debian package is not much better. There
+  has been a fixed set of maintainers, but their source history is
+  ad hoc, unsystematic.</p>
+
+  <p>Here are some dates and data for the Red Hat releases. The
+  ".spec" file serves in place of a change-log. However, it lacks
+  most of the information which I would expect to find in a package
+  of this type. In particular, there is no summary of features
+  added or changed for each release.</p>
+
+  <table border="1" summary="Early Newt/Whiptail History">
+    <caption>
+      Early Newt/Whiptail History
+    </caption>
+
+    <tr>
+      <th>Date</th>
+      <th>Version</th>
+      <th>Developer</th>
+      <th>SLOC</th>
+    </tr>
+
+    <tr>
+      <td>1998-05-05</td>
+      <td>0.25</td>
+      <td>Erik Troan</td>
+      <td>6431</td>
+    </tr>
+
+    <tr>
+      <td>1998-08-19</td>
+      <td>0.30</td>
+      <td>Bill Nottingham</td>
+      <td>6410</td>
+    </tr>
+
+    <tr>
+      <td>2000-02-25</td>
+      <td>0.50.8</td>
+      <td>Bill Nottingham et al</td>
+      <td>8265</td>
+    </tr>
+
+    <tr>
+      <td>2000-08-22</td>
+      <td>0.50.17</td>
+      <td>Erik Troan</td>
+      <td>8567</td>
+    </tr>
+
+    <tr>
+      <td>2003-02-05</td>
+      <td>0.51.4</td>
+      <td>Matt Wilson</td>
+      <td>9418</td>
+    </tr>
+
+    <tr>
+      <td>2003-08-19</td>
+      <td>0.51.6</td>
+      <td>Michael K Johnson</td>
+      <td>9419</td>
+    </tr>
+
+    <tr>
+      <td>2003-01-04</td>
+      <td>0.52.0</td>
+      <td>Adrian Havill</td>
+      <td>9397</td>
+    </tr>
+
+    <tr>
+      <td>2003-10-13</td>
+      <td>0.52.4</td>
+      <td>Miroslav Lichvar</td>
+      <td>10377</td>
+    </tr>
+
+    <tr>
+      <td>2007-01-31</td>
+      <td>0.52.5</td>
+      <td>Miroslav Lichvar</td>
+      <td>10431</td>
+    </tr>
+
+    <tr>
+      <td>2007-03-02</td>
+      <td>0.52.6</td>
+      <td>Miroslav Lichvar</td>
+      <td>10490</td>
+    </tr>
+
+    <tr>
+      <td>2007-06-15</td>
+      <td>0.52.7</td>
+      <td>Miroslav Lichvar</td>
+      <td>10584</td>
+    </tr>
+
+    <tr>
+      <td>2008-01-23</td>
+      <td>0.52.8</td>
+      <td>Miroslav Lichvar</td>
+      <td>10603</td>
+    </tr>
+
+    <tr>
+      <td>2009-09-24</td>
+      <td>0.52.11</td>
+      <td>Miroslav Lichvar</td>
+      <td>10706</td>
+    </tr>
+
+    <tr>
+      <td>2011-12-02</td>
+      <td>0.52.14</td>
+      <td>Miroslav Lichvar</td>
+      <td>10972</td>
+    </tr>
+  </table>
+
+  <p>The point in reviewing whiptail's history is to see when
+  features were added which affect compatibility with dialog.<br>
+  Here is a table showing whiptail's command-line options, together
+  with the corresponding dialog option, dates and related bug
+  reports which motivate their respective changes. The dates for
+  whiptail are from its git repository for commits; they are not
+  release dates (and you may notice that Debian's updates were not
+  rapidly applied upstream).</p>
+
+  <table border="1" summary="Overview of Whiptail options">
+    <caption>
+      Overview of Whiptail options
+    </caption>
+
+    <tr>
+      <th>&nbsp;</th>
+      <th>Name</th>
+      <th>Whiptail<br>
+      date</th>
+      <th>Dialog<br>
+      date</th>
+      <th>Same as</th>
+      <th>Original<br>
+      date</th>
+      <th>Whiptail<br>
+      changes</th>
+      <th>Dialog<br>
+      changes</th>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--backtitle</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/06/11</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--cancel-button</code>
+      </td>
+      <td>2007/01/31</td>
+      <td>2012/12/30</td>
+      <td><code>--cancel-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">2001/12/02</a>
+      </td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126768">Redhat
+      #126768</a> / <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=242851">Debian
+      #242851</a></td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--checklist</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--clear</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>*</td>
+      <td><code>--default-item</code>
+      </td>
+      <td>2006/08/25</td>
+      <td>2000/02/22</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=117473">Redhat
+      #117473</a> / <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=49352">Debian
+      #49352</a></td>
+      <td><a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=49796">Debian
+      #49796</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--defaultno</code>
+      </td>
+      <td>1997/04/14</td>
+      <td>1999/10/07</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--fb</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>2000/02/22</td>
+      <td><em>ignored</em>
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>maintainer hint</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--gauge</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1995/01/28</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--infobox</code>
+      </td>
+      <td>1998/01/03</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--inputbox</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1993/12/17</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--menu</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--msgbox</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1993/12/17</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--no-button</code>
+      </td>
+      <td>2007/01/31</td>
+      <td>2012/12/30</td>
+      <td><code>--no-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">2003/11/26</a>
+      </td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126768">Redhat
+      #126768</a> / <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=242851">Debian
+      #242851</a></td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--nocancel</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>2000/02/22</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>maintainer hint</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--noitem</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>2012/12/30</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--notags</code>
+      </td>
+      <td>2004/04/07</td>
+      <td>2012/12/30</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=117468">Redhat
+      #117468</a> / <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=47597">Debian
+      #47597</a></td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--ok-button</code>
+      </td>
+      <td>2007/01/31</td>
+      <td>2012/12/30</td>
+      <td><code>--ok-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20011202">2001/12/02</a>
+      </td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126768">Redhat
+      #126768</a> / <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=242851">Debian
+      #242851</a></td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>*</td>
+      <td><code>--output-fd</code>
+      </td>
+      <td>2004/04/07</td>
+      <td>2002/08/14</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=117469">Redhat
+      #117469</a>
+      </td>
+      <td><a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=153984">Debian
+      #153984</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>*</td>
+      <td><code>--passwordbox</code>
+      </td>
+      <td>2006/08/25</td>
+      <td>1999/12/25</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=45961">Debian
+      #45961</a>
+      </td>
+      <td><a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=45964">Debian
+      #45964</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--radiolist</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/06/11</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--scrolltext</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>2012/12/30</td>
+      <td><code>--scrollbar</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20100119">2010/01/19</a>
+      </td>
+      <td>&nbsp;</td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--separate-output</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1995/01/28</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--textbox</code>
+      </td>
+      <td>2004/04/14</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=117472">Redhat
+      #117472</a> / Debian patch</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--title</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--topleft</code>
+      </td>
+      <td>2006/10/12</td>
+      <td>2012/12/30</td>
+      <td><code>--begin 0 0</code>
+      </td>
+      <td>&nbsp;</td>
+      <td>patch from Debian?</td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--yes-button</code>
+      </td>
+      <td>2007/01/31</td>
+      <td>2012/12/30</td>
+      <td><code>--yes-label</code>
+      </td>
+      <td><a href="/dialog/CHANGES.html#t20031126">2003/11/26</a>
+      </td>
+      <td><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126768">Redhat
+      #126768</a> / <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=242851">Debian
+      #242851</a></td>
+      <td>1.2 review</td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td><code>--yesno</code>
+      </td>
+      <td>1997/03/18</td>
+      <td>1994/01/03</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+  <p>Early on, there was some discussion of making
+  <strong>dialog</strong> compatible with the options recognized by
+  <strong>whiptail</strong>. Santiago Vila (the Debian package
+  maintainer for <strong>dialog</strong>) mentioned this, and I
+  made improvements, e.g., in <a href=
+  "CHANGES.html#t20000222">2000/02/22</a>. Joey Hess made a point
+  of providing similar changes (such as the
+  <code>--passwordbox</code> option) to improve both programs.</p>
+
+  <p>At the time, I overlooked <code>--noitem</code> (perhaps
+  because there was no documentation), and omitted
+  <code>--scrolltext</code> because it was cosmetic only (there was
+  no mouse support in newt). If there had been a bug report
+  regarding those or other features of <strong>whiptail</strong>, I
+  would have addressed it. However, there was none.</p>
+
+  <p>Although <strong>whiptail</strong> is given a higher priority
+  (important) in Debian than <strong>dialog</strong> (optional),
+  some packagers either expressed a preference for
+  <strong>dialog</strong>'s additional functionality, or used the
+  features which work with both. In Debian 6 for instance, I see
+  these counts from <code>/var/lib/dpkg/available</code>:</p>
+
+  <table border="1" summary="Debian package usage">
+    <caption>
+      Debian package usage
+    </caption>
+
+    <tr>
+      <th>&nbsp;</th>
+      <th>Depends</th>
+      <th>Recommends</th>
+      <th>Suggests</th>
+    </tr>
+
+    <tr>
+      <td>whiptail</td>
+      <td>9</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+
+    <tr>
+      <td>dialog</td>
+      <td>16</td>
+      <td>7</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <p>There appear to be two distinct uses of whiptail and newt:</p>
+
+  <ul>
+    <li>Red Hat uses the <strong>newt</strong> shared library from
+    <strong>python</strong> scripts.</li>
+
+    <li>Debian uses the <strong>whiptail</strong> command-line
+    program in installers.</li>
+  </ul>
+
+  <p>Reflecting that difference, Debian has long maintained a large
+  set of patches for <strong>whiptail</strong>. Compare the patch
+  sizes listed below with the size of the newt package listed
+  above. The Debian package's change-log states that it started a
+  year before newt's first release, with newt 0.10; however it was
+  first released with Debian 2.0 (after newt's 0.25 release). Here
+  are some numbers (obtained by inspecting packages from
+  archive.debian.org). By the way, the packages for Debian 4.0 and
+  5.0 were updated after the official release:</p>
+
+  <table border="1" summary="Size of Debian diffs by release">
+    <caption>
+      Size of Debian diffs by release
+    </caption>
+
+    <tr>
+      <th rowspan="2">Release</th>
+      <th rowspan="2">Date</th>
+      <th rowspan="2">Version</th>
+      <th colspan="3">Diffstat</th>
+    </tr>
+
+    <tr>
+      <th>Files</th>
+      <th>Added</th>
+      <th>Deleted</th>
+    </tr>
+
+    <tr>
+      <td>Debian 2.0</td>
+      <td>1998-06-18</td>
+      <td>0.21-8</td>
+      <td>28</td>
+      <td>859</td>
+      <td>74</td>
+    </tr>
+
+    <tr>
+      <td>Debian 2.1</td>
+      <td>1998-12-11</td>
+      <td>0.25-3</td>
+      <td>25</td>
+      <td>883</td>
+      <td>47</td>
+    </tr>
+
+    <tr>
+      <td>Debian 2.2</td>
+      <td>2000-04-23</td>
+      <td>0.50-7</td>
+      <td>20</td>
+      <td>1106</td>
+      <td>39</td>
+    </tr>
+
+    <tr>
+      <td>Debian 3.0</td>
+      <td>2002-04-03</td>
+      <td>0.50-17</td>
+      <td>38</td>
+      <td>2117</td>
+      <td>165</td>
+    </tr>
+
+    <tr>
+      <td>Debian 3.1</td>
+      <td>2005-04-30</td>
+      <td>0.51.6</td>
+      <td>54</td>
+      <td>9037</td>
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <td>Debian 4.0</td>
+      <td>2007-01-22</td>
+      <td>0.52-10</td>
+      <td>51</td>
+      <td>13605</td>
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <td>Debian 5.0</td>
+      <td>2009-09-24</td>
+      <td>0.52.11.3</td>
+      <td>54</td>
+      <td>13721</td>
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <td>Debian 6.0</td>
+      <td>2010-06-21</td>
+      <td>0.52.11-1</td>
+      <td>34</td>
+      <td>4185</td>
+      <td>0</td>
+    </tr>
+  </table>
+
+  <p>The drop in size for Debian 6.0 is due to a resync with the
+  Red Hat upstream in 2006. It takes a while for a change to
+  propagate through Debian. The Debian 6.0 package has "only" 8
+  patches, the largest of which is 2160 lines added for bidi
+  support.</p>
+
+  <p>While <strong>whiptail</strong> had a <code>--textbox</code>
+  option "early on", it was removed before version 0.25, in
+  1997-08-18. Debian's patches added that back. It was not until
+  the 0.52.0 sync in 2006-09-19 that upstream
+  <strong>whiptail</strong> had this option.</p>
+
+  <p>That feature, by the way, never appeared in a bug report.
+  Another feature which came into Red Hat's git without a bug
+  report was the <code>--topleft</code> option (2006-10-12).</p>
+
+  <p>In other cases, the Debian package maintainer sent changes to
+  Red Hat as part of a bug report.</p>
+
+  <ul>
+    <li><a href=
+    "http://bugzilla.redhat.com/show_bug.cgi?id=117466">Bug 117466
+    &ndash; Patch to provide documentation</a><br>
+    This provides a manpage. Upstream had none; Debian added this
+    in early 1998, addressing Debian #16857.<br>
+    Debian continued adding features adapted from ongoing work in
+    <strong>dialog</strong> or from Joey Hess's patches for both
+    programs.</li>
+
+    <li style="list-style: none">For instance, the patch submitted
+    in this report includes these options:<br>
+
+      <blockquote>
+        <p><code>--default-item</code> (see <a href=
+        "CHANGES.html#t20000222">0.9a 2000/02/22</a>)<br>
+        <code>--output-fd</code> (see <a href=
+        "CHANGES.html#t20020814">0.9b 2002/08/14</a>)<br>
+        <code>--passwordbox</code> (see <a href=
+        "CHANGES.html#t19991225">0.9a 1999/12/25</a>)<br>
+        <code>--separate-output</code> (a feature from
+        <strong>dialog</strong> 0.5 which was adapted by Debian in
+        newt 0.21-4, 12 Feb 1998).</p>
+      </blockquote>
+
+      <p>Two of those (<code>--output-fd</code> and
+      <code>--passwordbox</code>) are clearly the work of Joey
+      Hess. One was adapted from my work.<br>
+      In each case, the manpage description is (except for changing
+      "dialog" to "whiptail") identical. The two options
+      implemented by Joey Hess provided manpage updates. The other
+      two were copied from <strong>dialog</strong>.</p>
+
+      <p>The early Debian package for <strong>newt</strong> noted
+      above adapted a manpage from <strong>dialog</strong>. It
+      describes the <code>--gauge</code> option. That text was
+      copied from the manpage for dialog 0.6, but (noting that Marc
+      Ewing's name was not in the manpage, rather it was in the
+      README file) the Debian maintainers did not provide
+      attribution for him either. The disclaimer at the end "based
+      on" is too generous (to the Debian maintainer), since the
+      work involved consisted of no more than removing the
+      description of <code>--create-rc</code> and changing "dialog"
+      to "whiptail" throughout.</p>
+
+      <p>The <strong>whiptail</strong> manpage does not state this;
+      it cites the Debian package maintainers as the developers and
+      references <strong>dialog 0.3</strong> as the starting point
+      of the manpage. I reported the manpage issues as <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=406278">Debian
+      bug #406278</a> early in 2007. Debian's maintainer has
+      ignored it for five years.</p>
+    </li>
+  </ul>
+
+  <p>Requests without a patch never made it, or get odd
+  treatment:</p>
+
+  <ul>
+    <li>
+      <p><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126766">Bug
+      126766 &ndash; whiptail: please add timeout option</a><br>
+      (lost)</p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126767">Bug
+      126767 &ndash; whiptail: Please add the dialog 'form' box
+      option</a><br>
+      (rejected)</p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://bugzilla.redhat.com/show_bug.cgi?id=126768">Bug
+      126768 &ndash; please allow way to change the text of the
+      cancel button</a><br>
+      Implemented by the upstream maintainer a couple of years
+      later, this provides the same functionality as the 2001/2003
+      changes in dialog&mdash;but using different option names.</p>
+    </li>
+  </ul>
+
+  <p>Some longstanding bugs were fixed upstream without any
+  apparent help from the Debian maintainer:</p>
+
+  <ul>
+    <li><a href=
+    "http://bugzilla.redhat.com/show_bug.cgi?id=620083">Bug 620083
+    &ndash; whiptail --gauge does not work as advertised</a></li>
+  </ul>
+
+  <p>I did not notice any of this until I started reviewing my 1.2
+  changes for compatibility with <strong>whiptail</strong>. After
+  all, there were no relevant bug reports.</p>
+
+  <p>My 1.2 changes were prompted by having done a set of fixes
+  toward a new update, and happening to think about a list I had
+  made in 2006 of interesting widgets from <strong>Xdialog</strong>
+  and FreeBSD's fork to implement in <strong>dialog</strong>. Since
+  I had implemented most of the FreeBSD parts, I realized that if I
+  implemented the comparable parts of the <strong>Xdialog</strong>
+  list I would be at my goal for 1.2. So I did that, and in
+  studying the <strong>Xdialog</strong> documentation noticed the
+  <code>--notags</code> option. That led me back to compare with
+  <strong>whiptail</strong>, and finding the extra (and in the case
+  of Red Hat #126768) redundant options to deal with.</p>
+
+  <p>Incidentally, I was reminded while collecting this information
+  of the reason why <strong>whiptail</strong> is the program used
+  rather than <strong>dialog</strong>: It dates back to the ncurses
+  licensing dispute in <a href=
+  "/ncurses/ncurses-license.html#patch_970515">May 1997</a>. In a
+  <a href=
+  "https://lists.debian.org/debian-devel/1997/05/thrd3.html#01169">connected
+  thread</a> on the Debian mailing list, Bruce Perens demonstrated
+  his support for Eric Raymond by stating that</p>
+
+  <blockquote>
+    <p>Any new work I do will use slang rather than ncurses.</p>
+  </blockquote>
+
+  <p>In context, "new work" referred to the installer group. By the
+  time I started maintaining <strong>dialog</strong> a year later,
+  the matter had already been decided. That was not the last issue
+  from that group; over the next few years (until sometime in 2000,
+  probably after Raymond's final interaction with ncurses), they
+  continued to demonstrate their support by misattributing my work
+  to Eric Raymond (and others, depending on the work).</p>
+
+  <p>Of course there were also people (and still are) who are fans
+  of slang and newt, and will emphasize its advantages.
+  Notwithstanding the fact that after a few years I did get John
+  Davis to tone down the rhetoric and stick to measurable facts,
+  his fans are unpersuaded.</p>
+
+  <p>The (over-zealous) remarks from someone in the same group in
+  2006 prompted me to investigate just how much larger
+  <strong>dialog</strong> was than <strong>whiptail</strong>. I was
+  surprised to find that when counting the required libraries,
+  <strong>whiptail</strong> was actually larger than
+  <strong>dialog</strong>. Of course, I documented my findings in
+  <strong>dialog</strong>'s manpage.</p>
+
+  <p>Some people do read <a href=
+  "/dialog/manpage/dialog.html#h2-COMPATIBILITY">the manual</a>, as
+  noted in <a href=
+  "http://bugs.launchpad.net/ubuntu/+source/deborphan/+bug/347913/+index">
+  Ubuntu #347913</a>. I noticed this report during my 1.2 review,
+  prompting me to update the <strong>whiptail</strong>
+  compatibility options.</p>
+
+  <p>The result of my 1.2 review is that scripts accepted by
+  <strong>whiptail</strong> will also be accepted by
+  <strong>dialog</strong>. Because the two programs differ in their
+  support for word-wrapping and handling of escapes, there will be
+  inevitably some differences in appearance.</p>
+
+  <h3 id="compat_gdialog-h3"><a name="compat_gdialog" id=
+  "compat_gdialog">gdialog</a></h3>
+
+  <p><strong>Zenity</strong>'s documentation refers to
+  <strong>gdialog</strong>. That was a fork of
+  <strong>dialog</strong> 0.6c which was part of the gnome-utils
+  package in 2002 (e.g., 2.0.2 2002/09/03), modified to use Gtk.
+  Some parts did not work, e.g., <code>--gauge</code>.</p>
+
+  <p>Its documentation was minimal (see <a href=
+  "http://linux.about.com/library/cmd/blcmdl1_gdialog.htm">this</a>).
+  After a while, it was <a href=
+  "http://www.redhat.com/archives/rhl-devel-list/2007-August/msg01089.html">
+  dropped</a>.</p>
+
+  <h3 id="compat_zenity-h3"><a name="compat_zenity" id=
+  "compat_zenity">zenity</a></h3>
+
+  <p><strong>Zenity</strong> was first released early in 2003 (see
+  <a href=
+  "http://git.gnome.org/browse/zenity/log/?ofs=1900">git</a>). It
+  was influenced by my work on <strong>dialog</strong>, as
+  illustrated by its list of options. Those use the "interesting"
+  options from <strong>Xdialog</strong> (calendar, file-selection).
+  Comparing with the list of newer <strong>dialog</strong> options,
+  you will see some borrowing.</p>
+
+  <blockquote class="code-block">
+    <p>-h --about --auto-close --auto-kill --calendar
+    --cancel-label --checklist<br>
+    --class --column --confirm-overwrite --date-format --day
+    --directory<br>
+    --display --editable --entry --entry-text --error
+    --file-filter<br>
+    --file-selection --filename --g-fatal-warnings --gtk-module
+    --height --help<br>
+    --help-all --help-calendar --help-entry --help-error
+    --help-file-selection<br>
+    --help-general --help-gtk --help-info --help-list
+    --help-misc<br>
+    --help-notification --help-progress --help-question
+    --help-scale<br>
+    --help-text-info --help-warning --hide-column --hide-header
+    --hide-text<br>
+    --hide-value --info --list --listen --max-value --min-value
+    --month<br>
+    --multiple --name --no-wrap --notification --ok-label
+    --percentage<br>
+    --print-column --print-partial --progress --pulsate --question
+    --radiolist<br>
+    --save --scale --screen --separator --step --sync --text
+    --text-info<br>
+    --timeout --title --value --version --warning --width
+    --window-icon --year</p>
+  </blockquote>
+
+  <p>However, there is no script provided with
+  <strong>zenity</strong> to handle scripts which are newer than
+  <strong>dialog</strong> 0.6c.</p>
+
+  <h3 id="compat_kdialog-h3"><a name="compat_kdialog" id=
+  "compat_kdialog">kdialog</a></h3>
+
+  <p><strong>Kdialog</strong> is less compatible with
+  <strong>dialog</strong> than <strong>zenity</strong>. To
+  illustrate the problem, here is the corresponding list of
+  options:</p>
+
+  <blockquote class="code-block">
+    <p>--<br>
+    --attach --author --calendar --checklist --combobox --default
+    --dontagain<br>
+    --error --getcolor --getexistingdirectory --geticon
+    --getopenfilename<br>
+    --getopenurl --getsavefilename --getsaveurl --help --help-all
+    --help-kde<br>
+    --help-qt --inputbox --license --menu --msgbox --multiple
+    --passivepopup<br>
+    --password --print-winid --progressbar --radiolist
+    --separate-output<br>
+    --slider --sorry --textbox --textinputbox --title
+    --warningcontinuecancel<br>
+    --warningyesno --warningyesnocancel --yesno --yesnocancel
+    -v</p>
+  </blockquote>
+
+  <p>However (see <a href=
+  "https://projects.kde.org/projects/kde/applications/kde-baseapps/repository/revisions/master/show/kdialog">
+  git</a>) it is an inactive project.</p>
+
+  <h3><a name="compat_bsddialog" id=
+  "compat_bsddialog">bsddialog</a></h3>
+
+  <p>This was written as a clone of dialog, but though the
+  command-line repertoire is copied (and even imitated as in the
+  <tt>--help</tt> message). On committing to FreeBSD, its author
+  made no mention of that fact in <a href=
+  "https://github.com/freebsd/freebsd-src/blob/263660c061ac76d449cbca7bdd0db2ecdfad76d9/contrib/bsddialog/bsddialog.1">
+  documentation</a>.</p>
+
+  <p>After some discussion, its developer proposed a slight
+  improvement, which fell short of the usual conventions in this
+  area (see <a href=
+  "https://gitlab.com/alfix/bsddialog/-/commit/8bfa3016b76b1ed6822b9fb5820cfaf401eab2e4">
+  first update</a>, and <a href=
+  "https://gitlab.com/alfix/bsddialog/-/commit/add3c0aec6f2b1b78b07b32471abf87eafe728c4">
+  followup</a>). The first update is problematic (at best
+  misleading):</p>
+
+  <blockquote>
+    <p class="code-block">It was introduced to provide a permissive
+    open source alternative to the dialog utility for use by the
+    FreeBSD base system.</p>
+  </blockquote>
+
+  <p>Besides the oblique reference to dialog in a followup</p>
+
+  <blockquote>
+    <p class="code-block">implementing some feature described in
+    the dialog manual</p>
+  </blockquote>
+
+  <p>the developer misled the unwary reader to assume that the
+  license used by dialog (i.e., LGPL, the most suitable compromise
+  available given its history) is not an open source license. It is
+  less permissive than BSD-2, but referring to LGPL as
+  &ldquo;non-permissive&rdquo; is untruthful.</p>
+
+  <p>The developer's goals were clearly outlined in the FreeBSD
+  Quarterly Status Report <a href=
+  "https://www.freebsd.org/status/report-2021-04-2021-06/#_bsddialog_tui_widgets">
+  2nd Quarter 2011</a>:</p>
+
+  <blockquote class="code-block">
+    <p>The purpose of this project is to provide an utility and a
+    library to build scripts and tools with UI Widgets in a
+    terminal. The project is inspired by Dialog; however BSDDialog
+    is released under the terms of the BSD-2-Clause License while
+    Dialog is licensed as LGPL so a link of the project has been
+    added to the "GPL Software in the Base System" wiki page.</p>
+
+    <p>The aim is to provide full compatibility with the dialog
+    utility (the challenge is to implement over seventy options and
+    almost thirty widgets). The API compatibility with the library
+    is not a priority because libbsddialog should meet
+    FreeBSD&rsquo;s needs, for example it provides the new
+    mixedlist() function, it can take as argument a set of:
+    checklists, radiolists and separators, so it could be useful
+    for building a dialog4ports clone: easier to implement and not
+    depending on non-permissive dependencies.</p>
+  </blockquote>
+
+  <p>There is a wide gap between <em>some feature</em> and <em>full
+  compatbility</em>. In a quick inspection of the manual pages:</p>
+
+  <ul>
+    <li>
+      <p>dialog has 29 widgets, 78 other options,</p>
+    </li>
+
+    <li>
+      <p>bsddialog 0.1 lists 19 widgets, 69 other options,</p>
+    </li>
+
+    <li>
+      <p>bsddialog 0.1 reimplements 19 widgets and 48 options.</p>
+
+      <p>A few are deprecated (e.g., <code>--no-ok</code> versus
+      <code>--nook</code>), rather than being new features.</p>
+    </li>
+  </ul>
+
+  <h2 id="documentation-h2"><a name="documentation" id=
+  "documentation">Documentation</a></h2>
+
+  <ul>
+    <li><a href="/dialog/manpage/dialog.html">dialog program</a>
+    (<a href="/dialog/manpage/dialog.pdf">pdf</a>) (<a href=
+    "/dialog/manpage/dialog.ps">postscript</a>) (<a href=
+    "/dialog/manpage/dialog.txt">plain text</a>)</li>
+  </ul>
+
+  <ul>
+    <li><a href="/dialog/manpage/dialog_lib.html">dialog
+    library</a> (<a href="/dialog/manpage/dialog_lib.pdf">pdf</a>)
+    (<a href="/dialog/manpage/dialog_lib.ps">postscript</a>)
+    (<a href="/dialog/manpage/dialog_lib.txt">plain text</a>)</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="download-h2"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href="/datafiles/release/dialog.tar.gz">source</a></li>
+
+    <li><a href="/archives/dialog/">archives</a></li>
+  </ul>
+
+  <h2 id="screenshot-h2"><a name="screenshot" id=
+  "screenshot">Screenshot</a></h2>
+
+  <p>An early example (2004) using UTF-8:</p>
+
+  <blockquote>
+    <p><a href="/dialog/images/dialog.png"><img width="450" src=
+    "/dialog/images/dialog.png" alt="An example using UTF-8"></a></p>
+  </blockquote>
+
+  <p><a href="/dialog/dialog-figures.html">This page</a> has more
+  examples.</p>
+
+  <h2 id="related-h2"><a name="related" id="related">Related
+  Links</a></h2>
+
+  <h3 id="rel_packages-h3"><a name="rel_packages" id=
+  "rel_packages">Packages</a></h3>
+
+  <ul>
+    <li><a href=
+    "https://web.archive.org/web/20140512060437/http://oswatershed.org/pkg/dialog">
+    OS<em>Watershed</em>.org</a> (archived 2014)</li>
+
+    <li>RPM finder: <a href=
+    "http://rpmfind.net/linux/rpm2html/search.php?query=dialog">dialog</a></li>
+
+    <li><a href=
+    "http://packages.debian.org/search?searchon=names&amp;keywords=dialog">
+    Debian</a></li>
+
+    <li><a href=
+    "http://svnweb.freebsd.org/ports/head/devel/cdialog/">FreeBSD
+    ports</a></li>
+  </ul>
+
+  <h3 id="rel_programs-h3"><a name="rel_programs" id=
+  "rel_programs">Programs</a></h3>
+
+  <ul>
+    <li><a href="http://xdialog.free.fr">Xdialog</a></li>
+
+    <li><a href="http://hightek.org/projects/dialog/">dialog
+    0.7</a></li>
+
+    <li>FreeBSD fork of <strong>dialog</strong> 0.4
+      <ul>
+        <li><a href=
+        "http://svnweb.freebsd.org/base/stable/8/gnu/usr.bin/dialog/">
+        (program)</a></li>
+
+        <li><a href=
+        "http://svnweb.freebsd.org/base/stable/8/gnu/lib/libdialog/">
+        (library)</a></li>
+      </ul>
+    </li>
+
+    <li><a href=
+    "https://wiki.gnome.org/action/show/Projects/Zenity">Zenity</a>
+    (maintenance page)</li>
+  </ul>
+
+  <h3 id="rel_other-h3"><a name="rel_other" id=
+  "rel_other">Other</a></h3>
+
+  <ul>
+    <li>Perl
+      <ul>
+        <li><a href=
+        "http://search.cpan.org/~kck/UI-Dialog/">UI-Dialog</a></li>
+
+        <li><a href=
+        "http://sandiego.pm.org/presentations/ui-perl/">User
+        Interfaces in Perl</a> San Diego Perl Mongers</li>
+      </ul>
+    </li>
+
+    <li>Ruby
+      <ul>
+        <li><a href="http://rdialog.rubyforge.org">Ruby Dialog
+        Interface</a></li>
+      </ul>
+    </li>
+
+    <li>Python
+      <ul>
+        <li><a href="http://pythondialog.sourceforge.net">Python
+        Dialog Website</a></li>
+      </ul>
+    </li>
+
+    <li>Bug reports
+      <ul>
+        <li><a href=
+        "http://bugs.debian.org/cgi-bin/pkgreport.cgi?archive=both;package=dialog">
+        Current and archived Debian bug reports for dialog</a></li>
+
+        <li><a href=
+        "http://bugs.debian.org/cgi-bin/pkgreport.cgi?archive=both;package=whiptail">
+        Current and archived Debian bug reports for whiptail</a></li>
+
+        <li><a href=
+        "http://bugs.debian.org/cgi-bin/pkgreport.cgi?archive=both;package=zenity">
+        Current and archived Debian bug reports for zenity</a></li>
+      </ul>
+    </li>
+
+    <li>Tutorials
+      <ul>
+        <li><a href=
+        "http://www.linuxjournal.com/article/2807">Dialog: An
+        Introductory Tutorial</a> by Jeff Tranter (Sep 01,
+        1994)</li>
+
+        <li><a href=
+        "http://linuxgazette.net/101/sunil.html">Designing Simple
+        front ends with dialog/Xdialog LG #101</a> by Sunil Thomas
+        Thonikuzhiyil (April 2004)</li>
+
+        <li><a href=
+        "https://techbase.kde.org/Development/Tutorials/Shell_Scripting_with_KDE_Dialogs">
+        Shell Scripting with KDE Dialogs</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 id="bugs-h2"><a name="bugs" id="bugs">Bugs</a></h2>
+
+  <p>You should report bugs either to <a href=
+  "mailto:dickey@invisible-island.net">me</a>. or to the ncurses
+  mailing list <a href=
+  "mailto:bug-ncurses@gnu.org">bug-ncurses@gnu.org</a>.</p>
+</body>
+</html>

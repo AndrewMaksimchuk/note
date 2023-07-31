@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+<head>
+<meta charset='utf-8'>
+<link href='main.css' media='screen' rel='stylesheet' type='text/css'>
+<title>entr(1)</title>
+</head>
+<body>
+<h1 id='title'>entr(1)</h1>
+<p class='caption'>
+Run arbitrary commands when files change
+</p>
+<p class='first'>
+<a href='https://github.com/eradman/entr/'>overview</a>
+|
+<a href='code/entr-5.3.tar.gz'>download 5.3</a>
+|
+<a href='entr.1.html'>man page</a>
+</p>
+<!--
+img#packages{:src=>"https://repology.org/badge/vertical-allrepos/entr.svg"}
+-->
+<h2>Examples</h2>
+<p class='first'>
+<em>Rebuild project if sources change</em>
+</p>
+<pre>
+<span class="Prompt">$</span> ls | entr make
+</pre>
+<p class='first'>
+<em>Rebuild project and run tests if the build was successful</em>
+</p>
+<pre>
+<span class="Prompt">$</span> ls | entr -s 'make && make test'
+</pre>
+<p class='first'>
+<div class='date'>hint</div>
+&raquo;
+<a href='https://github.com/ggreer/the_silver_searcher'>ag</a>
+and
+<a href='http://beyondgrep.com/'>ack</a>
+offer many advantages over utilities such as
+<code>find(1)</code>
+or
+<code>ls(1)</code>
+in that they recognize files by their contents and are smart enough to
+skip directories such as
+<code>.git</code>
+</p>
+<h2>Restarting Services</h2>
+<p class='first'>
+<code>entr</code>
+adheres to the principle of separation
+of concerns, yet the reload
+(<code>-r</code>)
+option was added to solve a common use case that would otherwise require
+some careful scripting:
+</p>
+<pre>
+<span class="Prompt">$</span> ls *.rb | entr -r ruby main.rb
+</pre>
+<p>This will,</p>
+<ol>
+<li>immediately start the server</li>
+<li>block until any of the listed files change</li>
+<li>terminate the background process</li>
+<li>wait for the server to exit before restarting</li>
+</ol>
+<p>
+The restart option starts the utility as a background process that does
+not have access to
+<code>STDIN</code>.
+In this case keyboard input may be provided using a FIFO
+</p>
+<pre>
+<span class="Prompt">$</span> mkfifo fifo
+cat &gt;fifo
+</pre>
+<p>
+Then start the
+<code>entr</code>
+in another console
+</p>
+<pre>
+<span class="Prompt">$</span> ls main.go | entr -r -s '&lt;fifo go run main.go'
+</pre>
+<h2>Watching for New Files</h2>
+<p class='first'>
+The directory watch option (<code>-d</code>) was added to react to events when a new file is added to a
+directory. Since
+<code>entr</code>
+relies on standard input piped from other Unix tools,
+an external shell loop must be used to rescan the file system.
+One way to implement this feature would be to simply require the users to
+list directories, but
+<code>entr</code>
+will infer the directories if they aren't listed explicitly
+</p>
+<pre>
+<span class="Prompt">$</span> while true; do
+<span class="Prompt">&gt;</span>   ls -d src/*.py | entr -d ./setup.py
+<span class="Prompt">&gt;</span> done
+</pre>
+<h2>Other Implementation Details</h2>
+<p class='first'>
+Some architectural limitations are for good reasons, but it's not easy to
+see why a particular restriction applies.
+</p>
+<p>
+First, the
+<code>-r</code>
+flag cannot be used with an interactive task:
+</p>
+<ol>
+<li>
+Closing
+<code>STDIN</code>
+on the child allows
+<code>entr</code>
+to accept keyboard input.
+</li>
+<li>
+If
+<code>entr</code>
+were to close it's own file descriptor to
+<code>STDIN</code>
+there is no reliable and immediate way to determine when the child has
+terminated in order to restore keyboard input.
+</li>
+<li>
+In restart mode signals need to propagate reliably, so we use a new
+process group.  If the utility reads STDIN under this new process group,
+the kernel will suspend it. Finding your process in the
+<code>T</code>
+state is confusing, so we closes STDIN to raise an error instead.
+</li>
+</ol>
+<h2>Processing Files</h2>
+<p>
+The
+<code>/_</code>
+shortcut for entr was intended as a means of saving typing in the case
+where you are monitoring one file
+</p>
+<pre>
+<span class="Prompt">$</span> echo schema.sql | psql -f /_
+</pre>
+<p>
+For any other use it is incorrect because the operating system may
+consolidate events for files that were changed in close succession, but
+<code>entr</code>
+only prints one filename.  This approach would also be incomplete because
+there is no way of detecting changes that occurred if
+<code>entr</code>
+isn't running.
+</p>
+<p>
+Over time I have been asked to extend and enhance the capabilities of the
+<code>/_</code>
+shortcut; this is usually to in an effort to
+</p>
+<ol>
+<li>
+emulate
+<a href='http://man.openbsd.org/openrsync.1'>rsync(1)</a>
+&mdash; send only files that changed
+</li>
+<li>
+emulate
+<a href='http://man.openbsd.org/make.1'>make(1)</a>
+&mdash; build only files that changed
+</li>
+</ol>
+<p>
+<code>entr</code>
+will detect if something changed in your tree, but another tools should
+handle building source or copying files.
+Here is an example using a
+<code>Makefile</code>
+</p>
+<pre>
+  .SUFFIXES: .md .html
+
+  SOURCES != ls input/*.md | awk 'sub("\.md$$", ".html")'
+
+  .md.html:
+      markdown2html $&lt; &gt; $@
+
+  all: ${SOURCES}
+</pre>
+<p>
+Then monitor using
+</p>
+<pre>
+while sleep 0.1; do
+  ls *.md | entr -d make
+done
+</pre>
+<p>
+<code>make</code>
+uses the modification times of files to determine what needs to be
+updated. You can also do this comparison in shell, which may be more
+adaptable to your directory structure
+</p>
+<pre>
+<span class="Statement">#!/bin/sh</span>
+
+for input in $(ls input/*.md); do
+  output="output/$(basename $input .md).html"
+
+  [[ $input -nt $output ]] && {
+      (set -x; markdown2html $input &gt; $output)
+  }
+done
+</pre>
+<h2>Tuning</h2>
+<p>
+The
+<a href='limits.html'>limits</a>
+page includes instructions for raising the maximum number of watches on
+BSD, MacOS and Linux.
+</p>
+<footer>
+<p class='caption'>
+Last updated on July 12, 2023
+<br>
+Send questions or comments to
+<a href='mailto:ericshane@eradman.com'>ericshane@eradman.com</a>
+<br>
+Public keys for source:
+<a href='http://eradman.com/files/gpg.asc'>gpg</a>
+|
+<a href='http://eradman.com/files/signify.pub'>signify</a>
+</p>
+</footer>
+<script>
+var sidecomment_sitecode = "0f7b4ba9-ea90-4753-a659-b1a7f2d3da2d";
+</script>
+<script src='//cdn.sidecomment.io/sidecomment.js'></script>
+</body>
+</html>
