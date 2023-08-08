@@ -49,24 +49,6 @@ Run `./dashboard` from project directory
 See [usage](usage.md)  
 
 
-### Web server
-
-Support commands:
-- [?] create
-- [x] random
-- [x] select
-- [x] select_all
-- [x] tag
-- [ ] edit
-- [ ] clear
-- [ ] update
-- [ ] search
-- [ ] hide
-- [ ] image
-- [ ] video
-- [ ] notification
-
-
 ### Dependencies
 
 - bash
