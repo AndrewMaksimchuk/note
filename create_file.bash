@@ -55,6 +55,11 @@ function from_tag
         local to_new_file=$(echo "$dir/1.md")
         vi $to_new_file
     fi
+    
+    if [[ -e $to_new_file ]]; then
+        echo "New note added"
+        echo "$to_new_file"
+    fi
 }
 
 
