@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+<head>
+<meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"1103121228",accountID:"3445502",trustKey:"66686",xpid:"VwIDVFNTChABVFlSDgUPV1wA",licenseKey:"NRJS-969d30985413823a2a8",applicationID:"1080948181"};;/*! For license information please see nr-loader-spa-1.239.1.min.js.LICENSE.txt */
+(()=>{"use strict";var e,t,r={5763:(e,t,r)=>{r.d(t,{P_:()=>h,Mt:()=>g,C5:()=>s,DL:()=>b,OP:()=>_,lF:()=>D,Yu:()=>w,Dg:()=>p,CX:()=>c,GE:()=>y,sU:()=>S});var n=r(8632),i=r(9567);const o={beacon:n.ce.beacon,errorBeacon:n.ce.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0},a={};function s(e){if(!e)throw new Error("All info objects require an agent identifier!");if(!a[e])throw new Error("Info for ".concat(e," was never set"));return a[e]}function c(e,t){if(!e)throw new Error("All info objects require an agent identifier!");a[e]=(0,i.D)(t,o),(0,n.Qy)(e,a[e],"info")}var u=r(7056);const d=()=>{const e={blockSelector:"[data-nr-block]",maskInputOptions:{password:!0}};return{privacy:{cookies_enabled:!0},ajax:{deny_list:void 0,block_internal:!0,enabled:!0,harvestTimeSeconds:10,autoStart:!0},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},session:{domain:void 0,expiresMs:u.oD,inactiveMs:u.Hb},ssl:void 0,obfuscate:void 0,jserrors:{enabled:!0,harvestTimeSeconds:10,autoStart:!0},metrics:{enabled:!0,autoStart:!0},page_action:{enabled:!0,harvestTimeSeconds:30,autoStart:!0},page_view_event:{enabled:!0,autoStart:!0},page_view_timing:{enabled:!0,harvestTimeSeconds:30,long_task:!1,autoStart:!0},session_trace:{enabled:!0,harvestTimeSeconds:10,autoStart:!0},harvest:{tooManyRequestsDelay:60},session_replay:{autoStart:!0,enabled:!1,harvestTimeSeconds:60,sampleRate:.1,errorSampleRate:.1,maskTextSelector:"*",maskAllInputs:!0,get blockClass(){return"nr-block"},get ignoreClass(){return"nr-ignore"},get maskTextClass(){return"nr-mask"},get blockSelector(){return e.blockSelector},set blockSelector(t){e.blockSelector+=",".concat(t)},get maskInputOptions(){return e.maskInputOptions},set maskInputOptions(t){e.maskInputOptions={...t,password:!0}}},spa:{enabled:!0,harvestTimeSeconds:10,autoStart:!0}}},l={},f="All configuration objects require an agent identifier!";function h(e){if(!e)throw new Error(f);if(!l[e])throw new Error("Configuration for ".concat(e," was never set"));return l[e]}function p(e,t){if(!e)throw new Error(f);l[e]=(0,i.D)(t,d()),(0,n.Qy)(e,l[e],"config")}function g(e,t){if(!e)throw new Error(f);var r=h(e);if(r){for(var n=t.split("."),i=0;i<n.length-1;i++)if("object"!=typeof(r=r[n[i]]))return;r=r[n[n.length-1]]}return r}const m={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0},v={};function b(e){if(!e)throw new Error("All loader-config objects require an agent identifier!");if(!v[e])throw new Error("LoaderConfig for ".concat(e," was never set"));return v[e]}function y(e,t){if(!e)throw new Error("All loader-config objects require an agent identifier!");v[e]=(0,i.D)(t,m),(0,n.Qy)(e,v[e],"loader_config")}const w=(0,n.mF)().o;var A=r(385),x=r(6818);const E={buildEnv:x.Re,customTransaction:void 0,disabled:!1,distMethod:x.gF,isolatedBacklog:!1,loaderType:void 0,maxBytes:3e4,offset:Math.floor(A._A?.performance?.timeOrigin||A._A?.performance?.timing?.navigationStart||Date.now()),onerror:void 0,origin:""+A._A.location,ptid:void 0,releaseIds:{},session:void 0,xhrWrappable:"function"==typeof A._A.XMLHttpRequest?.prototype?.addEventListener,version:x.q4,denyList:void 0},T={};function _(e){if(!e)throw new Error("All runtime objects require an agent identifier!");if(!T[e])throw new Error("Runtime for ".concat(e," was never set"));return T[e]}function S(e,t){if(!e)throw new Error("All runtime objects require an agent identifier!");T[e]=(0,i.D)(t,E),(0,n.Qy)(e,T[e],"runtime")}function D(e){return function(e){try{const t=s(e);return!!t.licenseKey&&!!t.errorBeacon&&!!t.applicationID}catch(e){return!1}}(e)}},9567:(e,t,r)=>{r.d(t,{D:()=>i});var n=r(50);function i(e,t){try{if(!e||"object"!=typeof e)return(0,n.Z)("Setting a Configurable requires an object as input");if(!t||"object"!=typeof t)return(0,n.Z)("Setting a Configurable requires a model to set its initial properties");const r=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),o=0===Object.keys(r).length?e:r;for(let a in o)if(void 0!==e[a])try{"object"==typeof e[a]&&"object"==typeof t[a]?r[a]=i(e[a],t[a]):r[a]=e[a]}catch(e){(0,n.Z)("An error occurred while setting a property of a Configurable",e)}return r}catch(e){(0,n.Z)("An error occured while setting a Configurable",e)}}},6818:(e,t,r)=>{r.d(t,{Re:()=>i,gF:()=>o,q4:()=>n});const n="1.239.1",i="PROD",o="CDN"},385:(e,t,r)=>{r.d(t,{FN:()=>a,IF:()=>u,Nk:()=>l,Tt:()=>s,_A:()=>o,il:()=>n,ux:()=>c,v6:()=>i,w1:()=>d});const n="undefined"!=typeof window&&!!window.document,i="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),o=n?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),a=""+o?.location,s=/iPad|iPhone|iPod/.test(navigator.userAgent),c=s&&"undefined"==typeof SharedWorker,u=(()=>{const e=navigator.userAgent.match(/Firefox[/\s](\d+\.\d+)/);return Array.isArray(e)&&e.length>=2?+e[1]:0})(),d=Boolean(n&&window.document.documentMode),l=!!navigator.sendBeacon},1117:(e,t,r)=>{r.d(t,{w:()=>o});var n=r(50);const i={agentIdentifier:"",ee:void 0};class o{constructor(e){try{if("object"!=typeof e)return(0,n.Z)("shared context requires an object as input");this.sharedContext={},Object.assign(this.sharedContext,i),Object.entries(e).forEach((e=>{let[t,r]=e;Object.keys(i).includes(t)&&(this.sharedContext[t]=r)}))}catch(e){(0,n.Z)("An error occured while setting SharedContext",e)}}}},8e3:(e,t,r)=>{r.d(t,{L:()=>d,R:()=>c});var n=r(8325),i=r(1284),o=r(4322),a=r(3325);const s={};function c(e,t){const r={staged:!1,priority:a.p[t]||0};u(e),s[e].get(t)||s[e].set(t,r)}function u(e){e&&(s[e]||(s[e]=new Map))}function d(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"feature";if(u(e),!e||!s[e].get(t))return a(t);s[e].get(t).staged=!0;const r=[...s[e]];function a(t){const r=e?n.ee.get(e):n.ee,a=o.X.handlers;if(r.backlog&&a){var s=r.backlog[t],c=a[t];if(c){for(var u=0;s&&u<s.length;++u)l(s[u],c);(0,i.D)(c,(function(e,t){(0,i.D)(t,(function(t,r){r[0].on(e,r[1])}))}))}delete a[t],r.backlog[t]=null,r.emit("drain-"+t,[])}}r.every((e=>{let[t,r]=e;return r.staged}))&&(r.sort(((e,t)=>e[1].priority-t[1].priority)),r.forEach((t=>{let[r]=t;s[e].delete(r),a(r)})))}function l(e,t){var r=e[1];(0,i.D)(t[r],(function(t,r){var n=e[0];if(r[0]===n){var i=r[1],o=e[3],a=e[2];i.apply(o,a)}}))}},8325:(e,t,r)=>{r.d(t,{A:()=>c,ee:()=>u});var n=r(8632),i=r(2210),o=r(5763);class a{constructor(e){this.contextId=e}}var s=r(3117);const c="nr@context:".concat(s.a),u=function e(t,r){var n={},s={},d={},f=!1;try{f=16===r.length&&(0,o.OP)(r).isolatedBacklog}catch(e){}var h={on:g,addEventListener:g,removeEventListener:function(e,t){var r=n[e];if(!r)return;for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)},emit:function(e,r,n,i,o){!1!==o&&(o=!0);if(u.aborted&&!i)return;t&&o&&t.emit(e,r,n);for(var a=p(n),c=m(e),d=c.length,l=0;l<d;l++)c[l].apply(a,r);var f=b()[s[e]];f&&f.push([h,e,r,a]);return a},get:v,listeners:m,context:p,buffer:function(e,t){const r=b();if(t=t||"feature",h.aborted)return;Object.entries(e||{}).forEach((e=>{let[n,i]=e;s[i]=t,t in r||(r[t]=[])}))},abort:l,aborted:!1,isBuffering:function(e){return!!b()[s[e]]},debugId:r,backlog:f?{}:t&&"object"==typeof t.backlog?t.backlog:{}};return h;function p(e){return e&&e instanceof a?e:e?(0,i.X)(e,c,(()=>new a(c))):new a(c)}function g(e,t){n[e]=m(e).concat(t)}function m(e){return n[e]||[]}function v(t){return d[t]=d[t]||e(h,t)}function b(){return h.backlog}}(void 0,"globalEE"),d=(0,n.fP)();function l(){u.aborted=!0,u.backlog={}}d.ee||(d.ee=u)},5546:(e,t,r)=>{r.d(t,{E:()=>n,p:()=>i});var n=r(8325).ee.get("handle");function i(e,t,r,i,o){o?(o.buffer([e],i),o.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},4322:(e,t,r)=>{r.d(t,{X:()=>o});var n=r(5546);o.on=a;var i=o.handlers={};function o(e,t,r,o){a(o||n.E,i,e,t,r)}function a(e,t,r,i,o){o||(o="feature"),e||(e=n.E);var a=t[o]=t[o]||{};(a[r]=a[r]||[]).push([e,i])}},3239:(e,t,r)=>{r.d(t,{bP:()=>s,iz:()=>c,m$:()=>a});var n=r(385);let i=!1,o=!1;try{const e={get passive(){return i=!0,!1},get signal(){return o=!0,!1}};n._A.addEventListener("test",null,e),n._A.removeEventListener("test",null,e)}catch(e){}function a(e,t){return i||o?{capture:!!e,passive:i,signal:t}:!!e}function s(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],n=arguments.length>3?arguments[3]:void 0;window.addEventListener(e,t,a(r,n))}function c(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],n=arguments.length>3?arguments[3]:void 0;document.addEventListener(e,t,a(r,n))}},3117:(e,t,r)=>{r.d(t,{a:()=>n});const n=(0,r(4402).Rl)()},4402:(e,t,r)=>{r.d(t,{Ht:()=>u,M:()=>c,Rl:()=>a,ky:()=>s});var n=r(385);const i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";function o(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=n._A?.crypto||n._A?.msCrypto;let t,r=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(31))),i.split("").map((e=>"x"===e?o(t,++r).toString(16):"y"===e?(3&o()|8).toString(16):e)).join("")}function s(e){const t=n._A?.crypto||n._A?.msCrypto;let r,i=0;t&&t.getRandomValues&&(r=t.getRandomValues(new Uint8Array(31)));const a=[];for(var s=0;s<e;s++)a.push(o(r,++i).toString(16));return a.join("")}function c(){return s(16)}function u(){return s(32)}},7056:(e,t,r)=>{r.d(t,{Bq:()=>n,Hb:()=>o,oD:()=>i});const n="NRBA",i=144e5,o=18e5},7894:(e,t,r)=>{function n(){return Math.round(performance.now())}r.d(t,{z:()=>n})},7243:(e,t,r)=>{r.d(t,{e:()=>o});var n=r(385),i={};function o(e){if(e in i)return i[e];if(0===(e||"").indexOf("data:"))return{protocol:"data"};let t;var r=n._A?.location,o={};if(n.il)t=document.createElement("a"),t.href=e;else try{t=new URL(e,r.href)}catch(e){return o}o.port=t.port;var a=t.href.split("://");!o.port&&a[1]&&(o.port=a[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===a[0]?"443":"80"),o.hostname=t.hostname||r.hostname,o.pathname=t.pathname,o.protocol=a[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var s=!t.protocol||":"===t.protocol||t.protocol===r.protocol,c=t.hostname===r.hostname&&t.port===r.port;return o.sameOrigin=s&&(!t.hostname||c),"/"===o.pathname&&(i[e]=o),o}},50:(e,t,r)=>{function n(e,t){"function"==typeof console.warn&&(console.warn("New Relic: ".concat(e)),t&&console.warn(t))}r.d(t,{Z:()=>n})},2587:(e,t,r)=>{r.d(t,{N:()=>c,T:()=>u});var n=r(8325),i=r(5546),o=r(3325);const a={stn:[o.D.sessionTrace],err:[o.D.jserrors,o.D.metrics],ins:[o.D.pageAction],spa:[o.D.spa],sr:[o.D.sessionReplay,o.D.sessionTrace]},s=new Set;function c(e,t){const r=n.ee.get(t);e&&"object"==typeof e&&(s.has(t)||Object.entries(e).forEach((e=>{let[t,n]=e;a[t]?a[t].forEach((e=>{n?(0,i.p)("feat-"+t,[],void 0,e,r):(0,i.p)("block-"+t,[],void 0,e,r),(0,i.p)("rumresp-"+t,[Boolean(n)],void 0,e,r)})):n&&(0,i.p)("feat-"+t,[],void 0,void 0,r),u[t]=Boolean(n)})),Object.keys(a).forEach((e=>{void 0===u[e]&&(a[e]?.forEach((t=>(0,i.p)("rumresp-"+e,[!1],void 0,t,r))),u[e]=!1)})),s.add(t))}const u={}},2210:(e,t,r)=>{r.d(t,{X:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},1284:(e,t,r)=>{r.d(t,{D:()=>n});const n=(e,t)=>Object.entries(e||{}).map((e=>{let[r,n]=e;return t(r,n)}))},4351:(e,t,r)=>{r.d(t,{P:()=>o});var n=r(8325);const i=()=>{const e=new WeakSet;return(t,r)=>{if("object"==typeof r&&null!==r){if(e.has(r))return;e.add(r)}return r}};function o(e){try{return JSON.stringify(e,i())}catch(e){try{n.ee.emit("internal-error",[e])}catch(e){}}}},3960:(e,t,r)=>{r.d(t,{K:()=>a,b:()=>o});var n=r(3239);function i(){return"undefined"==typeof document||"complete"===document.readyState}function o(e,t){if(i())return e();(0,n.bP)("load",e,t)}function a(e){if(i())return e();(0,n.iz)("DOMContentLoaded",e)}},8632:(e,t,r)=>{r.d(t,{EZ:()=>u,Qy:()=>c,ce:()=>o,fP:()=>a,gG:()=>d,mF:()=>s});var n=r(7894),i=r(385);const o={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function a(){return i._A.NREUM||(i._A.NREUM={}),void 0===i._A.newrelic&&(i._A.newrelic=i._A.NREUM),i._A.NREUM}function s(){let e=a();return e.o||(e.o={ST:i._A.setTimeout,SI:i._A.setImmediate,CT:i._A.clearTimeout,XHR:i._A.XMLHttpRequest,REQ:i._A.Request,EV:i._A.Event,PR:i._A.Promise,MO:i._A.MutationObserver,FETCH:i._A.fetch}),e}function c(e,t,r){let i=a();const o=i.initializedAgents||{},s=o[e]||{};return Object.keys(s).length||(s.initializedAt={ms:(0,n.z)(),date:new Date}),i.initializedAgents={...o,[e]:{...s,[r]:t}},i}function u(e,t){a()[e]=t}function d(){return function(){let e=a();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=a();const t=e.init||{};e.init={...t}}(),s(),function(){let e=a();const t=e.loader_config||{};e.loader_config={...t}}(),a()}},7956:(e,t,r)=>{r.d(t,{N:()=>i});var n=r(3239);function i(e){let t=arguments.length>1&&void 0!==arguments[1]&&arguments[1],r=arguments.length>2?arguments[2]:void 0,i=arguments.length>3?arguments[3]:void 0;(0,n.iz)("visibilitychange",(function(){if(t)return void("hidden"===document.visibilityState&&e());e(document.visibilityState)}),r,i)}},1214:(e,t,r)=>{r.d(t,{em:()=>b,u5:()=>D,QU:()=>N,_L:()=>I,Gm:()=>z,Lg:()=>L,BV:()=>G,Kf:()=>K});var n=r(8325),i=r(3117);const o="nr@original:".concat(i.a);var a=Object.prototype.hasOwnProperty,s=!1;function c(e,t){return e||(e=n.ee),r.inPlace=function(e,t,n,i,o){n||(n="");const a="-"===n.charAt(0);for(let s=0;s<t.length;s++){const c=t[s],u=e[c];d(u)||(e[c]=r(u,a?c+n:n,i,c,o))}},r.flag=o,r;function r(t,r,n,s,c){return d(t)?t:(r||(r=""),nrWrapper[o]=t,function(e,t,r){if(Object.defineProperty&&Object.keys)try{return Object.keys(e).forEach((function(r){Object.defineProperty(t,r,{get:function(){return e[r]},set:function(t){return e[r]=t,t}})})),t}catch(e){u([e],r)}for(var n in e)a.call(e,n)&&(t[n]=e[n])}(t,nrWrapper,e),nrWrapper);function nrWrapper(){var o,a,d,l;try{a=this,o=[...arguments],d="function"==typeof n?n(o,a):n||{}}catch(t){u([t,"",[o,a,s],d],e)}i(r+"start",[o,a,s],d,c);try{return l=t.apply(a,o)}catch(e){throw i(r+"err",[o,a,e],d,c),e}finally{i(r+"end",[o,a,l],d,c)}}}function i(r,n,i,o){if(!s||t){var a=s;s=!0;try{e.emit(r,n,i,t,o)}catch(t){u([t,r,n,i],e)}s=a}}}function u(e,t){t||(t=n.ee);try{t.emit("internal-error",e)}catch(e){}}function d(e){return!(e&&e instanceof Function&&e.apply&&!e[o])}var l=r(2210),f=r(385);const h={},p=f._A.XMLHttpRequest,g="addEventListener",m="removeEventListener",v="nr@wrapped:".concat(n.A);function b(e){var t=function(e){return(e||n.ee).get("events")}(e);if(h[t.debugId]++)return t;h[t.debugId]=1;var r=c(t,!0);function i(e){r.inPlace(e,[g,m],"-",o)}function o(e,t){return e[1]}return"getPrototypeOf"in Object&&(f.il&&y(document,i),y(f._A,i),y(p.prototype,i)),t.on(g+"-start",(function(e,t){var n=e[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var i=(0,l.X)(n,v,(function(){var e={object:function(){if("function"!=typeof n.handleEvent)return;return n.handleEvent.apply(n,arguments)},function:n}[typeof n];return e?r(e,"fn-",null,e.name||"anonymous"):n}));this.wrapped=e[1]=i}})),t.on(m+"-start",(function(e){e[1]=this.wrapped||e[1]})),t}function y(e,t){let r=e;for(;"object"==typeof r&&!Object.prototype.hasOwnProperty.call(r,g);)r=Object.getPrototypeOf(r);for(var n=arguments.length,i=new Array(n>2?n-2:0),o=2;o<n;o++)i[o-2]=arguments[o];r&&t(r,...i)}var w="fetch-",A=w+"body-",x=["arrayBuffer","blob","json","text","formData"],E=f._A.Request,T=f._A.Response,_="prototype";const S={};function D(e){const t=function(e){return(e||n.ee).get("fetch")}(e);if(!(E&&T&&f._A.fetch))return t;if(S[t.debugId]++)return t;function r(e,r,i){var o=e[r];"function"==typeof o&&(e[r]=function(){var e,r=[...arguments],a={};t.emit(i+"before-start",[r],a),a[n.A]&&a[n.A].dt&&(e=a[n.A].dt);var s=o.apply(this,r);return t.emit(i+"start",[r,e],s),s.then((function(e){return t.emit(i+"end",[null,e],s),e}),(function(e){throw t.emit(i+"end",[e],s),e}))})}return S[t.debugId]=1,x.forEach((e=>{r(E[_],e,A),r(T[_],e,A)})),r(f._A,"fetch",w),t.on(w+"end",(function(e,r){var n=this;if(r){var i=r.headers.get("content-length");null!==i&&(n.rxSize=i),t.emit(w+"done",[null,r],n)}else t.emit(w+"done",[e],n)})),t}const j={},C=["pushState","replaceState"];function N(e){const t=function(e){return(e||n.ee).get("history")}(e);return!f.il||j[t.debugId]++||(j[t.debugId]=1,c(t).inPlace(window.history,C,"-")),t}var O=r(3239);const P={},R=["appendChild","insertBefore","replaceChild"];function I(e){const t=function(e){return(e||n.ee).get("jsonp")}(e);if(!f.il||P[t.debugId])return t;P[t.debugId]=!0;var r=c(t),i=/[?&](?:callback|cb)=([^&#]+)/,o=/(.*)\.([^.]+)/,a=/^(\w+)(\.|$)(.*)$/;function s(e,t){if(!e)return t;const r=e.match(a),n=r[1];return s(r[3],t[n])}return r.inPlace(Node.prototype,R,"dom-"),t.on("dom-start",(function(e){!function(e){if(!e||"string"!=typeof e.nodeName||"script"!==e.nodeName.toLowerCase())return;if("function"!=typeof e.addEventListener)return;var n=(a=e.src,c=a.match(i),c?c[1]:null);var a,c;if(!n)return;var u=function(e){var t=e.match(o);if(t&&t.length>=3)return{key:t[2],parent:s(t[1],window)};return{key:e,parent:window}}(n);if("function"!=typeof u.parent[u.key])return;var d={};function l(){t.emit("jsonp-end",[],d),e.removeEventListener("load",l,(0,O.m$)(!1)),e.removeEventListener("error",f,(0,O.m$)(!1))}function f(){t.emit("jsonp-error",[],d),t.emit("jsonp-end",[],d),e.removeEventListener("load",l,(0,O.m$)(!1)),e.removeEventListener("error",f,(0,O.m$)(!1))}r.inPlace(u.parent,[u.key],"cb-",d),e.addEventListener("load",l,(0,O.m$)(!1)),e.addEventListener("error",f,(0,O.m$)(!1)),t.emit("new-jsonp",[e.src],d)}(e[0])})),t}const k={};function z(e){const t=function(e){return(e||n.ee).get("mutation")}(e);if(!f.il||k[t.debugId])return t;k[t.debugId]=!0;var r=c(t),i=f._A.MutationObserver;return i&&(window.MutationObserver=function(e){return this instanceof i?new i(r(e,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype),t}const H={};function L(e){const t=function(e){return(e||n.ee).get("promise")}(e);if(H[t.debugId])return t;H[t.debugId]=!0;var r=t.context,i=c(t),a=f._A.Promise;return a&&function(){function e(r){var n=t.context(),o=i(r,"executor-",n,null,!1);const s=Reflect.construct(a,[o],e);return t.context(s).getCtx=function(){return n},s}f._A.Promise=e,Object.defineProperty(e,"name",{value:"Promise"}),e.toString=function(){return a.toString()},Object.setPrototypeOf(e,a),["all","race"].forEach((function(r){const n=a[r];e[r]=function(e){let i=!1;[...e||[]].forEach((e=>{this.resolve(e).then(a("all"===r),a(!1))}));const o=n.apply(this,arguments);return o;function a(e){return function(){t.emit("propagate",[null,!i],o,!1,!1),i=i||!e}}}})),["resolve","reject"].forEach((function(r){const n=a[r];e[r]=function(e){const r=n.apply(this,arguments);return e!==r&&t.emit("propagate",[e,!0],r,!1,!1),r}})),e.prototype=a.prototype;const n=a.prototype.then;a.prototype.then=function(){var e=this,o=r(e);o.promise=e;for(var a=arguments.length,s=new Array(a),c=0;c<a;c++)s[c]=arguments[c];s[0]=i(s[0],"cb-",o,null,!1),s[1]=i(s[1],"cb-",o,null,!1);const u=n.apply(this,s);return o.nextPromise=u,t.emit("propagate",[e,!0],u,!1,!1),u},a.prototype.then[o]=n,t.on("executor-start",(function(e){e[0]=i(e[0],"resolve-",this,null,!1),e[1]=i(e[1],"resolve-",this,null,!1)})),t.on("executor-err",(function(e,t,r){e[1](r)})),t.on("cb-end",(function(e,r,n){t.emit("propagate",[n,!0],this.nextPromise,!1,!1)})),t.on("propagate",(function(e,r,n){this.getCtx&&!r||(this.getCtx=function(){if(e instanceof Promise)var r=t.context(e);return r&&r.getCtx?r.getCtx():this})}))}(),t}const M={},B="setTimeout",F="setInterval",U="clearTimeout",Z="-start",V="-",q=[B,"setImmediate",F,U,"clearImmediate"];function G(e){const t=function(e){return(e||n.ee).get("timer")}(e);if(M[t.debugId]++)return t;M[t.debugId]=1;var r=c(t);return r.inPlace(f._A,q.slice(0,2),B+V),r.inPlace(f._A,q.slice(2,3),F+V),r.inPlace(f._A,q.slice(3),U+V),t.on(F+Z,(function(e,t,n){e[0]=r(e[0],"fn-",null,n)})),t.on(B+Z,(function(e,t,n){this.method=n,this.timerDuration=isNaN(e[1])?0:+e[1],e[0]=r(e[0],"fn-",this,n)})),t}var W=r(50);const X={},Q=["open","send"];function K(e){var t=e||n.ee;const r=function(e){return(e||n.ee).get("xhr")}(t);if(X[r.debugId]++)return r;X[r.debugId]=1,b(t);var i=c(r),o=f._A.XMLHttpRequest,a=f._A.MutationObserver,s=f._A.Promise,u=f._A.setInterval,d="readystatechange",l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],h=[],p=f._A.XMLHttpRequest=function(e){const t=new o(e),n=r.context(t);try{r.emit("new-xhr",[t],n),t.addEventListener(d,(a=n,function(){var e=this;e.readyState>3&&!a.resolved&&(a.resolved=!0,r.emit("xhr-resolved",[],e)),i.inPlace(e,l,"fn-",A)}),(0,O.m$)(!1))}catch(e){(0,W.Z)("An error occurred while intercepting XHR",e);try{r.emit("internal-error",[e])}catch(e){}}var a;return t};function g(e,t){i.inPlace(t,["onreadystatechange"],"fn-",A)}if(function(e,t){for(var r in e)t[r]=e[r]}(o,p),p.prototype=o.prototype,i.inPlace(p.prototype,Q,"-xhr-",A),r.on("send-xhr-start",(function(e,t){g(e,t),function(e){h.push(e),a&&(m?m.then(w):u?u(w):(v=-v,y.data=v))}(t)})),r.on("open-xhr-start",g),a){var m=s&&s.resolve();if(!u&&!s){var v=1,y=document.createTextNode(v);new a(w).observe(y,{characterData:!0})}}else t.on("fn-end",(function(e){e[0]&&e[0].type===d||w()}));function w(){for(var e=0;e<h.length;e++)g(0,h[e]);h.length&&(h=[])}function A(e,t){return t}return r}},7825:(e,t,r)=>{r.d(t,{t:()=>n});const n=r(3325).D.ajax},6660:(e,t,r)=>{r.d(t,{t:()=>n});const n=r(3325).D.jserrors},3081:(e,t,r)=>{r.d(t,{gF:()=>o,mY:()=>i,t9:()=>n,vz:()=>s,xS:()=>a});const n=r(3325).D.metrics,i="sm",o="cm",a="storeSupportabilityMetrics",s="storeEventMetrics"},4649:(e,t,r)=>{r.d(t,{t:()=>n});const n=r(3325).D.pageAction},7633:(e,t,r)=>{r.d(t,{Dz:()=>i,OJ:()=>a,qw:()=>o,t9:()=>n});const n=r(3325).D.pageViewEvent,i="firstbyte",o="domcontent",a="windowload"},9251:(e,t,r)=>{r.d(t,{t:()=>n});const n=r(3325).D.pageViewTiming},3614:(e,t,r)=>{r.d(t,{BST_RESOURCE:()=>i,END:()=>s,FEATURE_NAME:()=>n,FN_END:()=>u,FN_START:()=>c,PUSH_STATE:()=>d,RESOURCE:()=>o,START:()=>a});const n=r(3325).D.sessionTrace,i="bstResource",o="resource",a="-start",s="-end",c="fn"+a,u="fn"+s,d="pushState"},7836:(e,t,r)=>{r.d(t,{BODY:()=>x,CB_END:()=>E,CB_START:()=>u,END:()=>A,FEATURE_NAME:()=>i,FETCH:()=>_,FETCH_BODY:()=>v,FETCH_DONE:()=>m,FETCH_START:()=>g,FN_END:()=>c,FN_START:()=>s,INTERACTION:()=>f,INTERACTION_API:()=>d,INTERACTION_EVENTS:()=>o,JSONP_END:()=>b,JSONP_NODE:()=>p,JS_TIME:()=>T,MAX_TIMER_BUDGET:()=>a,REMAINING:()=>l,SPA_NODE:()=>h,START:()=>w,originalSetTimeout:()=>y});var n=r(5763);const i=r(3325).D.spa,o=["click","submit","keypress","keydown","keyup","change"],a=999,s="fn-start",c="fn-end",u="cb-start",d="api-ixn-",l="remaining",f="interaction",h="spaNode",p="jsonpNode",g="fetch-start",m="fetch-done",v="fetch-body-",b="jsonp-end",y=n.Yu.ST,w="-start",A="-end",x="-body",E="cb"+A,T="jsTime",_="fetch"},5938:(e,t,r)=>{r.d(t,{W:()=>o});var n=r(5763),i=r(8325);class o{constructor(e,t,r){this.agentIdentifier=e,this.aggregator=t,this.ee=i.ee.get(e,(0,n.OP)(this.agentIdentifier).isolatedBacklog),this.featureName=r,this.blocked=!1}}},9144:(e,t,r)=>{r.d(t,{j:()=>m});var n=r(3325),i=r(5763),o=r(5546),a=r(8325),s=r(7894),c=r(8e3),u=r(3960),d=r(385),l=r(50),f=r(3081),h=r(8632);function p(){const e=(0,h.gG)();["setErrorHandler","finished","addToTrace","inlineHit","addRelease","addPageAction","setCurrentRouteName","setPageViewName","setCustomAttribute","interaction","noticeError","setUserId","setApplicationVersion","start"].forEach((t=>{e[t]=function(){for(var r=arguments.length,n=new Array(r),i=0;i<r;i++)n[i]=arguments[i];return function(t){for(var r=arguments.length,n=new Array(r>1?r-1:0),i=1;i<r;i++)n[i-1]=arguments[i];let o=[];return Object.values(e.initializedAgents).forEach((e=>{e.exposed&&e.api[t]&&o.push(e.api[t](...n))})),o.length>1?o:o[0]}(t,...n)}}))}var g=r(2587);function m(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},m=arguments.length>2?arguments[2]:void 0,v=arguments.length>3?arguments[3]:void 0,{init:b,info:y,loader_config:w,runtime:A={loaderType:m},exposed:x=!0}=t;const E=(0,h.gG)();y||(b=E.init,y=E.info,w=E.loader_config),(0,i.Dg)(e,b||{}),(0,i.GE)(e,w||{}),y.jsAttributes??={},d.v6&&(y.jsAttributes.isWorker=!0),(0,i.CX)(e,y);const T=(0,i.P_)(e);A.denyList=[...T.ajax?.deny_list||[],...T.ajax?.block_internal?[y.beacon,y.errorBeacon]:[]],(0,i.sU)(e,A),p();const _=function(e,t){t||(0,c.R)(e,"api");const h={};var p=a.ee.get(e),g=p.get("tracer"),m="api-",v=m+"ixn-";function b(t,r,n,o){const a=(0,i.C5)(e);return null===r?delete a.jsAttributes[t]:(0,i.CX)(e,{...a,jsAttributes:{...a.jsAttributes,[t]:r}}),A(m,n,!0,o||null===r?"session":void 0)(t,r)}function y(){}["setErrorHandler","finished","addToTrace","inlineHit","addRelease"].forEach((e=>{h[e]=A(m,e,!0,"api")})),h.addPageAction=A(m,"addPageAction",!0,n.D.pageAction),h.setCurrentRouteName=A(m,"routeName",!0,n.D.spa),h.setPageViewName=function(t,r){if("string"==typeof t)return"/"!==t.charAt(0)&&(t="/"+t),(0,i.OP)(e).customTransaction=(r||"http://custom.transaction")+t,A(m,"setPageViewName",!0)()},h.setCustomAttribute=function(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2];if("string"==typeof e){if(["string","number"].includes(typeof t)||null===t)return b(e,t,"setCustomAttribute",r);(0,l.Z)("Failed to execute setCustomAttribute.\nNon-null value must be a string or number type, but a type of <".concat(typeof t,"> was provided."))}else(0,l.Z)("Failed to execute setCustomAttribute.\nName must be a string type, but a type of <".concat(typeof e,"> was provided."))},h.setUserId=function(e){if("string"==typeof e||null===e)return b("enduser.id",e,"setUserId",!0);(0,l.Z)("Failed to execute setUserId.\nNon-null value must be a string type, but a type of <".concat(typeof e,"> was provided."))},h.setApplicationVersion=function(e){if("string"==typeof e||null===e)return b("application.version",e,"setApplicationVersion",!1);(0,l.Z)("Failed to execute setApplicationVersion. Expected <String | null>, but got <".concat(typeof e,">."))},h.start=e=>{try{const t=Object.values(n.D);if(void 0===e)e=t;else{if((e=Array.isArray(e)&&e.length?e:[e]).some((e=>!t.includes(e))))return(0,l.Z)("Invalid feature name supplied. Acceptable feature names are: ".concat(t));e.includes(n.D.pageViewEvent)||e.push(n.D.pageViewEvent)}e.forEach((e=>{p.emit("".concat(e,"-opt-in"))}))}catch(e){(0,l.Z)("An unexpected issue occurred",e)}},h.interaction=function(){return(new y).get()};var w=y.prototype={createTracer:function(e,t){var r={},i=this,a="function"==typeof t;return(0,o.p)(v+"tracer",[(0,s.z)(),e,r],i,n.D.spa,p),function(){if(g.emit((a?"":"no-")+"fn-start",[(0,s.z)(),i,a],r),a)try{return t.apply(this,arguments)}catch(e){throw g.emit("fn-err",[arguments,this,e],r),e}finally{g.emit("fn-end",[(0,s.z)()],r)}}}};function A(e,t,r,i){return function(){return(0,o.p)(f.xS,["API/"+t+"/called"],void 0,n.D.metrics,p),i&&(0,o.p)(e+t,[(0,s.z)(),...arguments],r?null:this,i,p),r?void 0:this}}function x(){r.e(111).then(r.bind(r,7438)).then((t=>{let{setAPI:r}=t;r(e),(0,c.L)(e,"api")})).catch((()=>(0,l.Z)("Downloading runtime APIs failed...")))}return["actionText","setName","setAttribute","save","ignore","onEnd","getContext","end","get"].forEach((e=>{w[e]=A(v,e,void 0,n.D.spa)})),h.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),(0,o.p)(f.xS,["API/noticeError/called"],void 0,n.D.metrics,p),(0,o.p)("err",[e,(0,s.z)(),!1,t],void 0,n.D.jserrors,p)},d.il?(0,u.b)((()=>x()),!0):x(),h}(e,v);return(0,h.Qy)(e,_,"api"),(0,h.Qy)(e,x,"exposed"),(0,h.EZ)("activatedFeatures",g.T),_}},3325:(e,t,r)=>{r.d(t,{D:()=>n,p:()=>i});const n={ajax:"ajax",jserrors:"jserrors",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",spa:"spa"},i={[n.pageViewEvent]:1,[n.pageViewTiming]:2,[n.metrics]:3,[n.jserrors]:4,[n.ajax]:5,[n.sessionTrace]:6,[n.pageAction]:7,[n.spa]:8,[n.sessionReplay]:9}}},n={};function i(e){var t=n[e];if(void 0!==t)return t.exports;var o=n[e]={exports:{}};return r[e](o,o.exports,i),o.exports}i.m=r,i.d=(e,t)=>{for(var r in t)i.o(t,r)&&!i.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},i.f={},i.e=e=>Promise.all(Object.keys(i.f).reduce(((t,r)=>(i.f[r](e,t),t)),[])),i.u=e=>"nr-spa.142f942f-1.239.1.min.js",i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},t="NRBA-1.239.1.PROD:",i.l=(r,n,o,a)=>{if(e[r])e[r].push(n);else{var s,c;if(void 0!==o)for(var u=document.getElementsByTagName("script"),d=0;d<u.length;d++){var l=u[d];if(l.getAttribute("src")==r||l.getAttribute("data-webpack")==t+o){s=l;break}}s||(c=!0,(s=document.createElement("script")).charset="utf-8",s.timeout=120,i.nc&&s.setAttribute("nonce",i.nc),s.setAttribute("data-webpack",t+o),s.src=r),e[r]=[n];var f=(t,n)=>{s.onerror=s.onload=null,clearTimeout(h);var i=e[r];if(delete e[r],s.parentNode&&s.parentNode.removeChild(s),i&&i.forEach((e=>e(n))),t)return t(n)},h=setTimeout(f.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=f.bind(null,s.onerror),s.onload=f.bind(null,s.onload),c&&document.head.appendChild(s)}},i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.p="https://js-agent.newrelic.com/",(()=>{var e={801:0,92:0};i.f.j=(t,r)=>{var n=i.o(e,t)?e[t]:void 0;if(0!==n)if(n)r.push(n[2]);else{var o=new Promise(((r,i)=>n=e[t]=[r,i]));r.push(n[2]=o);var a=i.p+i.u(t),s=new Error;i.l(a,(r=>{if(i.o(e,t)&&(0!==(n=e[t])&&(e[t]=void 0),n)){var o=r&&("load"===r.type?"missing":r.type),a=r&&r.target&&r.target.src;s.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",s.name="ChunkLoadError",s.type=o,s.request=a,n[1](s)}}),"chunk-"+t,t)}};var t=(t,r)=>{var n,o,[a,s,c]=r,u=0;if(a.some((t=>0!==e[t]))){for(n in s)i.o(s,n)&&(i.m[n]=s[n]);if(c)c(i)}for(t&&t(r);u<a.length;u++)o=a[u],i.o(e,o)&&e[o]&&e[o][0](),e[o]=0},r=self["webpackChunk:NRBA-1.239.1.PROD"]=self["webpackChunk:NRBA-1.239.1.PROD"]||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})(),(()=>{var e=i(50);class t{addPageAction(t,r){(0,e.Z)("Call to agent api addPageAction failed. The session trace feature is not currently initialized.")}setPageViewName(t,r){(0,e.Z)("Call to agent api setPageViewName failed. The page view feature is not currently initialized.")}setCustomAttribute(t,r,n){(0,e.Z)("Call to agent api setCustomAttribute failed. The js errors feature is not currently initialized.")}noticeError(t,r){(0,e.Z)("Call to agent api noticeError failed. The js errors feature is not currently initialized.")}setUserId(t){(0,e.Z)("Call to agent api setUserId failed. The js errors feature is not currently initialized.")}setApplicationVersion(t){(0,e.Z)("Call to agent api setApplicationVersion failed. The agent is not currently initialized.")}setErrorHandler(t){(0,e.Z)("Call to agent api setErrorHandler failed. The js errors feature is not currently initialized.")}finished(t){(0,e.Z)("Call to agent api finished failed. The page action feature is not currently initialized.")}addRelease(t,r){(0,e.Z)("Call to agent api addRelease failed. The agent is not currently initialized.")}start(t){(0,e.Z)("Call to agent api addRelease failed. The agent is not currently initialized.")}}var r=i(3325),n=i(5763);const o=Object.values(r.D);function a(e){const t={};return o.forEach((r=>{t[r]=function(e,t){return!1!==(0,n.Mt)(t,"".concat(e,".enabled"))}(r,e)})),t}var s=i(9144);var c=i(5546),u=i(385),d=i(8e3),l=i(5938),f=i(3960);class h extends l.W{constructor(e,t,r){let i=!(arguments.length>3&&void 0!==arguments[3])||arguments[3];super(e,t,r),this.auto=i,this.abortHandler=void 0,this.featAggregate=void 0,this.onAggregateImported=void 0,!1===(0,n.Mt)(this.agentIdentifier,"".concat(this.featureName,".autoStart"))&&(this.auto=!1),this.auto&&(0,d.R)(e,r)}importAggregator(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};if(this.featAggregate)return;if(!this.auto)return void this.ee.on("".concat(this.featureName,"-opt-in"),(()=>{(0,d.R)(this.agentIdentifier,this.featureName),this.auto=!0,this.importAggregator()}));const r=u.il&&!0===(0,n.Mt)(this.agentIdentifier,"privacy.cookies_enabled");let o;this.onAggregateImported=new Promise((e=>{o=e}));const a=async()=>{let n;try{if(r){const{setupAgentSession:e}=await i.e(111).then(i.bind(i,3228));n=e(this.agentIdentifier)}}catch(t){(0,e.Z)("A problem occurred when starting up session manager. This page will not start or extend any session.",t)}try{if(!this.shouldImportAgg(this.featureName,n))return(0,d.L)(this.agentIdentifier,this.featureName),void o(!1);const{lazyFeatureLoader:e}=await i.e(111).then(i.bind(i,8582)),{Aggregate:r}=await e(this.featureName,"aggregate");this.featAggregate=new r(this.agentIdentifier,this.aggregator,t),o(!0)}catch(t){(0,e.Z)("Downloading and initializing ".concat(this.featureName," failed..."),t),this.abortHandler?.(),o(!1)}};u.il?(0,f.b)((()=>a()),!0):a()}shouldImportAgg(e,t){return e!==r.D.sessionReplay||!!n.Yu.MO&&(!1!==(0,n.Mt)(this.agentIdentifier,"session_trace.enabled")&&(!!t?.isNew||!!t?.state.sessionReplay))}}var p=i(7633),g=i(7894);class m extends h{static featureName=p.t9;constructor(e,t){let i=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];if(super(e,t,p.t9,i),("undefined"==typeof PerformanceNavigationTiming||u.Tt)&&"undefined"!=typeof PerformanceTiming){const t=(0,n.OP)(e);t[p.Dz]=Math.max(Date.now()-t.offset,0),(0,f.K)((()=>{t[p.qw]=Math.max((0,g.z)()-t[p.Dz],0)})),(0,f.b)((()=>{const e=(0,g.z)();t[p.OJ]=Math.max(e-t[p.Dz],0),(0,c.p)("timing",["load",e],void 0,r.D.pageViewTiming,this.ee)}))}this.importAggregator()}}var v=i(1117),b=i(1284);class y extends v.w{constructor(e){super(e),this.aggregatedData={}}store(e,t,r,n,i){var o=this.getBucket(e,t,r,i);return o.metrics=function(e,t){t||(t={count:0});return t.count+=1,(0,b.D)(e,(function(e,r){t[e]=w(r,t[e])})),t}(n,o.metrics),o}merge(e,t,r,n,i){var o=this.getBucket(e,t,n,i);if(o.metrics){var a=o.metrics;a.count+=r.count,(0,b.D)(r,(function(e,t){if("count"!==e){var n=a[e],i=r[e];i&&!i.c?a[e]=w(i.t,n):a[e]=function(e,t){if(!t)return e;t.c||(t=A(t.t));return t.min=Math.min(e.min,t.min),t.max=Math.max(e.max,t.max),t.t+=e.t,t.sos+=e.sos,t.c+=e.c,t}(i,a[e])}}))}else o.metrics=r}storeMetric(e,t,r,n){var i=this.getBucket(e,t,r);return i.stats=w(n,i.stats),i}getBucket(e,t,r,n){this.aggregatedData[e]||(this.aggregatedData[e]={});var i=this.aggregatedData[e][t];return i||(i=this.aggregatedData[e][t]={params:r||{}},n&&(i.custom=n)),i}get(e,t){return t?this.aggregatedData[e]&&this.aggregatedData[e][t]:this.aggregatedData[e]}take(e){for(var t={},r="",n=!1,i=0;i<e.length;i++)t[r=e[i]]=x(this.aggregatedData[r]),t[r].length&&(n=!0),delete this.aggregatedData[r];return n?t:null}}function w(e,t){return null==e?function(e){e?e.c++:e={c:1};return e}(t):t?(t.c||(t=A(t.t)),t.c+=1,t.t+=e,t.sos+=e*e,e>t.max&&(t.max=e),e<t.min&&(t.min=e),t):{t:e}}function A(e){return{t:e,min:e,max:e,sos:e*e,c:1}}function x(e){return"object"!=typeof e?[]:(0,b.D)(e,E)}function E(e,t){return t}var T=i(8632),_=i(4402),S=i(4351);var D=i(7956),j=i(3239),C=i(9251);class N extends h{static featureName=C.t;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,C.t,r),u.il&&((0,n.OP)(e).initHidden=Boolean("hidden"===document.visibilityState),(0,D.N)((()=>(0,c.p)("docHidden",[(0,g.z)()],void 0,C.t,this.ee)),!0),(0,j.bP)("pagehide",(()=>(0,c.p)("winPagehide",[(0,g.z)()],void 0,C.t,this.ee))),this.importAggregator())}}var O=i(3081);class P extends h{static featureName=O.t9;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,O.t9,r),this.importAggregator()}}var R=i(6660);class I{constructor(e,t,r,n){this.name="UncaughtError",this.message=e,this.sourceURL=t,this.line=r,this.column=n}}class k extends h{static featureName=R.t;#e=new Set;constructor(e,t){let n=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,R.t,n);try{this.removeOnAbort=new AbortController}catch(e){}this.ee.on("fn-err",((e,t,n)=>{this.abortHandler&&!this.#e.has(n)&&(this.#e.add(n),(0,c.p)("err",[this.#t(n),(0,g.z)()],void 0,r.D.jserrors,this.ee))})),this.ee.on("internal-error",(e=>{this.abortHandler&&(0,c.p)("ierr",[this.#t(e),(0,g.z)(),!0],void 0,r.D.jserrors,this.ee)})),u._A.addEventListener("unhandledrejection",(e=>{this.abortHandler&&(0,c.p)("err",[this.#r(e),(0,g.z)(),!1,{unhandledPromiseRejection:1}],void 0,r.D.jserrors,this.ee)}),(0,j.m$)(!1,this.removeOnAbort?.signal)),u._A.addEventListener("error",(e=>{this.abortHandler&&(this.#e.has(e.error)?this.#e.delete(e.error):(0,c.p)("err",[this.#n(e),(0,g.z)()],void 0,r.D.jserrors,this.ee))}),(0,j.m$)(!1,this.removeOnAbort?.signal)),this.abortHandler=this.#i,this.importAggregator()}#i(){this.removeOnAbort?.abort(),this.#e.clear(),this.abortHandler=void 0}#t(e){return e instanceof Error?e:void 0!==e?.message?new I(e.message,e.filename||e.sourceURL,e.lineno||e.line,e.colno||e.col):new I("string"==typeof e?e:(0,S.P)(e))}#r(e){let t="Unhandled Promise Rejection: ";if(e?.reason instanceof Error)try{return e.reason.message=t+e.reason.message,e.reason}catch(t){return e.reason}if(void 0===e.reason)return new I(t);const r=this.#t(e.reason);return r.message=t+r.message,r}#n(e){return e.error instanceof Error?e.error:new I(e.message,e.filename,e.lineno,e.colno)}}var z=i(2210);let H=1;const L="nr@id";function M(e){const t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===u._A?0:(0,z.X)(e,L,(function(){return H++}))}function B(e){if("string"==typeof e&&e.length)return e.length;if("object"==typeof e){if("undefined"!=typeof ArrayBuffer&&e instanceof ArrayBuffer&&e.byteLength)return e.byteLength;if("undefined"!=typeof Blob&&e instanceof Blob&&e.size)return e.size;if(!("undefined"!=typeof FormData&&e instanceof FormData))try{return(0,S.P)(e).length}catch(e){return}}}var F=i(1214),U=i(7243);class Z{constructor(e){this.agentIdentifier=e}generateTracePayload(e){if(!this.shouldGenerateTrace(e))return null;var t=(0,n.DL)(this.agentIdentifier);if(!t)return null;var r=(t.accountID||"").toString()||null,i=(t.agentID||"").toString()||null,o=(t.trustKey||"").toString()||null;if(!r||!i)return null;var a=(0,_.M)(),s=(0,_.Ht)(),c=Date.now(),u={spanId:a,traceId:s,timestamp:c};return(e.sameOrigin||this.isAllowedOrigin(e)&&this.useTraceContextHeadersForCors())&&(u.traceContextParentHeader=this.generateTraceContextParentHeader(a,s),u.traceContextStateHeader=this.generateTraceContextStateHeader(a,c,r,i,o)),(e.sameOrigin&&!this.excludeNewrelicHeader()||!e.sameOrigin&&this.isAllowedOrigin(e)&&this.useNewrelicHeaderForCors())&&(u.newrelicHeader=this.generateTraceHeader(a,s,c,r,i,o)),u}generateTraceContextParentHeader(e,t){return"00-"+t+"-"+e+"-01"}generateTraceContextStateHeader(e,t,r,n,i){return i+"@nr=0-1-"+r+"-"+n+"-"+e+"----"+t}generateTraceHeader(e,t,r,n,i,o){if(!("function"==typeof u._A?.btoa))return null;var a={v:[0,1],d:{ty:"Browser",ac:n,ap:i,id:e,tr:t,ti:r}};return o&&n!==o&&(a.d.tk=o),btoa((0,S.P)(a))}shouldGenerateTrace(e){return this.isDtEnabled()&&this.isAllowedOrigin(e)}isAllowedOrigin(e){var t=!1,r={};if((0,n.Mt)(this.agentIdentifier,"distributed_tracing")&&(r=(0,n.P_)(this.agentIdentifier).distributed_tracing),e.sameOrigin)t=!0;else if(r.allowed_origins instanceof Array)for(var i=0;i<r.allowed_origins.length;i++){var o=(0,U.e)(r.allowed_origins[i]);if(e.hostname===o.hostname&&e.protocol===o.protocol&&e.port===o.port){t=!0;break}}return t}isDtEnabled(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!!e.enabled}excludeNewrelicHeader(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!!e.exclude_newrelic_header}useNewrelicHeaderForCors(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!1!==e.cors_use_newrelic_header}useTraceContextHeadersForCors(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!!e.cors_use_tracecontext_headers}}var V=i(7825),q=["load","error","abort","timeout"],G=q.length,W=n.Yu.REQ,X=n.Yu.XHR;class Q extends h{static featureName=V.t;constructor(e,t){let i=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];if(super(e,t,V.t,i),(0,n.OP)(e).xhrWrappable){this.dt=new Z(e),this.handler=(e,t,r,n)=>(0,c.p)(e,t,r,n,this.ee);try{const e={xmlhttprequest:"xhr",fetch:"fetch",beacon:"beacon"};u._A?.performance?.getEntriesByType("resource").forEach((t=>{if(t.initiatorType in e&&0!==t.responseStatus){const n={status:t.responseStatus},i={rxSize:t.transferSize,duration:Math.floor(t.duration),cbTime:0};K(n,t.name),this.handler("xhr",[n,i,t.startTime,t.responseEnd,e[t.initiatorType]],void 0,r.D.ajax)}}))}catch(e){}(0,F.u5)(this.ee),(0,F.Kf)(this.ee),function(e,t,i,o){function a(e){var t=this;t.totalCbs=0,t.called=0,t.cbTime=0,t.end=E,t.ended=!1,t.xhrGuids={},t.lastSize=null,t.loadCaptureCalled=!1,t.params=this.params||{},t.metrics=this.metrics||{},e.addEventListener("load",(function(r){T(t,e)}),(0,j.m$)(!1)),u.IF||e.addEventListener("progress",(function(e){t.lastSize=e.loaded}),(0,j.m$)(!1))}function s(e){this.params={method:e[0]},K(this,e[1]),this.metrics={}}function c(t,r){var i=(0,n.DL)(e);i.xpid&&this.sameOrigin&&r.setRequestHeader("X-NewRelic-ID",i.xpid);var a=o.generateTracePayload(this.parsedOrigin);if(a){var s=!1;a.newrelicHeader&&(r.setRequestHeader("newrelic",a.newrelicHeader),s=!0),a.traceContextParentHeader&&(r.setRequestHeader("traceparent",a.traceContextParentHeader),a.traceContextStateHeader&&r.setRequestHeader("tracestate",a.traceContextStateHeader),s=!0),s&&(this.dt=a)}}function d(e,r){var n=this.metrics,i=e[0],o=this;if(n&&i){var a=B(i);a&&(n.txSize=a)}this.startTime=(0,g.z)(),this.listener=function(e){try{"abort"!==e.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==e.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof r.onload)&&"function"==typeof o.end)&&o.end(r)}catch(e){try{t.emit("internal-error",[e])}catch(e){}}};for(var s=0;s<G;s++)r.addEventListener(q[s],this.listener,(0,j.m$)(!1))}function l(e,t,r){this.cbTime+=e,t?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof r.onload||"function"!=typeof this.end||this.end(r)}function f(e,t){var r=""+M(e)+!!t;this.xhrGuids&&!this.xhrGuids[r]&&(this.xhrGuids[r]=!0,this.totalCbs+=1)}function h(e,t){var r=""+M(e)+!!t;this.xhrGuids&&this.xhrGuids[r]&&(delete this.xhrGuids[r],this.totalCbs-=1)}function p(){this.endTime=(0,g.z)()}function m(e,r){r instanceof X&&"load"===e[0]&&t.emit("xhr-load-added",[e[1],e[2]],r)}function v(e,r){r instanceof X&&"load"===e[0]&&t.emit("xhr-load-removed",[e[1],e[2]],r)}function b(e,t,r){t instanceof X&&("onload"===r&&(this.onload=!0),("load"===(e[0]&&e[0].type)||this.onload)&&(this.xhrCbStart=(0,g.z)()))}function y(e,r){this.xhrCbStart&&t.emit("xhr-cb-time",[(0,g.z)()-this.xhrCbStart,this.onload,r],r)}function w(e){var t,r=e[1]||{};if("string"==typeof e[0]?0===(t=e[0]).length&&u.il&&(t=""+u._A.location.href):e[0]&&e[0].url?t=e[0].url:u._A?.URL&&e[0]&&e[0]instanceof URL?t=e[0].href:"function"==typeof e[0].toString&&(t=e[0].toString()),"string"==typeof t&&0!==t.length){t&&(this.parsedOrigin=(0,U.e)(t),this.sameOrigin=this.parsedOrigin.sameOrigin);var n=o.generateTracePayload(this.parsedOrigin);if(n&&(n.newrelicHeader||n.traceContextParentHeader))if(e[0]&&e[0].headers)s(e[0].headers,n)&&(this.dt=n);else{var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),s(i.headers,n)&&(this.dt=n),e.length>1?e[1]=i:e.push(i)}}function s(e,t){var r=!1;return t.newrelicHeader&&(e.set("newrelic",t.newrelicHeader),r=!0),t.traceContextParentHeader&&(e.set("traceparent",t.traceContextParentHeader),t.traceContextStateHeader&&e.set("tracestate",t.traceContextStateHeader),r=!0),r}}function A(e,t){this.params={},this.metrics={},this.startTime=(0,g.z)(),this.dt=t,e.length>=1&&(this.target=e[0]),e.length>=2&&(this.opts=e[1]);var r,n=this.opts||{},i=this.target;"string"==typeof i?r=i:"object"==typeof i&&i instanceof W?r=i.url:u._A?.URL&&"object"==typeof i&&i instanceof URL&&(r=i.href),K(this,r);var o=(""+(i&&i instanceof W&&i.method||n.method||"GET")).toUpperCase();this.params.method=o,this.txSize=B(n.body)||0}function x(e,t){var n;this.endTime=(0,g.z)(),this.params||(this.params={}),this.params.status=t?t.status:0,"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var o={txSize:this.txSize,rxSize:n,duration:(0,g.z)()-this.startTime};i("xhr",[this.params,o,this.startTime,this.endTime,"fetch"],this,r.D.ajax)}function E(e){var t=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;o<G;o++)e.removeEventListener(q[o],this.listener,!1);t.aborted||(n.duration=(0,g.z)()-this.startTime,this.loadCaptureCalled||4!==e.readyState?null==t.status&&(t.status=0):T(this,e),n.cbTime=this.cbTime,i("xhr",[t,n,this.startTime,this.endTime,"xhr"],this,r.D.ajax))}}function T(e,t){e.params.status=t.status;var r=function(e,t){var r=e.responseType;return"json"===r&&null!==t?t:"arraybuffer"===r||"blob"===r||"json"===r?B(e.response):"text"===r||""===r||void 0===r?B(e.responseText):void 0}(t,e.lastSize);if(r&&(e.metrics.rxSize=r),e.sameOrigin){var n=t.getResponseHeader("X-NewRelic-App-Data");n&&(e.params.cat=n.split(", ").pop())}e.loadCaptureCalled=!0}t.on("new-xhr",a),t.on("open-xhr-start",s),t.on("open-xhr-end",c),t.on("send-xhr-start",d),t.on("xhr-cb-time",l),t.on("xhr-load-added",f),t.on("xhr-load-removed",h),t.on("xhr-resolved",p),t.on("addEventListener-end",m),t.on("removeEventListener-end",v),t.on("fn-end",y),t.on("fetch-before-start",w),t.on("fetch-start",A),t.on("fn-start",b),t.on("fetch-done",x)}(e,this.ee,this.handler,this.dt),this.importAggregator()}}}function K(e,t){var r=(0,U.e)(t),n=e.params||e;n.hostname=r.hostname,n.port=r.port,n.protocol=r.protocol,n.host=r.hostname+":"+r.port,n.pathname=r.pathname,e.parsedOrigin=r,e.sameOrigin=r.sameOrigin}var Y=i(3614);const{BST_RESOURCE:J,RESOURCE:ee,START:te,END:re,FEATURE_NAME:ne,FN_END:ie,FN_START:oe,PUSH_STATE:ae}=Y;var se=i(7836);const{FEATURE_NAME:ce,START:ue,END:de,BODY:le,CB_END:fe,JS_TIME:he,FETCH:pe,FN_START:ge,CB_START:me,FN_END:ve}=se;var be=i(4649);class ye extends h{static featureName=be.t;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,be.t,r),this.importAggregator()}}new class extends t{constructor(t){let r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:(0,_.ky)(16);super(),u._A?(this.agentIdentifier=r,this.sharedAggregator=new y({agentIdentifier:this.agentIdentifier}),this.features={},this.desiredFeatures=new Set(t.features||[]),this.desiredFeatures.add(m),Object.assign(this,(0,s.j)(this.agentIdentifier,t,t.loaderType||"agent")),this.run()):(0,e.Z)("Failed to initial the agent. Could not determine the runtime environment.")}get config(){return{info:(0,n.C5)(this.agentIdentifier),init:(0,n.P_)(this.agentIdentifier),loader_config:(0,n.DL)(this.agentIdentifier),runtime:(0,n.OP)(this.agentIdentifier)}}run(){const t="features";try{const n=a(this.agentIdentifier),i=[...this.desiredFeatures];i.sort(((e,t)=>r.p[e.featureName]-r.p[t.featureName])),i.forEach((t=>{if(n[t.featureName]||t.featureName===r.D.pageViewEvent){const i=function(e){switch(e){case r.D.ajax:return[r.D.jserrors];case r.D.sessionTrace:return[r.D.ajax,r.D.pageViewEvent];case r.D.sessionReplay:return[r.D.sessionTrace];case r.D.pageViewTiming:return[r.D.pageViewEvent];default:return[]}}(t.featureName);i.every((e=>n[e]))||(0,e.Z)("".concat(t.featureName," is enabled but one or more dependent features has been disabled (").concat((0,S.P)(i),"). This may cause unintended consequences or missing data...")),this.features[t.featureName]=new t(this.agentIdentifier,this.sharedAggregator)}})),(0,T.Qy)(this.agentIdentifier,this.features,t)}catch(r){(0,e.Z)("Failed to initialize all enabled instrument classes (agent aborted) -",r);for(const e in this.features)this.features[e].abortHandler?.();const n=(0,T.fP)();return delete n.initializedAgents[this.agentIdentifier]?.api,delete n.initializedAgents[this.agentIdentifier]?.[t],delete this.sharedAggregator,n.ee?.abort(),delete n.ee?.get(this.agentIdentifier),!1}}addToTrace(t){(0,e.Z)("Call to agent api addToTrace failed. The page action feature is not currently initialized.")}setCurrentRouteName(t){(0,e.Z)("Call to agent api setCurrentRouteName failed. The spa feature is not currently initialized.")}interaction(){(0,e.Z)("Call to agent api interaction failed. The spa feature is not currently initialized.")}}({features:[Q,m,N,class extends h{static featureName=ne;constructor(e,t){if(super(e,t,ne,!(arguments.length>2&&void 0!==arguments[2])||arguments[2]),!u.il)return;const n=this.ee;let i;(0,F.QU)(n),this.eventsEE=(0,F.em)(n),this.eventsEE.on(oe,(function(e,t){this.bstStart=(0,g.z)()})),this.eventsEE.on(ie,(function(e,t){(0,c.p)("bst",[e[0],t,this.bstStart,(0,g.z)()],void 0,r.D.sessionTrace,n)})),n.on(ae+te,(function(e){this.time=(0,g.z)(),this.startPath=location.pathname+location.hash})),n.on(ae+re,(function(e){(0,c.p)("bstHist",[location.pathname+location.hash,this.startPath,this.time],void 0,r.D.sessionTrace,n)}));try{i=new PerformanceObserver((e=>{const t=e.getEntries();(0,c.p)(J,[t],void 0,r.D.sessionTrace,n)})),i.observe({type:ee,buffered:!0})}catch(e){}this.importAggregator({resourceObserver:i})}},P,ye,k,class extends h{static featureName=ce;constructor(e,t){if(super(e,t,ce,!(arguments.length>2&&void 0!==arguments[2])||arguments[2]),!u.il)return;if(!(0,n.OP)(e).xhrWrappable)return;try{this.removeOnAbort=new AbortController}catch(e){}let r,i=0;const o=this.ee.get("tracer"),a=(0,F._L)(this.ee),s=(0,F.Lg)(this.ee),c=(0,F.BV)(this.ee),d=(0,F.Kf)(this.ee),l=this.ee.get("events"),f=(0,F.u5)(this.ee),h=(0,F.QU)(this.ee),p=(0,F.Gm)(this.ee);function m(e,t){h.emit("newURL",[""+window.location,t])}function v(){i++,r=window.location.hash,this[ge]=(0,g.z)()}function b(){i--,window.location.hash!==r&&m(0,!0);var e=(0,g.z)();this[he]=~~this[he]+e-this[ge],this[ve]=e}function y(e,t){e.on(t,(function(){this[t]=(0,g.z)()}))}this.ee.on(ge,v),s.on(me,v),a.on(me,v),this.ee.on(ve,b),s.on(fe,b),a.on(fe,b),this.ee.buffer([ge,ve,"xhr-resolved"],this.featureName),l.buffer([ge],this.featureName),c.buffer(["setTimeout"+de,"clearTimeout"+ue,ge],this.featureName),d.buffer([ge,"new-xhr","send-xhr"+ue],this.featureName),f.buffer([pe+ue,pe+"-done",pe+le+ue,pe+le+de],this.featureName),h.buffer(["newURL"],this.featureName),p.buffer([ge],this.featureName),s.buffer(["propagate",me,fe,"executor-err","resolve"+ue],this.featureName),o.buffer([ge,"no-"+ge],this.featureName),a.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"],this.featureName),y(f,pe+ue),y(f,pe+"-done"),y(a,"new-jsonp"),y(a,"jsonp-end"),y(a,"cb-start"),h.on("pushState-end",m),h.on("replaceState-end",m),window.addEventListener("hashchange",m,(0,j.m$)(!0,this.removeOnAbort?.signal)),window.addEventListener("load",m,(0,j.m$)(!0,this.removeOnAbort?.signal)),window.addEventListener("popstate",(function(){m(0,i>1)}),(0,j.m$)(!0,this.removeOnAbort?.signal)),this.abortHandler=this.#i,this.importAggregator()}#i(){this.removeOnAbort?.abort(),this.abortHandler=void 0}}],loaderType:"spa"})})()})();</script>
+<script id="datalayer-cpx-newsdesk" type="module" data-event="cpx-report" src="/sysadmin/libraries/chapeaux--cpx-newsdesk/newsdesk.js?v=0.9.2"></script>
+<script id="datalayer-page-load-started" type="module" data-event="Page Load Started" src="/sysadmin/libraries/chapeaux--cpx-reporter/reporter.js?v=0.12.0" data-emit="cpx-report">
+    {
+        "siteName": "RH|sysadmin",
+        "dataObject": "digitalData",
+        "pageTitle": "Getting started with socat, a multipurpose relay tool for Linux",
+        "siteLanguage": "en",
+        "pageType": "Article",
+        "contentType": "Article",
+        "blogAuthor": "Evans Amoany",
+        "gated": "false",
+        "destinationURL": "https://www.redhat.com/sysadmin/getting-started-socat",
+        "subsection3": "",
+        "pageStatus": "published",
+        "subsection2": "",
+        "contentID": "2526",
+        "pageName": "RH|sysadmin|getting-started-socat",
+        "cms": "RH 9.7.0.0",
+        "subsection": "",
+        "pageCategory": "getting-started-socat",
+        "userAttributes": [
+            "Sudoer"
+        ],
+        "taxonomyTags": [
+            "Linux"
+        ],
+        "authoredOn": "2020-06-25T08:45:02+0000",
+        "commentCount": "0",
+        "coAuthorDisplayNames": [],
+        "creditsDisplayNames": []
+    }
+</script>
+<meta name="description" content="If you need an advanced sysadmin tool for your toolbox, this is the one. Socat allows for bidirectional data transfers from one location to another." />
+<link rel="canonical" href="https://www.redhat.com/sysadmin/getting-started-socat" />
+<link rel="image_src" href="https://www.redhat.com/sysadmin/sites/default/files/styles/google_discover/public/2020-06/shallow-focus-photography-of-cat-2286016%20Cropped.jpg?itok=EGFeqYUT" />
+<meta name="author" content="Evans Amoany" />
+<meta property="og:site_name" content="Enable Sysadmin" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.redhat.com/sysadmin/getting-started-socat" />
+<meta property="og:title" content="Getting started with socat, a multipurpose relay tool for Linux" />
+<meta property="og:description" content="If you need an advanced sysadmin tool for your toolbox, this is the one. Socat allows for bidirectional data transfers from one location to another." />
+<meta property="og:image" content="https://www.redhat.com/sysadmin/sites/default/files/styles/google_discover/public/2020-06/shallow-focus-photography-of-cat-2286016%20Cropped.jpg?itok=EGFeqYUT" />
+<meta property="og:image:secure_url" content="https://www.redhat.com/sysadmin/sites/default/files/styles/google_discover/public/2020-06/shallow-focus-photography-of-cat-2286016%20Cropped.jpg?itok=EGFeqYUT" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1000" />
+<meta property="og:video:width" content="600" />
+<meta property="og:image:height" content="675" />
+<meta property="og:updated_time" content="2023-01-12T19:38:27+0000" />
+<meta property="og:street_address" content="100 East Davie Street" />
+<meta property="og:locality" content="Raleigh" />
+<meta property="og:region" content="NC" />
+<meta property="og:postal_code" content="27601" />
+<meta property="og:country_name" content="United States" />
+<meta property="og:phone_number" content="+1 919 754 4950" />
+<meta property="og:fax_number" content="+1 919 800 3804" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:author" content="https://www.redhat.com/sysadmin/users/evans-amoany" />
+<meta property="article:publisher" content="https://www.facebook.com/redhatinc" />
+<meta property="article:section" content="Enable Sysadmin" />
+<meta property="article:tag" content="Linux" />
+<meta property="article:published_time" content="2020-06-25T08:45:02+0000" />
+<meta property="article:modified_time" content="2023-01-12T19:38:27+0000" />
+<meta name="dcterms.title" content="Getting started with socat, a multipurpose relay tool for Linux" />
+<meta name="dcterms.creator" content="Evans Amoany" />
+<meta name="dcterms.publisher" content="Red Hat, Inc." />
+<meta name="dcterms.language" content="en" />
+<meta name="twitter:card" content="photo" />
+<meta name="twitter:title" content="Getting started with socat, a multipurpose relay tool for Linux" />
+<meta name="twitter:description" content="If you need an advanced sysadmin tool for your toolbox, this is the one. Socat allows for bidirectional data transfers from one location to another." />
+<meta name="twitter:site:id" content="14627400" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:url" content="https://www.redhat.com/sysadmin/getting-started-socat" />
+<meta name="twitter:image:height" content="1000" />
+<meta name="twitter:image" content="https://www.redhat.com/sysadmin/sites/default/files/styles/full/public/2020-06/shallow-focus-photography-of-cat-2286016%20Cropped.jpg?itok=l4hM0UwS" />
+<meta name="twitter:image:width" content="600" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "TechArticle",
+            "headline": "Getting started with socat, a multipurpose relay tool for Linux",
+            "name": "Getting started with socat, a multipurpose relay tool for Linux",
+            "description": "If you need an advanced sysadmin tool for your toolbox, this is the one. Socat allows for  bidirectional data transfers from one location to another.",
+            "about": "Linux",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://www.redhat.com/sysadmin/sites/default/files/styles/full/public/2020-06/shallow-focus-photography-of-cat-2286016%20Cropped.jpg?itok=l4hM0UwS",
+                "width": "1000",
+                "height": "600"
+            },
+            "datePublished": "2020-06-25T08:45:02+0000",
+            "dateModified": "2023-01-12T19:38:27+0000",
+            "author": {
+                "@type": "Person",
+                "@id": "https://www.redhat.com/sysadmin/users/evans-amoany",
+                "name": "Evans Amoany",
+                "url": "https://www.redhat.com/sysadmin/users/evans-amoany",
+                "sameAs": "https://twitter.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.redhat.com/"
+            },
+            "mainEntityOfPage": "https://www.redhat.com/sysadmin/getting-started-socat"
+        },
+        {
+            "@type": "Corporation",
+            "@id": "https://www.redhat.com/",
+            "sameAs": [
+                "https://en.wikipedia.org/wiki/Red_Hat",
+                "http://www.linkedin.com/company/red-hat",
+                "http://www.youtube.com/user/RedHatVideos",
+                "https://www.facebook.com/redhatinc",
+                "https://twitter.com/RedHat"
+            ],
+            "url": "https://www.redhat.com/",
+            "name": "Red Hat, Inc.",
+            "telephone": "+1 919 754 4950",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-888-RED-HAT1",
+                "availableLanguage": "English",
+                "contactType": "sales",
+                "faxnumber": "+1 919 800 3804"
+            },
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.redhat.com/sysadmin/themes/custom/sysadmin/assets/images/red-hat-logo.png",
+                "width": "254",
+                "height": "60"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "100 East Davie Street",
+                "addressLocality": "Raleigh",
+                "addressRegion": "NC",
+                "postalCode": "27601",
+                "addressCountry": "United States"
+            }
+        },
+        {
+            "@type": "Person",
+            "name": "Evans Amoany",
+            "sameAs": "https://twitter.com/",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://www.redhat.com/sysadmin/sites/default/files/styles/user_picture_square/public/pictures/2020-04/IMG_20180626_171118.jpg?itok=JzpKxtDv",
+                "width": "240",
+                "height": "240"
+            }
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://www.redhat.com/sysadmin/getting-started-socat",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.redhat.com/"
+            }
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://www.redhat.com/sysadmin/",
+            "name": "Enable Sysadmin",
+            "url": "https://www.redhat.com/sysadmin/",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.redhat.com/"
+            }
+        }
+    ]
+}</script>
+<meta name="robots" content="max-image-preview:large" />
+<link rel="icon" href="/sysadmin/themes/custom/sysadmin/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sysadmin/themes/custom/sysadmin/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/sysadmin/themes/custom/sysadmin/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/sysadmin/themes/custom/sysadmin/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/sysadmin/themes/custom/sysadmin/assets/favicon/site.webmanifest">
+<link rel="mask-icon" href="/sysadmin/themes/custom/sysadmin/assets/favicon/safari-pinned-tab.svg" color="#ee0000">
+<meta name="msapplication-TileColor" content="#1a1a1a">
+<meta name="theme-color" content="#ffffff">
+<title>Getting started with socat, a multipurpose relay tool for Linux | Enable Sysadmin</title>
+<link rel="stylesheet" media="all" href="/sysadmin/sites/default/files/css/css_oJSdzq59vsqcCE8m8uVM3nrjktkkdNIp1rlbmPsNftU.css" />
+<link rel="stylesheet" media="all" href="/sysadmin/sites/default/files/css/css_CXPgzIMqvZzhU9vuM-HYZMHYUDg3kHht91f-nuqY43M.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Red+Hat+Display:regular,medium,bold|Red+Hat+Text:regular,medium,bold" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Overpass:light,regular,bold|Overpass+Mono" />
+<link rel="stylesheet" media="all" href="/sysadmin/sites/default/files/css/css_4bpvXvhLngSHAkmgjwwRuthiPzkBvQ6eMIvt_4-U0-c.css" />
+
+<script src="/sysadmin/libraries/chapeaux--cpx-reporter/cpx-reporter.js?v=0.12.0" type="module"></script>
+
+
+</head>
+<body>
+<a href="#main-content" class="visually-hidden focusable">
+Skip to main content
+</a>
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+<div class="page d-flex flex-column">
+  <div class="navbar navbar-expand-lg justify-content-between navbar-dark bg-dark">
+    <div class="container">
+                
+  <div class="block block--sysadmin-navbar-branding">
+
+  
+    
+
+    
+  <a href="https://www.redhat.com/" class="navbar-brand ">
+            <img src="/sysadmin/themes/custom/sysadmin/logo.svg" width="135" height="31" class="d-inline-block align-top" alt="Red Hat logo" />
+
+        
+  </a>
+
+
+  </div>
+
+
+      
+      <div class="navbar-toggler-wrapper">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"  data-parent="#collapse-parent" data-target="#search-collapse" aria-controls="search-collapse" aria-expanded="false" aria-label="Toggle search">
+          <svg class="icon-collapsed" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><line x1="18.95" y1="19.15" x2="25.25" y2="25.75"/><circle cx="13.25" cy="12.75" r="8.5"/></svg>
+          <svg class="icon-expanded" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><line x1="7.25" y1="7.25" x2="22.75" y2="22.75"/><line x1="7.25" y1="22.75" x2="22.75" y2="7.25"/></svg>
+          <span style="vertical-align: middle;">Search</span>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-parent="#collapse-parent" data-target="#mobilenav-collapse" aria-controls="mobilenav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <svg class="icon-collapsed" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h22M4 15h22M4 23h22"/></svg>
+          <svg class="icon-expanded" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><line x1="7.25" y1="7.25" x2="22.75" y2="22.75"/><line x1="7.25" y1="22.75" x2="22.75" y2="7.25"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="collapse-parent">
+    <div id="search-collapse" class="search-collapse collapse" data-parent="#collapse-parent">
+      <div class="py-4 px-3">
+        <form id="site-search" class="form-inline m-2" action="/sysadmin/search" accept-charset="UTF-8" method="get">
+          <div class="input-group flex-fill">
+            <input class="form-control" type="search" name="search" id="search" value="" placeholder="Search this site…" aria-label="Search this site…">
+            <div class="input-group-append">
+              <button class="btn btn-secondary font-weight-bold" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="mobilenav-collapse" class="mobilenav-collapse d-lg-none collapse" data-parent="#collapse-parent">
+                
+  <div class="block block--sysadmin-navbar-sitename sitename">
+
+  
+    
+
+    
+  <a href="/sysadmin/" class="navbar-brand sitename">
+        Enable Sysadmin
+  </a>
+
+  <span class="d-none d-lg-inline ml-1 mr-3 h5 navbar-sitename-divider">&nbsp;</span>
+
+  </div>
+
+  <div class="block block--sysadmin-main-menu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav navbar-nav">
+                                          <li class="nav-item  dropdown">
+                      <a href="/sysadmin/" class="nav-link dropdown-toggle" data-toggle="dropdown" data-drupal-link-system-path="&lt;front&gt;">Articles</a>
+                          <div class="dropdown-menu">
+              <a href="/sysadmin/topics/automation" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/146">Automation</a>
+              <a href="/sysadmin/topics/career" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/51">Career</a>
+              <a href="/sysadmin/topics/cloud" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/311">Cloud</a>
+              <a href="/sysadmin/topics/containers" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/36"> Containers</a>
+              <a href="/sysadmin/topics/kubernetes" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/66">Kubernetes</a>
+              <a href="/sysadmin/topics/linux" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/21">Linux</a>
+              <a href="/sysadmin/topics/programming" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/71"> Programming</a>
+              <a href="/sysadmin/topics/security" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/96">Security</a>
+  </div>
+                              </li>
+            </ul>
+
+
+  
+  </div>
+
+
+      
+              
+          </div>
+  </div>
+
+  
+
+
+<nav class="navbar navbar-expand-lg justify-content-between navbar-light  d-none d-lg-block text-dark bg-light border-bottom-light-gray">
+      <div class="container">
+  
+      
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+                  <div class="mr-auto d-flex navbar-desktop">
+            
+  <div class="block block--sysadmin-navbar-sitename sitename">
+
+  
+    
+
+    
+  <a href="/sysadmin/" class="navbar-brand sitename">
+        Enable Sysadmin
+  </a>
+
+  <span class="d-none d-lg-inline ml-1 mr-3 h5 navbar-sitename-divider">&nbsp;</span>
+
+  </div>
+
+  <div class="block block--sysadmin-main-menu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav navbar-nav">
+                                          <li class="nav-item  dropdown">
+                      <a href="/sysadmin/" class="nav-link dropdown-toggle" data-toggle="dropdown" data-drupal-link-system-path="&lt;front&gt;">Articles</a>
+                          <div class="dropdown-menu">
+              <a href="/sysadmin/topics/automation" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/146">Automation</a>
+              <a href="/sysadmin/topics/career" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/51">Career</a>
+              <a href="/sysadmin/topics/cloud" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/311">Cloud</a>
+              <a href="/sysadmin/topics/containers" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/36"> Containers</a>
+              <a href="/sysadmin/topics/kubernetes" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/66">Kubernetes</a>
+              <a href="/sysadmin/topics/linux" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/21">Linux</a>
+              <a href="/sysadmin/topics/programming" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/71"> Programming</a>
+              <a href="/sysadmin/topics/security" class="dropdown-item" data-drupal-link-system-path="taxonomy/term/96">Security</a>
+  </div>
+                              </li>
+            </ul>
+
+
+  
+  </div>
+
+
+        </div>
+          
+                  
+      
+      
+
+<div class="dropdown show text-align-right">
+    <a href="/sysadmin/subscribe" class="navbar-util navbar-util--rss" aria-label="Subscribe to our feed or newsletter blast">
+    <svg width="22" height="23" viewBox="0 0 22 23" xmlns="http://www.w3.org/2000/svg"><title>Subscribe to our RSS feed or Email newsletter</title><path d="M0 4.23c9.79 0 17.75 8 17.75 17.84h4.23A22.05 22.05 0 0 0 0 0v4.23z M0 7.67v4.23c2.74 0 5.33 1.07 7.27 3.03a10.26 10.26 0 0 1 3 7.3h4.24c0-8.02-6.5-14.56-14.51-14.56M2.93 16.87a2.94 2.94 0 0 0 0 5.85 2.93 2.93 0 1 0 0-5.85" fill-rule="evenodd"/></svg>
+
+    <span class="sr-only">Subscribe to our RSS feed or Email newsletter.</span>
+  </a>
+
+    <a id="dropdownSearchLink" href="/sysadmin/search/node" class="navbar-util navbar-util--search" role="button" aria-label="Search this site…" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" style="fill:none;stroke-width:3;stroke:#000;stroke-linecap:round;"><line x1="18.95" y1="19.15" x2="25.25" y2="25.75"/><circle cx="13.25" cy="12.75" r="8.5"/></svg>
+
+  </a>
+  <div class="dropdown-menu dropdown-menu-right p-1 pt-2" aria-labelledby="dropdownSearchLink">
+    <form id="site-search" class="form-inline m-2" action="/sysadmin/search" accept-charset="UTF-8" method="get">
+      <div class="input-group flex-fill">
+        <input class="form-control" type="search" name="search" id="search" value="" placeholder="Search this site…" aria-label="Search this site…">
+        <div class="input-group-append">
+          <button class="btn btn-secondary font-weight-bold" type="submit">GO</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+      </div>
+
+      </div>
+  </nav>
+
+  <main class="pb-5">
+                  <header class="page__header">
+          <div class="container">
+              <div data-drupal-messages-fallback class="hidden"></div>
+
+
+          </div>
+        </header>
+          
+    <a name="main-content" tabindex="-1"></a>
+
+                  <div class="page__content">
+                  
+  <div class="block block--sysadmin-content">
+
+  
+    
+
+      <article role="article" about="/sysadmin/getting-started-socat" typeof="schema:Article" id="node--article--2526" class="full full--article node node--promoted">
+  
+    <span property="schema:name" content="Getting started with socat, a multipurpose relay tool for Linux" class="hidden"></span>
+  <span property="schema:interactionCount" content="UserComments:0" class="hidden"></span>
+
+
+      <div  class="section my-5 narrow">
+  <div class="container">
+    <div >
+      
+  <div class="block">
+
+  
+    
+
+      
+<span property="schema:name"><h1 class="font-weight-bold">Getting started with socat, a multipurpose relay tool for Linux</h1>
+</span>
+
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="article__field-subhead">If you need an advanced sysadmin tool for your toolbox, this is the one. Socat allows for  bidirectional data transfers from one location to another.</div>
+      
+  
+  </div>
+
+    </div>
+  </div>
+</div>
+<div  class="section pb-5 narrow">
+  <div class="container">
+    <div >
+      
+  <div class="block">
+
+  
+    
+
+      <p class="article-byline">
+  <span class="article-date">
+    <span class="label">Posted:</span>
+    June 25, 2020
+  </span>
+    <span aria-hidden="true">|</span>
+    <pfe-readtime for=".article__body" hidden>%t min read</pfe-readtime>
+  <span aria-hidden="true">|</span>
+  <span class="article-authors">
+    <strong class="sr-only">by</strong>
+          <a href="/sysadmin/users/evans-amoany" class="article-author article-author--primary">Evans Amoany<span class="author-affiliate"> (Sudoer)</span></a>      </span>
+  </p>
+
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="article__field-media"><figure>
+  
+  
+  <div class="blazy blazy--field blazy--field-media-image blazy--field-media-image--full-with-description blazy--view--search-page-page-1 blazy--view blazy--view--search blazy--view--search--page-1 image__field-media-image" data-blazy="">
+    <div class="field__label font-weight-bold visually-hidden">
+      Image    </div>
+                  <div class="field__item">
+
+
+
+
+                  <div class="media media--blazy media--image is-b-loading">
+<img alt="Getting started with socat" class="media__image media__element b-lazy img-fluid" decoding="async" loading="lazy" data-src="/sysadmin/sites/default/files/styles/full/public/2020-06/shallow-focus-photography-of-cat-2286016%20Cropped.jpg?itok=l4hM0UwS" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039;%20viewBox%3D&#039;0%200%201%201&#039;%2F%3E" width="1000" height="600" typeof="foaf:Image" />
+        </div>
+        
+  
+</div>
+              </div>
+
+  <figcaption>
+    
+            <div class="image__field-media-description"><p>Photo by <strong><a href="https://www.pexels.com/@tranmautritam?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Tranmautritam</a></strong> from <strong><a href="https://www.pexels.com/photo/shallow-focus-photography-of-cat-2286016/?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Pexels</a></strong></p>
+</div>
+      
+  </figcaption>
+</figure>
+</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div property="schema:text" class="clearfix article__body"><p>The <a href="https://linux.die.net/man/1/socat" target="_blank">socat</a> utility is a relay for bidirectional data transfers between two independent data channels.</p>
+
+<div data-embed-button="resource_list" data-entity-embed-display="view_mode:resource_list.link" data-entity-type="resource_list" data-entity-uuid="60b26066-acd0-4332-afa7-d98c9a079f02" data-langcode="en" class="align-right embedded-entity embedded-entity--resources embedded-entity--resources--link" data-entity-embed-display-settings="[]"><aside data-analytics-region="sidebar" id="resource-list-great-linux-resources" class="eck-entity mt-2 py-3 pr-3 border-top border-danger embedded-resource-list"><a href="#bottom-list" class="visually-hidden focusable skip-link">Skip to the bottom of list</a>
+  
+
+<h2 class="h4">
+      Great Linux resources
+  </h2>
+
+<ul class="pl-3 mb-0"><li class="my-2"><a href="https://developers.redhat.com/cheat-sheets/advanced-linux-commands/?intcmp=701f20000012ngPAAQ" data-analytics-category="resource list" data-analytics-text="Advanced Linux commands cheat sheet">Advanced Linux commands cheat sheet</a></li>
+      <li class="my-2"><a href="https://developers.redhat.com/products/rhel/download?intcmp=701f20000012ngPAAQ" data-analytics-category="resource list" data-analytics-text="Download RHEL 9 at no charge through the Red Hat Developer program">Download RHEL 9 at no charge through the Red Hat Developer program</a></li>
+      <li class="my-2"><a href="https://opensource.com/downloads/installing-linux-applications-ebook?intcmp=701f20000012ngPAAQ" data-analytics-category="resource list" data-analytics-text="A guide to installing applications on Linux">A guide to installing applications on Linux</a></li>
+      <li class="my-2"><a href="https://rhtapps.redhat.com/assessment/?intcmp=701f20000012ngPAAQ" data-analytics-category="resource list" data-analytics-text="Linux system administration skills assessment">Linux system administration skills assessment</a></li>
+      <li class="my-2"><a href="https://redhatdg.co1.qualtrics.com/jfe/form/SV_bjRFSHqPdTpIjoa?intcmp=701f20000012ngPAAQ" data-analytics-category="resource list" data-analytics-text="How well do you know Linux? Take a quiz and get a badge">How well do you know Linux? Take a quiz and get a badge</a></li>
+  </ul><a id="bottom-list" tabindex="-1"></a>
+</aside></div>
+<p>There are many different types of channels <code>socat</code> can connect, including:</p>
+
+<ul><li>Files</li>
+	<li>Pipes</li>
+	<li>Devices (serial line, pseudo-terminal, etc)</li>
+	<li>Sockets (UNIX, IP4, IP6 - raw, UDP, TCP)</li>
+	<li>SSL sockets</li>
+	<li>Proxy CONNECT connections</li>
+	<li>File descriptors (stdin, etc)</li>
+	<li>The GNU line editor (readline)</li>
+	<li>Programs</li>
+	<li>Combinations of two of these</li>
+</ul><p>This tool is regarded as the advanced version of <a href="https://linux.die.net/man/1/nc" target="_blank">netcat</a>. They do similar things, but <code>socat</code> has more additional functionality, such as permitting multiple clients to listen on a port, or reusing connections.</p>
+
+<h2>Why do we need socat?</h2>
+
+<p>There are many ways to use <code>socate</code> effectively. Here are a few examples:</p>
+
+<ul><li>TCP port forwarder (one-shot or daemon)</li>
+	<li>External socksifier</li>
+	<li>Tool to attack weak firewalls (security and audit)</li>
+	<li>Shell interface to Unix sockets</li>
+	<li>IP6 relay</li>
+	<li>Redirect TCP-oriented programs to a serial line</li>
+	<li>Logically connect serial lines on different computers</li>
+	<li>Establish a relatively secure environment (<code>su</code> and <code>chroot</code>) for running client or server shell scripts with network connections</li>
+</ul><p><strong><em>[ Download now: <a href="https://www.redhat.com/en/engage/system-administrator-guide-s-202107300146?intcmp=701f20000012ngPAAQ" target="_blank">A system administrator's guide to automation</a>. ]</em></strong></p>
+
+<h2>How do we use socat?</h2>
+
+<p>The syntax for <code>socat</code> is fairly simple:</p>
+
+<pre>
+<code class="language-plaintext">socat [options] &lt;address&gt; &lt;address&gt;</code></pre>
+
+<p>You must provide the source and destination addresses for it to work. The syntax for these addresses is:</p>
+
+<pre>
+<code class="language-plaintext">protocol:ip:port</code></pre>
+
+<h2>Examples of using socat</h2>
+
+<p>Let's get started with some basic examples of using <code>socat</code> for various connections.</p>
+
+<p>1. Connect to TCP port 80 on the local or remote system:</p>
+
+<pre>
+<code class="language-shell"># socat - TCP4:www.example.com:80</code></pre>
+
+<p>In this case, <code>socat</code> transfers data between STDIO (-) and a TCP4 connection to port 80 on a host named www.example.com.</p>
+
+<p>2. Use <code>socat</code> as a TCP port forwarder:</p>
+
+<p>For a single connection, enter:</p>
+
+<pre>
+<code class="language-shell"># socat TCP4-LISTEN:81 TCP4:192.168.1.10:80</code></pre>
+
+<p>For multiple connections, use the <code>fork</code> option as used in the examples below:</p>
+
+<pre>
+<code class="language-shell"># socat TCP4-LISTEN:81,fork,reuseaddr TCP4:TCP4:192.168.1.10:80</code></pre>
+
+<p>This example listens on port 81, accepts connections, and forwards the connections to port 80 on the remote host.</p>
+
+<pre>
+<code class="language-shell"># socat TCP-LISTEN:3307,reuseaddr,fork UNIX-CONNECT:/var/lib/mysql/mysql.sock </code></pre>
+
+<p>The above example listens on port 3307, accepts connections, and forwards the connections to a Unix socket on the remote host.</p>
+
+<p><strong><em>[ Learn how to <a href="https://www.redhat.com/en/engage/linux-management-ebook-s-201912231121?intcmp=701f20000012ngPAAQ" target="_blank">manage your Linux environment for success</a>. ]</em></strong></p>
+
+<p>3. Implement a simple network-based message collector:</p>
+
+<pre>
+<code class="language-shell"># socat -u TCP4-LISTEN:3334,reuseaddr,fork OPEN:/tmp/test.log,creat,append</code></pre>
+
+<p>In this example, when a client connects to port 3334, a new child process is generated. All data sent by the clients is appended to the file <code>/tmp/test.log</code>. If the file does not exist, <code>socat</code> creates it. The option <code>reuseaddr</code> allows an immediate restart of the server process.</p>
+
+<p>4. Send a broadcast to the local network:</p>
+
+<pre>
+<code class="language-shell"># socat - UDP4-DATAGRAM:224.255.0.1:6666,bind=:6666,ip-add-membership=224.255.0.1:eth0</code></pre>
+
+<p>In this case, <code>socat</code> transfers data from <code>stdin</code> to the specified multicast address using UDP over port 6666 for both the local and remote connections. The command also tells the interface eth0 to accept multicast packets for the given group.</p>
+
+<h2>Practical uses for socat</h2>
+
+<p><code>Socat</code> is a great tool for troubleshooting. It is also handy for easily making remote connections. Practically, I have used <code>socat</code> for remote MySQL connections. In the example below, I demonstrate how I use <code>socat</code> to connect my web application to a remote MySQL server by connecting over the local socket.</p>
+
+<p>1. On my remote MySQL server, I enter:</p>
+
+<pre>
+<code class="language-shell"># socat TCP-LISTEN:3307,reuseaddr,fork UNIX-CONNECT:/var/lib/mysql/mysql.sock &amp;</code></pre>
+
+<p>This command starts <code>socat</code> and configures it to listen by using port 3307.</p>
+
+<p>2. On my webserver, I enter:</p>
+
+<pre>
+<code class="language-shell"># socat UNIX-LISTEN:/var/lib/mysql/mysql.sock,fork,reuseaddr,unlink-early,user=mysql,group=mysql,mode=777 TCP:192.168.100.5:3307 &amp;</code></pre>
+
+<div data-embed-button="image_cta" data-entity-embed-display="view_mode:cta.embed" data-entity-type="cta" data-entity-uuid="3bce38af-666b-4c0b-9a8e-7fdf0fa88f91" data-langcode="en" class="align-right embedded-entity embedded-entity--cta_image embedded-entity--cta_image--embed" data-entity-embed-display-settings="[]">
+<div class="eck-entity">
+  <a href="#bottom-list" class="visually-hidden focusable skip-link">Skip to the bottom of list</a>
+  
+            <div class="cta-image__field-body-text"><a href="https://www.redhat.com/en/engage/system-administrator-guide-s-202107300146?intcmp=701f20000012ngPAAQ" target="_blank">
+<div data-embed-button="media_entity_embed" data-entity-embed-display="view_mode:media.image_cta" data-entity-type="media" data-entity-uuid="f5f0382f-f5f1-4540-a004-9db7a3124319" data-langcode="en" data-entity-embed-display-settings="[]" class="embedded-entity embedded-entity--image embedded-entity--image--image-cta"><div>
+  
+  
+  <div class="image__field-media-image">
+    <div class="field__label font-weight-bold visually-hidden">
+      Image    </div>
+                  <div class="field__item">  
+<img loading="lazy" src="/sysadmin/sites/default/files/styles/image_cta/public/2021-07/automation-expert-e-book-medium.jpg?itok=X_OfbjdH" width="300" height="250" alt="IT Automation ebook" typeof="foaf:Image" class="img-fluid" /></div>
+              </div>
+
+</div>
+</div>
+</a></div>
+      
+            <div class="cta-image__field-cta-button"><a href="https://www.redhat.com/en/engage/system-administrator-guide-s-202107300146?intcmp=701f20000012ngPAAQ" class="btn btn-primary">Download now</a></div>
+      
+  <a id="bottom-list" tabindex="-1"></a>
+</div>
+</div>
+<p>The above command connects to the remote server 192.168.100.5 by using port 3307.</p>
+
+<p>However, all communication will be done on the Unix socket <code>/var/lib/mysql/mysql.sock</code>, and this makes it appear to be a local server.</p>
+
+<h2>Wrap up</h2>
+
+<p><code>socat</code> is a sophisticated utility and indeed an excellent tool for every sysadmin to get things done and for troubleshooting. Follow this link to read <a href="http://www.dest-unreach.org/socat/doc/socat.html#EXAMPLES" target="_blank">more examples of using socat</a>.</p>
+
+<p><em><strong>[ Free online course: <a href="https://www.redhat.com/en/services/training/rh024-red-hat-linux-technical-overview?intcmp=701f20000012ngPAAQ">Red Hat Enterprise Linux technical overview</a>. ]</strong></em></p>
+</div>
+      
+  
+  </div>
+
+  <div class="views-element-container block">
+
+  
+    
+
+      <div><div class="listicle-view js-view-dom-id-a833bc1f5a84d18102d435a9e1a8c9084367c58f12eda8ad9754906e0f1a31c3">
+  
+  
+  
+
+  
+  
+  
+
+      <div class="listicle-row"><div class="views-field views-field-field-listicle"><div class="field-content"></div></div></div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      <div class="topics">
+  <strong>Topics:</strong>&nbsp;&nbsp;
+      <a href="/sysadmin/topics/linux" class="btn btn-primary btn-sm font-weight-bold">Linux</a>&nbsp;&nbsp;
+  </div>
+  
+  </div>
+
+    </div>
+  </div>
+</div>
+<div >
+  <div >
+    
+  <div class="block">
+
+  
+    
+
+      
+<section role="article" about="/sysadmin/getting-started-socat" typeof="schema:Article" id="node--article--2526" class="section my-5 py-5 bg-light-gray authors-bio authors-bio--article">
+  <div class="container">
+          <div class="row">
+        <div class="col-md-2 text-center">
+                      
+<img alt="Author’s photo" data-affiliation="Sudoer" src="/sysadmin/sites/default/files/styles/user_picture_square/public/pictures/2020-04/IMG_20180626_171118.jpg?itok=JzpKxtDv" width="240" height="240" loading="lazy" typeof="foaf:Image" class="rounded-circle img-fluid" />
+
+
+          
+        </div>
+        <div class="col-md-10 col-lg-8">
+          <h2 class="font-weight-light text-center text-md-left">
+                          Evans Amoany
+                      </h2>
+          <div>
+                          <p>
+                I work as Unix/Linux Administrator with a passion for high availability systems and clusters. I am a student of performance and optimization of systems and DevOps. I have passion for anything IT related and most importantly automation, high availability, and security.
+                                  <a href="/sysadmin/users/evans-amoany" class="author-more-link">More about me</a>
+                              </p>
+                      </div>
+        </div>
+      </div>
+      </div>
+</section>
+
+
+
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+
+  
+  </div>
+
+  </div>
+</div>
+<div >
+  <div >
+    
+
+  <div class="block cta cta--red-on-black my-5 p-3 text-center">
+
+  
+    
+
+    <div class="d-md-flex justify-content-around align-items-center flex-wrap">
+    <div class="cta__content my-2">
+      <div class="cta__field-content p-2">
+      <h2>Try Red Hat Enterprise Linux</h2>
+
+<h4>Download it at no charge from the Red Hat Developer program.</h4>
+
+      </div>
+    </div>
+        <div class="cta__link my-2">
+      <a
+        href="https://developers.redhat.com/products/rhel/download?intcmp=701f20000012ngPAAQ"
+        target="_blank"
+        class="btn btn-lg btn-danger font-weight-bold">
+        Download now
+      </a>
+    </div>
+      </div>
+  
+  </div>
+
+  </div>
+</div>
+<div  class="section">
+  <div class="container">
+    <div >
+      
+  <div class="views-element-container block">
+
+  
+    
+
+      <div><div class="js-view-dom-id-ecad917d806ae8a9de3af8bbf641036f2431f4e2fbfd3a0dd92fa77c6d9c27e6">
+  
+  
+  
+
+  
+  
+  
+
+    <h2>Related Content</h2>
+                        <div class="card-deck my-4">
+                        <article role="article" about="/sysadmin/open-source-linux-easter-eggs" typeof="schema:Article" id="node--article--6241" class="card card--article node node--promoted">
+      <div class="card-img-top">
+            <div class="article__field-media"><div>
+  
+  
+  <div class="blazy blazy--field blazy--field-media-image blazy--field-media-image--card image__field-media-image" data-blazy="">
+    <div class="field__label font-weight-bold visually-hidden">
+      Image    </div>
+                  <div class="field__item">
+
+
+
+
+                  <div class="media media--blazy media--image media--responsive is-b-loading">  
+<img class="media__image media__element b-lazy b-responsive img-fluid" decoding="async" loading="lazy" data-src="/sysadmin/sites/default/files/2023-04/easter-egg-linux.jpg" srcset="" data-srcset="/sysadmin/sites/default/files/styles/card/public/2023-04/easter-egg-linux.jpg?itok=QU2TSFO0 1x" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039;%20viewBox%3D&#039;0%200%201%201&#039;%2F%3E" alt="Photo of a broken pink egg with smaller eggs spilling out" typeof="foaf:Image" />
+
+        </div>
+        
+  
+</div>
+              </div>
+
+</div>
+</div>
+      </div>
+    <div class="card-body">
+    <div class="h4 card-title"><a data-link-type="listing result click" data-render-position="11" href="/sysadmin/open-source-linux-easter-eggs">
+<span property="schema:name">8 open source &#039;Easter eggs&#039; to have fun with your Linux terminal</span>
+</a></div>
+    <div class="card-text">
+            <div property="schema:text" class="clearfix article__body">Hunt these 8 hidden or surprising features to make your Linux experience more entertaining.</div>
+      </div>
+  </div>
+  <div class="card-footer">
+    <div class="article-date">
+      <span class="label">Posted:</span>
+      April 10, 2023
+    </div>
+    <div class="article-authors">
+              <span class="label">Author:</span>
+                    <a href="/sysadmin/users/rgerardi" class="article-author article-author--primary">Ricardo Gerardi<span class="author-affiliate"> (Editorial Team, Sudoer alumni, Red Hat)</span></a>          </div>
+  </div>
+</article>
+
+
+                            <article role="article" about="/sysadmin/top-sysadmin-articles-march-2023" typeof="schema:Article" id="node--article--6238" class="card card--article node node--promoted">
+      <div class="card-img-top">
+            <div class="article__field-media"><div>
+  
+  
+  <div class="blazy blazy--field blazy--field-media-image blazy--field-media-image--card image__field-media-image" data-blazy="">
+    <div class="field__label font-weight-bold visually-hidden">
+      Image    </div>
+                  <div class="field__item">
+
+
+
+
+                  <div class="media media--blazy media--image media--responsive is-b-loading">  
+<img class="media__image media__element b-lazy b-responsive img-fluid" decoding="async" loading="lazy" data-src="/sysadmin/sites/default/files/2019-06/ten-10_0.jpeg" srcset="" data-srcset="/sysadmin/sites/default/files/styles/card/public/2019-06/ten-10_0.jpeg?itok=uDcncWUt 1x" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039;%20viewBox%3D&#039;0%200%201%201&#039;%2F%3E" alt="Ten" typeof="foaf:Image" />
+
+        </div>
+        
+  
+</div>
+              </div>
+
+</div>
+</div>
+      </div>
+    <div class="card-body">
+    <div class="h4 card-title"><a data-link-type="listing result click" data-render-position="2" href="/sysadmin/top-sysadmin-articles-march-2023">
+<span property="schema:name">Troubleshooting Linux performance, building a golden image for your RHEL homelab, and more tips for sysadmins</span>
+</a></div>
+    <div class="card-text">
+            <div property="schema:text" class="clearfix article__body">Check out Enable Sysadmin's top 10 articles from March 2023.</div>
+      </div>
+  </div>
+  <div class="card-footer">
+    <div class="article-date">
+      <span class="label">Posted:</span>
+      April 4, 2023
+    </div>
+    <div class="article-authors">
+              <span class="label">Author:</span>
+                    <a href="/sysadmin/users/vwalker" class="article-author article-author--primary">Vicki Walker<span class="author-affiliate"> (Editorial Team, Red Hat)</span></a>          </div>
+  </div>
+</article>
+
+
+                            <article role="article" about="/sysadmin/linux-disk-usage-diagnostics" typeof="schema:Article" id="node--article--6235" class="card card--article node node--promoted">
+      <div class="card-img-top">
+            <div class="article__field-media"><div>
+  
+  
+  <div class="blazy blazy--field blazy--field-media-image blazy--field-media-image--card image__field-media-image" data-blazy="">
+    <div class="field__label font-weight-bold visually-hidden">
+      Image    </div>
+                  <div class="field__item">
+
+
+
+
+                  <div class="media media--blazy media--image media--responsive is-b-loading">  
+<img class="media__image media__element b-lazy b-responsive img-fluid" decoding="async" loading="lazy" data-src="/sysadmin/sites/default/files/2019-09/disk_encryption.jpg" srcset="" data-srcset="/sysadmin/sites/default/files/styles/card/public/2019-09/disk_encryption.jpg?itok=OePH810o 1x" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039;%20viewBox%3D&#039;0%200%201%201&#039;%2F%3E" alt="pad lock on cdrom" typeof="foaf:Image" />
+
+        </div>
+        
+  
+</div>
+              </div>
+
+</div>
+</div>
+      </div>
+    <div class="card-body">
+    <div class="h4 card-title"><a data-link-type="listing result click" data-render-position="2" href="/sysadmin/linux-disk-usage-diagnostics">
+<span property="schema:name">Do advanced Linux disk usage diagnostics with this sysadmin tool</span>
+</a></div>
+    <div class="card-text">
+            <div property="schema:text" class="clearfix article__body">Use topdiskconsumer to address disk space issues when you're unable to interrupt production.</div>
+      </div>
+  </div>
+  <div class="card-footer">
+    <div class="article-date">
+      <span class="label">Posted:</span>
+      March 31, 2023
+    </div>
+    <div class="article-authors">
+              <span class="label">Author:</span>
+                    <a href="/sysadmin/users/kimberly-lazarski" class="article-author article-author--primary">Kimberly Lazarski<span class="author-affiliate"> (Red Hat)</span></a>          </div>
+  </div>
+</article>
+
+
+                              </div>
+            
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  
+  </div>
+
+    </div>
+  </div>
+</div>
+<div  class="section my-5 pb-5 narrow">
+  <div class="container">
+    <div >
+      
+    </div>
+  </div>
+</div>
+<div  class="section my-5 pb-5 ">
+  <div class="container">
+    <div >
+      
+    </div>
+  </div>
+</div>
+
+  </article>
+
+  
+  </div>
+
+
+              </div>
+        </main>
+
+            <footer>
+              <div class="page__colophon bg-dark-gray py-4 bg-dark-gray">
+          <div class="container">
+              
+  <div class="block block--basic block--sysadmin-colophon-disclaimer">
+
+  
+    
+
+      
+            <div class="basic__body"><p>The opinions expressed on this website are those of each author, not of the author's employer or of Red Hat. The content published on this site are community contributions and are for informational purpose only AND ARE NOT, AND ARE NOT INTENDED TO BE, RED HAT DOCUMENTATION, SUPPORT, OR ADVICE.</p>
+
+<p>Red Hat and the Red Hat logo are trademarks of Red Hat, Inc., registered in the United States and other countries.</p>
+</div>
+      
+  
+  </div>
+
+
+          </div>
+        </div>
+                          
+  
+            <div class="basic__body"><rh-global-footer><h3 data-analytics-text="Red Hat legal and privacy links" hidden="" slot="links-primary">Red Hat legal and privacy links</h3>
+
+<ul data-analytics-region="page-footer-bottom-primary" slot="links-primary"><li><a data-analytics-category="Footer|Corporate" data-analytics-text="About Red Hat" href="https://redhat.com/en/about/company">About Red Hat</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Jobs" href="https://redhat.com/en/jobs">Jobs</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Events" href="https://redhat.com/en/events">Events</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Locations" href="https://redhat.com/en/about/office-locations">Locations</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Contact Red Hat" href="https://redhat.com/en/contact">Contact Red Hat</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Red Hat Blog" href="https://redhat.com/en/blog">Red Hat Blog</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Diversity equity and inclusion" href="https://redhat.com/en/about/our-culture/diversity-equity-inclusion/statement">Diversity, equity, and inclusion</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Cool Stuff Store" href="https://coolstuff.redhat.com/">Cool Stuff Store</a></li>
+	<li><a data-analytics-category="Footer|Corporate" data-analytics-text="Red Hat Summit" href="https://www.redhat.com/en/summit">Red Hat Summit</a></li>
+</ul><rh-footer-copyright slot="links-secondary">© 2023 Red Hat, Inc.</rh-footer-copyright><h3 data-analytics-text="Red Hat legal and privacy links" hidden="" slot="links-secondary">Red Hat legal and privacy links</h3>
+
+<ul data-analytics-region="page-footer-bottom-secondary" slot="links-secondary"><li><a data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Privacy statement" href="https://redhat.com/en/about/privacy-policy">Privacy statement</a></li>
+	<li><a data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Terms of use" href="https://redhat.com/en/about/terms-use">Terms of use</a></li>
+	<li><a data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="All policies and guidelines" href="https://redhat.com/en/about/all-policies-guidelines">All policies and guidelines</a></li>
+	<li><a data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Digital accessibility" href="https://redhat.com/en/about/digital-accessibility">Digital accessibility</a></li>
+	<li><a data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Cookie Preferences" id="teconsent"></a></li>
+</ul></rh-global-footer></div>
+      
+
+
+
+            <div id="consent_blackbar"></div>
+
+      </footer>
+      </div>
+
+  </div>
+
+<cpx-reporter event="User Detected" auto=""><script type="data">{"loggedIn":false}</script>
+</cpx-reporter>
+<cpx-reporter auto event="Page Load Completed"></cpx-reporter>
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/sysadmin\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/2526","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ckeditorheight":{"offset":1,"line_height":1.5,"unit":"em","disable_autogrow":null},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"blazy":{"loadInvisible":false,"offset":100,"saveViewportOffsetDelay":50,"validateDelay":25,"loader":true,"unblazy":false},"blazyIo":{"disconnect":false,"rootMargin":"0px","threshold":[0,0.25,0.5,0.75,1]},"user":{"uid":0,"permissionsHash":"330057971e7595828c22a7a5b0ae5fabc8255320c0ffed970d2e82eeec945b68"}}</script>
+<script src="/sysadmin/sites/default/files/js/js_y3t_h59yNeZ0Fmy-OHQcpLO3piNRud7r51vS_czHRKE.js"></script>
+<script src="//static.redhat.com/libs/redhat/marketing/latest/trustarc/trustarc.js" id="trustarc"></script>
+<script src="https://www.redhat.com/ma/dpal.js"></script>
+<script src="/sysadmin/sites/default/files/js/js_iiu9Zr2poI5jTnDPfXpqFe50fhhFgD3i3bZvhFhjlGE.js"></script>
+<script src="/sysadmin/themes/custom/sysadmin/node_modules/%40patternfly/pfe-readtime/dist/pfe-readtime.min.js?v=9.4.15" type="module"></script>
+<script src="/sysadmin/sites/default/files/js/js_LfG8UlNFGFSzTQ5KtF0yO21T1jlzhwh8loxGQ4BKUY4.js"></script>
+
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+      _satellite.pageBottom();
+    }
+  </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-969d30985413823a2a8","applicationID":"1080948181","transactionName":"M1ZTYUEHXEZVAkwKDgoccFZHD11bGxFZBAQ7UFBWWwM=","queueTime":0,"applicationTime":31,"atts":"HxFQFwkdT0g=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
