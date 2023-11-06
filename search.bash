@@ -30,7 +30,8 @@ function search_note
                 | awk -F ":" '{print "file://"$1, "|"$2, "|"$3}' \
                 | column -t -s "|" --output-separator " | " \
                 --table-columns FILE,LINE,CONTENT \
-                --table-truncate 3 --table-right LINE
+                --table-right LINE \
+                | sort -u -t '|' -k1,1
                 exit
             fi
         done
@@ -42,11 +43,12 @@ function search_note
     fi
 
     local result=$(
-        grep -e $1 -rwn $projectdir/content/**/* \
+        grep -I -e $1 -rwn $projectdir/content/**/* \
         | awk -F ":" '{print "file://"$1, "|"$2, "|"$3}' \
         | column -t -s "|" --output-separator " | " \
         --table-columns FILE,LINE,CONTENT \
-        --table-truncate 3 --table-right LINE
+        --table-right LINE \
+        | sort -u -t '|' -k1,1
     )
 
     echo "$result"

@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+cwd=$(dirname $0)
 
 echo -e "${yellow}You have next tags:${reset}"
-cat ./tags | sort
+cat $cwd/tags | sort

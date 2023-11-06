@@ -3,7 +3,9 @@ import { dirname, join, } from "node:path"
 import { clearLine, cursorTo } from "node:readline"
 import ytdl from 'ytdl-core'
 
-const [, , link, tag,] = process.argv
+let usageTime = 0;
+
+const [, , link, name,] = process.argv
 const __dirname = dirname(import.meta.url.slice(7))
 
 if (link === undefined) {
@@ -13,7 +15,10 @@ if (link === undefined) {
 
 process.stdout.write('Downloading...')
 const animationTimer = setInterval(
-  () => process.stdout.write('.'), 500
+  () => {
+    process.stdout.write('.')
+    usageTime++
+  }, 1000
 )
 
 const info = await ytdl.getInfo(link)
@@ -34,7 +39,7 @@ const downloadFormat = formats
   .sort(sorteredFn)
   .at(0)
 
-const videoName = `${tag ?? ''}_${channelId}_${videoId}.mp4`
+const videoName = `${name ?? ''}_${channelId}_${videoId}.mp4`
 const destination = join(
   __dirname,
   'content',
@@ -46,7 +51,9 @@ const footerMessage = () => {
   clearInterval(animationTimer)
   clearLine(process.stdout, -1)
   cursorTo(process.stdout, 0)
-  console.log(`${videoName}`)
+  console.log(`Done in: ${usageTime} seconds`)
+  console.log(`Name is ${videoName}`)
+  console.log(destination)
 }
 
 ytdl

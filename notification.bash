@@ -17,6 +17,9 @@ function show
         --hide-menubar \
         --geometry=80x24 \
         -- vi $randomfile
+    # alacritty \
+    # --option window.startup_mode=Windowed \
+    # --command vi $randomfile
     exit
 }
 

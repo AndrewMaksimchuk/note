@@ -3,7 +3,7 @@
 # Save video from: youtube
 # Arguments:
 #    $1 - url
-#    $2 - tag(option)
+#    $2 - name(option)
 
 project_dir=$(dirname $0)
 video_dir="$project_dir/content/_video"
