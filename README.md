@@ -4,7 +4,7 @@
 ### Description
 
 Note-taking cli application  
-Support markdown, html, images, video  
+Support markdown, man-pages, html, images, video  
 Markdown and html files save in git,  
 images and video not.  
 

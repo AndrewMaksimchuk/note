@@ -12,13 +12,23 @@ dir=`dirname $0`
 . $dir/colors.bash
 
 
-files=$(find $dir/content/ -name '*.md')
+what_show=$(echo 'markdown' 'markdown' 'markdown' 'markdown' 'markdown' 'man' | xargs shuf -n1 -e)
 
 function get_random_note
 {
-    local randomfile=$(echo $files | xargs shuf -n1 -e)
-    echo -e "${yellow}[ NOTE ] $randomfile ${reset}"
-    cat $randomfile | fold -w 80 -s
+    if [[ $what_show = 'markdown' ]]; then
+        local files=$(find $dir/content/ -name '*.md')
+        local randomfile=$(echo $files | xargs shuf -n1 -e)
+        echo -e "${yellow}[ NOTE ] $randomfile ${reset}"
+        cat $randomfile | fold -w 80 -s
+    fi
+
+    if [[ $what_show = 'man' ]]; then
+        local man_pages=$(ls -1 /usr/share/man/man1 /usr/share/man/man7 | cut -d. -f1)
+        local randomfile=$(echo $man_pages | xargs shuf -n1 -e)
+        echo -e "${yellow}[ MAN PAGE ] $randomfile ${reset}"
+        man $randomfile
+    fi
 }
 
 
