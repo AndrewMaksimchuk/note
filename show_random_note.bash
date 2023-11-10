@@ -3,7 +3,7 @@
 
 # Show one random note, default behavior
 # Arguments:
-#    $1 - numer of notes to show(option)
+#    $1 - number of notes to show(option)
 
 
 dir=`dirname $0`
@@ -12,20 +12,12 @@ dir=`dirname $0`
 . $dir/colors.bash
 
 
-files=($dir/content/**/*)
-
+files=$(find $dir/content/ -name '*.md')
 
 function get_random_note
 {
-    local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
-    echo
-    echo -e "${yellow}Note: $randomfile ${reset}"
-    if [[ -d $randomfile ]]; then
-        local page=$(echo $randomfile/*)
-        echo $page
-        lynx -dump -nolist $page | less
-        exit
-    fi
+    local randomfile=$(echo $files | xargs shuf -n1 -e)
+    echo -e "${yellow}[ NOTE ] $randomfile ${reset}"
     cat $randomfile | fold -w 80 -s
 }
 
