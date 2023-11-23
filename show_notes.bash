@@ -15,6 +15,25 @@ quite="exit"
 tags=$(cat $projectdir/tags)
 PS3="Select tag notes: "
 
+function default
+{
+    for file in $1; do
+        hr
+        echo $(basename $file)
+        cat $file
+    done
+}
+
+function oneline
+{
+    if [[ "$1" = "--oneline" ]]; then
+        for file in $2; do
+            printf '%7.7s  %s\n' $(basename $file) "$(head -n1 $file)"
+        done
+        exit
+    fi
+}
+
 function read_all
 {
     dir=$(echo $projectdir/content/$1)
@@ -25,11 +44,8 @@ function read_all
     fi
     
     files=$(echo $dir/*.md | sort)
-    for file in $files; do
-        hr
-        echo $(basename $file)
-        cat $file
-    done
+    oneline $2 "$files"
+    default "$files"
     exit
 }
 
