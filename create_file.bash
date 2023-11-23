@@ -4,9 +4,11 @@
 # Create new note/save web page
 # Arguments:
 #    $1 - name of tag
+#    $2 - option flag(-r) 
 # 
 # If $1 argument is empty - show menu
 # If $1 is not exist tag - show menu
+# If $2 is "-r" - repeat this command
 
 
 cwd=$(dirname $0)
@@ -15,6 +17,10 @@ page="page"
 tags=$(cat $cwd/tags)
 PS3="Select tag: "
 
+function editor_open
+{
+    vi +start $1
+}
 
 function from_web_page
 {
@@ -50,10 +56,10 @@ function from_tag
         local max=$(basename -s .md $file_max_name)
         local new_filename=$(($max + 1))
         local to_new_file=$(echo "$dir/$new_filename.md")
-        vi $to_new_file
+        editor_open $to_new_file
     else
         local to_new_file=$(echo "$dir/1.md")
-        vi $to_new_file
+        editor_open $to_new_file
     fi
     
     if [[ -e $to_new_file ]]; then
@@ -71,6 +77,13 @@ if [[ -n $1 ]]; then
     target_directory_tag=$(echo "$cwd/content/$1")
     if [[ -d $target_directory_tag ]]; then
         from_tag "$1"
+        if [[ $2 = '-r' ]]; then
+            echo "Continue? [y/n]"
+            read answer
+            if [[ $answer = "y" ]]; then
+                note create $1 -r
+            fi
+        fi
         exit
     else
         echo "Tag not found, select from list"
