@@ -18,3 +18,4 @@ Commands:
 `image`         add/show/remove images  
 `video`         save video from youtube
 `notification`  set/show notification with note content
+`open`          open notes directory
