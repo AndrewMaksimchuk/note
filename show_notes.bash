@@ -3,6 +3,7 @@
 # Show all notes selected by tag
 # Arguments:
 #    $1 - tag name, if not exist - show menu
+#    $2 - option flag(--oneline)
 
 projectdir=$(dirname $0)
 
@@ -32,8 +33,8 @@ function read_all
     exit
 }
 
-if [ $# -eq 1 ]; then
-    read_all $1
+if [ $# -ge 1 ]; then
+    read_all $1 $2
 fi
 
 select tag in $quite $tags; do
