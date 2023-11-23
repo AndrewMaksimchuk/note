@@ -45,6 +45,9 @@ function output
 
 function format_left_table
 {
+    if [[ -z $1 ]]; then
+        exit
+    fi
     echo "$1" | awk -F ":" '{print "file://"$1, "|"$2, "|"$3" |"}' \
     | sort -u -t '|' -k1,1
 }
