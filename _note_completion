@@ -1,12 +1,17 @@
 # Add competion for shell(bash)
 
-
 function _note() {
+    
+    if [[ $2 = "create" ]]; then
+        note_dir=$(dirname $(whereis note | cut -d: -f2))
+        COMPREPLY=($(cat $note_dir/tags))
+        return 0
+    fi
+
     COMPREPLY=("create" "random" "select" 
     "tag" "edit" "clear" "update" "select_all" 
     "search" "hide" "image" "video" "notification"
     "open" "stat")
 }
-
 
 complete -F _note note
