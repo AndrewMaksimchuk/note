@@ -12,8 +12,9 @@ function show
 {
     local files=($cwd/content/**/*.md)
     local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+    local tag=$(dirname $randomfile | rev | cut -d '/' -f1 | rev)
     gnome-terminal \
-        --title 'note' \
+        --title $tag \
         --hide-menubar \
         --geometry=80x24 \
         -- vi $randomfile
