@@ -15,7 +15,7 @@ function is_empty
 function history
 {
     is_empty
-    cat $history_file
+    cat $history_file | nl
 }
 
 history
