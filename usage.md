@@ -19,4 +19,5 @@ Commands:
 `video`         save video from youtube
 `notification`  set/show notification with note content
 `open`          open notes directory
-`stat`          Show number of notes in each tag(directory)
+`stat`          show number of notes in each tag(directory)
+`history`       show history of adding new notes

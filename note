@@ -75,6 +75,10 @@ case $1 in
         "$cwd/stat.bash"
     ;;
 
+    "history")
+        "$cwd/history.bash"
+    ;;
+
   *) 
     echo "Command not valid"
     usage 

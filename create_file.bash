@@ -17,6 +17,13 @@ page="page"
 tags=$(cat $cwd/tags)
 PS3="Select tag: "
 
+function save_to_history
+{
+    local first_line=$(head -n1 $1)
+    local history_file="$cwd/.history"
+    echo "$first_line $1" >> $history_file
+}
+
 function editor_open
 {
     vi +start $1
@@ -65,6 +72,7 @@ function from_tag
     if [[ -e $to_new_file ]]; then
         echo "New note added"
         echo "$to_new_file"
+        save_to_history "$to_new_file"
     fi
 }
 

@@ -11,7 +11,7 @@ function _note() {
     COMPREPLY=("create" "random" "select" 
     "tag" "edit" "clear" "update" "select_all" 
     "search" "hide" "image" "video" "notification"
-    "open" "stat")
+    "open" "stat" "history")
 }
 
 complete -F _note note
