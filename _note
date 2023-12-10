@@ -25,7 +25,7 @@ function _subcommands
     _describe 'command' subcmds
 }
 
-function _create
+function _show_tags
 {
     local -a tags
     note_dir=$(dirname $(whereis note | cut -d: -f2))
@@ -45,7 +45,10 @@ function _note
         (args)
             case $words[1] in
                 (create)
-                    _create && ret=0
+                    _show_tags && ret=0
+                    ;;
+                (select_all)
+                    _show_tags && ret=0
                     ;;
                 ("")
                     _subcommands && ret=0
