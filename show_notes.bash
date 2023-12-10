@@ -24,12 +24,17 @@ function default
     done
 }
 
+function oneline_print
+{
+    for file in $1; do
+        printf '%7.7s  %s\n' $(basename $file) "$(head -n1 $file)"
+    done
+}
+
 function oneline
 {
     if [[ "$1" = "--oneline" ]]; then
-        for file in $2; do
-            printf '%7.7s  %s\n' $(basename $file) "$(head -n1 $file)"
-        done
+        oneline_print "$2" | sort -h
         exit
     fi
 }
@@ -44,7 +49,7 @@ function read_all
     fi
     
     files=$(echo $dir/*.md | sort)
-    oneline $2 "$files"
+    oneline $2 "$files" 
     default "$files"
     exit
 }
