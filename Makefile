@@ -11,6 +11,7 @@ gui-update: gui-build
 	@make gui-run
 
 gui-build: gui-clear
+	@clear
 	@echo "\033[30m\033[42m[ GUI BUILD ]\033[39m\033[49m"
 	@$(CC) $(CFLAGS) `pkg-config --cflags gtk4` $(GUI) -o $(APP_NAME) `pkg-config --libs gtk4`
 

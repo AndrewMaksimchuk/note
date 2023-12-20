@@ -1,15 +1,16 @@
 #include <gtk/gtk.h>
 #include "content.h"
+#include "debugger.c"
+#include "panel_notes.h"
 
 void app_panel_tags_set_notes_cb(
     GtkListBox *self,
     GtkListBoxRow *row,
     Content *notes_content)
 {
-	// Show notes for selected tag
 	int index = gtk_list_box_row_get_index(row);
 	Tag tag = notes_content->tags[index];
-	g_print("%s\n", tag.name);
+	app_panel_notes_set(&tag);
 }
 
 void app_panel_tags_set(Content *notes_content, GtkWidget *list)
