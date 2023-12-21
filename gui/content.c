@@ -123,24 +123,22 @@ int app_notes_length_in_tag_directory(char *tag_directory_path_abs)
 
 int app_sort_tags_compar(const void *p1, const void *p2)
 {
-	// return strcmp(*(const char **) p1, *(const char **) p2);
-	return 1;
+	const Tag *c1 = p1;
+	const Tag *c2 = p2;
+	return strcmp(c1->name, c2->name);
 }
 
-void app_sort_tags(Tag tags[])
+void app_sort_tags(Tag *tags, int N)
 {
 	const int size = sizeof(tags[0]);
-	const int N = sizeof(tags) / size;
 	qsort(tags, N, size, app_sort_tags_compar);
 }
 
 void app_get_tags(Content *content)
 {
 	struct dirent *tag_directory;
-
 	int tags_counter = 0;
-	int tags_length = app_count_tags();
-	content->length = tags_length;
+	content->length = app_count_tags();
 	DIR *dir_content = opendir(DIR_CONTENT);
 
 	if (dir_content == NULL)
@@ -152,19 +150,17 @@ void app_get_tags(Content *content)
 	while (NULL != (tag_directory = readdir(dir_content)))
 	{
 		if (skip_files_regular(tag_directory))
-		{
 			continue;
-		}
 
 		int index = tags_counter++;
 		char *path_abs = app_tag_directory_path_abs(tag_directory->d_name);
 		content->tags[index].length = app_notes_length_in_tag_directory(path_abs);
 		strcpy(content->tags[index].name, tag_directory->d_name);
-		strcpy(content->tags[index].name, tag_directory->d_name);
 		strcpy(content->tags[index].path, path_abs);
 		app_get_files(&content->tags[index]);
 	}
 
+	app_sort_tags(content->tags, content->length);
 	closedir(dir_content);
 }
 

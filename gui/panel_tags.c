@@ -22,7 +22,6 @@ void app_panel_tags_set(Content *notes_content, GtkWidget *list)
 		gtk_label_set_xalign(GTK_LABEL(lab), 0.01);
 		gtk_list_box_append(GTK_LIST_BOX(list), lab);
 	}
-	g_signal_connect(list, "row-activated", G_CALLBACK(app_panel_tags_set_notes_cb), notes_content);
 }
 
 GtkWidget *app_panel_tags_create(Content *notes_content)
@@ -31,5 +30,6 @@ GtkWidget *app_panel_tags_create(Content *notes_content)
 	GtkWidget *list = gtk_list_box_new();
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(panel), list);
 	app_panel_tags_set(notes_content, list);
+	g_signal_connect(list, "row-activated", G_CALLBACK(app_panel_tags_set_notes_cb), notes_content);
 	return panel;
 }
