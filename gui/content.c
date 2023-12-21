@@ -26,6 +26,19 @@ char *app_note_get_header(char *path)
 	return "HEADER TEXT - FIRST LINE OF FILE";
 }
 
+int app_sort_notes_compar(const void *p1, const void *p2)
+{
+	const Note *c1 = p1;
+	const Note *c2 = p2;
+	return strcmp(c1->name, c2->name);
+}
+
+void app_sort_notes(Note *notes, int N)
+{
+	const int size = sizeof(notes[0]);
+	qsort(notes, N, size, app_sort_notes_compar);
+}
+
 void app_get_files(Tag *tag_entity)
 {
 	int counter = 0;
@@ -56,6 +69,9 @@ void app_get_files(Tag *tag_entity)
 		char *header = app_note_get_header(note_path);
 		strcpy(tag_entity->files[index].header_first_line, header);
 	}
+
+	app_sort_notes(tag_entity->files, tag_entity->length);
+
 	closedir(dir_content);
 }
 
