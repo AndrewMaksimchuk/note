@@ -21,12 +21,21 @@ void app_panel_tags_set(Content *notes_content, GtkWidget *list)
 		char length[4];
 		sprintf(length, "%d", tag.length);
 		
-		char label_text[255];
-		snprintf(label_text, 255, "%s [ %4s ]", tag.name, length);
+		char *label_text = tag.name;
 
-		GtkWidget *lab = gtk_label_new(label_text);
-		gtk_label_set_xalign(GTK_LABEL(lab), 0.01);
-		gtk_list_box_append(GTK_LIST_BOX(list), lab);
+		GtkWidget *label_tag_name = gtk_label_new(label_text);
+		gtk_label_set_xalign(GTK_LABEL(label_tag_name), 0.01);
+		gtk_widget_set_hexpand(label_tag_name, TRUE);
+
+		GtkWidget *label_tag_length = gtk_label_new(length);
+		gtk_label_set_xalign(GTK_LABEL(label_tag_length), 1);
+		gtk_label_set_width_chars(label_tag_length, 8);
+
+		GtkWidget *tag_item = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+		gtk_box_append(tag_item, label_tag_name);
+		gtk_box_append(tag_item, label_tag_length);
+
+		gtk_list_box_append(GTK_LIST_BOX(list), tag_item);
 	}
 }
 
