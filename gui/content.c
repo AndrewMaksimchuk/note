@@ -26,11 +26,36 @@ char *app_note_get_header(char *path)
 	return "HEADER TEXT - FIRST LINE OF FILE";
 }
 
+int strcmpbynum(const char *s1, const char *s2) {
+  for (;;) {
+    if (*s2 == '\0')
+      return *s1 != '\0';
+    else if (*s1 == '\0')
+      return 1;
+    else if (!(isdigit(*s1) && isdigit(*s2))) {
+      if (*s1 != *s2)
+        return (int)*s1 - (int)*s2;
+      else
+        (++s1, ++s2);
+    } else {
+      char *lim1, *lim2;
+      unsigned long n1 = strtoul(s1, &lim1, 10);
+      unsigned long n2 = strtoul(s2, &lim2, 10);
+      if (n1 > n2)
+        return 1;
+      else if (n1 < n2)
+        return -1;
+      s1 = lim1;
+      s2 = lim2;
+    }
+  }
+}
+
 int app_sort_notes_compar(const void *p1, const void *p2)
 {
 	const Note *c1 = p1;
 	const Note *c2 = p2;
-	return strcmp(c1->name, c2->name);
+	return strcmpbynum(c1->name, c2->name);
 }
 
 void app_sort_notes(Note *notes, int N)
