@@ -12,7 +12,7 @@ app_activate(GApplication *app)
 	gtk_window_set_default_size(GTK_WINDOW(win), APP_WIDTH, APP_HEIGHT);
 	gtk_window_maximize(GTK_WINDOW(win));
 
-	GtkWidget *layout = app_layout_set();
+	GtkWidget *layout = app_layout_set(APP_WIDTH);
 
 	gtk_window_set_child(GTK_WINDOW(win), layout);
 	gtk_window_present(GTK_WINDOW(win));

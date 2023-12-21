@@ -28,7 +28,7 @@ void app_panel_tags_set(Content *notes_content, GtkWidget *list)
 		gtk_widget_set_hexpand(label_tag_name, TRUE);
 
 		GtkWidget *label_tag_length = gtk_label_new(length);
-		gtk_label_set_xalign(GTK_LABEL(label_tag_length), 1);
+		gtk_label_set_xalign(GTK_LABEL(label_tag_length), 0.9);
 		gtk_label_set_width_chars(label_tag_length, 8);
 
 		GtkWidget *tag_item = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
