@@ -3,6 +3,8 @@
 #ifndef STRUCTURS_H
 #define STRUCTURS_H
 
+#define HEADER_LENGTH 100
+
 const char *DIR_CONTENT = "./content/";
 const char *DELIMITER = "/";
 
@@ -10,6 +12,7 @@ typedef struct
 {
 	char name[NAME_MAX];
 	char path[PATH_MAX];
+	char header_first_line[HEADER_LENGTH];
 } Note;
 
 typedef struct

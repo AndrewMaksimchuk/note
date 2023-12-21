@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include <string.h>
+#include <gtk/gtk.h>
 #include "content.h"
 
 int skip_files_by_name(char *d_name)
@@ -12,6 +13,40 @@ int skip_files_by_name(char *d_name)
 int skip_files_regular(struct dirent *file)
 {
 	return DT_REG == file->d_type || skip_files_by_name(file->d_name);
+}
+
+char *app_note_get_header(char *path)
+{
+	// GFile *note = g_file_new_for_path(path);
+	// char **contents;
+	// gsize length;
+	// g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
+	// GFileInputStream *note_stream = g_file_read (note, NULL, NULL);
+
+	FILE *fp;
+	char *line = NULL;
+	int len = 0;
+	ssize_t read;
+
+	fp = fopen(path, "r");
+	if (fp == NULL)
+		exit(EXIT_FAILURE);
+
+	// while ((read = getline(&line, &len, fp)) != -1) {
+	// 	printf("Retrieved line of length %zu:\n", read);
+	// 	printf("%s", line);
+	// }
+
+	// read = getline(&line, &len, fp);
+	// printf("%s\n", path);
+	// printf("Retrieved line of length %zu:\n", read);
+	// printf("%s", line);
+
+	// free(line);
+	fclose(fp);
+
+	// return line;
+	return "HEADER TEXT - FIRST LINE OF FILE";
 }
 
 void app_get_files(Tag *tag_entity)
@@ -34,14 +69,15 @@ void app_get_files(Tag *tag_entity)
 			continue;
 		}
 
+		int index = counter++;
 		char *note_path = (char *)malloc(strlen(tag_entity->path) + strlen(DELIMITER) + strlen(note->d_name) + 1);
 		strcpy(note_path, tag_entity->path);
 		strcat(note_path, DELIMITER);
 		strcat(note_path, note->d_name);
-		int index = counter++;
 		strcpy(tag_entity->files[index].name, note->d_name);
 		strcpy(tag_entity->files[index].path, note_path);
-
+		char *header = app_note_get_header(note_path);
+		strcpy(tag_entity->files[index].header_first_line, header);
 	}
 	closedir(dir_content);
 }

@@ -1,6 +1,5 @@
 #include <gtk/gtk.h>
 #include "content.h"
-#include "debugger.c"
 #include "panel_notes.h"
 
 void app_panel_tags_set_notes_cb(
