@@ -51,11 +51,7 @@ void app_panel_notes_set(Tag *tag)
 	for (int i = 0; i < tag->length; i++)
 	{
 		Note note = tag->files[i];
-		// char *label_text = note.name;
-		char *label_text = note.header_first_line;
-		// char *label_text = "";
-		// strcat(label_text, note.name);
-		// strcat(label_text, note.header_first_line);
+		char *label_text = note.name;
 		GtkWidget *lab = gtk_label_new(label_text);
 		gtk_label_set_xalign(GTK_LABEL(lab), 0.01);
 		gtk_list_box_append(GTK_LIST_BOX(list), lab);

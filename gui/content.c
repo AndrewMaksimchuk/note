@@ -23,29 +23,6 @@ char *app_note_get_header(char *path)
 	// g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
 	// GFileInputStream *note_stream = g_file_read (note, NULL, NULL);
 
-	FILE *fp;
-	char *line = NULL;
-	int len = 0;
-	ssize_t read;
-
-	fp = fopen(path, "r");
-	if (fp == NULL)
-		exit(EXIT_FAILURE);
-
-	// while ((read = getline(&line, &len, fp)) != -1) {
-	// 	printf("Retrieved line of length %zu:\n", read);
-	// 	printf("%s", line);
-	// }
-
-	// read = getline(&line, &len, fp);
-	// printf("%s\n", path);
-	// printf("Retrieved line of length %zu:\n", read);
-	// printf("%s", line);
-
-	// free(line);
-	fclose(fp);
-
-	// return line;
 	return "HEADER TEXT - FIRST LINE OF FILE";
 }
 
