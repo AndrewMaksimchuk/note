@@ -17,7 +17,13 @@ void app_panel_tags_set(Content *notes_content, GtkWidget *list)
 	for (int i = 0; i < notes_content->length; i++)
 	{
 		Tag tag = notes_content->tags[i];
-		char *label_text = tag.name;
+
+		char length[4];
+		sprintf(length, "%d", tag.length);
+		
+		char label_text[255];
+		snprintf(label_text, 255, "%s [ %4s ]", tag.name, length);
+
 		GtkWidget *lab = gtk_label_new(label_text);
 		gtk_label_set_xalign(GTK_LABEL(lab), 0.01);
 		gtk_list_box_append(GTK_LIST_BOX(list), lab);
