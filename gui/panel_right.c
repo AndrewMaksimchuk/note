@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include "note.h"
 
 #ifndef PANEL_RIGHT_H
 #define PANEL_RIGHT_H
@@ -46,4 +46,4 @@ GtkWidget *app_panel_right_create()
 	return panel;
 }
 
-#endif // PANEL_RIGHT_H
+#endif

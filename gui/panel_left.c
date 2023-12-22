@@ -1,7 +1,4 @@
-#include <gtk/gtk.h>
-#include "content.c"
-#include "panel_tags.c"
-#include "panel_notes.c"
+#include "note.h"
 
 GtkWidget *app_panel_left_create()
 {

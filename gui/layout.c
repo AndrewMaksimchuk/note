@@ -1,5 +1,4 @@
-#include <gtk/gtk.h>
-#include "panel.c"
+#include "note.h"
 
 GtkWidget *app_layout_set(int APP_WIDTH)
 {

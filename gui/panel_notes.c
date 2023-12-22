@@ -1,7 +1,5 @@
-#include <gtk/gtk.h>
 #include <string.h>
-#include "content.h"
-#include "panel_right.c"
+#include "note.h"
 
 GtkWidget *panel;
 GtkWidget *list;
@@ -28,10 +26,7 @@ void app_panel_notes_message(char *text)
 	gtk_list_box_append(GTK_LIST_BOX(list), lab);
 }
 
-void app_panel_notes_show_cb(
-    GtkListBox *self,
-    GtkListBoxRow *row,
-    Tag *tag)
+void app_panel_notes_show_cb(GtkListBox *self, GtkListBoxRow *row, Tag *tag)
 {
 	int index = gtk_list_box_row_get_index(row);
 	Note note = tag->files[index];

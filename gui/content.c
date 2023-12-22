@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define __USE_MISC
 #include <dirent.h>
+#undef __USE_MISC
 #include <string.h>
-#include <gtk/gtk.h>
-#include "content.h"
+#include "note.h"
+
+
+const char *DIR_CONTENT = "./content/";
+const char *DELIMITER = "/";
 
 int skip_files_by_name(char *d_name)
 {

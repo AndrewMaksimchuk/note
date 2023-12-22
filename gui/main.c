@@ -1,5 +1,4 @@
-#include <gtk/gtk.h>
-#include "layout.c"
+#include "note.h"
 
 const int APP_WIDTH = 800;
 const int APP_HEIGHT = 600;

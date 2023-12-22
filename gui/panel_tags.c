@@ -1,6 +1,4 @@
-#include <gtk/gtk.h>
-#include "content.h"
-#include "panel_notes.h"
+#include "note.h"
 
 void app_panel_tags_set_notes_cb(
     GtkListBox *self,
