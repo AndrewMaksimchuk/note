@@ -6,7 +6,6 @@
 #include <string.h>
 #include "note.h"
 
-
 const char *DIR_CONTENT = "./content/";
 const char *DELIMITER = "/";
 
@@ -22,38 +21,51 @@ int skip_files_regular(struct dirent *file)
 
 char *app_note_get_header(char *path)
 {
-	// GFile *note = g_file_new_for_path(path);
-	// char **contents;
+	GFile *note = g_file_new_for_path(path);
+	GFileInputStream *note_stream = g_file_read(note, NULL, NULL);
+
+	// int count = 50;
+	// char buffer[count];
+	// g_input_stream_read(note_stream, buffer, count, NULL, NULL);
+
+	// char *contents;
 	// gsize length;
 	// g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
-	// GFileInputStream *note_stream = g_file_read (note, NULL, NULL);
+
+	// g_input_stream_close(note_stream, NULL, NULL);
+	// g_free(contents);
 
 	return "HEADER TEXT - FIRST LINE OF FILE";
 }
 
-int strcmpbynum(const char *s1, const char *s2) {
-  for (;;) {
-    if (*s2 == '\0')
-      return *s1 != '\0';
-    else if (*s1 == '\0')
-      return 1;
-    else if (!(isdigit(*s1) && isdigit(*s2))) {
-      if (*s1 != *s2)
-        return (int)*s1 - (int)*s2;
-      else
-        (++s1, ++s2);
-    } else {
-      char *lim1, *lim2;
-      unsigned long n1 = strtoul(s1, &lim1, 10);
-      unsigned long n2 = strtoul(s2, &lim2, 10);
-      if (n1 > n2)
-        return 1;
-      else if (n1 < n2)
-        return -1;
-      s1 = lim1;
-      s2 = lim2;
-    }
-  }
+int strcmpbynum(const char *s1, const char *s2)
+{
+	for (;;)
+	{
+		if (*s2 == '\0')
+			return *s1 != '\0';
+		else if (*s1 == '\0')
+			return 1;
+		else if (!(isdigit(*s1) && isdigit(*s2)))
+		{
+			if (*s1 != *s2)
+				return (int)*s1 - (int)*s2;
+			else
+				(++s1, ++s2);
+		}
+		else
+		{
+			char *lim1, *lim2;
+			unsigned long n1 = strtoul(s1, &lim1, 10);
+			unsigned long n2 = strtoul(s2, &lim2, 10);
+			if (n1 > n2)
+				return 1;
+			else if (n1 < n2)
+				return -1;
+			s1 = lim1;
+			s2 = lim2;
+		}
+	}
 }
 
 int app_sort_notes_compar(const void *p1, const void *p2)
@@ -96,8 +108,7 @@ void app_get_files(Tag *tag_entity)
 		strcat(note_path, note->d_name);
 		strcpy(tag_entity->files[index].name, note->d_name);
 		strcpy(tag_entity->files[index].path, note_path);
-		char *header = app_note_get_header(note_path);
-		strcpy(tag_entity->files[index].header_first_line, header);
+		strcpy(tag_entity->files[index].header_first_line, app_note_get_header(note_path));
 	}
 
 	app_sort_notes(tag_entity->files, tag_entity->length);
