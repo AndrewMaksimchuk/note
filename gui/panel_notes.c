@@ -28,6 +28,7 @@ void app_panel_notes_message(char *text)
 
 void app_panel_notes_show_cb(GtkListBox *self, GtkListBoxRow *row, Tag *tag)
 {
+	(void)(self);
 	int index = gtk_list_box_row_get_index(row);
 	Note note = tag->files[index];
 	app_panel_right_read_file(note.path);
@@ -46,7 +47,7 @@ void app_panel_notes_set(Tag *tag)
 	for (int i = 0; i < tag->length; i++)
 	{
 		Note note = tag->files[i];
-		char *label_text = note.name;
+		const char *label_text = note.name;
 		GtkWidget *lab = gtk_label_new(label_text);
 		gtk_label_set_xalign(GTK_LABEL(lab), 0.01);
 		gtk_list_box_append(GTK_LIST_BOX(list), lab);
@@ -55,7 +56,7 @@ void app_panel_notes_set(Tag *tag)
 	g_signal_connect(list, "row-activated", G_CALLBACK(app_panel_notes_show_cb), tag);
 }
 
-GtkWidget *app_panel_notes_create(Content *notes_content)
+GtkWidget *app_panel_notes_create()
 {
 	panel = gtk_scrolled_window_new();
 	list = gtk_list_box_new();

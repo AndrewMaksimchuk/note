@@ -6,7 +6,7 @@ GtkWidget *app_panel_left_create()
 	gtk_box_set_homogeneous(GTK_BOX(panel), TRUE);
 	Content *notes_content = app_get_content();
 	GtkWidget *panel_tags = app_panel_tags_create(notes_content);
-	GtkWidget *panel_notes = app_panel_notes_create(notes_content);
+	GtkWidget *panel_notes = app_panel_notes_create();
 	gtk_box_append(GTK_BOX(panel), panel_tags);
 	gtk_box_append(GTK_BOX(panel), panel_notes);
 	

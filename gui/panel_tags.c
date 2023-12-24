@@ -5,6 +5,7 @@ void app_panel_tags_set_notes_cb(
     GtkListBoxRow *row,
     Content *notes_content)
 {
+	(void)(self);
 	int index = gtk_list_box_row_get_index(row);
 	Tag tag = notes_content->tags[index];
 	app_panel_notes_set(&tag);
@@ -27,11 +28,11 @@ void app_panel_tags_set(Content *notes_content, GtkWidget *list)
 
 		GtkWidget *label_tag_length = gtk_label_new(length);
 		gtk_label_set_xalign(GTK_LABEL(label_tag_length), 0.9);
-		gtk_label_set_width_chars(label_tag_length, 8);
+		gtk_label_set_width_chars(GTK_LABEL(label_tag_length), 8);
 
 		GtkWidget *tag_item = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
-		gtk_box_append(tag_item, label_tag_name);
-		gtk_box_append(tag_item, label_tag_length);
+		gtk_box_append(GTK_BOX(tag_item), label_tag_name);
+		gtk_box_append(GTK_BOX(tag_item), label_tag_length);
 
 		gtk_list_box_append(GTK_LIST_BOX(list), tag_item);
 	}

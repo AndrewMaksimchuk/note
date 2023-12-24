@@ -8,8 +8,7 @@ GtkWidget *app_layout_set(int APP_WIDTH)
 
     gtk_paned_set_start_child(GTK_PANED(hpaned), paned_left);
     gtk_paned_set_end_child(GTK_PANED(hpaned), paned_right);
-
-    gtk_paned_set_position(hpaned, APP_WIDTH / 2);
+    gtk_paned_set_position(GTK_PANED(hpaned), APP_WIDTH / 2);
 
     return hpaned;
 }

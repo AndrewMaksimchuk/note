@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#ifndef	__USE_MISC
 #define __USE_MISC
 #include <dirent.h>
 #undef __USE_MISC
+#endif
 #include <string.h>
+#include <ctype.h>
 #include "note.h"
 
 const char *DIR_CONTENT = "./content/";
@@ -21,21 +24,34 @@ int skip_files_regular(struct dirent *file)
 
 char *app_note_get_header(char *path)
 {
-	GFile *note = g_file_new_for_path(path);
-	GFileInputStream *note_stream = g_file_read(note, NULL, NULL);
+	(void)(path);
+	// GFile *note = g_file_new_for_path(path);
+	// GFileInputStream *note_stream = g_file_read(note, NULL, NULL);
 
-	// int count = 50;
-	// char buffer[count];
-	// g_input_stream_read(note_stream, buffer, count, NULL, NULL);
+	// gsize count = 50;
+	// char *buffer = malloc(count);
+	// gssize buffer_size = g_input_stream_read(note_stream, buffer, count, NULL, NULL);
+	// g_input_stream_close(note_stream, NULL, NULL);
 
 	// char *contents;
-	// gsize length;
-	// g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
+	// gchar **contents;
+	// gsize *length;
 
-	// g_input_stream_close(note_stream, NULL, NULL);
+	// g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
+	// gboolean cond = g_get_charset(contents);
+	// g_print("cond: %d\n", cond); // is UTF-8
+
+	// gboolean res = g_file_get_contents ( path, contents, length, NULL);
+
+	// g_print("%d\n", res);
+
 	// g_free(contents);
 
-	return "HEADER TEXT - FIRST LINE OF FILE";
+
+
+	return "must be the header";
+	// return buffer;
+	// return contents;
 }
 
 int strcmpbynum(const char *s1, const char *s2)

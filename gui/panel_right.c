@@ -10,12 +10,12 @@ void app_panel_right_message_set(char *text)
 {
 	gtk_text_buffer_set_text(tb, text, -1);
 	gtk_text_buffer_set_modified(tb, FALSE);
-	gtk_text_view_set_justification(tv, GTK_JUSTIFY_CENTER);
+	gtk_text_view_set_justification(GTK_TEXT_VIEW(tv), GTK_JUSTIFY_CENTER);
 }
 
 void app_panel_right_read_file(char *path)
 {
-	gtk_text_view_set_justification(tv, GTK_JUSTIFY_LEFT);
+	gtk_text_view_set_justification(GTK_TEXT_VIEW(tv), GTK_JUSTIFY_LEFT);
 	GFile *note = g_file_new_for_path(path);
 	char *contents;
 	gsize length;
