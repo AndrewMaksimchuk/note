@@ -13,13 +13,30 @@ function addpath() {
     fi
 }
 
+function add_complition_bash() {
+    if [[ -f ~/.bashrc ]]; then
+        echo '[ Add complition bash ]'
+        echo >> ~/.bashrc
+        echo ". $path/_note_completion # complition for 'note' application" >> ~/.bashrc
+    fi
+}
+
+function add_complition_zsh() {
+    if [[ -f ~/.zshrc ]]; then
+        local complition_directory=$HOME/.oh-my-zsh/completions
+        echo '[ Add complition zsh ]'
+        if [[ -d $complition_directory ]]; then
+            cp -f $path/_note $complition_directory
+        else
+            mkdir $complition_directory
+            cp -f $path/_note $complition_directory
+        fi
+    fi
+}
 
 function addcompletion() {
-    cp -f $cwd/_note_completion /etc/bash_completion.d/
-
-    if [[ -d /usr/share/zsh/vendor-completions/ ]]; then
-        cp -f $cwd/_note /usr/share/zsh/vendor-completions/
-    fi
+    add_complition_bash
+    add_complition_zsh
 }
 
 function install_desktop_file() {
