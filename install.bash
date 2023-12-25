@@ -22,6 +22,26 @@ function addcompletion() {
     fi
 }
 
+function install_desktop_file() {
+    file_name="note.desktop"
+
+    file_content="
+    [Desktop Entry]
+    Name=note
+    Type=Application
+    Comment=Read notes
+    Terminal=false
+    Categories=Education;"
+
+    desktop_file="$path/$file_name"
+
+    echo "$file_content" > $desktop_file
+    echo "Exec=$path/note-gui" >> $desktop_file
+    echo "Icon=$path/note.png" >> $desktop_file
+
+    desktop-file-install --dir=$HOME/.local/share/applications $desktop_file
+    update-desktop-database -v $HOME/.local/share/applications
+}
 
 if [[ ! -e $cwd/tags ]]; then
     echo "[ Create file of tags ]"
@@ -43,6 +63,7 @@ addpath ".zshrc"
 
 
 addcompletion
+install_desktop_file
 
 
 execfiles=$(echo $cwd/*.bash)

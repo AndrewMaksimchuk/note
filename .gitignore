@@ -8,3 +8,4 @@ cron
 .search_history
 .history
 *.o
+*.desktop

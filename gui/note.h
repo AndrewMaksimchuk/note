@@ -1,4 +1,5 @@
 #include <gtk/gtk.h>
+#include <glib.h>
 #include "const.h"
 #include "layout.h"
 #include "panel_left.h"
@@ -6,3 +7,4 @@
 #include "content.h"
 #include "panel_tags.h"
 #include "panel_notes.h"
+#include "app_data.h"
