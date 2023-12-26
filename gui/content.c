@@ -10,7 +10,6 @@
 #include "note.h"
 
 const char *DIR_CONTENT = "./content/";
-const char *DELIMITER = "/";
 
 int skip_files_by_name(char *d_name)
 {
@@ -118,9 +117,9 @@ void app_get_files(Tag *tag_entity)
 		}
 
 		int index = counter++;
-		char *note_path = (char *)malloc(strlen(tag_entity->path) + strlen(DELIMITER) + strlen(note->d_name) + 1);
+		char *note_path = (char *)malloc(strlen(tag_entity->path) + strlen(G_DIR_SEPARATOR_S) + strlen(note->d_name) + 1);
 		strcpy(note_path, tag_entity->path);
-		strcat(note_path, DELIMITER);
+		strcat(note_path, G_DIR_SEPARATOR_S);
 		strcat(note_path, note->d_name);
 		strcpy(tag_entity->files[index].name, note->d_name);
 		strcpy(tag_entity->files[index].path, note_path);
