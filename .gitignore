@@ -9,3 +9,4 @@ cron
 .history
 *.o
 *.desktop
+*.swp

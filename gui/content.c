@@ -9,8 +9,6 @@
 #include <ctype.h>
 #include "note.h"
 
-const char *DIR_CONTENT = "./content/";
-
 int skip_files_by_name(char *d_name)
 {
 	return '.' == d_name[0] || '_' == d_name[0];
@@ -105,7 +103,7 @@ void app_get_files(Tag *tag_entity)
 
 	if (dir_content == NULL)
 	{
-		printf("Directory cannot be opened!\n");
+		printf("Directory cannot be opened! %s\n", tag_entity->path);
 		return;
 	}
 
@@ -135,11 +133,11 @@ int app_count_tags()
 {
 	struct dirent *tag_directory;
 	int tags_counter = 0;
-	DIR *dir_content = opendir(DIR_CONTENT);
+	DIR *dir_content = opendir(app_path_content_get());
 
 	if (dir_content == NULL)
 	{
-		printf("Directory cannot be opened!\n");
+		printf("Directory of content(tags with notes) cannot be opened!\n");
 		return 0;
 	}
 
@@ -158,6 +156,7 @@ int app_count_tags()
 
 char *app_tag_directory_path_abs(char *d_name)
 {
+	const char *DIR_CONTENT = app_path_content_get();
 	char *filepath = (char *)malloc(strlen(DIR_CONTENT) + strlen(d_name) + 1);
 	char *abs_path = (char *)malloc(PATH_MAX);
 
@@ -176,7 +175,7 @@ int app_notes_length_in_tag_directory(char *tag_directory_path_abs)
 
 	if (dir_content == NULL)
 	{
-		printf("Directory cannot be opened!\n");
+		printf("Directory cannot be opened! %s\n", tag_directory_path_abs);
 		return 0;
 	}
 
@@ -211,11 +210,11 @@ void app_get_tags(Content *content)
 	struct dirent *tag_directory;
 	int tags_counter = 0;
 	content->length = app_count_tags();
-	DIR *dir_content = opendir(DIR_CONTENT);
+	DIR *dir_content = opendir(app_path_content_get());
 
 	if (dir_content == NULL)
 	{
-		printf("Directory cannot be opened!\n");
+		printf("Directory of content(tags with notes) cannot be opened!\n");
 		return;
 	}
 
