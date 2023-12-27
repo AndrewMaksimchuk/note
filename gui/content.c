@@ -19,36 +19,39 @@ int skip_files_regular(struct dirent *file)
 	return DT_REG == file->d_type || skip_files_by_name(file->d_name);
 }
 
+void scan_for_newline()
+{
+	// https://github.com/GNOME/glib/blob/686ab492cfd8a63f38e8c04e80119794e90b9efa/gio/gdatainputstream.c#L619C1-L619C17
+}
+
+void read_line()
+{
+
+}
+
 char *app_note_get_header(char *path)
 {
-	(void)(path);
-	// GFile *note = g_file_new_for_path(path);
-	// GFileInputStream *note_stream = g_file_read(note, NULL, NULL);
+	gsize length;
+	char *contents;
 
-	// gsize count = 50;
-	// char *buffer = malloc(count);
-	// gssize buffer_size = g_input_stream_read(note_stream, buffer, count, NULL, NULL);
-	// g_input_stream_close(note_stream, NULL, NULL);
+	GFile *note = g_file_new_for_path(path);
+	g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
+	char *header = malloc(length + 1);
 
-	// char *contents;
-	// gchar **contents;
-	// gsize *length;
+	for (gsize i = 0; i < length; i++)
+	{
+		if(contents[i] == '\n')
+		{
+			header[i] = '\0';
+			break;
+		}
+		header[i] = contents[i];
+	}
 
-	// g_file_load_contents(note, NULL, &contents, &length, NULL, NULL);
-	// gboolean cond = g_get_charset(contents);
-	// g_print("cond: %d\n", cond); // is UTF-8
+	g_free(contents);
+	g_object_unref(note);
 
-	// gboolean res = g_file_get_contents ( path, contents, length, NULL);
-
-	// g_print("%d\n", res);
-
-	// g_free(contents);
-
-
-
-	return "must be the header";
-	// return buffer;
-	// return contents;
+	return header;
 }
 
 int strcmpbynum(const char *s1, const char *s2)
