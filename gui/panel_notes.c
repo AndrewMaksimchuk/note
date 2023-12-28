@@ -49,6 +49,7 @@ void app_panel_notes_set(Tag *tag)
 		Note note = tag->files[i];
 		const char *label_text = note.header_first_line;
 		GtkWidget *lab = gtk_label_new(label_text);
+		gtk_widget_set_tooltip_text(lab, note.path);
 		gtk_label_set_xalign(GTK_LABEL(lab), 0.01);
 		gtk_list_box_append(GTK_LIST_BOX(list), lab);
 	}
