@@ -17,7 +17,7 @@ function show
         --title $tag \
         --hide-menubar \
         --geometry=80x24 \
-        -- vi $randomfile
+        -- vi -S $cwd/.nvimrc $randomfile
     # alacritty \
     # --option window.startup_mode=Windowed \
     # --command vi $randomfile

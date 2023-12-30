@@ -1,0 +1,3 @@
+vim9script
+setline(1, "#  ")
+cursor(1, 3)
