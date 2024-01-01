@@ -59,8 +59,9 @@ void app_panel_notes_set(Tag *tag)
 
 GtkWidget *app_panel_notes_create()
 {
-	panel = gtk_scrolled_window_new();
 	list = gtk_list_box_new();
+	panel = gtk_scrolled_window_new();
+	gtk_widget_set_hexpand(panel, 1);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(panel), list);
 	app_panel_notes_message("Choose tag in left panel");
 	return panel;

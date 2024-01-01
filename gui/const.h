@@ -4,6 +4,8 @@
 #define STRUCTURS_H
 
 #define HEADER_LENGTH 100
+#define PANEL_TAGS_WIDTH 200
+#define PANEL_NOTES_WIDTH 500
 
 typedef struct
 {
