@@ -57,3 +57,18 @@ See [usage](usage.md)
 - Deno
 - Node.js
 - gnome-terminal
+
+### Resources
+
+- https://docs.gtk.org/glib/index.html
+- https://docs.gtk.org/gtk4/question_index.html
+- https://docs.gtk.org/gtk4/input-handling.html
+- https://docs.gtk.org/gtk4/section-text-widget.html
+- https://docs.gtk.org/Pango/pango_markup.html
+- https://docs.gtk.org/gtk4/class.TextTag.html
+- https://docs.gtk.org/gtk4/class.CssProvider.html
+- https://docs.gtk.org/gtk4/class.EventControllerMotion.html
+- https://docs.gtk.org/gtk4/class.EventControllerKey.html
+- https://docs.gtk.org/gtk4/method.Widget.add_controller.html
+- https://docs.gtk.org/gtk4/class.EventController.html
+- https://docs.gtk.org/gdk4/index.html#constants
