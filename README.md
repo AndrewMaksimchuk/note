@@ -72,4 +72,15 @@ See [usage](usage.md)
 - https://docs.gtk.org/gtk4/method.Widget.add_controller.html
 - https://docs.gtk.org/gtk4/class.EventController.html
 - https://docs.gtk.org/gdk4/index.html#constants
-- https://docs.gtk.org/glib/func.locale_to_utf8.html
+
+
+### vi/vim/nvim
+
+When show note and you need change some text  
+in `INSERT` mode show line numbers, status line  
+and vertical rule on 50 column.  
+In `NORMAL` mode editor view is clean.  
+
+#### Resources
+
+- https://vimhelp.org/usr_40.txt.html#40.3
