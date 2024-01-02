@@ -30,3 +30,6 @@ gui-clear:
 
 gui-debug:
 	gdb ./$(APP_NAME)
+
+gui-debug-gtk-inspectork:
+	GTK_DEBUG=interactive ./$(APP_NAME)

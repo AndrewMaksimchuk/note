@@ -72,3 +72,4 @@ See [usage](usage.md)
 - https://docs.gtk.org/gtk4/method.Widget.add_controller.html
 - https://docs.gtk.org/gtk4/class.EventController.html
 - https://docs.gtk.org/gdk4/index.html#constants
+- https://docs.gtk.org/glib/func.locale_to_utf8.html

@@ -41,6 +41,9 @@ GtkWidget *app_panel_tags_create()
 	gtk_scrolled_window_set_min_content_width(GTK_SCROLLED_WINDOW(panel), PANEL_TAGS_WIDTH);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(panel), list);
 	app_panel_tags_set(notes_content, list);
+
+	GtkAdjustment *scroll_adj = gtk_scrolled_window_get_hadjustment (panel);
+
 	g_signal_connect(list, "row-activated", G_CALLBACK(app_panel_tags_set_notes_cb), notes_content);
 	return panel;
 }
