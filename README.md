@@ -31,7 +31,7 @@ Set all bash script files to be executable
 Run `sudo ./install.bash` script  
 
 This script add path to this directory in  
-$PATH env for you can run `note` in terminal.  
+`$PATH` env for you can run `note` in terminal.  
 Also add shell completion for bash/zsh.  
 
 
@@ -58,10 +58,30 @@ See [usage](usage.md)
 - Node.js
 - gnome-terminal
 
-### Resources
+
+### GUI
+
+#### Debug
+To enable the [GTK inspector](https://docs.gtk.org/gtk4/running.html#interactive-debugging), you can use the  
+`Control+Shift+I` or `Control+Shift+D`  
+keyboard shortcuts, or set the  
+`GTK_DEBUG=interactive` environment variable.  
+
+To launch the GTK Inspector, focus your GTK  
+application and press `Control-Shift-D`.  
+
+Alternatively, move your mouse cursor to your  
+desired widget and press `Control-Shift-I` to  
+specifically inspect the widget under the mouse  
+cursor.  
+
+#### Resources
+
+- https://docs.gtk.org/glib/func.locale_to_utf8.html
 
 - https://docs.gtk.org/glib/index.html
 - https://docs.gtk.org/gtk4/question_index.html
+
 - https://docs.gtk.org/gtk4/input-handling.html
 - https://docs.gtk.org/gtk4/section-text-widget.html
 - https://docs.gtk.org/Pango/pango_markup.html
