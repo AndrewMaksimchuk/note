@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
 cwd=$(dirname $0)
+. $cwd/colors.bash
 
-echo -e "${yellow}You have next tags:${reset}"
-cat $cwd/tags | sort
+length=$(cat $cwd/tags | wc -l)
+echo -e "${yellow}You have $length tags/directory${reset}"
+cat $cwd/tags | sort | column
