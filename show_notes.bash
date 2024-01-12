@@ -6,20 +6,25 @@
 #    $2 - option flag(--oneline)
 
 projectdir=$(dirname $0)
+quite="exit"
+tags=$(cat $projectdir/tags)
+PS3="Select tag notes: "
+
+function make_link
+{
+    printf '\e]8;;file://%s\e\\%7s\e]8;;\e\\\n' "$1" "$2"
+}
 
 function hr {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
-quite="exit"
-tags=$(cat $projectdir/tags)
-PS3="Select tag notes: "
-
 function default
 {
     for file in $1; do
         hr
-        echo $(basename $file)
+        local link=$(make_link $file '[ OPEN ]')
+        echo $link $(basename $file)
         cat $file
     done
 }
@@ -27,14 +32,15 @@ function default
 function oneline_print
 {
     for file in $1; do
-        printf '%7.7s  %s\n' $(basename $file) "$(head -n1 $file)"
+        local link=$(make_link $file $(basename $file))
+        printf '%7s  %s\n' "$link" "$(head -n1 $file)"
     done
 }
 
 function oneline
 {
     if [[ "$1" = "--oneline" ]]; then
-        oneline_print "$2" | sort -h
+        oneline_print "$2" | sort -V
         exit
     fi
 }
