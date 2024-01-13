@@ -10,6 +10,7 @@ dir=`dirname $0`
 
 
 . $dir/colors.bash
+. $dir/interactive.bash
 
 
 what_show=$(echo 'markdown' 'markdown' 'markdown' 'markdown' 'markdown' 'man' | xargs shuf -n1 -e)
@@ -19,8 +20,8 @@ function get_random_note
     if [[ $what_show = 'markdown' ]]; then
         local files=$(find $dir/content/ -name '*.md')
         local randomfile=$(echo $files | xargs shuf -n1 -e)
-        echo -e "${yellow}[ NOTE ] $randomfile ${reset}"
-        cat $randomfile | fold -w 80 -s
+        echo -e "${yellow}`make_link $randomfile '[ NOTE ]' ` $randomfile ${reset}"
+        cat $randomfile | fold -w 80 -s | $dir/render_markdown.bash
     fi
 
     if [[ $what_show = 'man' ]]; then
