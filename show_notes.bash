@@ -10,10 +10,7 @@ quite="exit"
 tags=$(cat $projectdir/tags)
 PS3="Select tag notes: "
 
-function make_link
-{
-    printf '\e]8;;file://%s\e\\%7s\e]8;;\e\\\n' "$1" "$2"
-}
+. $projectdir/interactive.bash
 
 function hr {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
