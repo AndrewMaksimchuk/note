@@ -33,3 +33,6 @@ gui-debug:
 
 gui-debug-gtk-inspectork:
 	GTK_DEBUG=interactive ./$(APP_NAME)
+
+script-descriptions:
+	@bash descriptions.bash
