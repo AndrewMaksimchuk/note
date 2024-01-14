@@ -2,20 +2,26 @@
 
 # Render *.md file in terminal
 # $1 - absolute path to file *.md
-# Example: perl -pe 's:^#.*:\e[1m $& \e[0m:g' $1 
+#
+# Hints:
+# https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+# https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
+
+projectdir=$(dirname $0)
 
 function header
 {
-    # start with 1 to many # symbol
     perl -pe 's:^#.*:\e[1m$&\e[0m:g' $1 | sed -E 's/#+\s//g'
 }
 
-function code_block
+function code
 {
-    # ` or ``` symbols
-    # corect work with inline "`" symbol
-    # ``` remove from, but need fix to select lines betwen thiw symbols
-    perl -pe 's:`\S+`:\e[100m$&\e[0m:g' $1 | sed 's/`//g'
+    $projectdir/render_markdown_code_block.mjs $1
 }
 
-header $1 | code_block
+function bold
+{
+    $projectdir/render_markdown_bold.mjs $1
+}
+
+header $1 | bold | code
