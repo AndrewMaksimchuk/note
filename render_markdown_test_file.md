@@ -16,14 +16,14 @@ I just love __bold text__.
 Love**is**bold.  
 
 
-## Italic [NONE]
+## Italic [DONE]
 
 Italicized text is the *cat's meow*.  
 Italicized text is the _cat's meow_.  
 A*cat*meow.  
 
 
-## Bold and Italic [NONE]
+## Bold and Italic [DONE]
 
 This text is ***really important***.  
 This text is ___really important___.  

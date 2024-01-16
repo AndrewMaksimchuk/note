@@ -11,7 +11,7 @@ const formatToRegexp = {
     "_": /_/,
 }
 const formatEscape = {
-    start: "\x1B[1m",
+    start: "\x1B[3m",
     end: "\x1B[0m", // Reset all
 }
 const formatedString = [];

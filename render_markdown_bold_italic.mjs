@@ -15,17 +15,21 @@ const formatToRegexp = {
     "**_": /\*\*_/,
 }
 const formatEscape = {
-    start: "\x1B[1m",
+    start: "\x1B[1;3m",
     end: "\x1B[0m", // Reset all
 }
 const formatedString = [];
 
 const isContainBoldFormat = (row = "") => {
-    return row.includes(letters["*"]) || row.includes(letters["_"]);
+    return Object.values(letters).some((symbols) => {
+        return row.includes(symbols);
+    });
 }
 
 const whatIsFirstLetter = (row = "") => {
-    return row.includes(letters["*"]) ? letters["*"] : letters["_"];
+    return Object.keys(letters).find((symbols) => {
+        return row.includes(symbols);
+    });
 }
 
 const replacePair = (row = "") => {
