@@ -83,7 +83,7 @@ const length = "hello!".length;
 ```
 
 
-## Horizontal Rules [NONE]
+## Horizontal Rules [DONE]
 
 ***
 ---

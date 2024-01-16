@@ -45,5 +45,10 @@ function link
     $projectdir/render_markdown_link.mjs $1
 }
 
+function horizontal_rule
+{
+    $projectdir/render_markdown_horizontal_rule.mjs $1 $cols
+}
+
 # Order important
-header $1 | link | bold_italic | bold | italic | blockquotes | code
+header $1 | horizontal_rule | link | bold_italic | bold | italic | blockquotes | code
