@@ -3,12 +3,12 @@ import { job } from "./render_markdown_job.mjs";
 import { inCodeBlock } from "./render_markdown_in_code.mjs";
 
 const letters = {
-    "**": "**",
-    "__": "__",
+    "*": "*",
+    "_": "_",
 }
 const formatToRegexp = {
-    "**": /\*\*/,
-    "__": /__/,
+    "*": /\*/,
+    "_": /_/,
 }
 const formatEscape = {
     start: "\x1B[1m",
@@ -17,11 +17,11 @@ const formatEscape = {
 const formatedString = [];
 
 const isContainBoldFormat = (row = "") => {
-    return row.includes(letters["**"]) || row.includes(letters["__"]);
+    return row.includes(letters["*"]) || row.includes(letters["_"]);
 }
 
 const whatIsFirstLetter = (row = "") => {
-    return row.includes(letters["**"]) ? letters["**"] : letters["__"];
+    return row.includes(letters["*"]) ? letters["*"] : letters["_"];
 }
 
 const replacePair = (row = "") => {

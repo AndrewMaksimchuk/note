@@ -19,9 +19,20 @@ function code
     $projectdir/render_markdown_code_block.mjs $1
 }
 
+function bold_italic
+{
+    $projectdir/render_markdown_bold_italic.mjs $1
+}
+
 function bold
 {
     $projectdir/render_markdown_bold.mjs $1
 }
 
-header $1 | bold | code
+function italic
+{
+    $projectdir/render_markdown_italic.mjs $1
+}
+
+# Order important
+header $1 | bold_italic | bold | italic | code

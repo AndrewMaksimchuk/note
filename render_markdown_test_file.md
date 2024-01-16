@@ -16,14 +16,14 @@ I just love __bold text__.
 Love**is**bold.  
 
 
-## Italic
+## Italic [NONE]
 
 Italicized text is the *cat's meow*.  
 Italicized text is the _cat's meow_.  
 A*cat*meow.  
 
 
-## Bold and Italic
+## Bold and Italic [NONE]
 
 This text is ***really important***.  
 This text is ___really important___.  
@@ -32,18 +32,18 @@ This text is **_really important_**.
 This is really***very***important text.  
 
 
-## Blockquotes
+## Blockquotes [NONE]
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 
 
-## Blockquotes with Multiple Paragraphs
+## Blockquotes with Multiple Paragraphs [NONE]
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
 > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 
-## Lists
+## Lists [NONE]
 
 ### Ordered Lists
 
@@ -79,19 +79,19 @@ This is really***very***important text.
 At the command prompt, type `nano`.  
 ``Use `code` in your Markdown file.``  
 
-## Horizontal Rules
+## Horizontal Rules [NONE]
 
 ***
 ---
 _________________
 
 
-## Links
+## Links [NONE]
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).  
 
 
-## Images
+## Images [NOT_PLANNED]
 
 
-## Escaping Characters
+## Escaping Characters [NOT_PLANNED]
