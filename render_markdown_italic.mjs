@@ -16,8 +16,16 @@ const formatEscape = {
 }
 const formatedString = [];
 
+
+const isContainPair = (row = "", symbols = "") => {
+    const counter = row.split(symbols).filter(Boolean).length; // .filter(Boolean) - remove first and last empty elements
+    return counter > 2 && Boolean(counter & 1);
+}
+
 const isContainBoldFormat = (row = "") => {
-    return row.includes(letters["*"]) || row.includes(letters["_"]);
+    const expr1 = () => row.includes(letters["*"]) && isContainPair(row, letters["*"]);
+    const expr2 = () => row.includes(letters["_"]) && isContainPair(row, letters["_"]);
+    return expr1() || expr2();
 }
 
 const whatIsFirstLetter = (row = "") => {
