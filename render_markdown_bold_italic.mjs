@@ -5,14 +5,16 @@ import { inCodeBlock } from "./render_markdown_in_code.mjs";
 const letters = {
     "***": "***",
     "___": "___",
-    "__*": "__*",
-    "**_": "**_",
+    "__*": "__*", // different end symbols: *__
+    "**_": "**_", // different end symbols: _**
 }
 const formatToRegexp = {
     "***": /\*\*\*/,
     "___": /___/,
-    "__*": /__\*/,
-    "**_": /\*\*_/,
+    "__*": /__\*/, // start
+    "*__": /\*__/, // end
+    "**_": /\*\*_/, // start
+    "_**": /_\*\*/, // end
 }
 const formatEscape = {
     start: "\x1B[1;3m",
@@ -33,9 +35,10 @@ const whatIsFirstLetter = (row = "") => {
 }
 
 const replacePair = (row = "") => {
-    const boldFormat = whatIsFirstLetter(row);
-    let formatedPair = row.replace(formatToRegexp[boldFormat], formatEscape.start);
-    formatedPair = formatedPair.replace(formatToRegexp[boldFormat], formatEscape.end);
+    const startSymbols = whatIsFirstLetter(row);
+    let formatedPair = row.replace(formatToRegexp[startSymbols], formatEscape.start);
+    const endSymbols = startSymbols?.split("").reverse().join("");
+    formatedPair = formatedPair.replace(formatToRegexp[endSymbols], formatEscape.end);
     return formatedPair;
 }
 
