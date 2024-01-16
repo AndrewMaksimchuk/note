@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { job } from "./render_markdown_job.mjs";
-import { inCodeBlock } from "./render_markdown_in_code.mjs";
+import { inCodeBlock, isInCodeBlock } from "./render_markdown_in_code.mjs";
 
 const letters = {
     "*": "*",
@@ -49,11 +49,9 @@ const bold = (row = "") => {
 
 const jobAction = (rowsArray) => {
     rowsArray.forEach((row) => {
-        if (inCodeBlock) {
-            return;
-        }
+        isInCodeBlock(row);
 
-        if (isContainBoldFormat(row)) {
+        if (false === inCodeBlock && isContainBoldFormat(row)) {
             formatedString.push(bold(row));
             return;
         }
