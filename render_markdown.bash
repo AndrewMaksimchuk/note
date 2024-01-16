@@ -40,5 +40,10 @@ function blockquotes
     $projectdir/render_markdown_blockquotes.mjs $1 $cols
 }
 
+function link
+{
+    $projectdir/render_markdown_link.mjs $1
+}
+
 # Order important
-header $1 | bold_italic | bold | italic | blockquotes | code
+header $1 | link | bold_italic | bold | italic | blockquotes | code
