@@ -32,12 +32,12 @@ This text is **_really important_**.
 This is really***very***important text.  
 
 
-## Blockquotes [NONE]
+## Blockquotes [DONE]
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 
 
-## Blockquotes with Multiple Paragraphs [NONE]
+## Blockquotes with Multiple Paragraphs [DONE]
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
 > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.

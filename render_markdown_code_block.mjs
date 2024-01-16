@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 import { job } from "./render_markdown_job.mjs";
 import { inCodeBlock, isInCodeBlock } from "./render_markdown_in_code.mjs";
+import { argv } from "process";
 
 let formatedString = [];
 
+const setWidth = () => {
+  return argv[2] ? Number(argv[2]) : 120;
+}
+
 const codeBlockSetWidth = (row = "") => {
-  return row.padEnd(process.stdout.columns, " ");
+  return row.padEnd(setWidth(), " ");
 }
 
 const codeBlockSetColor = (row) => {

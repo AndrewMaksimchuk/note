@@ -8,6 +8,7 @@
 # https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
 
 projectdir=$(dirname $0)
+cols=$(tput cols)
 
 function header
 {
@@ -16,7 +17,7 @@ function header
 
 function code
 {
-    $projectdir/render_markdown_code_block.mjs $1
+    $projectdir/render_markdown_code_block.mjs $1 $cols
 }
 
 function bold_italic
@@ -34,5 +35,10 @@ function italic
     $projectdir/render_markdown_italic.mjs $1
 }
 
+function blockquotes
+{
+    $projectdir/render_markdown_blockquotes.mjs $1 $cols
+}
+
 # Order important
-header $1 | bold_italic | bold | italic | code
+header $1 | bold_italic | bold | italic | blockquotes | code
