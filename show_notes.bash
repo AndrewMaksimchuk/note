@@ -22,7 +22,7 @@ function default
         hr
         local link=$(make_link $file '[ OPEN ]')
         echo $link $(basename $file)
-        cat $file
+        cat $file | $projectdir/render_markdown.bash
     done
 }
 

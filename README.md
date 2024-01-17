@@ -104,3 +104,23 @@ In `NORMAL` mode editor view is clean.
 #### Resources
 
 - https://vimhelp.org/usr_40.txt.html#40.3
+
+
+### Markdown
+
+For commands: `random` `select` `select_all`  
+output files will be rendered corresponding  
+to markdown syntax(simple version).  
+
+Support:
+- [x] header
+- [x] bold
+- [x] italic
+- [x] bold and italic
+- [x] blockquotes
+- [ ] lists
+- [x] code
+- [x] horizontal rules
+- [x] link
+- [ ] image
+- [ ] escaping characters

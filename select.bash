@@ -29,7 +29,7 @@ function get_note
     local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
     echo
     echo -e "${yellow}Note: $randomfile ${reset}"
-    cat $randomfile | fold -w 80 -s
+    cat $randomfile | fold -w 80 -s | $cwd/render_markdown.bash
 }
 
 
