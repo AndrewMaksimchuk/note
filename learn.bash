@@ -13,13 +13,13 @@ SCREEN_WIDTH=$(tput cols)
 
 function close_app
 {
-    kill %1 1>/dev/null
+    kill %1 2>/dev/null
     exit
 }
 
 function pomodoro
 {
-    kill %1 1>/dev/null
+    kill %1 2>/dev/null
     sleep 25m && notify-send "Take a break" "Relax and drink a cup of tea" &
 }
 
