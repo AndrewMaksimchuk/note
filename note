@@ -79,6 +79,10 @@ case $1 in
         "$cwd/history.bash"
     ;;
 
+    "learn")
+        "$cwd/learn.bash" $2
+    ;;
+
   *) 
     echo "Command not valid"
     usage 

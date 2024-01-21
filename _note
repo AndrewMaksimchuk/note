@@ -21,6 +21,7 @@ function _subcommands
         "open:open notes directory"
         "stat:show number of notes in each tag(directory)"
         "history:history of adding new notes"
+        "learn:show notes, step by step on selected tag"
     )
     _describe 'command' subcmds
 }
