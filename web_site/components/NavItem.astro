@@ -1,0 +1,69 @@
+---
+import { MarkdownInstance } from "astro";
+
+const { summary, notes } = Astro.props;
+
+function setLengthPad(length) {
+    return `${length}`.padStart(4, " ");
+}
+
+function setLinkText(note: MarkdownInstance<{}>) {
+    return note.rawContent().split("\n").at(0)?.replace("# ", "");
+}
+
+function setLinkHref(tag, note: MarkdownInstance<{}>) {
+    const name = note.file.split("/").at(-1)?.split(".").at(0);
+    return `/${tag}/${name}`;
+}
+---
+
+<details class="nav__item">
+    <summary class="nav__summary">
+        <h2 class="nav__summary-tag">{summary}</h2>
+        <span class="nav__summary-length">{ setLengthPad(notes.length) }</span>
+    </summary>
+    <ul class="nav__list">
+        {
+            notes.map((note) => {
+                return <li class="nav__list-item"><a class="nav__list-link" href={setLinkHref(summary, note)} title={setLinkText(note)}>{setLinkText(note)}</a></li>
+            })
+        }
+    </ul>
+</details>
+<style>
+    .nav__item {
+    }
+
+    .nav__summary {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav__summary:hover {
+        cursor: pointer;
+    }
+
+    .nav__summary-tag {
+        display: inline;
+        margin: 0;
+    }
+
+    .nav__summary-length {
+        white-space: pre;
+    }
+
+    .nav__list {
+        padding-left: 4ch;
+    }
+
+    .nav__list-item {
+    }
+
+    .nav__list-link {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+        width: 42ch;
+    }
+</style>

@@ -1,8 +1,16 @@
 {
   "dependencies": {
+    "astro": "^4.3.3",
     "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
     "@types/node": "^20.4.5"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   }
 }
