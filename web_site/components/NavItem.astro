@@ -13,7 +13,7 @@ function setLinkText(note: MarkdownInstance<{}>) {
 
 function setLinkHref(tag, note: MarkdownInstance<{}>) {
   const name = note.file.split("/").at(-1)?.split(".").at(0);
-  return `/${tag}/${name}`;
+  return `/note/${tag}/${name}`;
 }
 
 function setTitle(note) {
@@ -54,7 +54,7 @@ function isOpen() {
     const links = [...document.querySelectorAll(".nav__list-link")];
     links.forEach((element) => {
       const attrHref = element.getAttribute("href") ?? "";
-      if (window.location.pathname.includes(attrHref)) {
+      if (window.location.pathname === attrHref) {
         element.parentElement?.classList.add("nav__list-link_selected");
       }
     });

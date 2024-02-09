@@ -7,7 +7,7 @@
     "@types/node": "^20.4.5"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev astro dev",
+    "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
