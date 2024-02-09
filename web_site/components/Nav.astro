@@ -15,14 +15,40 @@ function getNotesByTag(tag) {
 }
 ---
 
-<aside class="nav">
-  {tags.map((tag) => <NavItem summary={tag} notes={getNotesByTag(tag)} />)}
+<aside class="nav" id="navigation-panel">
+  <div class="nav__container">
+    {tags.map((tag) => <NavItem summary={tag} notes={getNotesByTag(tag)} />)}
+  </div>
+  <button class="button-hide" id="button-hide">
+    <span class="button-hide__text" title="Hide panel">Hide panel</span>
+  </button>
 </aside>
+<script>
+  import { toggleNavPanel } from "../modules/nav.api";
+
+  const buttonHide = document.getElementById("button-hide");
+  buttonHide?.addEventListener("click", toggleNavPanel);
+</script>
 <style>
   .nav {
     display: block;
-    min-height: 100vh;
+    min-height: 100%;
     padding-top: 1ch;
+    position: relative;
+  }
+
+  .nav:hover .button-hide {
+    width: 7ch;
+  }
+
+  .nav:hover .button-hide__text {
+    display: inline;
+  }
+
+  .nav__container {
+    width: 100%;
+    overflow: hidden;
+    margin-left: 1ch;
   }
 
   .nav__item {
@@ -37,5 +63,32 @@ function getNotesByTag(tag) {
 
   .nav__summary h2 {
     display: inline;
+  }
+
+  .button-hide {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    padding: 0;
+    top: 1ch;
+    bottom: 1ch;
+    left: 100%;
+    width: 0;
+    z-index: 1;
+    border: 0;
+    border-radius: 0;
+    border-radius: 0 1ch 1ch 0;
+    transition: all 0.3s;
+  }
+
+  .button-hide:hover {
+    cursor: pointer;
+  }
+
+  .button-hide__text {
+    display: none;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
   }
 </style>
