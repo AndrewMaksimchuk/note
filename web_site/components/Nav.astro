@@ -1,38 +1,40 @@
 ---
 import fs from "node:fs";
 import NavItem from "./NavItem.astro";
-const notes = await Astro.glob('../content/**/*.md');
-const tags = fs.readFileSync("/home/andrew/Code/note/tags", { encoding: "utf8" }).split("\n").sort();
+const notes = await Astro.glob("../content/**/*.md");
+const tags = fs
+  .readFileSync("/home/andrew/Code/note/tags", { encoding: "utf8" })
+  .split("\n")
+  .sort();
 
 function getNotesByTag(tag) {
-    return notes.filter((note) => {
-        return note.file.includes(`/${tag}/`);
-    });
+  return notes.filter((note) => {
+    return note.file.includes(`/${tag}/`);
+  });
 }
 ---
 
 <aside class="nav">
-    {tags.map((tag) => <NavItem summary={tag} notes={getNotesByTag(tag)}/>)}
+  {tags.map((tag) => <NavItem summary={tag} notes={getNotesByTag(tag)} />)}
 </aside>
 <style>
-    .nav {
-        display: block;
-        min-height: 100vh;
-    }
+  .nav {
+    display: block;
+    min-height: 100vh;
+    padding-top: 1ch;
+  }
 
-    .nav__item {
+  .nav__item {
+  }
 
-    }
+  .nav__summary {
+  }
 
-    .nav__summary {
+  .nav__summary:hover {
+    cursor: pointer;
+  }
 
-    }
-
-    .nav__summary:hover {
-        cursor: pointer;
-    }
-
-    .nav__summary h2 {
-        display: inline;
-    }
+  .nav__summary h2 {
+    display: inline;
+  }
 </style>

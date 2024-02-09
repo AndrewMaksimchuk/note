@@ -1,51 +1,36 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-// const { Content } = notes.find((note) => {
-//     return note.file.includes("/c/2.md");
-// })
-
-
 export async function getStaticPaths() {
-  const notes = await Astro.glob('../../content/**/*.md');
+  const notes = await Astro.glob("../../content/**/*.md");
 
   function setTag(note) {
-  return note.file.split("/").at(-2);
-}
+    return note.file.split("/").at(-2);
+  }
 
-function setName(note) {
-  return note.file.split("/").at(-1);
-}
+  function setName(note) {
+    return note.file.split("/").at(-1).split(".").at(0);
+  }
 
   return notes.map((note) => {
+    const params = {
+      tag: setTag(note),
+      name: setName(note),
+    };
     return {
-      params: {
-        tag: setTag(note),
-        name: setName(note),
-      },
+      params,
     };
   });
-
-  // return [
-  //   { params: { tag: "astro", name: "hohoho" } },
-  //   { params: { tag: "c", name: "1" } },
-  //   { params: { tag: "community", name: "hohoho" } },
-  //   { params: { tag: "blogging", name: "hohoho" } },
-  //   { params: { tag: "setbacks", name: "hohoho" } },
-  //   { params: { tag: "learning in public", name: "hohoho" } },
-  // ];
 }
 
 const { tag, name } = Astro.params;
 
-const notes = await Astro.glob('../../content/**/*.md');
+const notes = await Astro.glob("../../content/**/*.md");
 const { Content } = notes.find((note) => {
-    return note.file.includes(`/${tag}/${name}.md`);
-})
+  return note.file.includes(`/${tag}/${name}.md`);
+});
 ---
-<Layout title={tag}>
-    Note content - render markdown
-    <br>
-    {tag} {name}
-    <Content />
+
+<Layout title={"note - " + tag}>
+  <Content />
 </Layout>

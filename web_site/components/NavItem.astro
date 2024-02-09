@@ -4,66 +4,117 @@ import { MarkdownInstance } from "astro";
 const { summary, notes } = Astro.props;
 
 function setLengthPad(length) {
-    return `${length}`.padStart(4, " ");
+  return `${length}`.padStart(4, " ");
 }
 
 function setLinkText(note: MarkdownInstance<{}>) {
-    return note.rawContent().split("\n").at(0)?.replace("# ", "");
+  return note.rawContent().split("\n").at(0)?.replace("# ", "");
 }
 
 function setLinkHref(tag, note: MarkdownInstance<{}>) {
-    const name = note.file.split("/").at(-1)?.split(".").at(0);
-    return `/${tag}/${name}`;
+  const name = note.file.split("/").at(-1)?.split(".").at(0);
+  return `/${tag}/${name}`;
+}
+
+function setTitle(note) {
+  const file = note.file.split("/").slice(-2).join("/");
+  return setLinkText(note) + "\n" + file;
+}
+
+function isOpen() {
+  return Astro.url.pathname.includes(`/${summary}/`);
 }
 ---
 
-<details class="nav__item">
-    <summary class="nav__summary">
-        <h2 class="nav__summary-tag">{summary}</h2>
-        <span class="nav__summary-length">{ setLengthPad(notes.length) }</span>
-    </summary>
-    <ul class="nav__list">
-        {
-            notes.map((note) => {
-                return <li class="nav__list-item"><a class="nav__list-link" href={setLinkHref(summary, note)} title={setLinkText(note)}>{setLinkText(note)}</a></li>
-            })
-        }
-    </ul>
+<details class="nav__item" open={isOpen()}>
+  <summary class="nav__summary">
+    <h2 class="nav__summary-tag">{summary}</h2>
+    <span class="nav__summary-length">{setLengthPad(notes.length)}</span>
+  </summary>
+  <ul class="nav__list">
+    {
+      notes.map((note) => {
+        return (
+          <li class="nav__list-item">
+            <a
+              class="nav__list-link"
+              href={setLinkHref(summary, note)}
+              title={setTitle(note)}
+            >
+              {setLinkText(note)}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
 </details>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const links = [...document.querySelectorAll(".nav__list-link")];
+    links.forEach((element) => {
+      const attrHref = element.getAttribute("href");
+      if (window.location.pathname === attrHref) {
+        element.parentElement?.classList.add("nav__list-link_selected");
+      }
+    });
+  });
+</script>
 <style>
-    .nav__item {
-    }
+  .nav__item {
+  }
 
-    .nav__summary {
-        display: flex;
-        justify-content: space-between;
-    }
+  .nav__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px transparent;
+    padding: 0 1ch;
+  }
 
-    .nav__summary:hover {
-        cursor: pointer;
-    }
+  .nav__summary:hover {
+    cursor: pointer;
+    border-bottom: solid 1px black;
+    background-color: silver;
+  }
 
-    .nav__summary-tag {
-        display: inline;
-        margin: 0;
-    }
+  .nav__summary-tag {
+    display: inline;
+    margin: 0;
+  }
 
-    .nav__summary-length {
-        white-space: pre;
-    }
+  .nav__summary-length {
+    white-space: pre;
+  }
 
-    .nav__list {
-        padding-left: 4ch;
-    }
+  .nav__list {
+    padding-left: 4ch;
+  }
 
-    .nav__list-item {
-    }
+  .nav__list-item {
+    list-style-type: square;
+    color: darkslategray;
+  }
 
-    .nav__list-link {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        display: inline-block;
-        width: 42ch;
-    }
+  .nav__list-link {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 44ch;
+    text-decoration: none;
+    color: inherit;
+    padding: 1px;
+    padding-left: 1ch;
+    vertical-align: middle;
+  }
+
+  .nav__list-link:hover {
+    text-decoration: underline;
+  }
+
+  .nav__list-link_selected {
+    color: black;
+    background-color: tomato;
+  }
 </style>
