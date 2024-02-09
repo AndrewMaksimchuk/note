@@ -1,9 +1,10 @@
 ---
 import fs from "node:fs";
+import path from "node:path";
 import NavItem from "./NavItem.astro";
 const notes = await Astro.glob("../content/**/*.md");
 const tags = fs
-  .readFileSync("/home/andrew/Code/note/tags", { encoding: "utf8" })
+  .readFileSync(path.join(process.cwd(), "tags"), { encoding: "utf8" })
   .split("\n")
   .sort();
 
