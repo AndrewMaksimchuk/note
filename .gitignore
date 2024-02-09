@@ -4,6 +4,7 @@ node_modules/
 _images/
 _video/
 web_static/
+dist/
 
 
 cron
