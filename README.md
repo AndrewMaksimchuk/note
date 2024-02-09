@@ -41,6 +41,12 @@ For update git repository, run `update.bash`
 Or if you want autoupdate, run `autoupdate.bash`
 
 
+### Github
+
+Published on "Github Pages" on: https://andrewmaksimchuk.github.io/note/ 
+Used "Github Actions".
+
+
 ### Usage
 
 Run `./dashboard` from project directory  
