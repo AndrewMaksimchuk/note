@@ -27,6 +27,10 @@ const { title } = Astro.props;
 <script>
   import { toggleNavPanel } from "../modules/nav.api";
 
+  function bodyToggleOverflow() {
+    document.body.classList.toggle("body_overflow_hidden");
+  }
+
   function setFullscreenMode() {
     document.documentElement.requestFullscreen();
   }
@@ -45,7 +49,7 @@ const { title } = Astro.props;
   const btnPresent = document.getElementById("button-toggle-present");
   btnPresent?.addEventListener("click", () => {
     toggleFullScreen();
-    toggleNavPanel();
+    toggleNavPanel(bodyToggleOverflow);
   });
 </script>
 <style>
@@ -114,6 +118,10 @@ const { title } = Astro.props;
     display: grid;
     grid-template-columns: var(--nav-width) auto;
     transition: all 0.5s;
+  }
+
+  .body_overflow_hidden {
+    overflow: hidden;
   }
 
   .content {
