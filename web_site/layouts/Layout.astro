@@ -15,12 +15,16 @@ const { title } = Astro.props;
     <Nav />
     <main class="content">
       <slot />
-      <button class="button-fullscreen" id="button-toggle-fullscreen">
-        Fullscreen
-      </button>
-      <button class="button-present" id="button-toggle-present">
-        Present
-      </button>
+      <div class="content__btn-group">
+        <div class="content__btn-group-container">
+          <button class="button-fullscreen" id="button-toggle-fullscreen">
+            Fullscreen
+          </button>
+          <button class="button-present" id="button-toggle-present">
+            Present
+          </button>
+        </div>
+      </div>
     </main>
   </body>
 </html>
@@ -92,6 +96,9 @@ const { title } = Astro.props;
     :root {
       --text-color: black;
       --background-color: white;
+      --link-color: darkslategray;
+      --nav-summary: silver;
+      --nav-summary-tag: white;
     }
   }
 
@@ -99,6 +106,9 @@ const { title } = Astro.props;
     :root {
       --text-color: white;
       --background-color: black;
+      --link-color: lightslategray;
+      --nav-summary: lightgray;
+      --nav-summary-tag: black;
     }
   }
 
@@ -129,28 +139,39 @@ const { title } = Astro.props;
     position: relative;
   }
 
-  .button-fullscreen {
-    width: 12ch;
+  .content__btn-group {
     position: absolute;
     top: 3ch;
     right: 3ch;
+    width: 30ch;
+    height: 30ch;
+  }
+
+  .content__btn-group-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    visibility: hidden;
+  }
+
+  .content__btn-group:hover .content__btn-group-container {
+    visibility: visible;
+  }
+
+  .button-fullscreen,
+  .button-present {
     background-color: transparent;
     border: solid 1px black;
+    text-align: left;
   }
 
   .button-fullscreen:hover,
   .button-present:hover {
     cursor: pointer;
     background-color: tomato;
-  }
-
-  .button-present {
-    width: 9ch;
-    position: absolute;
-    top: 3ch;
-    right: 16ch;
-    background-color: transparent;
-    border: solid 1px black;
   }
 </style>
 <style is:global>
