@@ -84,12 +84,29 @@ const { title } = Astro.props;
     font-style: normal;
   }
 
+  @media (prefers-color-scheme: light) {
+    :root {
+      --text-color: black;
+      --background-color: white;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: white;
+      --background-color: black;
+    }
+  }
+
   :root {
+    color-scheme: light dark;
     --nav-width: 50ch;
   }
 
   html {
     font-family: "Fira Code", monospace;
+    color: var(--text-color);
+    background-color: var(--background-color);
   }
 
   .body {
