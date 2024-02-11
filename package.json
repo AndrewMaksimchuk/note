@@ -4,13 +4,16 @@
     "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
-    "@types/node": "^20.4.5"
+    "@types/node": "^20.4.5",
+    "electron": "^28.2.2"
   },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  }
+    "build-static": "astro build",
+    "preview-static": "astro preview",
+    "screen": "electron ./screen.js"
+  },
+  "description": "Note application"
 }

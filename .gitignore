@@ -13,3 +13,4 @@ cron
 *.o
 *.desktop
 *.swp
+image_of_page.*
