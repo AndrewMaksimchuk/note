@@ -1,28 +1,15 @@
 const { app, BrowserWindow } = require('electron');
 const fs = require('node:fs');
 const path = require('node:path');
-const childProcess = require('node:child_process');
 
 const pathToPage = process.argv[2] ?? process.argv[1];
 
 if(!pathToPage) app.quit();
 
-function setWallpaper() {
-  const imagePath = path.join(__dirname, 'image_of_page.png');
-  childProcess.execFile('gsettings', [
-		'set',
-		'org.gnome.desktop.background',
-		'picture-uri',
-		`file://${imagePath}`,
-	]);
-}
-
 async function takeScreen(win) {
   const screenshot = await win.webContents.capturePage();
   const scrrenshotBuffer = screenshot.toPNG();
-  fs.writeFile('image_of_page.png', scrrenshotBuffer, () => {
-    setWallpaper();
-  });
+  fs.writeFile('image_of_page.png', scrrenshotBuffer, () => {});
   app.quit();
 }
 
