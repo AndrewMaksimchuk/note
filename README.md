@@ -84,10 +84,8 @@ cursor.
 #### Resources
 
 - https://docs.gtk.org/glib/func.locale_to_utf8.html
-
 - https://docs.gtk.org/glib/index.html
 - https://docs.gtk.org/gtk4/question_index.html
-
 - https://docs.gtk.org/gtk4/input-handling.html
 - https://docs.gtk.org/gtk4/section-text-widget.html
 - https://docs.gtk.org/Pango/pango_markup.html
@@ -130,3 +128,26 @@ Support:
 - [x] link
 - [ ] image
 - [ ] escaping characters
+
+
+### Website
+
+For build web site as static `html` pages, run  
+command `npm run build-static`.  
+This create `dist/` folder with `html` pages.  
+Also, this project contain github action, that  
+build and deploy to "Github Pages" on `push`  
+event on branch `main`.  
+
+
+### Wallpaper
+
+For create image from note in markdown format i  
+use generated `html` files of note and then use  
+`electron` to take a screenshot of html page.  
+
+That screenshot have name `image_of_page.png`  
+and save in root path of this application.  
+
+Command for set random wallpaper is:  
+`note wallpaper`  
