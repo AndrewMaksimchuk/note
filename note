@@ -83,6 +83,10 @@ case $1 in
         "$cwd/learn.bash" $2
     ;;
 
+    "wallpaper")
+        "$cwd/wallpaper.bash" $2 &
+    ;;
+
   *) 
     echo "Command not valid"
     usage 
