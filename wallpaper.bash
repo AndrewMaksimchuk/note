@@ -2,7 +2,6 @@
 
 
 # Set random wallpaper
-# $1 - path to html page
 
 
 projectdir=$(dirname $0)
@@ -23,7 +22,7 @@ fi
 files=($projectdir/dist/**/*.html)
 randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
 
-exec $path_to_app $randomfile 2>/dev/null
+exec $path_to_app $projectdir $randomfile 2>/dev/null
 
 gsettings \
     set \

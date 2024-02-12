@@ -84,7 +84,7 @@ case $1 in
     ;;
 
     "wallpaper")
-        "$cwd/wallpaper.bash" $2 &
+        "$cwd/wallpaper.bash" &
     ;;
 
   *) 

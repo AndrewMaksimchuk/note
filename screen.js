@@ -1,15 +1,33 @@
-const { app, BrowserWindow } = require('electron');
+/**
+ * @description
+ * Accept 2 argument:
+ * 1 - path to application directory where save image
+ * 2 - path to html page
+ */
+
 const fs = require('node:fs');
 const path = require('node:path');
+const { app, BrowserWindow } = require('electron');
 
-const pathToPage = process.argv[2] ?? process.argv[1];
+const pathToAppDirectory = process.argv[process.argv.length - 2];
 
-if(!pathToPage) app.quit();
+if(!pathToAppDirectory) {
+  console.log("[ERROR] Need add absolute path to note application directory as first argument!");
+  app.quit();
+}
+
+const pathToPage = process.argv[process.argv.length - 1];
+
+if(!pathToPage) {
+  console.log("[ERROR] Need add absolute path to html page as second argument!");
+  app.quit();
+}
 
 async function takeScreen(win) {
   const screenshot = await win.webContents.capturePage();
   const scrrenshotBuffer = screenshot.toPNG();
-  fs.writeFile('image_of_page.png', scrrenshotBuffer, () => {});
+  const pathSaveImageTo = path.join(pathToAppDirectory, 'image_of_page.png');
+  fs.writeFile(pathSaveImageTo, scrrenshotBuffer, () => {});
   app.quit();
 }
 
