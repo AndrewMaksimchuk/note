@@ -64,7 +64,7 @@ case $1 in
     ;;
 
     "notification")
-        "$cwd/notification.bash" $2 $3 $4
+        "$cwd/notification.bash" $2 $3 $4 &
     ;;
 
     "open")

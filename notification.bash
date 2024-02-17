@@ -12,11 +12,14 @@ function show
 {
     local files=($cwd/content/**/*.md)
     local randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+    local randomfile_height=$(cat $randomfile | wc -l)
+    local window_height=$(bc <<< "$randomfile_height + 3")
+    local window_size="80x$window_height"
     local tag=$(dirname $randomfile | rev | cut -d '/' -f1 | rev)
     gnome-terminal \
-        --title $tag \
+        --title "$tag - $(date +'%H:%M:%S')" \
         --hide-menubar \
-        --geometry=80x24 \
+        --geometry=$window_size \
         -- vi -S $cwd/.nvimrc $randomfile
     # alacritty \
     # --option window.startup_mode=Windowed \
