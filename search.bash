@@ -116,7 +116,7 @@ function search_note
     fi
 
     local result=$(
-        files_list=$(grep -I -e $1 -rwn $projectdir/content/**/*)
+        files_list=$(grep --exclude-dir=_* -I -e $1 -rwn $projectdir/content/**/*)
         format_left_table "$files_list"
     )
     output "$result"
