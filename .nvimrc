@@ -23,3 +23,6 @@ endfunction
 
 autocmd InsertEnter * call InsertModeEnter()
 autocmd InsertLeave * call InsertModeLeave()
+
+let g:markdown_fenced_languages = ['vim', 'ex=vim', 'sh', 'bash', 'html', 'css', 'scss=css', 'javascript', 'js=javascript', 'typescript', 'ts=typescript', 'vue', 'python']
+edit " Fix problem: fenced code blocks not highlighting syntax
