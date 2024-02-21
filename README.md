@@ -62,7 +62,7 @@ See [usage](usage.md)
 - vim/nvim
 - Deno
 - Node.js
-- gnome-terminal
+- gnome-terminal(default) or alacritty terminal
 
 
 ### GUI

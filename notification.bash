@@ -5,8 +5,45 @@
 # 
 # note for how show notification from cron job
 # * * * * *  XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Hey "this is dog!"
+# 
+# If alacritty terminal not show from cron job,
+# add next evironment variables befor path to this script
+# WAYLAND_DISPLAY=wayland-0
+# GNOME_SETUP_DISPLAY=:1
+# DISPLAY=:0
 
 cwd=$(realpath $(dirname $0))
+
+function use_editor
+{
+    echo "vi -S $cwd/.nvimrc $1"
+}
+
+function use_terminal_gnome
+{
+    gnome-terminal \
+        --title "$2 - $(date +'%H:%M:%S')" \
+        --hide-menubar \
+        --geometry=$3 \
+        -- $(use_editor $1)
+    exit
+}
+
+function use_terminal_alacritty
+{
+    if command -v alacritty &> /dev/null
+    then
+        alacritty \
+        --option window.startup_mode=Windowed \
+        --option window.padding.x=15 \
+        --option window.padding.y=15 \
+        --option window.decorations="None" \
+        --option window.dimensions.columns=80 \
+        --option window.dimensions.lines=$2 \
+        --command $(use_editor $1)
+        exit
+    fi
+}
 
 function show
 {
@@ -16,15 +53,9 @@ function show
     local window_height=$(bc <<< "$randomfile_height + 3")
     local window_size="80x$window_height"
     local tag=$(dirname $randomfile | rev | cut -d '/' -f1 | rev)
-    gnome-terminal \
-        --title "$tag - $(date +'%H:%M:%S')" \
-        --hide-menubar \
-        --geometry=$window_size \
-        -- vi -S $cwd/.nvimrc $randomfile
-    # alacritty \
-    # --option window.startup_mode=Windowed \
-    # --command vi $randomfile
-    exit
+ 
+    use_terminal_alacritty $randomfile $window_height
+    use_terminal_gnome $randomfile $tag $window_size
 }
 
 function set {
