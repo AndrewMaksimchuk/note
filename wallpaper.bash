@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
-
 # Set random wallpaper
-
+# 
 
 projectdir=$(dirname $0)
 path_to_app=$projectdir/out/note-linux-x64/note
+
+function setWallpaper
+{
+    gsettings \
+        set \
+        org.gnome.desktop.background \
+        "$1" \
+        file://$projectdir/image_of_page.png
+}
 
 if [[ ! -e $path_to_app ]]; then
     echo "App for create and set wallpaper not exist!"
@@ -24,8 +32,13 @@ randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
 
 exec $path_to_app $projectdir $randomfile 2>/dev/null
 
-gsettings \
-    set \
-    org.gnome.desktop.background \
-    picture-uri \
-    file://$projectdir/image_of_page.png
+color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+# Dark style
+if [[ $color_scheme = 'prefer-dark' ]]; then
+    setWallpaper 'picture-uri-dark'
+    exit
+fi
+
+# Default style
+setWallpaper 'picture-uri'
