@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Set random wallpaper
-# 
 
 projectdir=$(dirname $0)
 path_to_app=$projectdir/out/note-linux-x64/note
@@ -36,9 +35,9 @@ color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
 
 # Dark style
 if [[ $color_scheme = 'prefer-dark' ]]; then
-    setWallpaper 'picture-uri-dark'
+    setWallpaper picture-uri-dark
     exit
 fi
 
 # Default style
-setWallpaper 'picture-uri'
+setWallpaper picture-uri
