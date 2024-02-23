@@ -15,7 +15,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 
-is_exist=$(grep "$1" $cwd/tags | wc -l)
+is_exist=$(grep -w "$1" $cwd/tags | wc -l)
 if [[ $is_exist -ge 1 ]]; then
   echo "\"$1\" tag already exist"
   exit
