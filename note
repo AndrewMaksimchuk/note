@@ -19,7 +19,15 @@ case $1 in
         "$cwd/create_file.bash" $2 $3
     ;;
 
-  "random") 
+    "c")
+        "$cwd/create_file.bash" $2 $3
+    ;;
+
+    "random") 
+        "$cwd/show_random_note.bash" $2
+    ;;
+
+    "r") 
         "$cwd/show_random_note.bash" $2
     ;;
 
@@ -35,7 +43,15 @@ case $1 in
         "$cwd/add_tag.bash" $2
     ;;
 
+    "t") 
+        "$cwd/add_tag.bash" $2
+    ;;
+
     "edit") 
+        "$cwd/edit.bash" $2
+    ;;
+
+    "e") 
         "$cwd/edit.bash" $2
     ;;
 
@@ -47,7 +63,15 @@ case $1 in
         "$cwd/update.bash"
     ;;
 
+    "u") 
+        "$cwd/update.bash"
+    ;;
+
     "search") 
+        "$cwd/search.bash" $2 $3
+    ;;
+
+    "s") 
         "$cwd/search.bash" $2 $3
     ;;
 
@@ -59,7 +83,15 @@ case $1 in
         "$cwd/image.bash" $2 $3 $4
     ;;
 
+    "i") 
+        "$cwd/image.bash" $2 $3 $4
+    ;;
+
     "video")
+        "$cwd/video.bash" $2 $3
+    ;;
+
+    "v")
         "$cwd/video.bash" $2 $3
     ;;
 
@@ -67,7 +99,15 @@ case $1 in
         "$cwd/notification.bash" $2 $3 $4 &
     ;;
 
+    "n")
+        "$cwd/notification.bash" $2 $3 $4 &
+    ;;
+
     "open")
+        "$cwd/open.bash"
+    ;;
+
+    "o")
         "$cwd/open.bash"
     ;;
 
@@ -79,11 +119,23 @@ case $1 in
         "$cwd/history.bash"
     ;;
 
+    "h")
+        "$cwd/history.bash"
+    ;;
+
     "learn")
         "$cwd/learn.bash" $2
     ;;
 
+    "l")
+        "$cwd/learn.bash" $2
+    ;;
+
     "wallpaper")
+        "$cwd/wallpaper.bash" &
+    ;;
+
+    "w")
         "$cwd/wallpaper.bash" &
     ;;
 
