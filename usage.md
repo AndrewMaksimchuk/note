@@ -22,3 +22,4 @@ Commands:
 `stat`          show number of notes in each tag(directory)
 `history`       show history of adding new notes
 `learn`         show notes, step by step on selected tag
+`wallpaper`     set random wallpaper"
