@@ -36,3 +36,6 @@ gui-debug-gtk-inspectork:
 
 script-descriptions:
 	@bash descriptions.bash
+
+vim-clean:
+	find ./ -type f -name '*.swp' | xargs rm
