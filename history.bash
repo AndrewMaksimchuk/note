@@ -15,7 +15,7 @@ function is_empty
 function history
 {
     is_empty
-    cat $history_file | nl
+    cat $history_file | awk 'BEGIN { FS=" /" }; { printf "%-80s file:///%s\n", $1, $2 }' | nl
 }
 
 history
