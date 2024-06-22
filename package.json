@@ -25,7 +25,7 @@
     "make": "electron-forge make"
   },
   "description": "Note",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "screen.js",
   "name": "note"
 }

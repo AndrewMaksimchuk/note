@@ -74,4 +74,5 @@ randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
 setFromExist "$randomfile"
 $path_to_app $projectdir $randomfile 2>/dev/null
 saveImg "$randomfile"
+sleep 10s
 setWallpaper
