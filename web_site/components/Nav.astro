@@ -19,8 +19,8 @@ function getNotesByTag(tag) {
   <div class="nav__container">
     {tags.map((tag) => <NavItem summary={tag} notes={getNotesByTag(tag)} />)}
   </div>
-  <button class="button-hide" id="button-hide">
-    <span class="button-hide__text" title="Hide panel">Hide panel</span>
+  <button type="button" class="button-hide" id="button-hide" title="Click for hide side panel">
+    <span class="button-hide__text">Hide panel</span>
   </button>
 </aside>
 <script>
@@ -46,7 +46,6 @@ function getNotesByTag(tag) {
   }
 
   .nav__container {
-    width: 100%;
     overflow: hidden;
     margin-left: 1ch;
   }
@@ -70,9 +69,10 @@ function getNotesByTag(tag) {
     justify-content: center;
     position: absolute;
     padding: 0;
+    padding-top: 2ch;
     top: 1ch;
     bottom: 1ch;
-    left: calc(100% + 1ch);
+    left: 100%;
     width: 0;
     z-index: 1;
     border: 0;
@@ -84,6 +84,7 @@ function getNotesByTag(tag) {
 
   .button-hide:hover {
     cursor: pointer;
+    outline: auto;
   }
 
   .button-hide__text {
@@ -91,5 +92,6 @@ function getNotesByTag(tag) {
     text-transform: uppercase;
     writing-mode: vertical-lr;
     text-orientation: upright;
+    text-align: start;
   }
 </style>
