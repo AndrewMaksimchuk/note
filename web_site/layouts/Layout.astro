@@ -10,6 +10,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/note/favicon.png" />
     <link rel="stylesheet" media="print" href="/note/print.css">
+    <link rel="stylesheet" media="screen and (max-width:640px)" href="/note/mobile.css">
     <title>{title}</title>
   </head>
   <body class="body">
@@ -63,6 +64,18 @@ const { title } = Astro.props;
   const btnPrint = document.getElementById("button-toggle-print");
   btnPrint?.addEventListener("click", () => {
     window.print();
+  });
+
+  function isNotRootUrl() {
+    const pathname = window.location.pathname;
+    return !(pathname === "/note" || pathname === "/note/");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const { matches } = window.matchMedia("(max-width: 640px)");
+    if (matches && isNotRootUrl()) {
+      toggleNavPanel();
+    }
   });
 </script>
 <style>

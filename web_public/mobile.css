@@ -1,0 +1,12 @@
+.button-hide {
+    width: 7ch !important;
+    border-radius: 0 !important;
+}
+
+.button-hide__text {
+    display: inline !important;
+}
+
+.content {
+    padding-left: calc(53px + 1ch) !important;
+}
