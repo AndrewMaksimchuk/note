@@ -1,59 +1,51 @@
 # NOTE
 
-
 ### Description
 
 Note-taking cli application  
 Support markdown, man-pages, html, images, video  
 Markdown and html files save in git,  
-images and video not.  
+images and video not.
 
 Platform: linux  
-Require: `bash`, `nvim`  
-
+Require: `bash`, `nvim`
 
 ### Config nvim
 
-For work use local nvim config file `.nvimrc`  
+For work use local nvim config file `.nvimrc`
 
 1.  In .config/nvim/init.vim set option `set exrc`  
-    For use local nvim config in note directory  
-
+    For use local nvim config in note directory
 
 ### Config bash
 
 Set all bash script files to be executable
-`chmod +x script_name.bash`  
-
+`chmod +x script_name.bash`
 
 ### Install
 
-Run `sudo ./install.bash` script  
+Run `bash ./install.bash` script
 
 This script add path to this directory in  
 `$PATH` env for you can run `note` in terminal.  
-Also add shell completion for bash/zsh.  
-
+Also add shell completion for bash/zsh.
 
 ### Git
 
 For update git repository, run `update.bash`  
 Or if you want autoupdate, run `autoupdate.bash`
 
-
 ### Github
 
-Published on "Github Pages" on: https://andrewmaksimchuk.github.io/note/ 
+Published on "Github Pages" on: https://andrewmaksimchuk.github.io/note/  
 Used "Github Actions".
-
 
 ### Usage
 
 Run `./dashboard` from project directory  
-`tags` file must be sorted  
+`tags` file must be sorted
 
-See [usage](usage.md)  
-
+See [usage](usage.md)
 
 ### Dependencies
 
@@ -64,22 +56,22 @@ See [usage](usage.md)
 - Node.js
 - gnome-terminal(default) or alacritty terminal
 
-
 ### GUI
 
 #### Debug
+
 To enable the [GTK inspector](https://docs.gtk.org/gtk4/running.html#interactive-debugging), you can use the  
 `Control+Shift+I` or `Control+Shift+D`  
 keyboard shortcuts, or set the  
-`GTK_DEBUG=interactive` environment variable.  
+`GTK_DEBUG=interactive` environment variable.
 
 To launch the GTK Inspector, focus your GTK  
-application and press `Control-Shift-D`.  
+application and press `Control-Shift-D`.
 
 Alternatively, move your mouse cursor to your  
 desired widget and press `Control-Shift-I` to  
 specifically inspect the widget under the mouse  
-cursor.  
+cursor.
 
 #### Resources
 
@@ -97,26 +89,25 @@ cursor.
 - https://docs.gtk.org/gtk4/class.EventController.html
 - https://docs.gtk.org/gdk4/index.html#constants
 
-
 ### vi/vim/nvim
 
 When show note and you need change some text  
 in `INSERT` mode show line numbers, status line  
 and vertical rule on 50 column.  
-In `NORMAL` mode editor view is clean.  
+In `NORMAL` mode editor view is clean.
 
 #### Resources
 
 - https://vimhelp.org/usr_40.txt.html#40.3
 
-
 ### Markdown
 
 For commands: `random` `select` `select_all`  
 output files will be rendered corresponding  
-to markdown syntax(simple version).  
+to markdown syntax(simple version).
 
 Support:
+
 - [x] header
 - [x] bold
 - [x] italic
@@ -129,7 +120,6 @@ Support:
 - [ ] image
 - [ ] escaping characters
 
-
 ### Website
 
 For build web site as static `html` pages, run  
@@ -137,17 +127,16 @@ command `npm run build-static`.
 This create `dist/` folder with `html` pages.  
 Also, this project contain github action, that  
 build and deploy to "Github Pages" on `push`  
-event on branch `main`.  
-
+event on branch `main`.
 
 ### Wallpaper
 
 For create image from note in markdown format i  
 use generated `html` files of note and then use  
-`electron` to take a screenshot of html page.  
+`electron` to take a screenshot of html page.
 
 That screenshot have name `image_of_page.png`  
-and save in root path of this application.  
+and save in root path of this application.
 
 Command for set random wallpaper is:  
-`note wallpaper`  
+`note wallpaper`
