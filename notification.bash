@@ -82,7 +82,7 @@ function set {
     fi
 
     local path_abs=$(realpath $0)
-    echo "*/$minutes */$hours * * * XDG_RUNTIME_DIR=/run/user/$(id -u) $path_abs" >>$cron_file
+    echo "*/$minutes */$hours * * * WAYLAND_DISPLAY=wayland-0 GNOME_SETUP_DISPLAY=:1 XDG_RUNTIME_DIR=/run/user/$(id -u) $path_abs" >>$cron_file
 
     crontab $cron_file
     exit
