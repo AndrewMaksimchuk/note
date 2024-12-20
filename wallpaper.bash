@@ -57,6 +57,12 @@ function setFromExist
     fi
 }
 
+function isNeedUpdate
+{
+    local directoryDate=$(stat ./dist | grep Modify | cut -d' ' -f2)
+    git log --oneline --after $directoryDate | wc -l
+}
+
 if [[ ! -e $path_to_app ]]; then
     echo "App for create and set wallpaper not exist!"
     echo "First you need to build it, run: npm run make"
@@ -66,6 +72,12 @@ fi
 if [[ ! -d "$projectdir/dist" ]]; then
     echo "HTML pages not exist!"
     echo "First you need build static web site, run: npm run build-static"
+    exit
+fi
+
+if [[ ! isNeedUpdate -eq 0 ]]; then
+    echo "You need update web version of applicattion, *.html files"
+    echo "Run command 'npm run build-static' in application directory"
     exit
 fi
 
