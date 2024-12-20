@@ -23,7 +23,7 @@ function getColorScheme
 {
     local color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
 
-    if [[ $color_scheme = 'prefer-dark' ]]; then
+    if [[ "$color_scheme" = "prefer-dark" ]]; then
         local color_scheme="picture-uri-dark"
     else
         local color_scheme="picture-uri"
