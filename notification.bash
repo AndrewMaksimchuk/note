@@ -34,11 +34,9 @@ function use_terminal_alacritty
     if command -v alacritty &> /dev/null
     then
         alacritty \
-        --option font.normal.family="JetBrains Mono" \
+        --option font.normal.family="JetBrainsMono NF" \
         --option font.size=8 \
         --option window.startup_mode="Windowed" \
-        --option window.padding.x=15 \
-        --option window.padding.y=15 \
         --option window.decorations="None" \
         --option window.dimensions.columns=80 \
         --option window.dimensions.lines=$2 \
