@@ -139,6 +139,10 @@ case $1 in
         "$cwd/wallpaper.bash" &
     ;;
 
+    "sync")
+      "$cwd/sync.bash"
+    ;;
+
   *) 
     echo "Command not valid"
     usage 

@@ -22,3 +22,4 @@ Commands:
 `history` show history of adding new notes  
 `learn` show notes, step by step on selected tag  
 `wallpaper` set random wallpaper"
+`sync` make local and remote git repositories be in the same state
