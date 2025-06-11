@@ -29,4 +29,4 @@ function update() {
 
 
 result=$(cd $cwd && update)
-echo -e $result
+echo -e "$result"
