@@ -5,7 +5,7 @@ function commit_content() {
     if [[ -n $notesfile ]]; then
         echo "[ Add notes ]"
         git add ./content/*
-        local counter=$(echo $notesfile | wc -l)
+        local counter=$(echo "$notesfile" | wc -l)
         local message=$(echo "add/change $counter notes")
         git commit -m "$message"
     fi
