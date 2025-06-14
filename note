@@ -140,7 +140,7 @@ case $1 in
     ;;
 
     "sync")
-      "$cwd/sync.bash"
+      "$cwd/sync.bash" $2
     ;;
 
   *) 
