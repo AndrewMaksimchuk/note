@@ -18,6 +18,7 @@ projectdir=$(dirname $0)
 
 SCREEN_WIDTH=`tput cols`
 HISTORY_FILE="$projectdir/.search_history"
+USE_RIPGREP=$(which rg 2>/dev/null)
 
 function open_file
 {
@@ -115,10 +116,13 @@ function search_note
         exit
     fi
 
-    local result=$(
-        files_list=$(grep --exclude-dir=_* -I -e $1 -rwn $projectdir/content/**/*)
-        format_left_table "$files_list"
-    )
+    if [[ $USE_RIPGREP ]]; then
+            local files_list=$(rg -g '*.md' -w --no-heading -m 1 -M 50 -n $1 $projectdir/content/**/* | tr -s '[:space:]')
+    else
+            local files_list=$(grep --exclude-dir=_* -I -e $1 -rwn $projectdir/content/**/*)
+    fi
+
+    local result=$(format_left_table "$files_list")
     output "$result"
 }
 
