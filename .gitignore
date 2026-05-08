@@ -1,5 +1,6 @@
 .vscode/
 .astro/
+.idea/
 node_modules/
 _images/
 _video/
