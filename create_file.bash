@@ -26,7 +26,7 @@ function save_to_history
 
 function editor_open
 {
-    vi -S $cwd/.create-nvimrc +start $1
+    vim -S $cwd/.create-nvimrc +start $1
 }
 
 function from_web_page
