@@ -25,7 +25,7 @@ function open_file
     if [[ $1 = "open" ]]; then
         if [[ -n $2 ]]; then
             local file_path=$(tail -n+2 $HISTORY_FILE | grep -w -e "^ *$2" | cut -f2 -d'|' | sed 's/file:\/\///g')
-            vi $file_path
+            vim $file_path
             exit
         fi
     fi
