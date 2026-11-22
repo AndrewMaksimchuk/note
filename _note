@@ -24,6 +24,7 @@ function _subcommands
         "learn:show notes, step by step on selected tag"
         "wallpaper:set random wallpaper"
         "sync:make local and remote git repositories be in the same state"
+        "tmp:temporary notes"
     )
     _describe 'command' subcmds
 }

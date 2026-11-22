@@ -143,6 +143,10 @@ case $1 in
       "$cwd/sync.bash" $2
     ;;
 
+    "tmp")
+        "$cwd/tmp.bash" "$2"
+    ;;
+
   *) 
     echo "Command not valid"
     usage 
