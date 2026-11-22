@@ -54,6 +54,8 @@ function from_web_page
 }
 
 
+# $1 - tag name
+# $2 - optional, note content
 function from_tag
 {
     local dir=$(echo "$cwd/content/$1")
@@ -63,9 +65,13 @@ function from_tag
         local max=$(basename -s .md $file_max_name)
         local new_filename=$(($max + 1))
         local to_new_file=$(echo "$dir/$new_filename.md")
-        editor_open $to_new_file
     else
         local to_new_file=$(echo "$dir/1.md")
+    fi
+
+    if [[ -n "$2" ]]; then
+        printf '%s' "$2" > "$to_new_file"
+    else
         editor_open $to_new_file
     fi
     
@@ -77,6 +83,7 @@ function from_tag
 }
 
 
+# Main entry point
 if [[ -n $1 ]]; then
     if [[ $1 = $page ]]; then
         from_web_page
@@ -84,6 +91,15 @@ if [[ -n $1 ]]; then
 
     target_directory_tag=$(echo "$cwd/content/$1")
     if [[ -d $target_directory_tag ]]; then
+
+        # Create new note from terminal but with provided 
+        # tag name as $1 and note content as $2 variable
+        # This is why it exit after
+        if [[ -n "$2" && "$2" != '-r' ]]; then
+            from_tag "$1" "$2"
+            exit 0
+        fi
+
         from_tag "$1"
         if [[ $2 = '-r' ]]; then
             echo "Continue? [y/n]"
@@ -99,6 +115,7 @@ if [[ -n $1 ]]; then
 fi
 
 
+# Show menu for select tag
 select tag in $quite $page $tags
 do
     if [[ $tag = $quite ]]; then
